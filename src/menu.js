@@ -41,6 +41,10 @@ export const MAIN = [
         to: path.OVERVIEW,
     },
     {
+        label: 'Catalog',
+        to: path.CATALOG,
+    },
+    {
         label: 'Dropdown',
         children: DROPDOWN,
     },

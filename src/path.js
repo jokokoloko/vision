@@ -3,6 +3,7 @@ export const ROOT = '/';
 export const POST = '/post';
 export const ABOUT = '/about';
 export const OVERVIEW = '/overview';
+export const CATALOG = '/catalog';
 
 // External
 export const REACT = 'https://reactjs.org/';
