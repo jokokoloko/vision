@@ -1,0 +1,82 @@
+/* =============================== */
+/* ==========!PAGINATION========== */
+/* =============================== */
+
+/* ----------!MAIN---------- */
+.navigation .pagination {
+	margin: 0;
+	}
+.navigation .pager {
+	margin: 0;
+	padding: 0;
+    list-style: none;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	-ms-flex-align: start;
+	    align-items: flex-start;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	}
+.navigation .pager > li {
+	max-width: 49%;
+	}
+.navigation .pager > li > a,
+.navigation .pager > li > span {
+	background-color: $color-white;
+	border: 1px solid $color-grey;
+	padding: 4px 14px;
+	font-size: $font-size-base;
+	line-height: $line-height-text;
+	display: block;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+		-ms-user-select: none;
+			user-select: none;
+	}
+.navigation .pager > li > a:hover,
+.navigation .pager > li > a:focus {
+	background-color: $color-dust;
+	text-decoration: none;
+	}
+
+/* ----------!PAGE-LINK---------- */
+.page-link {
+    background-color: $color-white;
+    border-color: $color-metal;
+    padding: 9px 14px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: $color-metal;
+    outline: 0 none $color-transparent;
+    outline-offset: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    }
+.page-link:active,
+.page-link:hover,
+.page-link:focus {
+    background-color: $color-ghost !important;
+    border-color: $color-metal !important;
+    color: $color-metal !important;
+    }
+.page-link.active,
+.page-link.active:active,
+.page-link.active:hover,
+.page-link.active:focus {
+    background-color: $color-metal !important;
+    border-color: $color-metal !important;
+    color: $color-white !important;
+    cursor: default !important;
+    }
+.page-link-previous,
+.page-link-next {
+    min-width: 130px;
+    }
+
+/* ----------!SINGLE---------- */
+.pagination-single .page-item {
+    max-width: 30%;
+    }

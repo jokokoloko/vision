@@ -1,0 +1,48 @@
+/* ============================== */
+/* ==========!SCROLL-TO========== */
+/* ============================== */
+
+/* ----------!MAIN---------- */
+.scroll-to {
+    border: 0 none $color-transparent;
+    padding: 20px;
+    z-index: 999;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    }
+
+/* ----------!TOP---------- */
+.scroll-to-top {
+    background-color: $color-white;
+    margin: 15px;
+    bottom: 0;
+    right: 0;
+    color: $color-metal !important;
+    }
+
+/* ========================= */
+/* ==========!ICON========== */
+/* ========================= */
+
+/* ----------!MAIN---------- */
+.scroll-to > .scroll-to-icon {
+    font-size: 34px;
+    line-height: 30px;
+    }
+
+/* ----------!UP---------- */
+.scroll-to > .scroll-to-icon-up {
+    margin-top: -4px;
+    margin-bottom: -16px;
+    }
+
+/* ----------!DOWN---------- */
+.scroll-to > .scroll-to-icon-down {
+    margin-top: -16px;
+    margin-bottom: -4px;
+    -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg);
+    }

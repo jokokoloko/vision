@@ -1,0 +1,19 @@
+/* ========================= */
+/* ==========!FLAG========== */
+/* ========================= */
+
+/* ----------!MAIN---------- */
+.flag {
+	background-color: $color-metal;
+	padding: 5px 10px;
+	min-width: 140px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 20px;
+	color: $color-white;
+	}

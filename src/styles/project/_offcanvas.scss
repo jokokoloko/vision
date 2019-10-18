@@ -1,0 +1,95 @@
+/* ============================== */
+/* ==========!OFFCANVAS========== */
+/* ============================== */
+
+/* ----------!PUSH---------- */
+.offcanvas-push {
+    transition: transform 0.25s ease-out 0s;
+    }
+.offcanvas-push-out {
+    transform: translateX(-80%);
+    }
+
+/* ----------!MENU---------- */
+.offcanvas-menu .logo + .nav {
+	padding-top: 5px;
+	}
+.offcanvas-menu .nav > li > a,
+.offcanvas-menu .nav > li > .btn,
+.offcanvas-menu .nav > li.dropdown .dropdown-menu a {
+	background-color: $color-transparent;
+	border: 0 none $color-transparent;
+    margin: 0;
+	padding: 10px 15px;
+	padding-top: (($header-height-xs - $line-height-text) / 2);
+	padding-bottom: (($header-height-xs - $line-height-text) / 2);
+	width: 100%;
+	font-size: $font-size-base;
+	font-weight: $font-weight-2;
+	line-height: $line-height-text;
+	text-align: left;
+	color: $color-white;
+	display: block;
+	cursor: pointer;
+	}
+.offcanvas-menu .nav > li > a:active,
+.offcanvas-menu .nav > li > a:hover,
+.offcanvas-menu .nav > li > a:focus,
+.offcanvas-menu .nav > li.show > a,
+.offcanvas-menu .nav > li.show > a:active,
+.offcanvas-menu .nav > li.show > a:hover,
+.offcanvas-menu .nav > li.show > a:focus,
+.offcanvas-menu .nav > li > .btn:active,
+.offcanvas-menu .nav > li > .btn:hover,
+.offcanvas-menu .nav > li > .btn:focus,
+.offcanvas-menu .nav > li.show > .btn,
+.offcanvas-menu .nav > li.show > .btn:active,
+.offcanvas-menu .nav > li.show > .btn:hover,
+.offcanvas-menu .nav > li.show > .btn:focus {
+	background-color: $color-transparent;
+	color: $color-white;
+	}
+.offcanvas-menu .nav > li > a.active,
+.offcanvas-menu .nav > li > a.active:active,
+.offcanvas-menu .nav > li > a.active:hover,
+.offcanvas-menu .nav > li > a.active:focus,
+.offcanvas-menu .nav > li > button.active,
+.offcanvas-menu .nav > li > button.active:active,
+.offcanvas-menu .nav > li > button.active:hover,
+.offcanvas-menu .nav > li > button.active:focus,
+.offcanvas-menu .nav > li > .btn.active,
+.offcanvas-menu .nav > li > .btn.active:active,
+.offcanvas-menu .nav > li > .btn.active:hover,
+.offcanvas-menu .nav > li > .btn.active:focus,
+.offcanvas-menu .nav > li.active > a,
+.offcanvas-menu .nav > li.active > a:active,
+.offcanvas-menu .nav > li.active > a:hover,
+.offcanvas-menu .nav > li.active > a:focus,
+.offcanvas-menu .nav > li.active > button,
+.offcanvas-menu .nav > li.active > button:active,
+.offcanvas-menu .nav > li.active > button:hover,
+.offcanvas-menu .nav > li.active > button:focus,
+.offcanvas-menu .nav > li.active > .btn,
+.offcanvas-menu .nav > li.active > .btn:active,
+.offcanvas-menu .nav > li.active > .btn:hover,
+.offcanvas-menu .nav > li.active > .btn:focus {
+	background-color: $color-transparent;
+	color: $color-white;
+	cursor: default;
+	}
+.offcanvas-menu .nav > li.dropdown .dropdown-menu {
+    background-color: $color-transparent;
+    border: 0 none $color-transparent;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    float: none;
+    box-shadow: none;
+    }
+.offcanvas-menu .nav > li.dropdown .dropdown-menu a {
+    padding-left: 30px;
+    }
+.offcanvas-action > .btn {
+    width: 100%;
+    text-align: left;
+    }

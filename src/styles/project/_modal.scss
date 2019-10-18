@@ -1,0 +1,93 @@
+/* ========================== */
+/* ==========!MODAL========== */
+/* ========================== */
+
+/* ----------!MAIN---------- */
+.modal .modal-dialog {
+    max-width: none;
+    margin: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+	}
+@include media-breakpoint-up(hg) {
+    .modal .modal-dialog {
+        margin-left: auto;
+        margin-right: auto;
+        }
+    }
+.modal-close.close {
+    padding: 15px;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    line-height: 20px;
+    color: $color-white;
+    text-shadow: none;
+    opacity: 0.2;
+    z-index: 9999;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    }
+.modal-close.close:hover,
+.modal-close.close:focus {
+    opacity: 0.8;
+    }
+.modal-close.close > span {
+    margin-top: -3px;
+    display: block;
+    }
+
+/* ----------!BACKDROP---------- */
+.modal-backdrop.show {
+    opacity: 0.8;
+	}
+
+/* ----------!TOTAL---------- */
+.modal-total .modal-content {
+    background-color: $color-transparent;
+    border: 0 none $color-transparent;
+    box-shadow: none;
+	}
+.modal-total .modal-content .modal-body {
+	padding: 0;
+	}
+.modal-total .modal-content .modal-body iframe {
+    background-color: $color-black;
+    }
+
+/* ----------!VIDEO---------- */
+.modal .modal-dialog.modal-video {
+    max-width: 1380px;
+    }
+
+/* ----------!FORM---------- */
+.modal .modal-dialog.modal-form {
+    max-width: 890px;
+    }
+
+/* ----------!SEARCH---------- */
+#modal-search .input-group > .form-control,
+#modal-search .input-group > .input-group-addon,
+#modal-search .input-group > .input-group-btn > .btn {
+	height: 80px;
+	padding: 10px 20px;
+	font-size: 27px;
+	line-height: 30px;
+	}
+#modal-search .input-group > .form-control {
+	padding-right: 65px;
+	z-index: 1;
+	}
+#modal-search .input-group > .form-submit {
+    margin-left: -65px;
+	width: 65px;
+	z-index: 2;
+	}
+#modal-search .input-group > .input-group-btn > .btn {
+	background-color: $color-transparent;
+	border: 0 none $color-transparent !important;
+	}

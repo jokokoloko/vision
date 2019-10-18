@@ -1,0 +1,343 @@
+/* ========================= */
+/* ==========!MAIN========== */
+/* ========================= */
+
+/* ----------!GLOBAL---------- */
+body {
+	font-family: $font-family-1;
+	font-weight: $font-weight-1;
+	color: $color-metal;
+	}
+
+/* ----------!PARAGRAPH---------- */
+p {
+	margin-top: -7px;
+	margin-bottom: -8px;
+	margin-left: -1px;
+	margin-right: -1px;
+	line-height: $line-height-text;
+	font-size: $font-size-base;
+	}
+
+/* ----------!H1---------- */
+h1 {
+	margin-top: -6px;
+	margin-bottom: -9px;
+	margin-left: -3px;
+	margin-right: -3px;
+	line-height: 45px;
+	font-size: 41px;
+	}
+
+/* ----------!H2---------- */
+h2 {
+	@extend p;
+    font-style: italic;
+    }
+@include media-breakpoint-up(lg) {
+    h2 {
+		margin-top: -6px;
+		margin-bottom: -9px;
+		margin-left: -2px;
+		margin-right: -2px;
+		line-height: 35px;
+		font-size: 27px;
+		}
+    }
+
+/* ----------!H3---------- */
+h3 {
+	@extend p;
+	font-weight: $font-weight-2;
+    }
+@include media-breakpoint-up(lg) {
+	h3 {
+		margin-top: -6px;
+		margin-bottom: -9px;
+		margin-left: -2px;
+		margin-right: -2px;
+		line-height: 35px;
+		font-size: 27px;
+		}
+	}
+
+/* ----------!H4---------- */
+h4 {
+	@extend p;
+    font-weight: $font-weight-3;
+    }
+
+/* ----------!LIST---------- */
+ol#{$not-list},
+ul#{$not-list} {
+	padding-left: 20px;
+	}
+@include media-breakpoint-up(lg) {
+	ol#{$not-list},
+	ul#{$not-list} {
+		padding-left: 50px;
+		}
+	}
+ol > li > p,
+ul > li > p {
+    margin: 0;
+    }
+
+/* ----------!ANCHOR---------- */
+a {
+	font-weight: $font-weight-2;
+	color: $color-metal;
+	}
+a:active:not([class*="btn"]),
+a:hover:not([class*="btn"]),
+a:focus:not([class*="btn"]) {
+	text-decoration: none;
+	color: $color-metal;
+	}
+a[href="/register"] {
+    color: $color-ghost;
+	}
+a[href="/register"]:active:not([class*="btn"]),
+a[href="/register"]:hover:not([class*="btn"]),
+a[href="/register"]:focus:not([class*="btn"]) {
+    text-decoration: none;
+    color: $color-ghost;
+    }
+a:not([class*="no-underline"]):not([class*="btn"]):not([class*="navbar-brand"]):not([class*="nav-link"]):not([class*="navbar-link"]):not([class*="menu-link"]):not([class*="page-link"]):not([class*="dropdown-item"]):not([class*="stretched-link"]):not([class*="gatsby-resp-image-link"]) {
+    border-bottom: 2px solid;
+    }
+
+/* ----------!STRONG---------- */
+strong {
+    font-weight: $font-weight-3;
+    }
+
+/* ----------!UNDERLINE---------- */
+u {
+	color: $color-metal;
+	}
+
+/* ----------!BLOCKQUOTE---------- */
+blockquote {
+	border-left: 3px solid $color-ghost;
+	padding: 20px 25px;
+	}
+
+/* ----------!HORIZONTAL---------- */
+hr {
+    border-top: 3px solid #f7f7f7;
+    margin-top: 79px;
+    margin-bottom: 78px;
+    }
+
+/* ----------!ARTICLE---------- */
+article {
+    position: relative;
+    }
+
+/* ----------!FIGURE---------- */
+figure {
+    position: relative;
+    overflow: hidden;
+    }
+
+/* ========================== */
+/* ==========!CLASS========== */
+/* ========================== */
+
+/* ----------!BACKGROUND---------- */
+.background-image .zone {
+	color: $color-white;
+	}
+
+/* ========================= */
+/* ==========!TYPE========== */
+/* ========================= */
+
+/* ----------!HEADLINE---------- */
+.headline {
+	margin-top: -6px;
+	margin-bottom: -9px;
+	line-height: 35px;
+	font-size: 27px;
+	}
+
+/* ----------!LINK---------- */
+.link {
+	font-weight: $font-weight-2 !important;
+	color: $color-metal !important;
+	}
+
+/* ========================= */
+/* ==========!PART========== */
+/* ========================= */
+
+/* ----------!MORE---------- */
+.more {
+	display: block;
+	}
+
+/* ----------!CARD---------- */
+.card-panel .card-body {
+	font-weight: $font-weight-1 !important;
+	color: $color-metal !important;
+	}
+
+/* ----------!COPYRIGHT---------- */
+.copyright,
+.copyright > a {
+	color: $color-metal !important;
+	}
+
+/* ========================= */
+/* ==========!UNIT========== */
+/* ========================= */
+
+/* ----------!LOADER---------- */
+.loader {
+	height: auto;
+	font-weight: $font-weight-1;
+	}
+.loader-label {
+	margin: 0;
+	}
+
+/* ----------!TOAST---------- */
+.toast-message {
+	margin: 0;
+	}
+
+/* ----------!TABLE---------- */
+.table th {
+	font-weight: $font-weight-2;
+	}
+.table tbody th {
+	font-weight: $font-weight-1;
+	}
+
+/* ----------!SEPARATOR---------- */
+.separator {
+    color: $color-metal;
+    }
+
+/* =========================== */
+/* ==========!WIDGET========== */
+/* =========================== */
+
+/* ----------!SOCIAL---------- */
+.social > li > a {
+	margin: 0;
+	}
+.social > li > a > .fa {
+	width: 25px;
+	}
+
+/* ============================== */
+/* ==========!COMPONENT========== */
+/* ============================== */
+
+/* ----------!HERO---------- */
+.hero .scroll {
+	padding-bottom: 15px;
+	}
+.hero .scroll a {
+	color: $color-white;
+	}
+
+/* ========================== */
+/* ==========!STYLE========== */
+/* ========================== */
+
+/* ----------!BOLD---------- */
+.bold {
+	font-weight: $font-weight-3 !important;
+	}
+
+/* =========================== */
+/* ==========!REGION========== */
+/* =========================== */
+
+/* ----------!FOOTER---------- */
+#footer,
+#footer p,
+#footer a {
+    font-size: 16px;
+    color: $color-metal;
+    }
+
+/* ========================== */
+/* ==========!BUILD========== */
+/* ========================== */
+
+/* ----------!H1---------- */
+@media (min-width: 992px) {
+    .carousel h1,
+    .hero h1 {
+		margin-top: -6px;
+		margin-bottom: -9px;
+		margin-left: -4px;
+		margin-right: -4px;
+		line-height: 50px;
+		font-size: 48px;
+		}
+    }
+
+/* ----------!H2---------- */
+.carousel h2,
+.hero h2 {
+    font-style: normal;
+    }
+
+/* ----------!COPY---------- */
+@media (min-width: 992px) {
+    .copy h3 {
+		margin-top: -7px;
+		margin-bottom: -8px;
+		margin-left: -2px;
+		margin-right: -2px;
+		line-height: 40px;
+		font-size: 34px;
+		}
+    .copy p + h3,
+    .copy ol + h3,
+    .copy ul + h3 {
+        margin-top: 80px;
+        }
+    }
+
+/* ----------!ATTENTION---------- */
+@media (min-width: 992px) {
+    .attention p {
+		margin-top: -6px;
+		margin-bottom: -9px;
+		margin-left: -2px;
+		margin-right: -2px;
+		line-height: 35px;
+		font-size: 27px;
+		}
+    }
+
+/* ----------!DATE---------- */
+.date {
+	margin-top: -5px;
+	margin-bottom: -5px;
+	line-height: 20px;
+	font-size: 16px;
+	}
+
+/* ----------!MORE---------- */
+article .more::after {
+    font-weight: $font-weight-2;
+    color: $color-metal;
+    }
+article:active .more::after,
+article:hover .more::after,
+article:focus .more::after {
+    color: $color-metal;
+    }
+article .read-more::after {
+    content: ' Read more \2192';
+    }
+article .learn-more::after {
+    content: ' Learn more \2192';
+    }

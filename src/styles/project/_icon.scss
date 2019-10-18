@@ -1,0 +1,48 @@
+/* ========================= */
+/* ==========!ICON========== */
+/* ========================= */
+
+/* ----------!MAIN---------- */
+.icon-circle .fa {
+	border: 2px solid $color-charcoal;
+	border-radius: 50%;
+	margin-top: -5px;
+	padding-top: 6px;
+	width: 34px;
+	height: 34px;
+	font-size: 20px;
+	text-align: center;
+	vertical-align: middle;
+	}
+
+/* ----------!PLAY---------- */
+.icon-play,
+.icon-play::before {
+    display: flex;
+    }
+.icon-play::before {
+    border: 2px solid #fff;
+    border-radius: 100%;
+    margin-right: 10px;
+    padding-top: 1px;
+    padding-left: 2px;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    content:'\25B6';
+    align-items: center;
+    justify-content: center;
+    }
+
+/* ----------!STATUS---------- */
+.status {
+	margin-right: 8px;
+	}
+.status,
+.status-offline {
+	color: $color-smoke;
+	}
+.status-online,
+.status-fresh {
+	color: $color-brand-green-400;
+	}

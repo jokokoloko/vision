@@ -1,0 +1,119 @@
+/* =========================== */
+/* ==========!EFFECT========== */
+/* =========================== */
+
+/* ----------!BASIC---------- */
+.effect-image figure {
+    background: #222;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    cursor: default;
+    }
+@media (min-width: 992px) {
+    .effect-image figure {
+        height: 340px;
+    	}
+    }
+.effect-image figure .image {
+    position: relative;
+    display: block;
+    opacity: 0.8;
+    }
+.effect-image figure figcaption {
+    padding: 30px;
+    font-size: 18px;
+    line-height: 25px;
+    color: #fff;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    }
+.effect-image figure figcaption::before,
+.effect-image figure figcaption::after {
+    pointer-events: none;
+    }
+.effect-image figure figcaption,
+.effect-image figure figcaption > .link {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
+.effect-image figure figcaption > .link {
+    font-size: 0;
+    text-indent: 200%;
+    white-space: nowrap;
+    opacity: 0;
+    z-index: 1000;
+    }
+.effect-image figure figcaption > .headline {
+    padding: 30px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-weight: 400;
+	}
+.effect-image figure figcaption > .caption {
+    width: 100%;
+    }
+.effect-image figure figcaption > .caption > .excerpt + .action {
+    padding-top: 23px;
+    }
+
+/* ----------!OSCAR---------- */
+.effect-image .effect-oscar {
+    background: #222;
+    }
+.effect-image .effect-oscar .image {
+    opacity: 1;
+    transition: opacity 0.3s;
+    }
+.effect-image .effect-oscar figcaption {
+    padding: 20px;
+    }
+@media (min-width: 992px) {
+    .effect-image .effect-oscar figcaption {
+        padding: 80px;
+        }
+    }
+.effect-image .effect-oscar figcaption::before {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    bottom: 30px;
+    left: 30px;
+    border: 1px solid #fff;
+    content: '';
+    }
+@media (max-width: 991.98px) {
+    .effect-image .effect-oscar figcaption::before {
+        border: 0 none transparent;
+        }
+    }
+.effect-image .effect-oscar figcaption h2,
+.effect-image .effect-oscar figcaption h3,
+.effect-image .effect-oscar figcaption h4 {
+    opacity: 1;
+    transition: opacity 0.3s;
+    }
+.effect-image .effect-oscar figcaption::before,
+.effect-image .effect-oscar figcaption .caption {
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.3s, transform 0.3s;
+    }
+.effect-image .effect-oscar:hover figcaption h2,
+.effect-image .effect-oscar:hover figcaption h3,
+.effect-image .effect-oscar:hover figcaption h4 {
+    opacity: 0;
+    }
+.effect-image .effect-oscar:hover figcaption::before,
+.effect-image .effect-oscar:hover figcaption .caption {
+    opacity: 1;
+    transform: scale(1);
+    }
+.effect-image .effect-oscar:hover .image {
+    opacity: 0.1;
+    }

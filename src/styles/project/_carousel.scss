@@ -1,0 +1,56 @@
+/* ============================= */
+/* ==========!CAROUSEL========== */
+/* ============================= */
+
+/* ----------!MAIN---------- */
+.carousel {
+	height: 100%;
+	overflow: hidden;
+	cursor: default;
+    color: $color-white;
+	}
+.carousel .carousel-indicators {
+	margin-bottom: 10px;
+	}
+.carousel .carousel-indicators > li {
+	cursor: pointer;
+	}
+.carousel .carousel-inner,
+.carousel .carousel-inner > .carousel-item {
+	height: 100%;
+	}
+.carousel .carousel-control-next,
+.carousel .carousel-control-prev {
+	width: 5%;
+	display: none;
+	z-index: 15;
+	}
+@media (min-width: 992px) {
+	.carousel .carousel-control-next,
+	.carousel .carousel-control-prev {
+		width: 10%;
+		display: -ms-flexbox;
+		display: flex;
+		}
+	}
+.carousel .carousel-item {
+    background-color: #fff;
+    }
+
+/* =============================== */
+/* ==========!RESPONSIVE========== */
+/* =============================== */
+
+/* ----------!TABLET---------- */
+@include media-breakpoint-up(sm) {
+	.carousel {
+		height: 340px;
+		}
+	}
+
+/* ----------!LAPTOP---------- */
+@include media-breakpoint-up(lg) {
+	.carousel {
+		height: 550px;
+		}
+	}

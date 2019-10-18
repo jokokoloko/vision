@@ -1,0 +1,125 @@
+/* =========================== */
+/* ==========!BUTTON========== */
+/* =========================== */
+
+/* ----------!BASIC---------- */
+.btn {
+	background-image: none;
+	border-width: 2px;
+	padding: 4px 12px;
+	-ms-touch-action: manipulation;
+		touch-action: manipulation;
+	}
+.btn:active,
+.btn:hover,
+.btn:focus {
+    color: $color-white;
+    }
+
+/* ----------!DEFAULT---------- */
+.btn-default {
+	@include color($color-button-default);
+	}
+.btn-default.active,
+.btn-default.active.focus,
+.btn-default.active:hover,
+.btn-default.active:focus,
+.btn-default.focus,
+.btn-default:active,
+.btn-default:active.focus,
+.btn-default:active:hover,
+.btn-default:active:focus,
+.btn-default:hover,
+.btn-default:focus {
+	@include color($color-button-default-hover);
+	}
+
+/* ----------!MAIN---------- */
+.btn-main {
+	@include color($color-button-main);
+	}
+.btn-main.active,
+.btn-main.active.focus,
+.btn-main.active:hover,
+.btn-main.active:focus,
+.btn-main.focus,
+.btn-main:active,
+.btn-main:active.focus,
+.btn-main:active:hover,
+.btn-main:active:focus,
+.btn-main:hover,
+.btn-main:focus {
+	@include color($color-button-main-hover);
+	}
+
+/* ----------!HOLLOW---------- */
+.btn-hollow {
+	@include color($color-button-hollow);
+	font-weight: $font-weight-1 !important;
+	}
+.btn-hollow.active,
+.btn-hollow.active.focus,
+.btn-hollow.active:hover,
+.btn-hollow.active:focus,
+.btn-hollow.focus,
+.btn-hollow:active,
+.btn-hollow:active.focus,
+.btn-hollow:active:hover,
+.btn-hollow:active:focus,
+.btn-hollow:hover,
+.btn-hollow:focus {
+	@include color($color-button-hollow-hover);
+	}
+
+/* ----------!LINK---------- */
+.btn-link {
+	@include color($color-button-link);
+	text-decoration: none !important;
+	}
+
+/* ----------!INITIAL---------- */
+.btn-initial {
+	min-width: 130px;
+	}
+@include media-breakpoint-down(md) {
+	.btn-initial {
+		width: 100%;
+		display: block;
+		}
+	}
+
+/* ----------!STYLE---------- */
+.btn-pill {
+	border-radius: 20px !important;
+	}
+.btn-lean {
+	@include color($color-button-hollow);
+	padding: 14px 30px !important;
+	line-height: 10px;
+	}
+
+/* ----------!SIZE---------- */
+.btn-lg,
+.btn-xl,
+.btn-hg {
+	padding: 8px 13px;
+	font-size: 20px;
+	line-height: 30px;
+	}
+@include media-breakpoint-up(sm) {
+	.btn-auto {
+		width: auto;
+		display: inline-block;
+		}
+	.btn-width {
+		max-width: 210px;
+		}
+	}
+@include media-breakpoint-up(lg) {
+	.btn-xl {
+		padding: 13px 18px;
+		min-width: 210px;
+		font-size: 27px;
+		line-height: 30px;
+		}
+	}

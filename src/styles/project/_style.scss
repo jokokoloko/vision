@@ -1,0 +1,174 @@
+/* ========================== */
+/* ==========!STYLE========== */
+/* ========================== */
+
+/* ----------!SELECTION---------- */
+::selection {
+	@include color($color-selection);
+	}
+
+/* ----------!COLOR---------- */
+.color-0 {
+	background-color: $color-transparent !important;
+	}
+.color-1 {
+	background-color: $color-white !important;
+	}
+.color-2 {
+	background-color: $color-ghost !important;
+	}
+.color-3 {
+	background-color: $color-dust !important;
+	}
+.color-4 {
+	background-color: $color-grey !important;
+	}
+.color-5 {
+	background-color: $color-aluminium !important;
+	}
+.color-6 {
+	background-color: $color-stone !important;
+	color: $color-white;
+	}
+.color-7 {
+	background-color: $color-charcoal !important;
+	color: $color-white;
+	}
+.color-8 {
+	background-color: $color-metal !important;
+	color: $color-white;
+	}
+.color-9 {
+	background-color: $color-night !important;
+	color: $color-white;
+	}
+.color-10 {
+	background-color: $color-black !important;
+	color: $color-white;
+	}
+
+/* ----------!TINT---------- */
+.dark-20 {
+	background: rgba(0, 0, 0, 0.2);
+	}
+.dark-30 {
+	background: rgba(0, 0, 0, 0.3);
+	}
+.dark-50 {
+	background: rgba(0, 0, 0, 0.5);
+	}
+.dark-80 {
+	background: rgba(0, 0, 0, 0.8);
+	}
+.light-20 {
+	background: rgba(255, 255, 255, 0.2);
+	}
+.light-30 {
+	background: rgba(255, 255, 255, 0.3);
+	}
+.light-50 {
+	background: rgba(255, 255, 255, 0.5);
+	}
+.light-80 {
+	background: rgba(255, 255, 255, 0.8);
+	}
+
+/* ----------!OPACITY---------- */
+.opacity-20 {
+    opacity: 0.2;
+    }
+.opacity-30 {
+    opacity: 0.3;
+    }
+.opacity-50 {
+    opacity: 0.5;
+    }
+.opacity-80 {
+    opacity: 0.8;
+    }
+
+/* ----------!BACKGROUND---------- */
+.background-image {
+	background-color: $color-transparent !important;
+	}
+.background-parallax {
+	background-color: $color-transparent !important;
+	}
+
+/* ----------!BORDER---------- */
+.style-border {
+	border-top: 5px solid $color-white;
+	padding-top: 30px;
+	}
+.style-border-top-grey {
+    border-top: 3px solid $color-ghost !important;
+    }
+.style-border-top-grey > * {
+    margin-top: -3px !important;
+    }
+	
+/* ----------!DIVISION---------- */
+@media (min-width: 992px) {
+    .division + .division {
+        border-top: 3px solid #fafafa;
+        margin-top: 80px;
+        }
+    }
+
+/* ----------!CHEAT---------- */
+@media (min-width: 1440px) {
+    .cheat-left {
+        margin-left: -80px;
+        }
+    .cheat-right {
+        margin-right: -80px;
+        }
+    .cheat-both {
+        margin-left: -80px;
+        margin-right: -80px;
+        }
+    }
+
+/* ----------!WIDTH---------- */
+@media (min-width: 992px) {
+    .width p {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 720px;
+        }
+    }
+
+/* ----------!HEIGHT---------- */
+.height-auto,
+.height-half {
+    height: auto !important;
+    }
+@media (min-width: 576px) {
+    .height-half {
+        height: 50vh !important;
+        }
+    }
+.height-fill {
+    height: calc(100vh - 50px) !important;
+    }
+@media (min-width: 992px) {
+    .height-fill {
+        height: calc(100vh - 80px) !important;
+        }
+    }
+.height-full {
+    min-height: 340px;
+    height: 100vh !important;
+    }
+.height-short,
+.height-standard {
+    height: 340px !important;
+    }
+@media (min-width: 992px) {
+    .height-standard {
+        height: 550px !important;
+        }
+    }
+.height-match {
+    height: 100% !important;
+    }

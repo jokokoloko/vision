@@ -1,0 +1,65 @@
+/* ============================= */
+/* ==========!DROPDOWN========== */
+/* ============================= */
+
+/* ----------!MAIN---------- */
+.dropdown .dropdown-toggle::after {
+    border-top: 5px solid;
+    border-right: 5px solid transparent;
+    border-bottom: 0;
+    border-left: 5px solid transparent;
+    margin-left: 6px;
+    vertical-align: 6px;
+    }
+.dropdown .dropdown-toggle.no-caret::after {
+	content: normal;
+	}
+.dropdown .dropdown-toggle .avatar {
+	width: 30px;
+	height: 30px;
+	}
+.dropdown .dropdown-menu {
+	margin-top: -5px;
+	padding: 9px 0;
+	min-width: 210px;
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+	}
+.dropdown .dropdown-menu,
+.dropdown .dropdown-menu .dropdown-divider {
+	border-color: $color-metal;
+	}
+.dropdown .dropdown-menu .dropdown-divider {
+	margin: 9px 0 10px;
+	}
+.dropdown .dropdown-menu .dropdown-header,
+.dropdown .dropdown-menu .dropdown-text,
+.dropdown .dropdown-menu .dropdown-item {
+	margin: 0;
+	padding: 0 19px;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 50px;
+	}
+.dropdown .dropdown-menu .dropdown-header,
+.dropdown .dropdown-menu .dropdown-text {
+	color: $color-smoke;
+	}
+.dropdown .dropdown-menu .dropdown-item {
+	color: $color-metal;
+	cursor: pointer;
+	}
+.dropdown .dropdown-menu .dropdown-item:active,
+.dropdown .dropdown-menu .dropdown-item:hover,
+.dropdown .dropdown-menu .dropdown-item:focus {
+	background-color: $color-ghost;
+	color: $color-metal;
+	}
+.dropdown .dropdown-menu .dropdown-item.active,
+.dropdown .dropdown-menu .dropdown-item.active:active,
+.dropdown .dropdown-menu .dropdown-item.active:hover,
+.dropdown .dropdown-menu .dropdown-item.active:focus {
+	background-color: $color-metal;
+	color: $color-white;
+	cursor: default;
+	}

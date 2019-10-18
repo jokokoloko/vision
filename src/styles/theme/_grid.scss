@@ -1,0 +1,29 @@
+/* ========================= */
+/* ==========!GRID========== */
+/* ========================= */
+
+/* ----------!BLOCK---------- */
+.block {
+	position: relative;
+	overflow: hidden;
+	}
+.container-fluid > .block {
+	margin-left: -15px;
+	margin-right: -15px;
+	}
+
+/* ----------!ROW---------- */
+.row {
+	padding: 0;
+	list-style: none;
+	}
+
+/* ----------!ALIGN---------- */
+.justify-content-left {
+    -ms-flex-pack: start !important;
+    justify-content: flex-start !important;
+	}
+.justify-content-right {
+	-ms-flex-pack: end !important;
+	justify-content: flex-end !important;
+	}

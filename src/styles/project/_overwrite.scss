@@ -1,0 +1,15 @@
+/* ============================== */
+/* ==========!OVERWRITE========== */
+/* ============================== */
+
+/* ----------!BUTTON---------- */
+.navbar-nav .nav-btn,
+.navbar-action .nav-btn {
+	border: 0 none $color-transparent;
+	}
+@include media-breakpoint-up(lg) {
+	.navbar-expand-lg .navbar-nav .nav-link {
+		padding-left: 15px;
+		padding-right: 15px;
+		}
+	}

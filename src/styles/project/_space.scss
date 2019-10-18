@@ -1,0 +1,390 @@
+/* ========================== */
+/* ==========!SPACE========== */
+/* ========================== */
+
+/* ----------!BASIC---------- */
+figure + header,
+figure + section,
+figure + footer,
+header + figure,
+header + section,
+header + footer,
+section + figure,
+section + footer,
+footer + figure {
+	padding-top: 30px; // 30px spacing
+	}
+
+/* ----------!PARAGRAPH---------- */
+p + p,
+h1 + p,
+h2 + p,
+h3 + p {
+    padding-top: 43px; // 50px spacing
+    }
+h4 + p,
+h5 + p,
+h6 + p {
+    padding-top: 23px; // 30px spacing
+    }
+.d-flex h1 + p,
+.d-flex h2 + p,
+.d-flex h3 + p,
+.d-flex h4 + p,
+.d-flex h5 + p,
+.d-flex h6 + p,
+.d-flex p + p {
+	padding-top: 0; // 0 spacing
+	}
+
+/* ----------!HEADING---------- */
+h1 + h1,
+h1 + h2,
+h2 + h2 {
+	padding-top: 23px; // 30px spacing
+	}
+h1 + h3,
+h2 + h3,
+h3 + h3 {
+	padding-top: 70px; // 80px spacing
+	}
+h1 + h4,
+h2 + h4,
+h3 + h4,
+h4 + h4 {
+	padding-top: 46px; // 50px spacing
+	}
+h1 + h5,
+h2 + h5,
+h3 + h5,
+h4 + h5,
+h5 + h5,
+h1 + h6,
+h2 + h6,
+h3 + h6,
+h4 + h6,
+h5 + h6,
+h6 + h6 {
+	padding-top: 13px; // 15px spacing
+	}
+
+/* ----------!LIST---------- */
+ol#{$not-list} > li + li,
+ul#{$not-list} > li + li {
+	padding-top: 7px; // 10px spacing
+	}
+ol + p,
+ul + p {
+	padding-top: 43px; // 50px spacing
+	}
+h1 + ol,
+h1 + ul,
+h2 + ol,
+h2 + ul,
+h3 + ol,
+h3 + ul,
+h4 + ol,
+h4 + ul {
+    padding-top: 30px; // 30px spacing
+    }
+p + ol,
+p + ul {
+	padding-top: 50px; // 50px spacing
+	}
+
+/* ----------!BETWEEN---------- */
+p + h1,
+ol + h1,
+ul + h1 {
+	padding-top: 44px; // 50px spacing
+	}
+p + h2,
+ol + h2,
+ul + h2,
+p + h3,
+ol + h3,
+ul + h3 {
+	padding-top: 70px; // 80px spacing
+	}
+p + h4,
+ol + h4,
+ul + h4 {
+    padding-top: 46px; // 50px spacing
+    }
+p + h5,
+ol + h5,
+ul + h5,
+p + h6,
+ol + h6,
+ul + h6 {
+	padding-top: 48px; // 50px spacing
+	}
+
+/* ----------!BUTTON---------- */
+h1 + button,
+h2 + button,
+h3 + button,
+h4 + button,
+h5 + button,
+h6 + button,
+p + button,
+h1 + .btn,
+h2 + .btn,
+h3 + .btn,
+h4 + .btn,
+h5 + .btn,
+h6 + .btn,
+p + .btn {
+	margin-top: 30px; // 30px spacing
+	}
+.btn + .btn {
+	margin-left: 20px; // 20px spacing
+	}
+.d-flex h1 + button,
+.d-flex h2 + button,
+.d-flex h3 + button,
+.d-flex h4 + button,
+.d-flex h5 + button,
+.d-flex h6 + button,
+.d-flex p + button,
+.d-flex h1 + .btn,
+.d-flex h2 + .btn,
+.d-flex h3 + .btn,
+.d-flex h4 + .btn,
+.d-flex h5 + .btn,
+.d-flex h6 + .btn,
+.d-flex p + .btn {
+	margin-top: 0; // 30px spacing
+	margin-left: 20px; // 20px spacing
+	}
+
+/* ----------!MEDIA---------- */
+blockquote + p,
+embed + p,
+figure + p,
+img + p,
+blockquote + ol,
+embed + ol,
+figure + ol,
+img + ol,
+blockquote + ul,
+embed + ul,
+figure + ul,
+img + ul {
+	padding-top: 43px; // 50px spacing
+	}
+p + blockquote,
+ol + blockquote,
+ul + blockquote,
+p + embed,
+ol + embed,
+ul + embed,
+p + figure,
+ol + figure,
+ul + figure,
+p + img,
+ol + img,
+ul + img {
+	margin-top: 50px; // 50px spacing
+	}
+p + .alignleft,
+p + .alignright {
+	margin-top: 30px; // 30px spacing
+	}
+p + .alignleft + p,
+p + .alignright + p {
+	padding-top: 23px; // 30px spacing
+	}
+blockquote p:last-child,
+blockquote ol:last-child,
+blockquote ul:last-child {
+    margin-bottom: -8px;
+	}
+.icon + h3,
+.icon + h4,
+.icon + p {
+	padding-top: 50px; // 50px spacing
+	}
+
+/* ----------!EXTRA---------- */
+hr {
+	margin-top: 50px; // 50px spacing
+	margin-bottom: 49px; // 50px spacing
+	}
+
+/* ========================= */
+/* ==========!TYPE========== */
+/* ========================= */
+
+/* ----------!META---------- */
+.headline + .meta {
+	padding-top: 28px; // 30px spacing
+	}
+
+/* ========================= */
+/* ==========!UNIT========== */
+/* ========================= */
+
+/* ----------!COPY---------- */
+.copy + .action {
+	padding-top: 30px; // 30px spacing
+	}
+
+/* ----------!TABLE---------- */
+h3 + .table,
+h4 + .table,
+p + .table {
+    margin-top: 33px !important;
+    }
+.table + h3 {
+    padding-top: 68px !important;
+    }
+.table + h4 {
+    padding-top: 73px !important;
+    }
+
+/* ----------!DATE---------- */
+h1 + .date {
+    padding-top: 46px;
+    }
+h3 + .date {
+    padding-top: 26px;
+    }
+
+/* ----------!MENU---------- */
+h4 + .menu-list {
+    padding-top: 33px;
+    }
+
+/* ----------!BUTTON---------- */
+.btn + .btn {
+    margin-left: 15px;
+    }
+@media (min-width: 992px) {
+    .btn + .btn {
+        margin-left: 30px;
+        }
+    }
+
+/* ========================= */
+/* ==========!NODE========== */
+/* ========================= */
+
+/* ----------!HEADER---------- */
+header .title + p {
+	padding-top: 23px; // 30px spacing
+	}
+
+/* ----------!SECTION---------- */
+section p + .row {
+	padding-top: 42px; // 50px spacing
+	}
+section .row + p {
+	padding-top: 43px; // 50px spacing
+	}
+
+/* =========================== */
+/* ==========!WIDGET========== */
+/* =========================== */
+
+/* ----------!INSTAGRAM---------- */
+p + .instagram-media {
+    margin-top: 50px !important; // 50px spacing
+    }
+.instagram-media + p + p {
+    padding-top: 50px !important; // 50px spacing
+    }
+
+/* ----------!CONTACT---------- */
+.map + .contact {
+    padding-top: 30px; // 30px spacing
+	}
+
+/* ========================= */
+/* ==========!FORM========== */
+/* ========================= */
+
+/* ----------!DEFAULT---------- */
+.form .form-panel + .form-panel {
+	padding-top: 80px; // 80px spacing
+	}
+.form .form-title + .form-group,
+.form .form-title + .form-action,
+.form .form-title + .form-node,
+.form .form-group + .form-node,
+.form .form-node + .form-node {
+	margin-top: 50px; // 50px spacing
+	}
+.form .form-group + .form-group,
+.form .form-group + .form-row,
+.form .form-row + .form-group,
+.form .form-row + .form-row,
+.form .form-action + .form-group,
+.form .form-node + .form-action {
+    margin-top: 20px; // 20px spacing
+	}
+
+/* ============================== */
+/* ==========!COMPONENT========== */
+/* ============================== */
+
+/* ----------!MAIN---------- */
+@include media-breakpoint-up(lg) {
+    .carousel h1 + h2,
+    .hero h1 + h2 {
+        padding-top: 44px; // 50px spacing
+        }
+    }
+.carousel h1 + p,
+.hero h1 + p {
+	padding-top: 24px; // 30px spacing
+	}
+.carousel h2 + p,
+.carousel h3 + p,
+.hero h2 + p,
+.hero h3 + p {
+	padding-top: 23px; // 30px spacing
+	}
+
+/* ========================== */
+/* ==========!STYLE========== */
+/* ========================== */
+
+/* ----------!H3---------- */
+h1 + h3,
+h2 + h3,
+h3 + h3,
+p + h3,
+ol + h3,
+ul + h3,
+table + h3 {
+    border-top: 3px solid $color-ghost;
+    margin-top: 80px;
+    }
+
+/* ----------!CUSTOM---------- */
+.space-custom {
+    padding-top: 50px !important;
+    padding-bottom: 80px !important;
+    }
+
+/* =========================== */
+/* ==========!GATSBY========== */
+/* =========================== */
+
+/* ----------!REMARK---------- */
+p > .gatsby-resp-image-link,
+p > .gatsby-resp-image-wrapper {
+    margin-top: 38px;
+    margin-bottom: 36px;
+    }
+p:last-child > .gatsby-resp-image-link,
+p:last-child > .gatsby-resp-image-wrapper {
+    margin-bottom: 8px !important;
+    }
+p + .gatsby-resp-iframe-wrapper {
+    margin-top: 80px;
+    }
+.gatsby-resp-iframe-wrapper + p {
+    padding-top: 78px;
+    }

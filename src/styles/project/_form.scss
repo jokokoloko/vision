@@ -1,0 +1,200 @@
+/* ========================== */
+/* ==========!BASIC========== */
+/* ========================== */
+
+/* ----------!LABEL---------- */
+label {
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	line-height: 30px;
+	vertical-align: middle;
+	display: block;
+	}
+label i {
+	background: $color-white;
+	border: 1px solid $color-grey;
+	padding: 6px 12px;
+	width: 35px;
+	height: 35px;
+	float: left;
+	cursor: pointer;
+	}
+label i,
+label span {
+	border: 1px solid $color-grey;
+	padding: 6px 12px;
+	height: 35px;
+	float: left;
+	cursor: pointer;
+	}
+label span {
+	border-left: 0 none $color-transparent;
+	border-color: $color-transparent;
+	}
+label span,
+label input[type=checkbox] {
+    vertical-align: middle;
+    }
+label input[type=checkbox] {
+    margin-right: 8px;
+    }
+
+/* ----------!INPUT---------- */
+input[type="checkbox"] {
+	display: none;
+	}
+input[type="checkbox"] + label {
+	width: 100%;
+	font-weight: $font-weight-2;
+	}
+input[type="checkbox"] + label i {
+	color: rgba(0, 0, 0, 0);
+	}
+input[type="checkbox"]:checked + label i {
+	color: inherit;
+	}
+input[type="checkbox"] + label span {
+	padding-right: 0 !important;
+	}
+input,
+select {
+	cursor: initial;
+	}
+textarea {
+	min-height: 130px;
+	}
+
+/* ----------!STYLE---------- */
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+.form-control {
+	border-color: $color-smoke;
+	color: inherit;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+select:focus,
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+.form-control:focus {
+	border-color: $color-brand-blue-200 !important;
+	color: $color-brand-blue-200 !important;
+	box-shadow: 0 0 0 3px rgba(0, 125, 255, 0.25) !important;
+	}
+.form-control::placeholder {
+	color: $color-smoke;
+	opacity: 1;
+	}
+
+/* ============================== */
+/* ==========!BOOTSTRAP========== */
+/* ============================== */
+
+/* ----------!MAIN---------- */
+.form label {
+    margin-top: -5px;
+    margin-bottom: -5px;
+    font-size: 14px;
+    font-weight: $font-weight-3;
+    line-height: 20px;
+    display: block;
+    }
+.form label > span {
+    color: $color-metal;
+    }
+.form label + .form-control {
+    margin-top: 10px;
+    }
+.form .form-control {
+    color: $color-metal;
+    }
+
+/* ----------!FORM-GROUP---------- */
+.form-group {
+	margin: 0;
+	width: 100%;
+	position: relative;
+	}
+.form-group-sm label i,
+.form-group-sm label span {
+	padding: 3px 15px;
+	height: 28px;
+	}
+.form-group-sm label i {
+	padding: 6px;
+	width: 28px;
+	}
+.form-group-lg label i,
+.form-group-lg label span {
+	padding: 10px 15px;
+	height: 45px;
+	font-size: 18px;
+	line-height: 1.33;
+	}
+.form-group-lg label i {
+	padding: 10px;
+	width: 45px;
+	font-size: 22px;
+	line-height: 1.1;
+	}
+
+/* ----------!SIZE---------- */
+.form-control-md,
+.input-group-md > .form-control,
+.input-group-md > .input-group-append > .btn,
+.input-group-md > .input-group-append > .input-group-text,
+.input-group-md > .input-group-prepend > .btn,
+.input-group-md > .input-group-prepend > .input-group-text {
+	padding: 4px 9px;
+	height: 30px;
+	font-size: 14px;
+	line-height: 20px;
+	}
+.form-control-lg,
+.input-group-lg > .form-control,
+.input-group-lg > .input-group-append > .btn,
+.input-group-lg > .input-group-append > .input-group-text,
+.input-group-lg > .input-group-prepend > .btn,
+.input-group-lg > .input-group-prepend > .input-group-text {
+	padding: 9px 14px;
+	height: 50px;
+	font-size: 20px;
+	line-height: 30px;
+	}
+
+/* ========================== */
+/* ==========!SPACE========== */
+/* ========================== */
+
+/* ----------!GUTTER---------- */
+.form-gutter-20 {
+	margin: -10px;
+	}
+.form-gutter-20 > .form-column {
+	padding: 10px;
+	}

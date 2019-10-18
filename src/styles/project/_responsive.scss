@@ -1,0 +1,58 @@
+/* =============================== */
+/* ==========!RESPONSIVE========== */
+/* =============================== */
+
+/* ----------!PHONE---------- */
+@include media-breakpoint-down(xs) {
+	br,
+	.ajax-loader {
+		display: none;
+		}
+	address br {
+		display: block;
+		}
+	.sidebar,
+	.sidebar [class*="space-"],
+	.hidden-xs + [class*="col-"] {
+		padding-top: 0 !important;
+		}
+	}
+
+/* ----------!TABLET---------- */
+@include media-breakpoint-up(sm) {
+
+	}
+
+/* ----------!CLASSIC---------- */
+@include media-breakpoint-up(md) {
+
+	}
+
+/* ----------!LAPTOP---------- */
+@include media-breakpoint-up(lg) {
+	@include bottom($footer-height-lg);
+	}
+@include media-breakpoint-down(lg) {
+    span > br {
+        display: none;
+        }
+    }
+
+/* ----------!DESKTOP---------- */
+@include media-breakpoint-up(xl) {
+
+	}
+
+/* ----------!WIDE---------- */
+@include media-breakpoint-up(hg) {
+	.container {
+	    max-width: 1380px;
+		}
+	}
+
+/* ----------!CINEMA---------- */
+@include media-breakpoint-up(gt) {
+	.container {
+	    max-width: 1560px;
+		}
+	}
