@@ -351,11 +351,16 @@ p + .instagram-media {
 /* ============================ */
 
 /* ----------!PRODUCT---------- */
-.product h3 + p {
+.product h3 + p,
+.single-product h1 + p,
+.single-product h2 + p, {
 	padding-top: 23px; // 30px spacing
 	}
 .product p + .btn {
-	margin-top: 50px; // 30px spacing
+	margin-top: 50px; // 50px spacing
+	}
+.single-product .product-header, {
+	padding-top: 50px; // 50px spacing
 	}
 
 /* ========================== */

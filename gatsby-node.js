@@ -131,4 +131,45 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
             },
         });
     });
+
+    // Product
+    const products = await graphql(`
+        query {
+            entries: allShopifyProduct {
+                edges {
+                    node {
+                        id
+                        handle
+                    }
+                }
+            }
+        }
+    `);
+    const productArchive = 'product';
+    const productDirectory = productArchive;
+    const productEntries = products.data.entries.edges;
+    const productTotal = productEntries.length;
+    const productPerPage = 1;
+    const productNumPages = Math.ceil(productTotal / productPerPage);
+
+    // Product - Single
+    productEntries.forEach(({ node }, index) => {
+        const { id, handle } = node;
+        const previous = index === productTotal - 1 ? null : productEntries[index + 1].node;
+        const next = index === 0 ? null : productEntries[index - 1].node;
+
+        createPage({
+            path: `/${productDirectory}/${handle}`,
+            component: path.resolve('./src/templates/single-product.js'),
+            context: {
+                archive: productArchive,
+                directory: productDirectory,
+                total: productTotal,
+                id,
+                handle,
+                previous,
+                next,
+            },
+        });
+    });
 };
