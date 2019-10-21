@@ -29,10 +29,13 @@ export default ({ location, data }) => {
                             <h1>{product.title}</h1>
                             <p className="price">${firstVariant.price}</p>
                         </header>
-                        <footer className="product-footer node-xs-50">
+                        <section className="product-section node-xs-50">
                             <button type="button" className="btn btn-default btn-lg btn-initial no-class">
                                 Add to cart
                             </button>
+                        </section>
+                        <footer className="product-footer node-xs-50">
+                            <p className="description">{product.description}</p>
                         </footer>
                     </div>
                 </div>
@@ -47,6 +50,7 @@ export const query = graphql`
             id
             handle
             title
+            description
             images {
                 originalSrc
             }
