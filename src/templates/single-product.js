@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { graphql } from 'gatsby';
 import { logicDescription } from '../logic';
+import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Basic from '../components/section/Basic';
 
 export default ({ location, data }) => {
+    const { addProductToCart } = useContext(ShopContext);
     const { product } = data;
     const {
         images: [firstImage],
@@ -30,7 +32,11 @@ export default ({ location, data }) => {
                             <p className="price">${firstVariant.price}</p>
                         </header>
                         <section className="product-section node-xs-50">
-                            <button type="button" className="btn btn-default btn-lg btn-initial no-class">
+                            <button
+                                type="button"
+                                className="btn btn-default btn-lg btn-initial no-class"
+                                onClick={() => addProductToCart(firstVariant.shopifyId)}
+                            >
                                 Add to cart
                             </button>
                         </section>
@@ -51,11 +57,12 @@ export const query = graphql`
             handle
             title
             description
+            variants {
+                shopifyId
+                price
+            }
             images {
                 originalSrc
-            }
-            variants {
-                price
             }
         }
     }

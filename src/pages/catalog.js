@@ -65,11 +65,12 @@ export const query = graphql`
                     id
                     handle
                     title
+                    variants {
+                        shopifyId
+                        price
+                    }
                     images {
                         originalSrc
-                    }
-                    variants {
-                        price
                     }
                 }
             }
