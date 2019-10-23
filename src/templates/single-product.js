@@ -23,9 +23,11 @@ export default ({ location, data }) => {
             <Basic id={`product-${product.handle}`} space="space-custom">
                 <div className="row gutter-80">
                     <div className="col-lg-6">
-                        <figure className="node-xs-50">
-                            <img className="img-fluid" src={firstImage.originalSrc} alt={product.title} />
-                        </figure>
+                        {firstImage && (
+                            <figure className="node-xs-50">
+                                <img className="img-fluid" src={firstImage.originalSrc} alt={product.title} />
+                            </figure>
+                        )}
                     </div>
                     <div className="col-lg-6">
                         <header className="product-header node-xs-50">

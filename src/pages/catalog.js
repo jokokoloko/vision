@@ -19,9 +19,11 @@ export default ({ location, data }) => {
         return (
             <article key={node.id} id={`product-${node.handle}`} className="product col-lg-4">
                 <div className="case relative node-xs-50">
-                    <figure className="node-xs-50">
-                        <img className="img-fluid" src={firstImage.originalSrc} alt={node.title} />
-                    </figure>
+                    {firstImage && (
+                        <figure className="node-xs-50">
+                            <img className="img-fluid" src={firstImage.originalSrc} alt={node.title} />
+                        </figure>
+                    )}
                     <header className="node-xs-50">
                         <h3>
                             <Link className="stretched-link" to={path.PRODUCT === '/' ? `/${node.handle}` : `${path.PRODUCT}/${node.handle}`}>
