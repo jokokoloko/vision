@@ -12,6 +12,7 @@ export default ({ location, data }) => {
         images: [firstImage],
         variants: [firstVariant],
     } = product;
+    const onClick = () => addProductToCart(firstVariant.shopifyId);
     return (
         <Layout
             template={`single single-product single-product-${product.handle}`}
@@ -32,11 +33,7 @@ export default ({ location, data }) => {
                             <p className="price">${firstVariant.price}</p>
                         </header>
                         <section className="product-section node-xs-50">
-                            <button
-                                type="button"
-                                className="btn btn-default btn-lg btn-initial no-class"
-                                onClick={() => addProductToCart(firstVariant.shopifyId)}
-                            >
+                            <button type="button" className="btn btn-default btn-lg btn-initial no-class" onClick={onClick}>
                                 Add to cart
                             </button>
                         </section>

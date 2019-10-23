@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { graphql } from 'gatsby';
 import { logicDescription } from '../logic';
 import * as path from '../path';
+import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Feed from '../components/section/Feed';
 import Link from '../components/unit/Link';
 
 export default ({ location, data }) => {
+    const { addProductToCart } = useContext(ShopContext);
     const { products, page } = data;
     const loopProduct = products.edges.map(({ node }) => {
         const {
             images: [firstImage],
             variants: [firstVariant],
         } = node;
+        const onClick = () => addProductToCart(firstVariant.shopifyId);
         return (
             <article key={node.id} id={`product-${node.handle}`} className="product col-lg-4">
                 <div className="case relative node-xs-50">
@@ -30,7 +33,7 @@ export default ({ location, data }) => {
                 </div>
                 <div className="case node-xs-50">
                     <footer>
-                        <button type="button" className="btn btn-default btn-lg btn-initial no-class">
+                        <button type="button" className="btn btn-default btn-lg btn-initial no-class" onClick={onClick}>
                             Add to cart
                         </button>
                     </footer>
