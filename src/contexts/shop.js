@@ -19,14 +19,25 @@ const defaultValues = {
     client,
 };
 
+const isBrowser = typeof window !== 'undefined';
+
 export const ShopContext = createContext(defaultValues);
 
 export const ShopProvider = ({ children }) => {
-    const [checkoutId, setCheckoutId] = useState({});
+    const [checkout, setCheckout] = useState({});
     const initializeCheckout = async () => {
         try {
-            const newCheckout = await client.checkout.create();
-            setCheckoutId(newCheckout.id);
+            const currentCheckoutId = isBrowser ? localStorage.getItem('checkout_id') : null;
+            let newCheckout = null;
+            if (currentCheckoutId) {
+                newCheckout = await client.checkout.fetch(currentCheckoutId);
+            } else {
+                newCheckout = await client.checkout.create();
+                if (isBrowser) {
+                    localStorage.setItem('checkout_id', newCheckout.id);
+                }
+            }
+            setCheckout(newCheckout);
         } catch (e) {
             console.error(e);
         }
@@ -39,7 +50,8 @@ export const ShopProvider = ({ children }) => {
                     variantId,
                 },
             ];
-            const addItems = await client.checkout.addLineItems(checkoutId, lineItems);
+            const addItems = await client.checkout.addLineItems(checkout.id, lineItems);
+            // window.open(addItems.webUrl, '_blank');
             console.log(addItems.webUrl);
         } catch (e) {
             console.error(e);
