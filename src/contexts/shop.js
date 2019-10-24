@@ -24,7 +24,7 @@ const isBrowser = typeof window !== 'undefined';
 export const ShopContext = createContext(defaultValues);
 
 export const ShopProvider = ({ children }) => {
-    const [checkout, setCheckout] = useState({});
+    const [checkout, setCheckout] = useState(defaultValues.checkout);
     const initializeCheckout = async () => {
         try {
             const currentCheckoutId = isBrowser ? localStorage.getItem('checkout_id') : null;
@@ -50,9 +50,10 @@ export const ShopProvider = ({ children }) => {
                     variantId,
                 },
             ];
-            const addItems = await client.checkout.addLineItems(checkout.id, lineItems);
-            // window.open(addItems.webUrl, '_blank');
-            console.log(addItems.webUrl);
+            const newCheckout = await client.checkout.addLineItems(checkout.id, lineItems);
+            setCheckout(newCheckout);
+            // window.open(newCheckout.webUrl, '_blank');
+            // console.log(newCheckout.webUrl);
         } catch (e) {
             console.error(e);
         }
@@ -64,6 +65,7 @@ export const ShopProvider = ({ children }) => {
         <ShopContext.Provider
             value={{
                 ...defaultValues,
+                checkout,
                 addProductToCart,
             }}
         >
