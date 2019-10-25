@@ -11,7 +11,7 @@ import Menu from './Menu';
 import Header from './region/Header';
 import Footer from './region/Footer';
 import Scroll from './widget/Scroll';
-import Cart from './project/Cart';
+import SpringSlideCart from './project/SpringSlideCart';
 
 const Layout = ({ location, template, title, description, children }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +55,7 @@ const Layout = ({ location, template, title, description, children }) => {
                 <div className="container-fluid">{children}</div>
             </main>
             <Footer offcanvasPush={offcanvasPush} />
-            <Cart />
+            <SpringSlideCart />
             {showScroll && <Scroll position="fixed" up top />}
         </Fragment>
     );

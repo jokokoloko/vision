@@ -24,6 +24,8 @@ const isBrowser = typeof window !== 'undefined';
 export const ShopContext = createContext(defaultValues);
 
 export const ShopProvider = ({ children }) => {
+    const [isCartOpen, setCartOpen] = useState(false);
+    const toggleCartOpen = () => setCartOpen(!isCartOpen);
     const [checkout, setCheckout] = useState(defaultValues.checkout);
     const initializeCheckout = async () => {
         try {
@@ -65,7 +67,9 @@ export const ShopProvider = ({ children }) => {
         <ShopContext.Provider
             value={{
                 ...defaultValues,
+                isCartOpen,
                 checkout,
+                toggleCartOpen,
                 addProductToCart,
             }}
         >

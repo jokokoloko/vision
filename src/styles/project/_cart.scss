@@ -2,8 +2,8 @@
 /* ==========!CART========== */
 /* ========================= */
 
-/* ----------!MAIN---------- */
-.cart {
+/* ----------!SPRING---------- */
+.spring-slide {
 	background-color: $color-ghost;
 	padding: 80px;
 	width: 50%;
@@ -14,4 +14,37 @@
 	right: 0;
 	z-index: 9999;
 	box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 10px;
+	}
+.spring-slide .spring-slide-close {
+	margin: 60px;
+	padding: 15px;
+	width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    line-height: 20px;
+	color: $color-metal;
+    text-shadow: none;
+    opacity: 1 !important;
+    z-index: 9999;
+    user-select: none;
+	}
+
+/* ----------!MAIN---------- */
+.cart .cart-list {
+	padding: 0;
+	list-style: none;
+	}
+.cart .cart-list .cart-line-item .price,
+.cart .cart-list .cart-line-item .quantity {
+	text-align: right;
+	}
+
+/* ----------!SPACE---------- */
+.cart .cart-title + .cart-list {
+	margin-top: 50px;
+	}
+.cart .cart-list .cart-line-item + .cart-line-item {
+	margin-top: 30px;
 	}

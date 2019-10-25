@@ -8,7 +8,7 @@ import Dropdown from './unit/Dropdown';
 import Link from './unit/Link';
 
 const Account = () => {
-    const { isCartOpen, toggleCartOpen, checkout, isLoading } = useContext(ShopContext);
+    const { toggleCartOpen } = useContext(ShopContext);
     const { action, link } = useSite();
     const loopChildren = menu.ACCOUNT_LOG_IN.map(({ label, to, scroll, external }) => (
         <Link key={generateID()} className="dropdown-item" to={to} scroll={scroll} external={external} children={label} />
