@@ -13,6 +13,7 @@ const defaultValues = {
         lineItems: [],
     },
     toggleCartOpen: () => {},
+    onCartClose: () => {},
     addProductToCart: () => {},
     removeProductFromCart: () => {},
     checkCoupon: () => {},
@@ -26,6 +27,7 @@ export const ShopContext = createContext(defaultValues);
 export const ShopProvider = ({ children }) => {
     const [isCartOpen, setCartOpen] = useState(false);
     const toggleCartOpen = () => setCartOpen(!isCartOpen);
+    const onCartClose = () => setCartOpen(false);
     const [checkout, setCheckout] = useState(defaultValues.checkout);
     const initializeCheckout = async () => {
         try {
@@ -70,6 +72,7 @@ export const ShopProvider = ({ children }) => {
                 isCartOpen,
                 checkout,
                 toggleCartOpen,
+                onCartClose,
                 addProductToCart,
             }}
         >
