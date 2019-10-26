@@ -359,9 +359,11 @@ p + .instagram-media {
 .product p + .btn {
 	margin-top: 50px; // 50px spacing
 	}
-.single-product .product-header {
-	padding-top: 50px; // 50px spacing
-	}
+@include media-breakpoint-up(lg) {
+	.single-product .product-header {
+		padding-top: 50px; // 50px spacing
+		}
+    }
 .single-product .product-footer {
 	margin-top: 50px; // 50px spacing
 	border-top: 3px solid #fafafa !important;
