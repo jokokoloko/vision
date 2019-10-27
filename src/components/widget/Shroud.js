@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import * as spring from '../../spring';
 
 const Shroud = ({ isOpen, onClose }) => {
+    const scrollLock = 'scroll-lock';
     useEffect(() => {
-        isOpen && (document.body.style.overflowY = 'hidden');
-        return () => document.body.removeAttribute('style');
+        document.body.classList.toggle(scrollLock, isOpen);
+        return () => document.body.classList.remove(scrollLock);
     }, [isOpen]);
     const springFade = useTransition(isOpen, null, spring.fade);
     const animateSpringFade = springFade.map(
@@ -17,7 +18,11 @@ const Shroud = ({ isOpen, onClose }) => {
 
 Shroud.propTypes = {
     isOpen: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired,
+    onClose: PropTypes.func,
+};
+
+Shroud.defaultProps = {
+    onClose: undefined,
 };
 
 export default Shroud;
