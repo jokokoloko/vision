@@ -31,16 +31,18 @@ const Cart = () => {
     });
     return (
         <div id="cart" className="cart">
-            <header className="copy node-xs-50">
+            <header className="cart-header copy node-xs-50">
                 <h3>Cart</h3>
             </header>
-            <section className="node-xs-50">
+            <section className="cart-section node-xs-50">
                 {checkout.lineItems.length > 0 ? <ul className="cart-list list-reset">{loopLineItems}</ul> : <p>You have no items in your cart.</p>}
-                <p>
-                    Total: <span className="cart-total-price">${checkout.totalPrice}</span>
-                </p>
+                <div className="cart-detail">
+                    <p className="cart-total">
+                        Total: <span className="cart-total-price">${checkout.totalPrice}</span>
+                    </p>
+                </div>
             </section>
-            <footer className="node-xs-50 d-flex justify-content-between">
+            <footer className="cart-footer node-xs-50 d-flex justify-content-between">
                 <button type="button" className="btn btn-text btn-lg to-previous" onClick={onCartClose}>
                     &larr; Continue shopping
                 </button>
