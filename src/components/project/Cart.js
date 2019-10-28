@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ShopContext } from '../../contexts/shop';
 
 const Cart = () => {
-    const { checkout } = useContext(ShopContext);
+    const { checkout, onCartClose } = useContext(ShopContext);
     const loopLineItems = checkout.lineItems.map((item) => (
         <li key={item.id} className="cart-line-item">
             <div className="row align-items-center">
@@ -10,7 +10,7 @@ const Cart = () => {
                     <img className="img-fluid" src={item.variant.image.src} alt={item.title} />
                 </div>
                 <div className="col">
-                    <h4>{item.title}</h4>
+                    <p className="title">{item.title}</p>
                 </div>
                 <div className="col-2">
                     <p className="price">${item.variant.price}</p>
@@ -18,13 +18,30 @@ const Cart = () => {
                 <div className="col-2">
                     <p className="quantity">x{item.quantity}</p>
                 </div>
+                <div className="col-1">
+                    <button type="button" className="do-remove">
+                        x
+                    </button>
+                </div>
             </div>
         </li>
     ));
     return (
         <div id="cart" className="cart">
-            <h3 className="cart-title">Cart</h3>
-            <ul className="cart-list list-reset">{loopLineItems}</ul>
+            <header className="copy node-xs-50">
+                <h3>Cart</h3>
+            </header>
+            <section className="node-xs-50">
+                <ul className="cart-list list-reset">{loopLineItems}</ul>
+                <p>
+                    Total: <span className="cart-total-price">${checkout.totalPrice}</span>
+                </p>
+            </section>
+            <footer className="node-xs-50 d-flex justify-content-between">
+                <button type="button" className="btn btn-text btn-lg to-previous" onClick={onCartClose}>
+                    &larr; Continue shopping
+                </button>
+            </footer>
         </div>
     );
 };
