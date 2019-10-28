@@ -8,7 +8,7 @@ const client = Client.buildClient({
 
 const defaultValues = {
     isCartOpen: false,
-    cart: [],
+    quantity: 0,
     checkout: {
         lineItems: [],
     },
@@ -70,6 +70,7 @@ export const ShopProvider = ({ children }) => {
             console.error(e);
         }
     };
+    const quantity = checkout.lineItems.reduce((total, item) => total + item.quantity, 0);
     useEffect(() => {
         initializeCheckout();
     }, []);
@@ -78,6 +79,7 @@ export const ShopProvider = ({ children }) => {
             value={{
                 ...defaultValues,
                 isCartOpen,
+                quantity,
                 checkout,
                 toggleCartOpen,
                 onCartClose,
