@@ -62,6 +62,14 @@ export const ShopProvider = ({ children }) => {
             console.error(e);
         }
     };
+    const removeProductFromCart = async (lineItemId) => {
+        try {
+            const newCheckout = await client.checkout.removeLineItems(checkout.id, [lineItemId]);
+            setCheckout(newCheckout);
+        } catch (e) {
+            console.error(e);
+        }
+    };
     useEffect(() => {
         initializeCheckout();
     }, []);
@@ -74,6 +82,7 @@ export const ShopProvider = ({ children }) => {
                 toggleCartOpen,
                 onCartClose,
                 addProductToCart,
+                removeProductFromCart,
             }}
         >
             {children}
