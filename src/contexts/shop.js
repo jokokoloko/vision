@@ -29,17 +29,28 @@ export const ShopProvider = ({ children }) => {
     const toggleCartOpen = () => setCartOpen(!isCartOpen);
     const onCartClose = () => setCartOpen(false);
     const [checkout, setCheckout] = useState(defaultValues.checkout);
+    const createNewCheckout = async () => {
+        try {
+            const newCheckout = await client.checkout.create();
+            if (isBrowser) {
+                localStorage.setItem('checkout_id', newCheckout.id);
+            }
+            return newCheckout;
+        } catch (e) {
+            console.error(e);
+        }
+    };
     const initializeCheckout = async () => {
         try {
             const currentCheckoutId = isBrowser ? localStorage.getItem('checkout_id') : null;
             let newCheckout = null;
             if (currentCheckoutId) {
                 newCheckout = await client.checkout.fetch(currentCheckoutId);
-            } else {
-                newCheckout = await client.checkout.create();
-                if (isBrowser) {
-                    localStorage.setItem('checkout_id', newCheckout.id);
+                if (newCheckout.completedAt) {
+                    newCheckout = await createNewCheckout();
                 }
+            } else {
+                newCheckout = await createNewCheckout();
             }
             setCheckout(newCheckout);
         } catch (e) {
@@ -56,8 +67,6 @@ export const ShopProvider = ({ children }) => {
             ];
             const newCheckout = await client.checkout.addLineItems(checkout.id, lineItems);
             setCheckout(newCheckout);
-            // window.open(newCheckout.webUrl, '_blank');
-            // console.log(newCheckout.webUrl);
         } catch (e) {
             console.error(e);
         }

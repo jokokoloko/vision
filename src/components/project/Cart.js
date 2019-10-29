@@ -36,8 +36,14 @@ const Cart = () => {
             </header>
             <section className="cart-section node-xs-50">
                 {checkout.lineItems.length > 0 ? <ul className="cart-list list-reset">{loopLineItems}</ul> : <p>You have no items in your cart.</p>}
-                <div className="cart-detail">
-                    <p className="cart-total">
+                <div className="cart-summary">
+                    <p>
+                        Subtotal: <span className="cart-subtotal-price">${checkout.subtotalPrice}</span>
+                    </p>
+                    <p>
+                        Taxes: <span className="cart-total-tax">${checkout.totalTax}</span>
+                    </p>
+                    <p>
                         Total: <span className="cart-total-price">${checkout.totalPrice}</span>
                     </p>
                 </div>
@@ -46,6 +52,9 @@ const Cart = () => {
                 <button type="button" className="btn btn-text btn-lg to-previous" onClick={onCartClose}>
                     &larr; Continue shopping
                 </button>
+                <a className="btn btn-default btn-lg btn-initial to-checkout" href={checkout.webUrl}>
+                    Go to checkout &rarr;
+                </a>
             </footer>
         </div>
     );
