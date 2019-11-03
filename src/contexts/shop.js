@@ -12,11 +12,14 @@ const defaultValues = {
     checkout: {
         lineItems: [],
     },
+    coupon: '',
     toggleCartOpen: () => {},
     onCartClose: () => {},
     addProductToCart: () => {},
     removeProductFromCart: () => {},
+    onCouponChange: () => {},
     checkCoupon: () => {},
+    removeCoupon: () => {},
     client,
 };
 
@@ -29,6 +32,8 @@ export const ShopProvider = ({ children }) => {
     const toggleCartOpen = () => setCartOpen(!isCartOpen);
     const onCartClose = () => setCartOpen(false);
     const [checkout, setCheckout] = useState(defaultValues.checkout);
+    const [coupon, setCoupon] = useState('');
+    const onCouponChange = (value) => setCoupon(value);
     const createNewCheckout = async () => {
         try {
             const newCheckout = await client.checkout.create();
@@ -79,10 +84,18 @@ export const ShopProvider = ({ children }) => {
             console.error(e);
         }
     };
+    const checkCoupon = async (coupon) => {
+        const newCheckout = await client.checkout.addDiscount(checkout.id, coupon);
+        setCheckout(newCheckout);
+    };
+    const removeCoupon = async (coupon) => {
+        const newCheckout = await client.checkout.removeDiscount(checkout.id, coupon);
+        setCheckout(newCheckout);
+    };
     const quantity = checkout.lineItems.reduce((total, item) => total + item.quantity, 0);
     useEffect(() => {
         initializeCheckout();
-    }, []);
+    }, []); // fix with https://github.com/facebook/react/issues/15282 and https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies
     return (
         <ShopContext.Provider
             value={{
@@ -90,10 +103,14 @@ export const ShopProvider = ({ children }) => {
                 isCartOpen,
                 quantity,
                 checkout,
+                coupon,
                 toggleCartOpen,
                 onCartClose,
                 addProductToCart,
                 removeProductFromCart,
+                onCouponChange,
+                checkCoupon,
+                removeCoupon,
             }}
         >
             {children}

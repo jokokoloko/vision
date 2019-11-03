@@ -54,8 +54,8 @@
 .cart .cart-list .cart-line-item + .cart-line-item {
 	margin-top: 30px;
 	}
-.cart .cart-section + .cart-footer,
-.cart .cart-summary {
+.cart .cart-section + .cart-section,
+.cart .cart-section + .cart-footer {
 	margin-top: 50px !important;
 	padding-top: 50px !important;
 	border-top: 3px solid $color-ghost !important;
