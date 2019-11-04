@@ -34,34 +34,6 @@ export const ShopProvider = ({ children }) => {
     const [checkout, setCheckout] = useState(defaultValues.checkout);
     const [coupon, setCoupon] = useState('');
     const onCouponChange = (value) => setCoupon(value);
-    const createNewCheckout = async () => {
-        try {
-            const newCheckout = await client.checkout.create();
-            if (isBrowser) {
-                localStorage.setItem('checkout_id', newCheckout.id);
-            }
-            return newCheckout;
-        } catch (e) {
-            console.error(e);
-        }
-    };
-    const initializeCheckout = async () => {
-        try {
-            const currentCheckoutId = isBrowser ? localStorage.getItem('checkout_id') : null;
-            let newCheckout = null;
-            if (currentCheckoutId) {
-                newCheckout = await client.checkout.fetch(currentCheckoutId);
-                if (newCheckout.completedAt) {
-                    newCheckout = await createNewCheckout();
-                }
-            } else {
-                newCheckout = await createNewCheckout();
-            }
-            setCheckout(newCheckout);
-        } catch (e) {
-            console.error(e);
-        }
-    };
     const addProductToCart = async (variantId) => {
         try {
             const lineItems = [
@@ -94,8 +66,36 @@ export const ShopProvider = ({ children }) => {
     };
     const quantity = checkout.lineItems.reduce((total, item) => total + item.quantity, 0);
     useEffect(() => {
+        const createNewCheckout = async () => {
+            try {
+                const newCheckout = await client.checkout.create();
+                if (isBrowser) {
+                    localStorage.setItem('checkout_id', newCheckout.id);
+                }
+                return newCheckout;
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        const initializeCheckout = async () => {
+            try {
+                const currentCheckoutId = isBrowser ? localStorage.getItem('checkout_id') : null;
+                let newCheckout = null;
+                if (currentCheckoutId) {
+                    newCheckout = await client.checkout.fetch(currentCheckoutId);
+                    if (newCheckout.completedAt) {
+                        newCheckout = await createNewCheckout();
+                    }
+                } else {
+                    newCheckout = await createNewCheckout();
+                }
+                setCheckout(newCheckout);
+            } catch (e) {
+                console.error(e);
+            }
+        };
         initializeCheckout();
-    }, []); // fix with https://github.com/facebook/react/issues/15282 and https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies
+    }, []);
     return (
         <ShopContext.Provider
             value={{
