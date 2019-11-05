@@ -22,8 +22,8 @@ const Cart = () => {
                         <p className="quantity">x{item.quantity}</p>
                     </div>
                     <div className="col-1">
-                        <button type="button" className="do-remove" onClick={onClick}>
-                            x
+                        <button type="button" className="btn btn-default btn-md do-remove" onClick={onClick}>
+                            X
                         </button>
                     </div>
                 </div>

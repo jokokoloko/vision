@@ -27,13 +27,26 @@ const Coupon = () => {
                 </p>
             ) : (
                 <form id="form-coupon" className={`form form-${size}`} onSubmit={onSubmit}>
-                    <div className="field">
-                        <label htmlFor="coupon" className="label">
+                    <div className="input-group input-group-md">
+                        <label htmlFor="coupon" className="sr-only">
                             Coupon
                         </label>
-                        <input type="text" id="coupon" className="input" onChange={onChange} value={coupon} />
+                        <input
+                            type="text"
+                            id="coupon"
+                            className="form-control"
+                            onChange={onChange}
+                            value={coupon}
+                            placeholder="Coupon code"
+                            aria-label="Coupon code"
+                            aria-describedby="do-add-coupon"
+                        />
+                        <div className="input-group-append">
+                            <button type="button" id="do-add-coupon" className="btn btn-default do-add-coupon">
+                                Apply
+                            </button>
+                        </div>
                     </div>
-                    <button className="button">Add Coupon</button>
                 </form>
             )}
         </div>
