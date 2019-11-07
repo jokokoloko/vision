@@ -3,6 +3,7 @@ import { ShopContext } from '../../contexts/shop';
 
 const Coupon = () => {
     const { checkout, coupon, onCouponChange, checkCoupon, removeCoupon } = useContext(ShopContext);
+    const onClick = () => removeCoupon(checkout.discountApplications[0].code);
     const onChange = (e) => {
         const target = e.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -17,12 +18,12 @@ const Coupon = () => {
         <div className="cart-coupon">
             {checkout.discountApplications.length > 0 ? (
                 <p>
-                    Coupon:
-                    <h5 className="title">
+                    Coupon:{' '}
+                    <span className="cart-coupon-code">
                         {checkout.discountApplications[0].code} - {checkout.discountApplications[0].value.percentage}% off
-                    </h5>
-                    <button onClick={() => removeCoupon(checkout.discountApplications[0].code)} className="is-small button is-danger is-outlined">
-                        Remove
+                    </span>
+                    <button type="button" className="btn btn-default btn-md do-remove" onClick={onClick}>
+                        X
                     </button>
                 </p>
             ) : (
@@ -42,9 +43,7 @@ const Coupon = () => {
                             aria-describedby="do-add-coupon"
                         />
                         <div className="input-group-append">
-                            <button type="button" id="do-add-coupon" className="btn btn-default do-add-coupon">
-                                Apply
-                            </button>
+                            <input type="submit" id="do-add-coupon" className="btn btn-default do-add-coupon" name="do-add-coupon" value="Apply" />
                         </div>
                     </div>
                 </form>
