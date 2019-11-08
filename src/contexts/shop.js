@@ -7,6 +7,7 @@ const client = Client.buildClient({
 });
 
 const defaultValues = {
+    isLoading: false,
     isCartOpen: false,
     quantity: 0,
     checkout: {
@@ -28,6 +29,7 @@ const isBrowser = typeof window !== 'undefined';
 export const ShopContext = createContext(defaultValues);
 
 export const ShopProvider = ({ children }) => {
+    const [isLoading, setLoading] = useState(false);
     const [isCartOpen, setCartOpen] = useState(false);
     const toggleCartOpen = () => setCartOpen(!isCartOpen);
     const onCartClose = () => setCartOpen(false);
@@ -36,6 +38,7 @@ export const ShopProvider = ({ children }) => {
     const onCouponChange = (value) => setCoupon(value);
     const addProductToCart = async (variantId) => {
         try {
+            setLoading(true);
             const lineItems = [
                 {
                     quantity: 1,
@@ -44,25 +47,44 @@ export const ShopProvider = ({ children }) => {
             ];
             const newCheckout = await client.checkout.addLineItems(checkout.id, lineItems);
             setCheckout(newCheckout);
+            setLoading(false);
         } catch (e) {
+            setLoading(false);
             console.error(e);
         }
     };
     const removeProductFromCart = async (lineItemId) => {
         try {
+            setLoading(true);
             const newCheckout = await client.checkout.removeLineItems(checkout.id, [lineItemId]);
             setCheckout(newCheckout);
+            setLoading(false);
         } catch (e) {
+            setLoading(false);
             console.error(e);
         }
     };
     const checkCoupon = async (coupon) => {
-        const newCheckout = await client.checkout.addDiscount(checkout.id, coupon);
-        setCheckout(newCheckout);
+        try {
+            setLoading(true);
+            const newCheckout = await client.checkout.addDiscount(checkout.id, coupon);
+            setCheckout(newCheckout);
+            setLoading(false);
+        } catch (e) {
+            setLoading(false);
+            console.error(e);
+        }
     };
     const removeCoupon = async (coupon) => {
-        const newCheckout = await client.checkout.removeDiscount(checkout.id, coupon);
-        setCheckout(newCheckout);
+        try {
+            setLoading(true);
+            const newCheckout = await client.checkout.removeDiscount(checkout.id, coupon);
+            setCheckout(newCheckout);
+            setLoading(false);
+        } catch (e) {
+            setLoading(false);
+            console.error(e);
+        }
     };
     const quantity = checkout.lineItems.reduce((total, item) => total + item.quantity, 0);
     useEffect(() => {
@@ -100,6 +122,7 @@ export const ShopProvider = ({ children }) => {
         <ShopContext.Provider
             value={{
                 ...defaultValues,
+                isLoading,
                 isCartOpen,
                 quantity,
                 checkout,

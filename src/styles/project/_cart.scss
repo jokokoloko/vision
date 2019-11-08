@@ -3,7 +3,7 @@
 /* ========================= */
 
 /* ----------!SPRING---------- */
-.spring-slide {
+.spring-slide-cart {
 	background-color: $color-white;
 	padding: 80px;
 	width: 50%;
@@ -12,10 +12,13 @@
 	top: 0;
 	bottom: 0;
 	right: 0;
-	z-index: 9999;
+	z-index: 2000;
 	box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 10px;
 	}
-.spring-slide .spring-slide-close {
+.spring-slide-cart + .shroud {
+	z-index: 3000;
+	}
+.spring-slide-cart .spring-slide-close {
 	margin: 60px;
 	padding: 15px;
 	width: 50px;

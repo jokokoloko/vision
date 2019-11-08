@@ -11,6 +11,7 @@ import Menu from './Menu';
 import Header from './region/Header';
 import Footer from './region/Footer';
 import Scroll from './widget/Scroll';
+import Loader from './widget/Loader';
 import SpringSlideCart from './project/SpringSlideCart';
 
 const Layout = ({ location, template, title, description, children }) => {
@@ -57,6 +58,7 @@ const Layout = ({ location, template, title, description, children }) => {
             <Footer offcanvasPush={offcanvasPush} />
             <SpringSlideCart />
             {showScroll && <Scroll position="fixed" up top />}
+            <Loader />
         </Fragment>
     );
 };
