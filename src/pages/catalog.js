@@ -6,6 +6,7 @@ import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Feed from '../components/section/Feed';
 import Link from '../components/unit/Link';
+import MenuCollection from '../components/project/MenuCollection';
 
 export default ({ location, data }) => {
     const { addProductToCart } = useContext(ShopContext);
@@ -56,6 +57,9 @@ export default ({ location, data }) => {
                     <section className="node-xs-50 node-lg-80 cheat-both">
                         <div className="row gutter-80">{loopProduct}</div>
                     </section>
+                    <footer className="node-xs-50 node-lg-80">
+                        <MenuCollection />
+                    </footer>
                 </Feed>
             )}
         </Layout>
