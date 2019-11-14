@@ -172,4 +172,45 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
             },
         });
     });
+
+    // Collection
+    const collections = await graphql(`
+        query {
+            entries: allShopifyCollection {
+                edges {
+                    node {
+                        id
+                        handle
+                    }
+                }
+            }
+        }
+    `);
+    const collectionArchive = 'collection';
+    const collectionDirectory = collectionArchive;
+    const collectionEntries = collections.data.entries.edges;
+    const collectionTotal = collectionEntries.length;
+    const collectionPerPage = 1;
+    const collectionNumPages = Math.ceil(collectionTotal / collectionPerPage);
+
+    // Collection - Single
+    collectionEntries.forEach(({ node }, index) => {
+        const { id, handle } = node;
+        const previous = index === collectionTotal - 1 ? null : collectionEntries[index + 1].node;
+        const next = index === 0 ? null : collectionEntries[index - 1].node;
+
+        createPage({
+            path: `/${collectionDirectory}/${handle}`,
+            component: path.resolve('./src/templates/single-collection.js'),
+            context: {
+                archive: collectionArchive,
+                directory: collectionDirectory,
+                total: collectionTotal,
+                id,
+                handle,
+                previous,
+                next,
+            },
+        });
+    });
 };
