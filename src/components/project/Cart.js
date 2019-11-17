@@ -1,5 +1,6 @@
 import React, { Fragment, useContext } from 'react';
 import { ShopContext } from '../../contexts/shop';
+import Billboard from './Billboard';
 import Coupon from './Coupon';
 
 const Cart = () => {
@@ -32,8 +33,13 @@ const Cart = () => {
     });
     return (
         <div id="cart" className="cart">
-            <header className="cart-header copy node-xs-50">
+            <header className="cart-header node-xs-50 d-flex align-items-center justify-content-between">
                 <h3>Cart</h3>
+                {checkout.lineItems.length > 0 && (
+                    <a className="btn btn-default btn-md btn-initial to-checkout" href={checkout.webUrl}>
+                        Check out now &rarr;
+                    </a>
+                )}
             </header>
             {checkout.lineItems.length > 0 ? (
                 <Fragment>
@@ -47,15 +53,10 @@ const Cart = () => {
                             </div>
                             <div className="col">
                                 <div className="cart-summary">
-                                    <p>
+                                    <p className="cart-detail">
                                         Subtotal: <span className="cart-subtotal-price">${checkout.subtotalPrice}</span>
                                     </p>
-                                    <p>
-                                        Taxes: <span className="cart-total-tax">${checkout.totalTax}</span>
-                                    </p>
-                                    <p>
-                                        Total: <span className="cart-total-price">${checkout.totalPrice}</span>
-                                    </p>
+                                    <p className="cart-disclaimer">Taxes and shipping calculated at checkout.</p>
                                 </div>
                             </div>
                         </div>
@@ -66,6 +67,9 @@ const Cart = () => {
                     <p>You have no items in your cart.</p>
                 </section>
             )}
+            <section className="cart-section node-xs-50">
+                <Billboard />
+            </section>
             <footer className="cart-footer node-xs-50 d-flex justify-content-between">
                 <button type="button" className="btn btn-text btn-lg to-previous" onClick={onCartClose}>
                     &larr; Continue shopping

@@ -12,6 +12,7 @@
 	top: 0;
 	bottom: 0;
 	right: 0;
+	overflow-y: scroll;
 	z-index: 2000;
 	box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 10px;
 	}
@@ -66,13 +67,36 @@
 	border-top: 3px solid $color-ghost !important;
 	}
 
+/* ----------!COPY---------- */
+.cart .cart-header h3 {
+	font-weight: 300;
+	}
+@include media-breakpoint-up(lg) {
+	.cart .cart-header h3 {
+		margin-top: -9px;
+		margin-bottom: -11px;
+		margin-left: -2px;
+		margin-right: -2px;
+		font-size: 41px;
+		line-height: 50px;
+		}
+	}
+
 /* ----------!SUMMARY---------- */
 .cart .cart-summary > p {
-	font-weight: 400;
 	text-align: right;
 	}
 .cart .cart-summary > p + p {
 	padding-top: 23px;
+	}
+.cart .cart-summary > .cart-detail {
+	font-weight: 400;
+	}
+.cart .cart-summary > .cart-disclaimer {
+	margin-top: -5px;
+	margin-bottom: -5px;
+	font-size: 14px;
+	line-height: 20px;
 	}
 
 /* ----------!INDICATOR---------- */
