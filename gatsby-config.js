@@ -1,19 +1,21 @@
-require('dotenv').config();
+require('dotenv').config({
+    path: `.env.${process.env.NODE_ENV}`,
+});
 
 module.exports = {
     siteMetadata: {
-        siteUrl: 'https://dreamy-khorana-1f4974.netlify.com/',
-        title: 'Ghost',
-        description: 'a Gatsby + Contentful + Netlify starter',
-        author: 'Jonathan Howland',
+        siteUrl: 'https://github.com/Confirm-Biosciences/confirm',
+        title: 'Confirm',
+        description: 'a Gatsby + Contentful + Shopify + Netlify starter',
+        author: 'Confirm BioSciences',
     },
     plugins: [
         'gatsby-plugin-catch-links',
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                name: 'Ghost',
-                short_name: 'Ghost',
+                name: 'Confirm',
+                short_name: 'Confirm',
                 start_url: '/',
                 background_color: '#ffffff',
                 theme_color: '#222222',
@@ -33,6 +35,14 @@ module.exports = {
             options: {
                 spaceId: process.env.CONTENTFUL_SPACE_ID,
                 accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+            },
+        },
+        {
+            resolve: 'gatsby-source-shopify',
+            options: {
+                shopName: process.env.SHOPIFY_SHOP_NAME,
+                accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+                includeCollections: ['shop'],
             },
         },
         {

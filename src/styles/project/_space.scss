@@ -346,6 +346,29 @@ p + .instagram-media {
 	padding-top: 23px; // 30px spacing
 	}
 
+/* ============================ */
+/* ==========!ARTICLE========== */
+/* ============================ */
+
+/* ----------!PRODUCT---------- */
+.product h3 + p,
+.single-product h1 + p,
+.single-product h2 + p, {
+	padding-top: 23px; // 30px spacing
+	}
+.product p + .btn {
+	margin-top: 50px; // 50px spacing
+	}
+@include media-breakpoint-up(lg) {
+	.single-product .product-header {
+		padding-top: 50px; // 50px spacing
+		}
+    }
+.single-product .product-footer {
+	margin-top: 50px; // 50px spacing
+	border-top: 3px solid $color-ghost !important;
+	}
+
 /* ========================== */
 /* ==========!STYLE========== */
 /* ========================== */

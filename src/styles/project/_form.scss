@@ -127,7 +127,7 @@ input[type="tel"]:focus,
 .form label > span {
     color: $color-metal;
     }
-.form label + .form-control {
+.form label:not([class*="sr-only"]) + .form-control {
     margin-top: 10px;
     }
 .form .form-control {
@@ -170,7 +170,7 @@ input[type="tel"]:focus,
 .input-group-md > .input-group-append > .input-group-text,
 .input-group-md > .input-group-prepend > .btn,
 .input-group-md > .input-group-prepend > .input-group-text {
-	padding: 4px 9px;
+	padding: 0 9px;
 	height: 30px;
 	font-size: 14px;
 	line-height: 20px;
