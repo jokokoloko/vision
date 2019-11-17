@@ -10,25 +10,25 @@ import MenuCollection from '../components/project/MenuCollection';
 
 export default ({ location, data }) => {
     const { addProductToCart } = useContext(ShopContext);
-    const { products, page } = data;
-    const loopProduct = products.edges.map(({ node }) => {
+    const { collection } = data;
+    const loopCollection = collection.products.map((product) => {
         const {
             images: [firstImage],
             variants: [firstVariant],
-        } = node;
+        } = product;
         const onClick = () => addProductToCart(firstVariant.shopifyId);
         return (
-            <article key={node.id} id={`product-${node.handle}`} className="product col-lg-4">
+            <article key={product.id} id={`product-${product.handle}`} className="product col-lg-4">
                 <div className="case relative node-xs-50">
                     {firstImage && (
                         <figure className="node-xs-50">
-                            <img className="img-fluid" src={firstImage.originalSrc} alt={node.title} />
+                            <img className="img-fluid" src={firstImage.originalSrc} alt={product.title} />
                         </figure>
                     )}
                     <header className="node-xs-50">
                         <h3>
-                            <Link className="stretched-link" to={path.PRODUCT === '/' ? `/${node.handle}` : `${path.PRODUCT}/${node.handle}`}>
-                                {node.title}
+                            <Link className="stretched-link" to={path.PRODUCT === '/' ? `/${product.handle}` : `${path.PRODUCT}/${product.handle}`}>
+                                {product.title}
                             </Link>
                         </h3>
                         <p className="price">${firstVariant.price}</p>
@@ -45,17 +45,22 @@ export default ({ location, data }) => {
         );
     });
     return (
-        <Layout template={`page page-${page.slug}`} title={page.title} description={logicDescription(page)} location={location}>
-            {page && products.edges.length > 0 && (
-                <Feed id={`feed-${page.slug}`} space="space-custom" item="product">
-                    {page.head && (
-                        <header
-                            className="copy node-xs-50 node-lg-80 text-lg-center"
-                            dangerouslySetInnerHTML={{ __html: page.head.childMarkdownRemark.html }}
-                        />
+        <Layout
+            template={`collection collection-${collection.handle}`}
+            title={collection.title}
+            description={logicDescription(collection)}
+            location={location}
+        >
+            {collection && collection.products.length > 0 && (
+                <Feed id={`feed-${collection.handle}`} space="space-custom" item="product">
+                    {collection.title && (
+                        <header className="copy node-xs-50 node-lg-80 text-lg-center">
+                            <h1>{collection.title}</h1>
+                            <h2>{collection.description}</h2>
+                        </header>
                     )}
                     <section className="node-xs-50 node-lg-80 cheat-both">
-                        <div className="row gutter-80">{loopProduct}</div>
+                        <div className="row gutter-80">{loopCollection}</div>
                     </section>
                     <footer className="node-xs-50 node-lg-80">
                         <MenuCollection />
@@ -67,25 +72,28 @@ export default ({ location, data }) => {
 };
 
 export const query = graphql`
-    query pageCatalog {
-        products: allShopifyProduct(sort: { fields: publishedAt, order: DESC }) {
-            edges {
-                node {
-                    id
-                    handle
+    query collectionByHandle($handle: String!) {
+        collection: shopifyCollection(handle: { eq: $handle }) {
+            id
+            handle
+            title
+            description
+            products {
+                id
+                handle
+                title
+                description
+                productType
+                variants {
+                    shopifyId
                     title
-                    variants {
-                        shopifyId
-                        price
-                    }
-                    images {
-                        originalSrc
-                    }
+                    price
+                    availableForSale
+                }
+                images {
+                    originalSrc
                 }
             }
-        }
-        page: contentfulPage(slug: { eq: "catalog" }) {
-            ...contentPage
         }
     }
 `;

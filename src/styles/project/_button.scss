@@ -77,6 +77,14 @@
 	text-decoration: none !important;
 	}
 
+/* ----------!TEXT---------- */
+.btn-text {
+	color: $color-metal !important;
+	}
+.btn-text.to-previous {
+	margin-left: -15px;
+	}
+
 /* ----------!INITIAL---------- */
 .btn-initial {
 	min-width: 130px;
@@ -99,6 +107,12 @@
 	}
 
 /* ----------!SIZE---------- */
+.btn-md {
+	padding: 4px 9px;
+	height: 30px;
+	font-size: 14px;
+	line-height: 18px;
+	}
 .btn-lg,
 .btn-xl,
 .btn-hg {
@@ -122,4 +136,9 @@
 		font-size: 27px;
 		line-height: 30px;
 		}
+	}
+
+/* ----------!REMOVE---------- */
+.btn-cart {
+	position: relative;
 	}

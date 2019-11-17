@@ -1,0 +1,119 @@
+/* ========================= */
+/* ==========!CART========== */
+/* ========================= */
+
+/* ----------!SPRING---------- */
+.spring-slide-cart {
+	background-color: $color-white;
+	padding: 80px;
+	width: 50%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	overflow-y: scroll;
+	z-index: 2000;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 10px;
+	}
+.spring-slide-cart + .shroud {
+	z-index: 3000;
+	}
+.spring-slide-cart .spring-slide-close {
+	margin: 60px;
+	padding: 15px;
+	width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    line-height: 20px;
+	color: $color-metal;
+    text-shadow: none;
+    opacity: 1 !important;
+    z-index: 9999;
+    user-select: none;
+	}
+
+/* ----------!MAIN---------- */
+.cart .cart-list {
+	padding: 0;
+	list-style: none;
+	}
+.cart .cart-list .cart-line-item .price,
+.cart .cart-list .cart-line-item .quantity {
+	text-align: right;
+	}
+
+/* ----------!REMOVE---------- */
+.cart .do-remove {
+	padding-left: 0;
+	padding-right: 0;
+	width: 100%;
+	height: 100%;
+	}
+
+/* ----------!SPACE---------- */
+.cart .cart-title + .cart-list {
+	margin-top: 50px;
+	}
+.cart .cart-list .cart-line-item + .cart-line-item {
+	margin-top: 30px;
+	}
+.cart .cart-section + .cart-section,
+.cart .cart-section + .cart-footer {
+	margin-top: 50px !important;
+	padding-top: 50px !important;
+	border-top: 3px solid $color-ghost !important;
+	}
+
+/* ----------!COPY---------- */
+.cart .cart-header h3 {
+	font-weight: 300;
+	}
+@include media-breakpoint-up(lg) {
+	.cart .cart-header h3 {
+		margin-top: -9px;
+		margin-bottom: -11px;
+		margin-left: -2px;
+		margin-right: -2px;
+		font-size: 41px;
+		line-height: 50px;
+		}
+	}
+
+/* ----------!SUMMARY---------- */
+.cart .cart-summary > p {
+	text-align: right;
+	}
+.cart .cart-summary > p + p {
+	padding-top: 23px;
+	}
+.cart .cart-summary > .cart-detail {
+	font-weight: 400;
+	}
+.cart .cart-summary > .cart-disclaimer {
+	margin-top: -5px;
+	margin-bottom: -5px;
+	font-size: 14px;
+	line-height: 20px;
+	}
+
+/* ----------!INDICATOR---------- */
+.cart-indicator {
+	background-color: $color-metal;
+	border-radius: 50%;
+	margin-top: 15px;
+	margin-right: -10px;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: center;
+	color: $color-white;
+	display: block;
+	}
