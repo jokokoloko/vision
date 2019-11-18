@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 import Client from 'shopify-buy';
 
 const client = Client.buildClient({
-    domain: process.env.SHOPIFY_SHOP_NAME + '.myshopify.com',
+    domain: process.env.SHOPIFY_SHOP_NAME + '.squid.com',
     storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
 });
 

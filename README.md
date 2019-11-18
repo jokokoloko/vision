@@ -2,12 +2,11 @@
 
 Gatsby + Contentful + Shopify + Netlify starter
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/377359ec-49a2-4993-98de-6900f5e9a632/deploy-status)](https://app.netlify.com/sites/dreamy-khorana-1f4974/deploys)
-
 ## Stack
 
 [Gatsby](https://www.gatsbyjs.org/)<br>
 [Contentful](https://www.contentful.com/)<br>
+[Shopify](https://www.shopify.com/)<br>
 [Netlify](https://www.netlify.com/)
 
 ## Features
@@ -17,7 +16,8 @@ Gatsby + Contentful + Shopify + Netlify starter
 [Remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark)<br>
 [Helmet](https://github.com/nfl/react-helmet)<br>
 [Offcanvas](https://github.com/neosiae/react-aria-offcanvas)<br>
-[Scroll](https://www.npmjs.com/package/react-scroll)
+[Scroll](https://www.npmjs.com/package/react-scroll)<br>
+[Spring](https://www.react-spring.io/)
 
 ## Extras
 
@@ -47,4 +47,5 @@ Below are the steps required to use this starter for a new project:
 
 [JAMstack Basics: How to Create a Gatsby Starter with Contentful and Deploy to Netlify](https://itnext.io/jamstack-basics-how-to-create-a-gatsby-starter-with-contentful-and-deploy-to-netlify-846354cc74bc)<br>
 [Setting Up a Continuous Deployment Pipeline with Gatsby.js, Contentful and Netlify](https://www.halfelectronic.com/post/setting-up-gatsby-js-contentful-and-netlify)<br>
-[Rebuild your static site automatically with Contentful webhooks](https://www.contentful.com/developers/docs/tutorials/general/automate-site-builds-with-webhooks/#netlify)
+[Rebuild your static site automatically with Contentful webhooks](https://www.contentful.com/developers/docs/tutorials/general/automate-site-builds-with-webhooks/#netlify)<br>
+[Advanced Gatsby and Shopify](https://www.leveluptutorials.com/tutorials/advanced-gatsby-and-shopify)
