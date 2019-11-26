@@ -4,6 +4,7 @@ import { logicDescription } from '../logic';
 import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Basic from '../components/section/Basic';
+import Image from '../components/unit/Image';
 
 export default ({ location, data }) => {
     const { addProductToCart } = useContext(ShopContext);
@@ -25,7 +26,7 @@ export default ({ location, data }) => {
                     <div className="col-lg-6">
                         {firstImage && (
                             <figure className="node-xs-50">
-                                <img className="img-fluid" src={firstImage.originalSrc} alt={product.title} />
+                                <Image className="image" source={firstImage.localFile.childImageSharp.fluid} alternate={product.title} />
                             </figure>
                         )}
                     </div>
@@ -61,7 +62,7 @@ export const query = graphql`
                 price
             }
             images {
-                originalSrc
+                ...imageShopify
             }
         }
     }

@@ -10,8 +10,10 @@ const Cart = () => {
         return (
             <li key={item.id} className="cart-line-item">
                 <div className="row align-items-center">
-                    <div className="col-2">
-                        <img className="img-fluid" src={item.variant.image.src} alt={item.title} />
+                    <div className="col-auto">
+                        <div className="cart-line-item-image">
+                            <img className="image fit exact-center img-fluid" src={item.variant.image.src} alt={item.title} />
+                        </div>
                     </div>
                     <div className="col">
                         <p className="title">{item.title}</p>

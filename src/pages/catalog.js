@@ -5,6 +5,7 @@ import * as path from '../path';
 import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Feed from '../components/section/Feed';
+import Image from '../components/unit/Image';
 import Link from '../components/unit/Link';
 import MenuCollection from '../components/project/MenuCollection';
 
@@ -22,7 +23,7 @@ export default ({ location, data }) => {
                 <div className="case relative node-xs-50">
                     {firstImage && (
                         <figure className="node-xs-50">
-                            <img className="img-fluid" src={firstImage.originalSrc} alt={node.title} />
+                            <Image className="image" source={firstImage.localFile.childImageSharp.fluid} alternate={node.title} />
                         </figure>
                     )}
                     <header className="node-xs-50">
@@ -79,7 +80,7 @@ export const query = graphql`
                         price
                     }
                     images {
-                        originalSrc
+                        ...imageShopify
                     }
                 }
             }

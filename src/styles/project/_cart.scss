@@ -40,6 +40,12 @@
 	padding: 0;
 	list-style: none;
 	}
+.cart .cart-list .cart-line-item .cart-line-item-image {
+	width: 80px;
+	height: 80px;
+	position: relative;
+	overflow: hidden;
+	}
 .cart .cart-list .cart-line-item .price,
 .cart .cart-list .cart-line-item .quantity {
 	text-align: right;

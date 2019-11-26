@@ -88,6 +88,18 @@ export const imageIcon = graphql`
     }
 `;
 
+export const imageShopify = graphql`
+    fragment imageShopify on ShopifyProductImages {
+        localFile {
+            childImageSharp {
+                fluid(maxWidth: 550, maxHeight: 550, quality: 80) {
+                    ...GatsbyImageSharpFluid_withWebp
+                }
+            }
+        }
+    }
+`;
+
 export const contentGeneral = graphql`
     fragment contentGeneral on ContentfulGeneral {
         id
