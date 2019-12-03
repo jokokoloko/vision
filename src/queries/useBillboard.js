@@ -4,7 +4,7 @@ export default () => {
     const { shopifyProduct } = useStaticQuery(
         graphql`
             query {
-                shopifyProduct(vendor: { eq: "Billboard" }) {
+                shopifyProduct(tags: { eq: "billboard" }) {
                     id
                     handle
                     title
