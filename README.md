@@ -1,6 +1,6 @@
-# Confirm
+# My Health Confirm
 
-Gatsby + Contentful + Shopify + Netlify starter
+Gatsby + Contentful + Shopify + Netlify
 
 ## Stack
 

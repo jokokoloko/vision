@@ -29,34 +29,8 @@ export const DROPDOWN = [
 // Main
 export const MAIN = [
     {
-        label: 'Single',
-        to: path.ABOUT,
-    },
-    {
-        label: 'Archive',
-        to: path.POST,
-    },
-    {
-        label: 'Overview',
-        to: path.OVERVIEW,
-    },
-    {
-        label: 'Catalog',
+        label: 'Our Products',
         to: path.CATALOG,
-    },
-    {
-        label: 'Dropdown',
-        children: DROPDOWN,
-    },
-    {
-        label: 'Scroll',
-        to: 'footer',
-        scroll: true,
-    },
-    {
-        label: 'React',
-        to: path.REACT,
-        external: true,
     },
 ];
 
