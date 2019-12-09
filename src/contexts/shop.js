@@ -16,6 +16,7 @@ const defaultValues = {
     coupon: '',
     toggleCartOpen: () => {},
     onCartClose: () => {},
+    updateQuantity: () => {},
     addProductToCart: () => {},
     removeProductFromCart: () => {},
     onCouponChange: () => {},
@@ -39,13 +40,13 @@ export const ShopProvider = ({ children }) => {
     const addProductToCart = async (variantId) => {
         try {
             setLoading(true);
-            const lineItems = [
+            const lineItemsToAdd = [
                 {
                     quantity: 1,
                     variantId,
                 },
             ];
-            const newCheckout = await client.checkout.addLineItems(checkout.id, lineItems);
+            const newCheckout = await client.checkout.addLineItems(checkout.id, lineItemsToAdd);
             setCheckout(newCheckout);
             setLoading(false);
         } catch (e) {
@@ -53,10 +54,28 @@ export const ShopProvider = ({ children }) => {
             console.error(e);
         }
     };
-    const removeProductFromCart = async (lineItemId) => {
+    const updateQuantity = async (id, quantity) => {
         try {
             setLoading(true);
-            const newCheckout = await client.checkout.removeLineItems(checkout.id, [lineItemId]);
+            const lineItemsToUpdate = [
+                {
+                    id,
+                    quantity,
+                },
+            ];
+            const newCheckout = await client.checkout.updateLineItems(checkout.id, lineItemsToUpdate);
+            setCheckout(newCheckout);
+            setLoading(false);
+        } catch (e) {
+            setLoading(false);
+            console.error(e);
+        }
+    };
+    const removeProductFromCart = async (id) => {
+        try {
+            setLoading(true);
+            const lineItemIdsToRemove = [id];
+            const newCheckout = await client.checkout.removeLineItems(checkout.id, lineItemIdsToRemove);
             setCheckout(newCheckout);
             setLoading(false);
         } catch (e) {
@@ -129,6 +148,7 @@ export const ShopProvider = ({ children }) => {
                 coupon,
                 toggleCartOpen,
                 onCartClose,
+                updateQuantity,
                 addProductToCart,
                 removeProductFromCart,
                 onCouponChange,
