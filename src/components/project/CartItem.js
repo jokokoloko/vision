@@ -7,31 +7,19 @@ const CartItem = ({ item }) => {
     const [quantity, setQuantity] = useState(1);
     const onChange = (event) => {
         const value = event.target.value;
-
-        // Make sure the quantity is always at least 1.
         const safeValue = Math.max(Number(value), 0);
-
-        // No need to update if the value hasn’t updated.
         if (value === quantity) {
             return;
         }
-
-        // If the field is empty, update the state but don’t do anything else.
         if (value === '') {
             setQuantity(value);
             return;
         }
-
-        // Otherwise, trigger the loading state and set the quantity in state.
         setQuantity(safeValue);
-
-        // If the quantity is set to 0, remove the item.
         if (safeValue === 0) {
             removeProductFromCart(item.id);
             return;
         }
-
-        // If we get here, update the quantity.
         updateQuantity(item.id, safeValue);
     };
     const onBlur = () => setQuantity(item.quantity);
@@ -54,19 +42,21 @@ const CartItem = ({ item }) => {
                     <p className="price">${item.variant.price}</p>
                 </div>
                 <div className="col-2">
-                    <input
-                        type="number"
-                        id={`quantity-${item.id.substring(58, 64)}`}
-                        className="form-control form-control-md"
-                        name="quantity"
-                        inputMode="numeric"
-                        min="1"
-                        step="1"
-                        onChange={onChange}
-                        onBlur={onBlur}
-                        value={quantity}
-                        aria-label="quantity"
-                    />
+                    <form id={`form-${item.id.substring(58, 64)}`} className="form">
+                        <input
+                            type="number"
+                            id={`quantity-${item.id.substring(58, 64)}`}
+                            className="form-control form-control-md"
+                            name="quantity"
+                            inputMode="numeric"
+                            min="1"
+                            step="1"
+                            onChange={onChange}
+                            onBlur={onBlur}
+                            value={quantity}
+                            aria-label="quantity"
+                        />
+                    </form>
                 </div>
                 <div className="col-1">
                     <button type="button" className="btn btn-default btn-md do-remove" onClick={onClick}>
