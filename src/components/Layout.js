@@ -56,8 +56,8 @@ const Layout = ({ location, template, title, description, children }) => {
                 <div className="container-fluid">{children}</div>
             </main>
             <Footer offcanvasPush={offcanvasPush} />
-            <SpringSlideCart />
             {showScroll && <Scroll position="fixed" up top />}
+            <SpringSlideCart />
             <Loader />
         </Fragment>
     );
