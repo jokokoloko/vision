@@ -13,7 +13,10 @@ export default ({ location, data }) => {
         images: [firstImage],
         variants: [firstVariant],
     } = product;
-    const onClick = () => addProductToCart(firstVariant.shopifyId);
+    const onSubmit = (event) => {
+        event.preventDefault();
+        addProductToCart(firstVariant.shopifyId);
+    };
     return (
         <Layout
             template={`single single-product single-product-${product.handle}`}
@@ -36,9 +39,9 @@ export default ({ location, data }) => {
                             <p className="price">${firstVariant.price}</p>
                         </header>
                         <section className="product-section node-xs-50">
-                            <button type="button" className="btn btn-default btn-lg btn-initial no-class" onClick={onClick}>
-                                Add to cart
-                            </button>
+                            <form id={`form-product-${product.id.substring(58, 64)}`} className="form form-md" onSubmit={onSubmit}>
+                                <input type="submit" className="btn btn-default btn-lg btn-initial no-class" name="submit" value="Add to cart" />
+                            </form>
                         </section>
                         <footer className="product-footer node-xs-50">
                             <p className="description">{product.description}</p>
