@@ -12,24 +12,24 @@ import MenuCollection from '../components/project/MenuCollection';
 export default ({ location, data }) => {
     const { addProductToCart } = useContext(ShopContext);
     const { products, page } = data;
-    const loopProduct = products.edges.map(({ node }) => {
+    const loopProduct = products.edges.map(({ node: product }) => {
         const {
             images: [firstImage],
             variants: [firstVariant],
-        } = node;
+        } = product;
         const onClick = () => addProductToCart(firstVariant.shopifyId);
         return (
-            <article key={node.id} id={`product-${node.handle}`} className="product col-lg-4">
+            <article key={product.id} id={`product-${product.handle}`} className="product col-lg-4">
                 <div className="case relative node-xs-50">
                     {firstImage && (
                         <figure className="node-xs-50">
-                            <Image className="image" source={firstImage.localFile.childImageSharp.fluid} alternate={node.title} />
+                            <Image className="image" source={firstImage.localFile.childImageSharp.fluid} alternate={product.title} />
                         </figure>
                     )}
                     <header className="node-xs-50">
                         <h3>
-                            <Link className="stretched-link" to={path.PRODUCT === '/' ? `/${node.handle}` : `${path.PRODUCT}/${node.handle}`}>
-                                {node.title}
+                            <Link className="stretched-link" to={path.PRODUCT === '/' ? `/${product.handle}` : `${path.PRODUCT}/${product.handle}`}>
+                                {product.title}
                             </Link>
                         </h3>
                         <p className="price">${firstVariant.price}</p>
