@@ -45,12 +45,12 @@ export default ({ location, data }) => {
                             <p className="price">${firstVariant.price}</p>
                         </header>
                         <section className="product-section node-xs-50">
-                            <form id={`form-product-${product.id.substring(58, 64)}`} className="form form-md" onSubmit={onSubmit}>
+                            <form id={`form-product-${product.id.substring(58, 64)}`} className="form form-lg" onSubmit={onSubmit}>
                                 <div className="input-group">
                                     <input
                                         type="number"
                                         id={`quantity-${product.id.substring(58, 64)}`}
-                                        className="form-control form-control-lg"
+                                        className="form-control form-control-lg form-control-quantity"
                                         name="quantity"
                                         inputMode="numeric"
                                         min="1"
