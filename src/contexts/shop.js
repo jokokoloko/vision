@@ -37,13 +37,13 @@ export const ShopProvider = ({ children }) => {
     const [checkout, setCheckout] = useState(defaultValues.checkout);
     const [coupon, setCoupon] = useState('');
     const onCouponChange = (value) => setCoupon(value);
-    const addProductToCart = async (variantId) => {
+    const addProductToCart = async (variantId, quantity) => {
         try {
             setLoading(true);
             const lineItemsToAdd = [
                 {
-                    quantity: 1,
                     variantId,
+                    quantity,
                 },
             ];
             const newCheckout = await client.checkout.addLineItems(checkout.id, lineItemsToAdd);
