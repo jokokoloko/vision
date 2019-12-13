@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import * as path from '../../path';
 import { ShopContext } from '../../contexts/shop';
@@ -7,11 +7,20 @@ import Link from '../unit/Link';
 
 const ArticleProduct = ({ product }) => {
     const { addProductToCart } = useContext(ShopContext);
+    const [quantity, setQuantity] = useState('1');
     const {
         images: [firstImage],
         variants: [firstVariant],
     } = product;
-    const onClick = () => addProductToCart(firstVariant.shopifyId);
+    const onChange = (event) => {
+        const value = event.target.value;
+        setQuantity(value);
+    };
+    const onBlur = () => quantity === '' && setQuantity('1');
+    const onSubmit = (event) => {
+        event.preventDefault();
+        addProductToCart(firstVariant.shopifyId, Number(quantity));
+    };
     return (
         <article key={product.id} id={`product-${product.handle}`} className="product col-lg-4">
             <div className="case relative node-xs-50">
@@ -31,9 +40,26 @@ const ArticleProduct = ({ product }) => {
             </div>
             <div className="case node-xs-50">
                 <footer>
-                    <button type="button" className="btn btn-default btn-lg btn-initial no-class" onClick={onClick}>
-                        Add to cart
-                    </button>
+                    <form id={`form-product-${product.id.substring(58, 64)}`} className="form form-lg" onSubmit={onSubmit}>
+                        <div className="input-group">
+                            <input
+                                type="number"
+                                id={`quantity-${product.id.substring(58, 64)}`}
+                                className="form-control form-control-lg form-control-quantity"
+                                name="quantity"
+                                inputMode="numeric"
+                                min="1"
+                                step="1"
+                                onChange={onChange}
+                                onBlur={onBlur}
+                                value={quantity}
+                                aria-label="quantity"
+                            />
+                            <div className="input-group-append">
+                                <input type="submit" className="btn btn-default btn-lg btn-initial no-class" name="submit" value="Add to cart" />
+                            </div>
+                        </div>
+                    </form>
                 </footer>
             </div>
         </article>
