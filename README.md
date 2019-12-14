@@ -48,4 +48,5 @@ Below are the steps required to use this starter for a new project:
 [JAMstack Basics: How to Create a Gatsby Starter with Contentful and Deploy to Netlify](https://itnext.io/jamstack-basics-how-to-create-a-gatsby-starter-with-contentful-and-deploy-to-netlify-846354cc74bc)<br>
 [Setting Up a Continuous Deployment Pipeline with Gatsby.js, Contentful and Netlify](https://www.halfelectronic.com/post/setting-up-gatsby-js-contentful-and-netlify)<br>
 [Rebuild your static site automatically with Contentful webhooks](https://www.contentful.com/developers/docs/tutorials/general/automate-site-builds-with-webhooks/#netlify)<br>
-[Advanced Gatsby and Shopify](https://www.leveluptutorials.com/tutorials/advanced-gatsby-and-shopify)
+[Advanced Gatsby and Shopify](https://www.leveluptutorials.com/tutorials/advanced-gatsby-and-shopify)<br>
+[Statically generated e-commerce using Shopify and Netlify](https://blog.rousek.name/2018/04/12/statically-generated-ecommerce-using-shopify-and-netlify/)

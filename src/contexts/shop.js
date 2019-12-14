@@ -17,6 +17,7 @@ const defaultValues = {
     toggleCartOpen: () => {},
     onCartClose: () => {},
     addProductToCart: () => {},
+    updateQuantity: () => {},
     removeProductFromCart: () => {},
     onCouponChange: () => {},
     checkCoupon: () => {},
@@ -36,16 +37,16 @@ export const ShopProvider = ({ children }) => {
     const [checkout, setCheckout] = useState(defaultValues.checkout);
     const [coupon, setCoupon] = useState('');
     const onCouponChange = (value) => setCoupon(value);
-    const addProductToCart = async (variantId) => {
+    const addProductToCart = async (variantId, quantity) => {
         try {
             setLoading(true);
-            const lineItems = [
+            const lineItemsToAdd = [
                 {
-                    quantity: 1,
                     variantId,
+                    quantity,
                 },
             ];
-            const newCheckout = await client.checkout.addLineItems(checkout.id, lineItems);
+            const newCheckout = await client.checkout.addLineItems(checkout.id, lineItemsToAdd);
             setCheckout(newCheckout);
             setLoading(false);
         } catch (e) {
@@ -53,10 +54,28 @@ export const ShopProvider = ({ children }) => {
             console.error(e);
         }
     };
-    const removeProductFromCart = async (lineItemId) => {
+    const updateQuantity = async (id, quantity) => {
         try {
             setLoading(true);
-            const newCheckout = await client.checkout.removeLineItems(checkout.id, [lineItemId]);
+            const lineItemsToUpdate = [
+                {
+                    id,
+                    quantity,
+                },
+            ];
+            const newCheckout = await client.checkout.updateLineItems(checkout.id, lineItemsToUpdate);
+            setCheckout(newCheckout);
+            setLoading(false);
+        } catch (e) {
+            setLoading(false);
+            console.error(e);
+        }
+    };
+    const removeProductFromCart = async (id) => {
+        try {
+            setLoading(true);
+            const lineItemIdsToRemove = [id];
+            const newCheckout = await client.checkout.removeLineItems(checkout.id, lineItemIdsToRemove);
             setCheckout(newCheckout);
             setLoading(false);
         } catch (e) {
@@ -130,6 +149,7 @@ export const ShopProvider = ({ children }) => {
                 toggleCartOpen,
                 onCartClose,
                 addProductToCart,
+                updateQuantity,
                 removeProductFromCart,
                 onCouponChange,
                 checkCoupon,

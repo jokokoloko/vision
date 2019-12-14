@@ -8,10 +8,10 @@ const Billboard = () => {
         title,
         variants: [firstVariant],
     } = useBillboard();
-    const onClick = () => addProductToCart(firstVariant.shopifyId);
+    const onClick = () => addProductToCart(firstVariant.shopifyId, 1);
     return (
         <aside className="billboard panel d-flex align-items-center justify-content-between">
-            <h3>{title}</h3>
+            <h4>{title}</h4>
             <p className="price">${firstVariant.price}</p>
             <button type="button" className="btn btn-default btn-lg btn-initial no-class" onClick={onClick}>
                 Add to cart

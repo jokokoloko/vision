@@ -1,38 +1,12 @@
 import React, { Fragment, useContext } from 'react';
 import { ShopContext } from '../../contexts/shop';
 import Billboard from './Billboard';
+import CartItem from './CartItem';
 import Coupon from './Coupon';
 
 const Cart = () => {
-    const { checkout, onCartClose, removeProductFromCart } = useContext(ShopContext);
-    const loopLineItems = checkout.lineItems.map((item) => {
-        const onClick = () => removeProductFromCart(item.id);
-        return (
-            <li key={item.id} className="cart-line-item">
-                <div className="row align-items-center">
-                    <div className="col-auto">
-                        <div className="cart-line-item-image">
-                            <img className="image fit exact-center img-fluid" src={item.variant.image.src} alt={item.title} />
-                        </div>
-                    </div>
-                    <div className="col">
-                        <p className="title">{item.title}</p>
-                    </div>
-                    <div className="col-2">
-                        <p className="price">${item.variant.price}</p>
-                    </div>
-                    <div className="col-2">
-                        <p className="quantity">x{item.quantity}</p>
-                    </div>
-                    <div className="col-1">
-                        <button type="button" className="btn btn-default btn-md do-remove" onClick={onClick}>
-                            X
-                        </button>
-                    </div>
-                </div>
-            </li>
-        );
-    });
+    const { checkout, onCartClose } = useContext(ShopContext);
+    const loopLineItems = checkout.lineItems.map((item) => <CartItem key={item.id} item={item} />);
     return (
         <div id="cart" className="cart">
             <header className="cart-header node-xs-50 d-flex align-items-center justify-content-between">

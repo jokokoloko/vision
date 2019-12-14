@@ -1,50 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import { logicDescription } from '../logic';
-import * as path from '../path';
-import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Feed from '../components/section/Feed';
-import Image from '../components/unit/Image';
-import Link from '../components/unit/Link';
+import ArticleProduct from '../components/project/ArticleProduct';
 import MenuCollection from '../components/project/MenuCollection';
 
 export default ({ location, data }) => {
-    const { addProductToCart } = useContext(ShopContext);
     const { products, page } = data;
-    const loopProduct = products.edges.map(({ node }) => {
-        const {
-            images: [firstImage],
-            variants: [firstVariant],
-        } = node;
-        const onClick = () => addProductToCart(firstVariant.shopifyId);
-        return (
-            <article key={node.id} id={`product-${node.handle}`} className="product col-lg-4">
-                <div className="case relative node-xs-50">
-                    {firstImage && (
-                        <figure className="node-xs-50">
-                            <Image className="image" source={firstImage.localFile.childImageSharp.fluid} alternate={node.title} />
-                        </figure>
-                    )}
-                    <header className="node-xs-50">
-                        <h3>
-                            <Link className="stretched-link" to={path.PRODUCT === '/' ? `/${node.handle}` : `${path.PRODUCT}/${node.handle}`}>
-                                {node.title}
-                            </Link>
-                        </h3>
-                        <p className="price">${firstVariant.price}</p>
-                    </header>
-                </div>
-                <div className="case node-xs-50">
-                    <footer>
-                        <button type="button" className="btn btn-default btn-lg btn-initial no-class" onClick={onClick}>
-                            Add to cart
-                        </button>
-                    </footer>
-                </div>
-            </article>
-        );
-    });
+    const loopProduct = products.edges.map(({ node: product }) => <ArticleProduct key={product.id} product={product} />);
     return (
         <Layout template={`page page-${page.slug}`} title={page.title} description={logicDescription(page)} location={location}>
             {page && products.edges.length > 0 && (

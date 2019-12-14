@@ -21,6 +21,11 @@
 /* ==========!FORM========== */
 /* ========================= */
 
+/* ----------!FORM-CONTROL-QUANTITY---------- */
+.input-group > .form-control-quantity {
+    max-width: 80px;
+    }
+
 /* ----------!WIDTH---------- */
 @include media-breakpoint-up(lg) {
 	#form-register,
