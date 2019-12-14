@@ -4,10 +4,9 @@ import { ShopContext } from '../../contexts/shop';
 
 const CartItem = ({ item }) => {
     const { updateQuantity, removeProductFromCart } = useContext(ShopContext);
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState('1');
     const onChange = (event) => {
         const value = event.target.value;
-        const safeValue = Math.max(Number(value), 0);
         if (value === quantity) {
             return;
         }
@@ -15,18 +14,14 @@ const CartItem = ({ item }) => {
             setQuantity(value);
             return;
         }
-        setQuantity(safeValue);
-        if (safeValue === 0) {
-            removeProductFromCart(item.id);
-            return;
-        }
-        updateQuantity(item.id, safeValue);
+        setQuantity(value);
+        updateQuantity(item.id, Number(value));
     };
-    const onBlur = () => setQuantity(item.quantity);
+    const onBlur = () => setQuantity(item.quantity.toString());
     const onClick = () => removeProductFromCart(item.id);
     useEffect(() => {
-        item.quantity !== quantity && quantity !== '' && setQuantity(item.quantity);
-    }, [item.quantity, quantity]);
+        setQuantity(item.quantity.toString());
+    }, [item.quantity]);
     return (
         <li className="cart-line-item">
             <div className="row align-items-center">
