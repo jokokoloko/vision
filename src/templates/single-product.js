@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { graphql } from 'gatsby';
+import { addCommasToNumber } from '../function';
 import { logicDescription } from '../logic';
 import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
@@ -42,7 +43,7 @@ export default ({ location, data }) => {
                     <div className="col-lg-6">
                         <header className="product-header node-xs-50">
                             <h1>{product.title}</h1>
-                            <p className="price">${firstVariant.price}</p>
+                            <p className="price">${addCommasToNumber(firstVariant.price)}</p>
                         </header>
                         <section className="product-section node-xs-50">
                             <form id={`form-product-${product.id.substring(58, 64)}`} className="form form-lg" onSubmit={onSubmit}>
