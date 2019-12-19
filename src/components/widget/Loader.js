@@ -6,7 +6,7 @@ const Loader = () => {
     const { isLoading } = useContext(ShopContext);
     return (
         <Shroud isOpen={isLoading}>
-            <svg width="120" height="30" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+            <svg width="120" height="15" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" fill="#fff">
                 <circle cx="15" cy="15" r="15">
                     <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite" />
                     <animate
