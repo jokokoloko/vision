@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { addCommasToNumber } from '../../function';
 import { ShopContext } from '../../contexts/shop';
 
 const CartItem = ({ item }) => {
@@ -24,23 +25,17 @@ const CartItem = ({ item }) => {
     }, [item.quantity]);
     return (
         <li className="cart-line-item">
-            <div className="row align-items-center">
-                <div className="col-auto">
+            <div className="row">
+                <div className="col-auto d-flex align-items-center">
                     <div className="cart-line-item-image">
                         <img className="image fit exact-center img-fluid" src={item.variant.image.src} alt={item.title} />
                     </div>
                 </div>
-                <div className="col">
+                <div className="col d-flex flex-column flex-content-between">
                     <p className="title">{item.title}</p>
-                </div>
-                <div className="col-2">
-                    <p className="price">${item.variant.price}</p>
-                </div>
-                <div className="col-2">
-                    <form id={`form-${item.id.substring(58, 64)}`} className="form">
+                    <form className="form">
                         <input
                             type="number"
-                            id={`quantity-${item.id.substring(58, 64)}`}
                             className="form-control form-control-md"
                             name="quantity"
                             inputMode="numeric"
@@ -53,10 +48,11 @@ const CartItem = ({ item }) => {
                         />
                     </form>
                 </div>
-                <div className="col-1">
+                <div className="col-3 d-flex flex-column flex-content-between align-items-end">
                     <button type="button" className="btn btn-default btn-md do-remove" onClick={onClick}>
                         X
                     </button>
+                    <p className="price">${addCommasToNumber(item.variant.price)}</p>
                 </div>
             </div>
         </li>
