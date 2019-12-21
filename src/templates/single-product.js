@@ -64,7 +64,7 @@ export default ({ location, data }) => {
                                     <div className="input-group-append">
                                         <input
                                             type="submit"
-                                            className="btn btn-default btn-lg btn-initial no-class"
+                                            className="btn btn-default btn-lg btn-initial do-add"
                                             name="submit"
                                             value="Add to cart"
                                         />
@@ -89,12 +89,12 @@ export const query = graphql`
             handle
             title
             description
+            images {
+                ...imageShopify
+            }
             variants {
                 shopifyId
                 price
-            }
-            images {
-                ...imageShopify
             }
         }
     }
