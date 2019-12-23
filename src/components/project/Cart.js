@@ -37,7 +37,7 @@ const Cart = () => {
                 </Fragment>
             ) : (
                 <section className="cart-section node-xs-30">
-                    <p>You have no items in your cart.</p>
+                    <p className="empty">You have no items in your cart.</p>
                 </section>
             )}
             <footer className="cart-footer node-xs-30">
