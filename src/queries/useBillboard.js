@@ -8,12 +8,12 @@ export default () => {
                     id
                     handle
                     title
+                    images {
+                        ...imageShopify
+                    }
                     variants {
                         shopifyId
                         price
-                    }
-                    images {
-                        originalSrc
                     }
                 }
             }

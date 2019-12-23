@@ -1,60 +1,56 @@
 import React, { Fragment, useContext } from 'react';
+import { addCommasToNumber } from '../../function';
 import { ShopContext } from '../../contexts/shop';
 import Billboard from './Billboard';
 import CartItem from './CartItem';
-import Coupon from './Coupon';
 
 const Cart = () => {
-    const { checkout, onCartClose } = useContext(ShopContext);
+    const { quantity, checkout, onCartClose } = useContext(ShopContext);
     const loopLineItems = checkout.lineItems.map((item) => <CartItem key={item.id} item={item} />);
     return (
         <div id="cart" className="cart">
-            <header className="cart-header node-xs-50 d-flex align-items-center justify-content-between">
-                <h3>Cart</h3>
+            <header className="cart-header node-xs-30 d-flex align-items-center justify-content-between">
+                <button type="button" className="btn btn-text to-previous" onClick={onCartClose}>
+                    &larr;
+                </button>
                 {checkout.lineItems.length > 0 && (
-                    <a className="btn btn-default btn-md btn-initial to-checkout" href={checkout.webUrl}>
-                        Check out now &rarr;
+                    <a className="btn btn-text to-checkout" href={checkout.webUrl}>
+                        Cart{quantity > 0 && <span className="cart-indicator">{quantity}</span>}
                     </a>
                 )}
             </header>
             {checkout.lineItems.length > 0 ? (
                 <Fragment>
-                    <section className="cart-section node-xs-50">
+                    <section className="cart-section node-xs-30">
                         <ul className="cart-list list-reset">{loopLineItems}</ul>
                     </section>
-                    <section className="cart-section node-xs-50">
-                        <div className="row">
+                    <section className="cart-section node-xs-30">
+                        <div className="cart-summary row">
                             <div className="col">
-                                <Coupon />
+                                <p className="cart-detail">Subtotal</p>
                             </div>
                             <div className="col">
-                                <div className="cart-summary">
-                                    <p className="cart-detail">
-                                        Subtotal: <span className="cart-subtotal-price">${checkout.subtotalPrice}</span>
-                                    </p>
-                                    <p className="cart-disclaimer">Taxes and shipping calculated at checkout.</p>
-                                </div>
+                                <p className="cart-detail text-right">${addCommasToNumber(checkout.subtotalPrice)}</p>
                             </div>
                         </div>
                     </section>
                 </Fragment>
             ) : (
-                <section className="cart-section node-xs-50">
+                <section className="cart-section node-xs-30">
                     <p>You have no items in your cart.</p>
                 </section>
             )}
-            <section className="cart-section node-xs-50">
-                <Billboard />
-            </section>
-            <footer className="cart-footer node-xs-50 d-flex justify-content-between">
-                <button type="button" className="btn btn-text btn-lg to-previous" onClick={onCartClose}>
-                    &larr; Continue shopping
-                </button>
+            <footer className="cart-footer node-xs-30">
                 {checkout.lineItems.length > 0 && (
-                    <a className="btn btn-default btn-lg btn-initial to-checkout" href={checkout.webUrl}>
-                        Go to checkout &rarr;
-                    </a>
+                    <div className="node-xs-30">
+                        <a className="btn btn-default btn-lg btn-block to-checkout" href={checkout.webUrl}>
+                            Go to checkout &rarr;
+                        </a>
+                    </div>
                 )}
+                <div className="node-xs-30">
+                    <Billboard />
+                </div>
             </footer>
         </div>
     );

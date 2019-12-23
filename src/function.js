@@ -56,6 +56,14 @@ export const excerptify = (text, limit) => (text && (text.length > limit ? text.
 
 export const contentify = (text) => text.replace(/(<([^>]+)>)/gi, '');
 
+// Number
+export const addCommasToNumber = (number, decimal) => {
+    const newNumber = decimal ? number : Math.trunc(number);
+    const parts = newNumber.toString().split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return parts.join('.');
+};
+
 // Object
 export const flattenObject = (object) => {
     const result = {};

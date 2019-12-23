@@ -1,49 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import { logicDescription } from '../logic';
-import * as path from '../path';
-import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Feed from '../components/section/Feed';
-import Link from '../components/unit/Link';
+import ArticleProduct from '../components/project/ArticleProduct';
 import MenuCollection from '../components/project/MenuCollection';
 
 export default ({ location, data }) => {
-    const { addProductToCart } = useContext(ShopContext);
     const { collection } = data;
-    const loopCollection = collection.products.map((product) => {
-        const {
-            images: [firstImage],
-            variants: [firstVariant],
-        } = product;
-        const onClick = () => addProductToCart(firstVariant.shopifyId);
-        return (
-            <article key={product.id} id={`product-${product.handle}`} className="product col-lg-4">
-                <div className="case relative node-xs-50">
-                    {firstImage && (
-                        <figure className="node-xs-50">
-                            <img className="img-fluid" src={firstImage.originalSrc} alt={product.title} />
-                        </figure>
-                    )}
-                    <header className="node-xs-50">
-                        <h3>
-                            <Link className="stretched-link" to={path.PRODUCT === '/' ? `/${product.handle}` : `${path.PRODUCT}/${product.handle}`}>
-                                {product.title}
-                            </Link>
-                        </h3>
-                        <p className="price">${firstVariant.price}</p>
-                    </header>
-                </div>
-                <div className="case node-xs-50">
-                    <footer>
-                        <button type="button" className="btn btn-default btn-lg btn-initial no-class" onClick={onClick}>
-                            Add to cart
-                        </button>
-                    </footer>
-                </div>
-            </article>
-        );
-    });
+    const loopCollection = collection.products.map((product) => <ArticleProduct key={product.id} product={product} />);
     return (
         <Layout
             template={`collection collection-${collection.handle}`}
@@ -82,16 +47,12 @@ export const query = graphql`
                 id
                 handle
                 title
-                description
-                productType
+                images {
+                    ...imageShopify
+                }
                 variants {
                     shopifyId
-                    title
                     price
-                    availableForSale
-                }
-                images {
-                    originalSrc
                 }
             }
         }

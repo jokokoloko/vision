@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { addCommasToNumber } from '../../function';
 import * as path from '../../path';
 import { ShopContext } from '../../contexts/shop';
 import Image from '../unit/Image';
@@ -35,7 +36,7 @@ const ArticleProduct = ({ product }) => {
                             {product.title}
                         </Link>
                     </h3>
-                    <p className="price">${firstVariant.price}</p>
+                    <p className="price">${addCommasToNumber(firstVariant.price)}</p>
                 </header>
             </div>
             <div className="case node-xs-50">
@@ -56,7 +57,7 @@ const ArticleProduct = ({ product }) => {
                                 aria-label="quantity"
                             />
                             <div className="input-group-append">
-                                <input type="submit" className="btn btn-default btn-lg btn-initial no-class" name="submit" value="Add to cart" />
+                                <input type="submit" className="btn btn-default btn-lg btn-initial do-add" name="submit" value="Add to cart" />
                             </div>
                         </div>
                     </form>
