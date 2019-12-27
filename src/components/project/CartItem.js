@@ -8,17 +8,9 @@ const CartItem = ({ item }) => {
     const [quantity, setQuantity] = useState('1');
     const onChange = (event) => {
         const value = event.target.value;
-        if (value === quantity) {
-            return;
-        }
-        if (value === '') {
-            setQuantity(value);
-            return;
-        }
         setQuantity(value);
-        updateQuantity(item.id, Number(value));
     };
-    const onBlur = () => setQuantity(item.quantity.toString());
+    const onBlur = () => (quantity === '' ? setQuantity(item.quantity.toString()) : updateQuantity(item.id, Number(quantity)));
     const onClick = () => removeProductFromCart(item.id);
     useEffect(() => {
         setQuantity(item.quantity.toString());
@@ -34,18 +26,25 @@ const CartItem = ({ item }) => {
                 <div className="col d-flex flex-column flex-content-between">
                     <p className="title">{item.title}</p>
                     <form className="form">
-                        <input
-                            type="number"
-                            className="form-control form-control-md"
-                            name="quantity"
-                            inputMode="numeric"
-                            min="1"
-                            step="1"
-                            onChange={onChange}
-                            onBlur={onBlur}
-                            value={quantity}
-                            aria-label="quantity"
-                        />
+                        <div className="input-group">
+                            <input
+                                type="number"
+                                className="form-control form-control-md form-control-quantity-update"
+                                name="quantity-update"
+                                inputMode="numeric"
+                                min="1"
+                                step="1"
+                                onChange={onChange}
+                                onBlur={onBlur}
+                                value={quantity}
+                                aria-label="quantity"
+                            />
+                            <div className="input-group-append">
+                                <button type="button" className="btn btn-default btn-md do-update" disabled={quantity === item.quantity.toString()}>
+                                    &#x21bb;
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <div className="col-3 d-flex flex-column flex-content-between align-items-end">
