@@ -15,7 +15,7 @@ const Cart = () => {
                 </button>
                 {checkout.lineItems.length > 0 && (
                     <a className="btn btn-text to-checkout" href={checkout.webUrl}>
-                        Cart{quantity > 0 && <span className="cart-indicator">{quantity}</span>}
+                        Cart &rarr;{quantity > 0 && <span className="cart-indicator">{quantity}</span>}
                     </a>
                 )}
             </header>
