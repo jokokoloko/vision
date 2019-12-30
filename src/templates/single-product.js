@@ -10,7 +10,7 @@ import Image from '../components/unit/Image';
 export default ({ location, data }) => {
     const { addProductToCart } = useContext(ShopContext);
     const [quantity, setQuantity] = useState('1');
-    const { product } = data;
+    const { product, content } = data;
     const {
         images: [firstImage],
         variants: [firstVariant],
@@ -78,6 +78,18 @@ export default ({ location, data }) => {
                     </div>
                 </div>
             </Basic>
+            {content && (content.head || content.body) && (
+                <Basic id={`content-${product.handle}`} space="space-xs-50 space-lg-80">
+                    <div className="row gutter-80">
+                        <div className="col-lg-6">
+                            <header className="content-head" dangerouslySetInnerHTML={{ __html: content.head.childMarkdownRemark.html }} />
+                        </div>
+                        <div className="col-lg-6">
+                            <section className="content-body panel" dangerouslySetInnerHTML={{ __html: content.body.childMarkdownRemark.html }} />
+                        </div>
+                    </div>
+                </Basic>
+            )}
         </Layout>
     );
 };
@@ -95,6 +107,25 @@ export const query = graphql`
             variants {
                 shopifyId
                 price
+            }
+        }
+        content: contentfulProduct(handle: { eq: $handle }) {
+            title
+            handle
+            head {
+                childMarkdownRemark {
+                    html
+                    excerpt
+                }
+            }
+            body {
+                childMarkdownRemark {
+                    html
+                    excerpt
+                }
+            }
+            excerpt {
+                excerpt
             }
         }
     }
