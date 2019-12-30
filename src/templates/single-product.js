@@ -5,12 +5,14 @@ import { logicDescription } from '../logic';
 import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Basic from '../components/section/Basic';
+import Feed from '../components/section/Feed';
 import Image from '../components/unit/Image';
+import ArticleSymptom from '../components/project/ArticleSymptom';
 
 export default ({ location, data }) => {
     const { addProductToCart } = useContext(ShopContext);
     const [quantity, setQuantity] = useState('1');
-    const { product, content } = data;
+    const { product, content, symptoms } = data;
     const {
         images: [firstImage],
         variants: [firstVariant],
@@ -24,6 +26,7 @@ export default ({ location, data }) => {
         event.preventDefault();
         addProductToCart(firstVariant.shopifyId, Number(quantity));
     };
+    const loopSymptom = symptoms.edges.map(({ node: symptom }) => <ArticleSymptom key={symptom.id} symptom={symptom} />);
     return (
         <Layout
             template={`single single-product single-product-${product.handle}`}
@@ -90,6 +93,16 @@ export default ({ location, data }) => {
                     </div>
                 </Basic>
             )}
+            {loopSymptom.length > 0 && (
+                <Feed id="feed-symptom" space="space-xs-80 space-md-130 space-xl-210" item="symptom">
+                    <header className="copy node-xs-50 node-lg-80 text-lg-center">
+                        <h3>Symptoms</h3>
+                    </header>
+                    <section className="node-xs-50 node-lg-80">
+                        <div className="row gutter-50 gutter-lg-80">{loopSymptom}</div>
+                    </section>
+                </Feed>
+            )}
         </Layout>
     );
 };
@@ -126,6 +139,13 @@ export const query = graphql`
             }
             excerpt {
                 excerpt
+            }
+        }
+        symptoms: allContentfulSymptom(filter: { product: { elemMatch: { handle: { eq: $handle } } } }, sort: { fields: order, order: ASC }) {
+            edges {
+                node {
+                    ...contentSymptom
+                }
             }
         }
     }

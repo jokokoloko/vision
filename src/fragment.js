@@ -178,3 +178,15 @@ export const contentHero = graphql`
         scroll
     }
 `;
+
+export const contentSymptom = graphql`
+    fragment contentSymptom on ContentfulSymptom {
+        id
+        title
+        slug
+        image {
+            ...imageIcon
+        }
+        order
+    }
+`;
