@@ -8,11 +8,12 @@ import Basic from '../components/section/Basic';
 import Feed from '../components/section/Feed';
 import Image from '../components/unit/Image';
 import ArticleSymptom from '../components/project/ArticleSymptom';
+import ArticleTest from '../components/project/ArticleTest';
 
 export default ({ location, data }) => {
     const { addProductToCart } = useContext(ShopContext);
     const [quantity, setQuantity] = useState('1');
-    const { product, content, symptoms } = data;
+    const { product, content, symptoms, tests } = data;
     const {
         images: [firstImage],
         variants: [firstVariant],
@@ -27,6 +28,7 @@ export default ({ location, data }) => {
         addProductToCart(firstVariant.shopifyId, Number(quantity));
     };
     const loopSymptom = symptoms.edges.map(({ node: symptom }) => <ArticleSymptom key={symptom.id} symptom={symptom} />);
+    const loopTest = tests.edges.map(({ node: test }) => <ArticleTest key={test.id} test={test} />);
     return (
         <Layout
             template={`single single-product single-product-${product.handle}`}
@@ -34,7 +36,7 @@ export default ({ location, data }) => {
             description={logicDescription(product)}
             location={location}
         >
-            <Basic id={`product-${product.handle}`} space="space-custom">
+            <Basic id={`product-${product.handle}`} space="space-product">
                 <div className="row gutter-80">
                     <div className="col-lg-6">
                         {firstImage && (
@@ -82,7 +84,7 @@ export default ({ location, data }) => {
                 </div>
             </Basic>
             {content && (content.head || content.body) && (
-                <Basic id={`content-${product.handle}`} space="space-xs-50 space-lg-80">
+                <Basic id={`content-${product.handle}`} space="space-xs-80 space-md-130 space-xl-210">
                     <div className="row gutter-80">
                         <div className="col-lg-6">
                             <header className="content-head" dangerouslySetInnerHTML={{ __html: content.head.childMarkdownRemark.html }} />
@@ -95,11 +97,21 @@ export default ({ location, data }) => {
             )}
             {loopSymptom.length > 0 && (
                 <Feed id="feed-symptom" space="space-xs-80 space-md-130 space-xl-210" item="symptom">
-                    <header className="copy node-xs-50 node-lg-80 text-lg-center">
+                    <header className="node-xs-50 node-lg-80 text-lg-center">
                         <h3>Symptoms</h3>
                     </header>
                     <section className="node-xs-50 node-lg-80">
                         <div className="row gutter-50 gutter-lg-80">{loopSymptom}</div>
+                    </section>
+                </Feed>
+            )}
+            {loopTest.length > 0 && (
+                <Feed id="feed-test" space="space-xs-80 space-md-130 space-xl-210" item="test">
+                    <header className="node-xs-50 node-lg-80 text-lg-center">
+                        <h3>Test Panels Measured</h3>
+                    </header>
+                    <section className="node-xs-50 node-lg-80">
+                        <div className="row gutter-50 gutter-lg-80">{loopTest}</div>
                     </section>
                 </Feed>
             )}
@@ -145,6 +157,13 @@ export const query = graphql`
             edges {
                 node {
                     ...contentSymptom
+                }
+            }
+        }
+        tests: allContentfulTest(filter: { product: { elemMatch: { handle: { eq: $handle } } } }, sort: { fields: order, order: ASC }) {
+            edges {
+                node {
+                    ...contentTest
                 }
             }
         }

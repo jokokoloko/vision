@@ -190,3 +190,21 @@ export const contentSymptom = graphql`
         order
     }
 `;
+
+export const contentTest = graphql`
+    fragment contentTest on ContentfulTest {
+        id
+        title
+        slug
+        body {
+            childMarkdownRemark {
+                html
+                excerpt
+            }
+        }
+        excerpt {
+            excerpt
+        }
+        order
+    }
+`;
