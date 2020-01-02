@@ -6,16 +6,15 @@ import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Basic from '../components/section/Basic';
 import Feed from '../components/section/Feed';
-import Image from '../components/unit/Image';
 import ArticleSymptom from '../components/project/ArticleSymptom';
 import ArticleTest from '../components/project/ArticleTest';
+import Gallery from '../components/project/Gallery';
 
 export default ({ location, data }) => {
     const { addProductToCart } = useContext(ShopContext);
     const [quantity, setQuantity] = useState('1');
     const { product, content, symptoms, tests } = data;
     const {
-        images: [firstImage],
         variants: [firstVariant],
     } = product;
     const onChange = (event) => {
@@ -38,13 +37,7 @@ export default ({ location, data }) => {
         >
             <Basic id={`product-${product.handle}`} space="space-product">
                 <div className="row gutter-80">
-                    <div className="col-lg-6">
-                        {firstImage && (
-                            <figure className="node-xs-50">
-                                <Image className="image" source={firstImage.localFile.childImageSharp.fluid} alternate={product.title} />
-                            </figure>
-                        )}
-                    </div>
+                    <div className="col-lg-6">{content && content.gallery && <Gallery gallery={content.gallery} />}</div>
                     <div className="col-lg-6">
                         <header className="product-header node-xs-50">
                             <h1>{product.title}</h1>
@@ -137,6 +130,11 @@ export const query = graphql`
         content: contentfulProduct(handle: { eq: $handle }) {
             title
             handle
+            gallery {
+                file {
+                    url
+                }
+            }
             head {
                 childMarkdownRemark {
                     html
