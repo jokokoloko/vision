@@ -13,9 +13,9 @@
 	opacity: 0.5;
 	}
 
-/* ----------!BOTTOM---------- */
+/* ----------!STICK---------- */
 @include media-breakpoint-up(lg) {
-	.bottom {
+	.stick-bottom {
 		position: absolute;
 		right: 0;
 		left: 0;

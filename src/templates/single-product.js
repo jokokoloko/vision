@@ -5,14 +5,16 @@ import { logicDescription } from '../logic';
 import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Basic from '../components/section/Basic';
-import Image from '../components/unit/Image';
+import Feed from '../components/section/Feed';
+import ArticleSymptom from '../components/project/ArticleSymptom';
+import ArticleTest from '../components/project/ArticleTest';
+import Gallery from '../components/project/Gallery';
 
 export default ({ location, data }) => {
     const { addProductToCart } = useContext(ShopContext);
     const [quantity, setQuantity] = useState('1');
-    const { product } = data;
+    const { product, content, symptoms, tests } = data;
     const {
-        images: [firstImage],
         variants: [firstVariant],
     } = product;
     const onChange = (event) => {
@@ -24,6 +26,8 @@ export default ({ location, data }) => {
         event.preventDefault();
         addProductToCart(firstVariant.shopifyId, Number(quantity));
     };
+    const loopSymptom = symptoms.edges.map(({ node: symptom }) => <ArticleSymptom key={symptom.id} symptom={symptom} />);
+    const loopTest = tests.edges.map(({ node: test }) => <ArticleTest key={test.id} test={test} />);
     return (
         <Layout
             template={`single single-product single-product-${product.handle}`}
@@ -31,15 +35,9 @@ export default ({ location, data }) => {
             description={logicDescription(product)}
             location={location}
         >
-            <Basic id={`product-${product.handle}`} space="space-custom">
+            <Basic id={`product-${product.handle}`} space="space-product">
                 <div className="row gutter-80">
-                    <div className="col-lg-6">
-                        {firstImage && (
-                            <figure className="node-xs-50">
-                                <Image className="image" source={firstImage.localFile.childImageSharp.fluid} alternate={product.title} />
-                            </figure>
-                        )}
-                    </div>
+                    <div className="col-lg-6">{content && content.gallery && <Gallery gallery={content.gallery} />}</div>
                     <div className="col-lg-6">
                         <header className="product-header node-xs-50">
                             <h1>{product.title}</h1>
@@ -78,6 +76,38 @@ export default ({ location, data }) => {
                     </div>
                 </div>
             </Basic>
+            {content && (content.head || content.body) && (
+                <Basic id={`content-${product.handle}`} space="space-xs-80 space-md-130 space-xl-210">
+                    <div className="row gutter-80">
+                        <div className="col-lg-6">
+                            <header className="content-head" dangerouslySetInnerHTML={{ __html: content.head.childMarkdownRemark.html }} />
+                        </div>
+                        <div className="col-lg-6">
+                            <section className="content-body panel" dangerouslySetInnerHTML={{ __html: content.body.childMarkdownRemark.html }} />
+                        </div>
+                    </div>
+                </Basic>
+            )}
+            {loopSymptom.length > 0 && (
+                <Feed id="feed-symptom" space="space-xs-80 space-md-130 space-xl-210" item="symptom">
+                    <header className="node-xs-50 node-lg-80 text-lg-center">
+                        <h3>Symptoms</h3>
+                    </header>
+                    <section className="node-xs-50 node-lg-80">
+                        <div className="row gutter-50 gutter-lg-80">{loopSymptom}</div>
+                    </section>
+                </Feed>
+            )}
+            {loopTest.length > 0 && (
+                <Feed id="feed-test" space="space-xs-80 space-md-130 space-xl-210" item="test">
+                    <header className="node-xs-50 node-lg-80 text-lg-center">
+                        <h3>Test Panels Measured</h3>
+                    </header>
+                    <section className="node-xs-50 node-lg-80">
+                        <div className="row gutter-50 gutter-lg-80">{loopTest}</div>
+                    </section>
+                </Feed>
+            )}
         </Layout>
     );
 };
@@ -95,6 +125,44 @@ export const query = graphql`
             variants {
                 shopifyId
                 price
+            }
+        }
+        content: contentfulProduct(handle: { eq: $handle }) {
+            title
+            handle
+            gallery {
+                file {
+                    url
+                }
+            }
+            head {
+                childMarkdownRemark {
+                    html
+                    excerpt
+                }
+            }
+            body {
+                childMarkdownRemark {
+                    html
+                    excerpt
+                }
+            }
+            excerpt {
+                excerpt
+            }
+        }
+        symptoms: allContentfulSymptom(filter: { product: { elemMatch: { handle: { eq: $handle } } } }, sort: { fields: order, order: ASC }) {
+            edges {
+                node {
+                    ...contentSymptom
+                }
+            }
+        }
+        tests: allContentfulTest(filter: { product: { elemMatch: { handle: { eq: $handle } } } }, sort: { fields: order, order: ASC }) {
+            edges {
+                node {
+                    ...contentTest
+                }
             }
         }
     }
