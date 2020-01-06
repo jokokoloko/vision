@@ -40,6 +40,44 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         });
     });
 
+    // Resource
+    const resources = await graphql(`
+        query {
+            entries: allContentfulResource {
+                edges {
+                    node {
+                        title
+                        slug
+                    }
+                }
+            }
+        }
+    `);
+    const resourceArchive = 'resource';
+    const resourceDirectory = resourceArchive;
+    const resourceEntries = resources.data.entries.edges;
+    const resourceTotal = resourceEntries.length;
+
+    // Resource - Single
+    resourceEntries.forEach(({ node }, index) => {
+        const { slug } = node;
+        const previous = index === resourceTotal - 1 ? null : resourceEntries[index + 1].node;
+        const next = index === 0 ? null : resourceEntries[index - 1].node;
+
+        createPage({
+            path: `/${resourceDirectory}/${slug}`,
+            component: path.resolve('./src/templates/single-resource.js'),
+            context: {
+                archive: resourceArchive,
+                directory: resourceDirectory,
+                total: resourceTotal,
+                slug,
+                previous,
+                next,
+            },
+        });
+    });
+
     // Product
     const products = await graphql(`
         query {
