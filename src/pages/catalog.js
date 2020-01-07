@@ -33,7 +33,7 @@ export default ({ location, data }) => {
 
 export const query = graphql`
     query pageCatalog {
-        products: allShopifyProduct(sort: { fields: publishedAt, order: DESC }) {
+        products: allShopifyProduct(sort: { fields: createdAt, order: DESC }) {
             edges {
                 node {
                     id
