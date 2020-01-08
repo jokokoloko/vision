@@ -6,6 +6,7 @@ import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Basic from '../components/section/Basic';
 import Feed from '../components/section/Feed';
+import Image from '../components/unit/Image';
 import ArticleSymptom from '../components/project/ArticleSymptom';
 import ArticleTest from '../components/project/ArticleTest';
 import Gallery from '../components/project/Gallery';
@@ -13,7 +14,7 @@ import Gallery from '../components/project/Gallery';
 export default ({ location, data }) => {
     const { addProductToCart } = useContext(ShopContext);
     const [quantity, setQuantity] = useState('1');
-    const { product, content, symptoms, tests } = data;
+    const { product, content, symptoms, tests, report } = data;
     const {
         variants: [firstVariant],
     } = product;
@@ -30,12 +31,12 @@ export default ({ location, data }) => {
     const loopTest = tests.edges.map(({ node: test }) => <ArticleTest key={test.id} test={test} />);
     return (
         <Layout
-            template={`single single-product single-product-${product.handle}`}
+            template={`single single-product single-product-${product.handle} product-${product.handle}`}
             title={product.title}
             description={logicDescription(product)}
             location={location}
         >
-            <Basic id={`product-${product.handle}`} space="space-product">
+            <Basic id="product-main" space="space-product">
                 <div className="row gutter-80">
                     <div className="col-lg-6">{content && content.gallery && <Gallery gallery={content.gallery} />}</div>
                     <div className="col-lg-6">
@@ -70,14 +71,12 @@ export default ({ location, data }) => {
                                 </div>
                             </form>
                         </section>
-                        <footer className="product-footer node-xs-50">
-                            <p className="description">{product.description}</p>
-                        </footer>
+                        <footer className="product-footer node-xs-50" dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
                     </div>
                 </div>
             </Basic>
             {content && (content.head || content.body) && (
-                <Basic id={`content-${product.handle}`} space="space-xs-80 space-md-130 space-xl-210">
+                <Basic id="content-main" space="space-xs-80 space-md-130 space-xl-210">
                     <div className="row gutter-80">
                         <div className="col-lg-6">
                             <header className="content-head" dangerouslySetInnerHTML={{ __html: content.head.childMarkdownRemark.html }} />
@@ -108,6 +107,25 @@ export default ({ location, data }) => {
                     </section>
                 </Feed>
             )}
+            <Basic id="report" space="space-xs-80 space-md-130 space-xl-210">
+                <div className="panel">
+                    <div className="row align-items-center gutter-80">
+                        <div className="col-lg-6">
+                            <figure className="node-xs-50">
+                                <Image className="image" source={(content && content.figure.fluid) || report.image.fluid} alternate="Report" />
+                            </figure>
+                        </div>
+                        <div className="col-lg-6">
+                            <header
+                                className="report-head"
+                                dangerouslySetInnerHTML={{
+                                    __html: (content && content.copy.childMarkdownRemark.html) || report.body.childMarkdownRemark.html,
+                                }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </Basic>
         </Layout>
     );
 };
@@ -118,7 +136,7 @@ export const query = graphql`
             id
             handle
             title
-            description
+            descriptionHtml
             images {
                 ...imageShopify
             }
@@ -147,6 +165,15 @@ export const query = graphql`
                     excerpt
                 }
             }
+            figure {
+                ...imageFigure
+            }
+            copy {
+                childMarkdownRemark {
+                    html
+                    excerpt
+                }
+            }
             excerpt {
                 excerpt
             }
@@ -164,6 +191,9 @@ export const query = graphql`
                     ...contentTest
                 }
             }
+        }
+        report: contentfulGeneral(slug: { eq: "report" }) {
+            ...contentGeneral
         }
     }
 `;
