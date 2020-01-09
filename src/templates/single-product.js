@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 import Basic from '../components/section/Basic';
 import Feed from '../components/section/Feed';
 import Image from '../components/unit/Image';
+import ArticleStep from '../components/project/ArticleStep';
 import ArticleSymptom from '../components/project/ArticleSymptom';
 import ArticleTest from '../components/project/ArticleTest';
 import Gallery from '../components/project/Gallery';
@@ -14,7 +15,7 @@ import Gallery from '../components/project/Gallery';
 export default ({ location, data }) => {
     const { addProductToCart } = useContext(ShopContext);
     const [quantity, setQuantity] = useState('1');
-    const { product, content, symptoms, tests, report } = data;
+    const { product, content, steps, symptoms, tests, report } = data;
     const {
         variants: [firstVariant],
     } = product;
@@ -27,6 +28,7 @@ export default ({ location, data }) => {
         event.preventDefault();
         addProductToCart(firstVariant.shopifyId, Number(quantity));
     };
+    const loopStep = steps.edges.map(({ node: step }) => <ArticleStep key={step.id} step={step} />);
     const loopSymptom = symptoms.edges.map(({ node: symptom }) => <ArticleSymptom key={symptom.id} symptom={symptom} />);
     const loopTest = tests.edges.map(({ node: test }) => <ArticleTest key={test.id} test={test} />);
     return (
@@ -86,6 +88,16 @@ export default ({ location, data }) => {
                         </div>
                     </div>
                 </Basic>
+            )}
+            {loopStep.length > 0 && (
+                <Feed id="feed-step" space="space-xs-80 space-md-130 space-xl-210" item="symptom">
+                    <header className="node-xs-50 node-lg-80 text-lg-center">
+                        <h3>How It Works</h3>
+                    </header>
+                    <section className="node-xs-50 node-lg-80">
+                        <div className="row gutter-50 gutter-lg-80">{loopStep}</div>
+                    </section>
+                </Feed>
             )}
             {loopSymptom.length > 0 && (
                 <Feed id="feed-symptom" space="space-xs-80 space-md-130 space-xl-210" item="symptom">
@@ -176,6 +188,13 @@ export const query = graphql`
             }
             excerpt {
                 excerpt
+            }
+        }
+        steps: allContentfulStep(sort: { fields: order, order: ASC }) {
+            edges {
+                node {
+                    ...contentStep
+                }
             }
         }
         symptoms: allContentfulSymptom(filter: { product: { elemMatch: { handle: { eq: $handle } } } }, sort: { fields: order, order: ASC }) {
