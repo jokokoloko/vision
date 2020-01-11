@@ -57,7 +57,7 @@ const ArticleProduct = ({ product }) => {
                                 aria-label="quantity"
                             />
                             <div className="input-group-append">
-                                <input type="submit" className="btn btn-default btn-lg btn-initial do-add" name="submit" value="Add to cart" />
+                                <input type="submit" className="btn btn-main btn-lg btn-initial do-add" name="submit" value="Add to cart" />
                             </div>
                         </div>
                     </form>

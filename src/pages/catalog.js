@@ -19,7 +19,7 @@ export default ({ location, data }) => {
                             dangerouslySetInnerHTML={{ __html: page.head.childMarkdownRemark.html }}
                         />
                     )}
-                    <section className="node-xs-50 node-lg-80 cheat-both">
+                    <section className="node-xs-50 node-lg-80">
                         <div className="row gutter-80">{loopProduct}</div>
                     </section>
                     <footer className="node-xs-50 node-lg-80">

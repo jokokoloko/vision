@@ -24,7 +24,7 @@ export default ({ location, data }) => {
                             <h2>{collection.description}</h2>
                         </header>
                     )}
-                    <section className="node-xs-50 node-lg-80 cheat-both">
+                    <section className="node-xs-50 node-lg-80">
                         <div className="row gutter-80">{loopCollection}</div>
                     </section>
                     <footer className="node-xs-50 node-lg-80">

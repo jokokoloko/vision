@@ -43,7 +43,7 @@ const Cart = () => {
             <footer className="cart-footer node-xs-30">
                 {checkout.lineItems.length > 0 && (
                     <div className="node-xs-30">
-                        <a className="btn btn-default btn-lg btn-block to-checkout" href={checkout.webUrl}>
+                        <a className="btn btn-main btn-lg btn-block btn-pill to-checkout" href={checkout.webUrl}>
                             Go to checkout &rarr;
                         </a>
                     </div>
