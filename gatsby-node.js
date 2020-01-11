@@ -132,7 +132,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
             }
         }
     `);
-    const collectionArchive = 'collection';
+    const collectionArchive = '/';
     const collectionDirectory = collectionArchive;
     const collectionEntries = collections.data.entries.edges;
     const collectionTotal = collectionEntries.length;
@@ -146,7 +146,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         const next = index === 0 ? null : collectionEntries[index - 1].node;
 
         createPage({
-            path: `/${collectionDirectory}/${handle}`,
+            path: `/${handle}`,
             component: path.resolve('./src/templates/single-collection.js'),
             context: {
                 archive: collectionArchive,
