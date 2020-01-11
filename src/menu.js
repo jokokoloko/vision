@@ -1,7 +1,7 @@
 import * as path from './path';
 
 // Dropdown
-export const DROPDOWN = [
+export const DROPDOWN_COLLECTION = [
     {
         label: 'One',
         to: path.POST,
@@ -29,7 +29,15 @@ export const DROPDOWN = [
 // Main
 export const MAIN = [
     {
-        label: 'Our Products',
+        label: 'Our Health Tests',
+        children: DROPDOWN_COLLECTION,
+    },
+    {
+        label: 'How It Works',
+        to: path.CATALOG,
+    },
+    {
+        label: `Let's Talk Health`,
         to: path.CATALOG,
     },
 ];

@@ -5,7 +5,7 @@ import * as menu from '../menu';
 import Dropdown from './unit/Dropdown';
 import Link from './unit/Link';
 
-const Menu = ({ offcanvas }) => {
+const Menu = ({ offcanvas, caret }) => {
     const loopMain = menu.MAIN.map(({ label, to, scroll, external, children }) => {
         const name = slugify(label);
         const loopChildren =
@@ -14,7 +14,7 @@ const Menu = ({ offcanvas }) => {
                 <Link key={generateID()} className="dropdown-item" to={to} scroll={scroll} external={external} children={label} />
             ));
         return children ? (
-            <Dropdown key={generateID()} name={offcanvas ? `offcanvas-${name}` : name} label={label} alignment="right" caret>
+            <Dropdown key={generateID()} name={offcanvas ? `offcanvas-${name}` : name} label={label} caret={caret} alignment="right">
                 {loopChildren}
             </Dropdown>
         ) : (
@@ -23,15 +23,17 @@ const Menu = ({ offcanvas }) => {
             </li>
         );
     });
-    return <ul className={offcanvas ? 'offcanvas-nav nav flex-column' : 'navbar-nav ml-auto'}>{loopMain}</ul>;
+    return <ul className={offcanvas ? 'offcanvas-nav nav flex-column' : 'navbar-nav'}>{loopMain}</ul>;
 };
 
 Menu.propTypes = {
     offcanvas: PropTypes.bool,
+    caret: PropTypes.bool,
 };
 
 Menu.defaultProps = {
     offcanvas: false,
+    caret: false,
 };
 
 export default Menu;
