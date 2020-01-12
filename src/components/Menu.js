@@ -4,16 +4,19 @@ import { slugify, generateID } from '../function';
 import * as menu from '../menu';
 import Dropdown from './unit/Dropdown';
 import Link from './unit/Link';
+import DropdownCollection from './project/DropdownCollection';
 
 const Menu = ({ offcanvas, caret }) => {
-    const loopMain = menu.MAIN.map(({ label, to, scroll, external, children }) => {
+    const loopMain = menu.MAIN.map(({ label, to, scroll, external, children, custom }) => {
         const name = slugify(label);
         const loopChildren =
             children &&
             children.map(({ label, to, scroll, external }) => (
                 <Link key={generateID()} className="dropdown-item" to={to} scroll={scroll} external={external} children={label} />
             ));
-        return children ? (
+        return custom ? (
+            <DropdownCollection key={generateID()} offcanvas={offcanvas} caret={caret} label={label} name={name} />
+        ) : children ? (
             <Dropdown key={generateID()} name={offcanvas ? `offcanvas-${name}` : name} label={label} caret={caret} alignment="right">
                 {loopChildren}
             </Dropdown>
