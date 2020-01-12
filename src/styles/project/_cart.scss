@@ -33,7 +33,7 @@
     top: 0px;
     right: 0px;
     line-height: 20px;
-	color: $color-metal;
+	color: $color-text-base;
     text-shadow: none;
     opacity: 1 !important;
     z-index: 9999;
@@ -46,9 +46,9 @@
 	list-style: none;
 	}
 .cart .cart-list .cart-line-item .cart-line-item-image {
-	background-color: $color-ghost;
-	width: 130px;
-	height: 100%;
+	background-color: $color-panel;
+	width: 80px;
+	height: 80px;
 	position: relative;
 	overflow: hidden;
 	}
@@ -56,7 +56,24 @@
 .cart .cart-list .cart-line-item .price {
 	margin-top: -5px;
 	margin-bottom: -5px;
-	font-size: 14px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 20px;
+	}
+.cart .cart-list .cart-line-item .input-group > .form-control-quantity-update {
+	max-width: 130px;
+	}
+
+/* ----------!SUMMARY---------- */
+.cart .cart-summary > p {
+	text-align: right;
+	}
+.cart .cart-summary .cart-detail {
+	margin-top: -5px;
+	margin-bottom: -5px;
+	font-size: 12px;
 	font-weight: 400;
 	line-height: 20px;
 	}
@@ -89,14 +106,22 @@
 	}
 
 /* ----------!SPECIAL---------- */
+.cart .do-update {
+	padding-left: 8px;
+	padding-right: 8px;
+	font-size: 16px;
+	}
+.cart .do-update.disabled,
+.cart .do-update:disabled {
+	opacity: 0;
+	}
 .cart .do-remove {
 	background-color: $color-transparent !important;
 	border: 0 none $color-transparent;
-	margin: -20px;
+	margin: -10px -20px;
 	padding: 0;
 	width: 50px;
 	height: 50px;
-	font-weight: 400;
 	}
 
 /* ----------!SPACE---------- */
@@ -106,15 +131,11 @@
 .cart .cart-list .cart-line-item + .cart-line-item {
 	margin-top: 30px;
 	}
-.cart .cart-list .cart-line-item .title + .form {
-	margin-top: 20px;
-	}
 .cart .cart-header + .cart-section,
 .cart .cart-section + .cart-section,
 .cart .cart-section + .cart-footer {
 	margin-top: 30px !important;
 	padding-top: 30px !important;
-	border-top: 3px solid $color-ghost !important;
 	}
 
 /* ----------!COPY---------- */
@@ -132,21 +153,9 @@
 		}
 	}
 
-/* ----------!SUMMARY---------- */
-.cart .cart-summary > p {
-	text-align: right;
-	}
-.cart .cart-summary .cart-detail {
-	margin-top: -5px;
-	margin-bottom: -5px;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 20px;
-	}
-
 /* ----------!INDICATOR---------- */
 .cart-indicator {
-	background-color: $color-metal;
+	background-color: $color-cart-indicator;
 	border-radius: 50%;
 	margin-top: 15px;
 	margin-right: -10px;

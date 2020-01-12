@@ -10,7 +10,12 @@ const CartItem = ({ item }) => {
         const value = event.target.value;
         setQuantity(value);
     };
-    const onBlur = () => (quantity === '' ? setQuantity(item.quantity.toString()) : updateQuantity(item.id, Number(quantity)));
+    const onBlur = () =>
+        quantity === item.quantity.toString()
+            ? {}
+            : quantity === ''
+            ? setQuantity(item.quantity.toString())
+            : updateQuantity(item.id, Number(quantity));
     const onClick = () => removeProductFromCart(item.id);
     useEffect(() => {
         setQuantity(item.quantity.toString());
@@ -40,15 +45,15 @@ const CartItem = ({ item }) => {
                                 aria-label="quantity"
                             />
                             <div className="input-group-append">
-                                <button type="button" className="btn btn-default btn-md do-update" disabled={quantity === item.quantity.toString()}>
+                                <button type="button" className="btn btn-text do-update" disabled={quantity === item.quantity.toString()}>
                                     &#x21bb;
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div className="col-3 d-flex flex-column flex-content-between align-items-end">
-                    <button type="button" className="btn btn-default btn-md do-remove" onClick={onClick}>
+                <div className="col-auto d-flex flex-column flex-content-between align-items-end">
+                    <button type="button" className="btn btn-text do-remove" onClick={onClick}>
                         X
                     </button>
                     <p className="price">${addCommasToNumber(item.variant.price)}</p>
