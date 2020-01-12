@@ -6,7 +6,7 @@
 body {
 	font-family: $font-family-1;
 	font-weight: $font-weight-1;
-	color: $color-metal;
+	color: $color-text-base;
 	}
 
 /* ----------!PARAGRAPH---------- */
@@ -86,22 +86,22 @@ ul > li > p {
 /* ----------!ANCHOR---------- */
 a {
 	font-weight: $font-weight-2;
-	color: $color-metal;
+	color: $color-text-base;
 	}
 a:active:not([class*="btn"]),
 a:hover:not([class*="btn"]),
 a:focus:not([class*="btn"]) {
 	text-decoration: none;
-	color: $color-metal;
+	color: $color-text-base;
 	}
 a[href="/register"] {
-    color: $color-ghost;
+    color: $color-brand-grey-300;
 	}
 a[href="/register"]:active:not([class*="btn"]),
 a[href="/register"]:hover:not([class*="btn"]),
 a[href="/register"]:focus:not([class*="btn"]) {
     text-decoration: none;
-    color: $color-ghost;
+    color: $color-brand-grey-300;
     }
 a:not([class*="no-underline"]):not([class*="btn"]):not([class*="navbar-brand"]):not([class*="nav-link"]):not([class*="navbar-link"]):not([class*="menu-link"]):not([class*="page-link"]):not([class*="dropdown-item"]):not([class*="stretched-link"]):not([class*="gatsby-resp-image-link"]) {
     border-bottom: 2px solid;
@@ -114,12 +114,12 @@ strong {
 
 /* ----------!UNDERLINE---------- */
 u {
-	color: $color-metal;
+	color: $color-text-base;
 	}
 
 /* ----------!BLOCKQUOTE---------- */
 blockquote {
-	border-left: 3px solid $color-ghost;
+	border-left: 3px solid $color-brand-grey-300;
 	padding: 20px 25px;
 	}
 
@@ -165,7 +165,7 @@ figure {
 /* ----------!LINK---------- */
 .link {
 	font-weight: $font-weight-2 !important;
-	color: $color-metal !important;
+	color: $color-text-base !important;
 	}
 
 /* ========================= */
@@ -180,13 +180,13 @@ figure {
 /* ----------!CARD---------- */
 .card-panel .card-body {
 	font-weight: $font-weight-1 !important;
-	color: $color-metal !important;
+	color: $color-text-base !important;
 	}
 
 /* ----------!COPYRIGHT---------- */
 .copyright,
 .copyright > a {
-	color: $color-metal !important;
+	color: $color-text-base !important;
 	}
 
 /* ========================= */
@@ -217,7 +217,7 @@ figure {
 
 /* ----------!SEPARATOR---------- */
 .separator {
-    color: $color-metal;
+    color: $color-text-base;
     }
 
 /* =========================== */
@@ -262,7 +262,7 @@ figure {
 #footer p,
 #footer a {
     font-size: 16px;
-    color: $color-metal;
+    color: $color-text-base;
     }
 
 /* ========================== */
@@ -328,12 +328,12 @@ figure {
 /* ----------!MORE---------- */
 article .more::after {
     font-weight: $font-weight-2;
-    color: $color-metal;
+    color: $color-text-base;
     }
 article:active .more::after,
 article:hover .more::after,
 article:focus .more::after {
-    color: $color-metal;
+    color: $color-text-base;
     }
 article .read-more::after {
     content: ' Read more \2192';

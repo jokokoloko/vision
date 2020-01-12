@@ -100,20 +100,6 @@
 	border-top: 5px solid $color-white;
 	padding-top: 30px;
 	}
-.style-border-top-grey {
-    border-top: 3px solid $color-ghost !important;
-    }
-.style-border-top-grey > * {
-    margin-top: -3px !important;
-    }
-	
-/* ----------!DIVISION---------- */
-@media (min-width: 992px) {
-    .division + .division {
-        border-top: 3px solid #fafafa;
-        margin-top: 80px;
-        }
-    }
 
 /* ----------!CHEAT---------- */
 @media (min-width: 1440px) {

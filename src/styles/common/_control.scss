@@ -23,16 +23,20 @@ $grid-breakpoints: (
 $font-family-1:					'Montserrat', sans-serif;
 
 /* ----------!SIZE---------- */
-$font-size-base:				20px;		// 20px is default
+$font-size-base:				16px;		// 20px is default
+$font-size-navigation:			14px;		// 20px is default
+$font-size-button:				12px;		// 20px is default
 
 /* ----------!WEIGHT---------- */
-$font-weight-1:					300;
-$font-weight-2:					400;
-$font-weight-3:					700;
+$font-weight-1:					400;		// Regular
+$font-weight-2:					500;		// Medium
+$font-weight-3:					600;		// SemiBold
+$font-weight-4:					700;		// Bold
 
 /* ----------!LINE---------- */
+$line-height-navigation:		20px;		// 30px is default
 $line-height-text:				30px;		// 30px is default
-$line-height-toggle:			14px;
+$line-height-toggle:			14px;		// 14px is default
 
 /* =========================== */
 /* ==========!REGION========== */
@@ -88,35 +92,47 @@ $color-blue-500:				#3276b1;
 $color-blue-600:				#23527c;
 
 /* ----------!BRAND---------- */
-$color-brand-black-300:			$color-night;
-$color-brand-blue-200:			#80bdff;
-$color-brand-blue-300:			#007bff;
-$color-brand-blue-400:			#0056b3;
+$color-brand-grey-300:			$color-ghost;
+$color-brand-black-400:			#49494B;
+$color-brand-blue-300:			#92C6E3;
 $color-brand-green-400:			#28a745;
+$color-brand-orange-400:		#FFC82C;
+
+/* ----------!TEXT---------- */
+$color-text-base:				$color-brand-black-400;
+
+/* ----------!FORM---------- */
+$color-form-input-border:		$color-brand-grey-300;
+$color-form-input-border-focus:	$color-brand-blue-300;
+$color-form-input-text:			$color-text-base;
+$color-form-input-text-focus:	$color-brand-blue-300;
 
 /* ----------!REGION---------- */
-$color-body:					($color-metal, null, null);
-$color-offcanvas:				($color-ghost, $color-smoke, null);
+$color-body:					($color-brand-black-400, null, null);
+$color-offcanvas:				($color-brand-black-400, $color-brand-black-400, null);
 $color-header:					($color-white, null, null);
-$color-bar:						($color-metal, null, null);
+$color-bar:						($color-brand-black-400, null, null);
 $color-main:					($color-white, null, null);
 $color-footer:					($color-white, null, null);
 $color-modal:					(null, null, null);
 
 /* ----------!BUTTON---------- */
-$color-button-default:			($color-transparent, $color-metal, $color-metal);
-$color-button-default-hover:	($color-ghost, $color-metal, $color-metal);
-$color-button-main:				($color-metal, $color-metal, $color-white);
-$color-button-main-hover:		($color-charcoal, $color-metal, $color-white);
-$color-button-hollow:			($color-transparent !important, rgba(255, 255, 255, 0.8) !important, $color-white !important);
-$color-button-hollow-hover:		(rgba(255, 255, 255, 0.3) !important, rgba(255, 255, 255, 0.8) !important, null);
+$color-button-default:			($color-brand-blue-300, $color-brand-blue-300, $color-white);
+$color-button-default-hover:	($color-brand-blue-300, $color-brand-blue-300, $color-white);
+$color-button-main:				($color-brand-orange-400, $color-brand-orange-400, $color-white);
+$color-button-main-hover:		($color-brand-orange-400, $color-brand-orange-400, $color-white);
+$color-button-hollow:			($color-white, $color-brand-blue-300, $color-text-base);
+$color-button-hollow-hover:		($color-white, $color-brand-blue-300, $color-text-base);
 $color-button-form:				(null, null, null);
 $color-button-form-hover:		(null, null, null);
 $color-button-link:				(null, null, null);
 $color-button-link-hover:		(null, null, null);
 
+/* ----------!CART---------- */
+$color-cart-indicator:			$color-brand-orange-400;
+
 /* ----------!SELECTION---------- */
-$color-selection:				($color-blue-200, null, $color-white);
+$color-selection:				($color-brand-blue-300, null, $color-white);
 
 /* ----------!ALERT---------- */
 $color-alert-tip:				(null, null, $color-red-400 !important);
@@ -124,6 +140,11 @@ $color-alert-failure:			($color-red-300 !important, $color-red-400 !important, n
 $color-alert-danger:			($color-orange-300 !important, $color-orange-400 !important, null);
 $color-alert-warning:			($color-yellow-300 !important, $color-yellow-400 !important, null);
 $color-alert-success:			($color-green-300 !important, $color-green-400 !important, null);
+
+/* ----------!STYLE---------- */
+$color-division:				$color-brand-grey-300;
+$color-dropdown:				$color-brand-blue-300;
+$color-panel:					$color-brand-grey-300;
 
 /* ========================== */
 /* ==========!COLOR========== */

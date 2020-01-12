@@ -65,7 +65,7 @@
 	margin-right: -15px;
 	}
 .navbar .navbar-action .btn {
-    margin: 0 15px;
+    margin: 0 10px;
     }
 
 /* ----------!NAVBAR-BUILD---------- */
@@ -84,9 +84,10 @@
 .navbar .navbar-action > li > .dropdown-toggle {
 	background-color: $color-transparent;
 	margin: 0;
-	padding: 25px 15px;
-	font-size: $font-size-base;
-	line-height: $line-height-text;
+	padding: 30px 15px;
+	font-size: 14px;
+	font-weight: $font-weight-3;
+	line-height: $line-height-navigation;
 	}
 @include media-breakpoint-up(lg) {
 	.navbar .navbar-brand {
@@ -105,7 +106,7 @@
 .navbar .navbar-action > li > .nav-link > .caret,
 .navbar .navbar-action > li > .dropdown-toggle,
 .navbar .navbar-action > li > .dropdown-toggle > .caret {
-	color: $color-metal;
+	color: $color-text-base;
 	}
 .navbar .navbar-brand:active,
 .navbar .navbar-brand:hover,
@@ -144,8 +145,8 @@
 .navbar .navbar-action > li.show > .dropdown-toggle:active,
 .navbar .navbar-action > li.show > .dropdown-toggle:hover,
 .navbar .navbar-action > li.show > .dropdown-toggle:focus {
-	background-color: $color-ghost;
-	color: $color-metal;
+	background-color: $color-transparent;
+	color: $color-text-base;
 	}
 .navbar .navbar-nav > li > a.active,
 .navbar .navbar-nav > li > a.active:active,
@@ -180,7 +181,7 @@
 .navbar .navbar-action > li.active > .dropdown-toggle:hover,
 .navbar .navbar-action > li.active > .dropdown-toggle:focus {
 	background-color: $color-transparent;
-	color: $color-metal;
+	color: $color-brand-blue-300;
 	cursor: default;
 	}
 .navbar .navbar-nav > li > a.no-focus:active,
@@ -198,8 +199,8 @@
 .navbar .navbar-search,
 .navbar .navbar-nav > li > a,
 .navbar .navbar-nav > li > button {
-	padding-top: (($header-height-xs - $line-height-text) / 2);
-	padding-bottom: (($header-height-xs - $line-height-text) / 2);
+	padding-top: (($header-height-xs - $line-height-navigation) / 2);
+	padding-bottom: (($header-height-xs - $line-height-navigation) / 2);
 	}
 @include media-breakpoint-up(lg) {
 	.navbar .navbar-brand,
@@ -207,8 +208,8 @@
 	.navbar .navbar-search,
 	.navbar .navbar-nav > li > a,
 	.navbar .navbar-nav > li > button {
-		padding-top: (($header-height-lg - $line-height-text) / 2);
-		padding-bottom: (($header-height-lg - $line-height-text) / 2);
+		padding-top: (($header-height-lg - $line-height-navigation) / 2);
+		padding-bottom: (($header-height-lg - $line-height-navigation) / 2);
 		}
 	}
 .navbar .navbar-menu {
