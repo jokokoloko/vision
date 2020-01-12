@@ -4,7 +4,6 @@ import { logicDescription } from '../logic';
 import Layout from '../components/Layout';
 import Feed from '../components/section/Feed';
 import ArticleProduct from '../components/project/ArticleProduct';
-import MenuCollection from '../components/project/MenuCollection';
 
 export default ({ location, data }) => {
     const { products, page } = data;
@@ -22,9 +21,6 @@ export default ({ location, data }) => {
                     <section className="node-xs-50 node-lg-80">
                         <div className="row gutter-80">{loopProduct}</div>
                     </section>
-                    <footer className="node-xs-50 node-lg-80">
-                        <MenuCollection />
-                    </footer>
                 </Feed>
             )}
         </Layout>
