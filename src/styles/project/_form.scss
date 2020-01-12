@@ -170,8 +170,8 @@ input[type="tel"]:focus,
 .input-group-md > .input-group-prepend > .input-group-text {
 	padding: 0 8px;
 	height: 30px;
-	font-size: 12px;
-	line-height: 20px;
+	font-size: $font-size-button;
+	line-height: $line-height-button;
 	}
 .form-control-lg,
 .input-group-lg > .form-control,
@@ -181,8 +181,8 @@ input[type="tel"]:focus,
 .input-group-lg > .input-group-prepend > .input-group-text {
 	padding: 8px 13px;
 	height: 50px;
-	font-size: 20px;
-	line-height: 30px;
+	font-size: $font-size-text;
+	line-height: $line-height-text;
 	}
 
 /* ========================== */

@@ -86,9 +86,9 @@
 
 /* ----------!TEXT---------- */
 .btn-text {
-	font-size: $font-size-button;
 	font-weight: $font-weight-1;
-	line-height: $line-height-navigation;
+	font-size: $font-size-text;
+	line-height: $line-height-text;
 	}
 
 /* ----------!STYLE---------- */
@@ -104,15 +104,15 @@
 /* ----------!SIZE---------- */
 .btn-md {
 	height: 30px;
-	font-size: 12px;
-	line-height: $line-height-navigation;
+	font-size: $font-size-button;
+	line-height: $line-height-button;
 	}
 .btn-lg,
 .btn-xl,
 .btn-hg {
 	padding: 8px 13px;
-	font-size: 20px;
-	line-height: 30px;
+	font-size: $font-size-text;
+	line-height: $line-height-text;
 	}
 @include media-breakpoint-up(sm) {
 	.btn-auto {

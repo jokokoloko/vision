@@ -24,9 +24,9 @@
 	padding-top: (($header-height-xs - $line-height-text) / 2);
 	padding-bottom: (($header-height-xs - $line-height-text) / 2);
 	width: 100%;
-	font-size: $font-size-base;
-	font-weight: $font-weight-2;
-	line-height: $line-height-text;
+    font-weight: $font-weight-2;
+	font-size: $font-size-offcanvas;
+    line-height: $line-height-offcanvas;
 	text-align: left;
 	color: $color-white;
 	display: block;

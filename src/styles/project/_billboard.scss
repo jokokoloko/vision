@@ -9,8 +9,9 @@
 	margin-bottom: -5px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	font-size: 12px;
-	line-height: 20px;
+	font-size: $font-size-cart;
+	font-weight: $font-weight-3;
+	line-height: $line-height-cart;
 	}
 
 /* ----------!IMAGE---------- */
@@ -29,4 +30,7 @@
 	padding: 0;
 	width: 50px;
 	height: 50px;
+	font-size: $font-size-cart;
+	font-weight: $font-weight-3;
+	line-height: $line-height-cart;
 	}

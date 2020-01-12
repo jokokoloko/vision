@@ -22,20 +22,25 @@ $grid-breakpoints: (
 /* ----------!FAMILY---------- */
 $font-family-1:					'Montserrat', sans-serif;
 
-/* ----------!SIZE---------- */
-$font-size-base:				16px;		// 20px is default
-$font-size-navigation:			14px;		// 20px is default
-$font-size-button:				12px;		// 20px is default
-
 /* ----------!WEIGHT---------- */
 $font-weight-1:					400;		// Regular
 $font-weight-2:					500;		// Medium
 $font-weight-3:					600;		// SemiBold
 $font-weight-4:					700;		// Bold
 
+/* ----------!SIZE---------- */
+$font-size-text:				16px;		// 20px is default
+$font-size-button:				12px;		// 20px is default
+$font-size-navigation:			14px;		// 20px is default
+$font-size-offcanvas:			16px;		// 20px is default
+$font-size-cart:				14px;		// 14px is default
+
 /* ----------!LINE---------- */
-$line-height-navigation:		20px;		// 30px is default
 $line-height-text:				30px;		// 30px is default
+$line-height-button:			20px;		// 30px is default
+$line-height-navigation:		20px;		// 30px is default
+$line-height-offcanvas:			30px;		// 30px is default
+$line-height-cart:				20px;		// 30px is default
 $line-height-toggle:			14px;		// 14px is default
 
 /* =========================== */
