@@ -45,7 +45,7 @@ const CartItem = ({ item }) => {
                                 aria-label="quantity"
                             />
                             <div className="input-group-append">
-                                <button type="button" className="btn btn-text do-update" disabled={quantity === item.quantity.toString()}>
+                                <button type="button" className="btn do-update" disabled={quantity === item.quantity.toString()}>
                                     &#x21bb;
                                 </button>
                             </div>
@@ -53,7 +53,7 @@ const CartItem = ({ item }) => {
                     </form>
                 </div>
                 <div className="col-auto d-flex flex-column flex-content-between align-items-end">
-                    <button type="button" className="btn btn-text do-remove" onClick={onClick}>
+                    <button type="button" className="btn do-remove" onClick={onClick}>
                         X
                     </button>
                     <p className="price">${addCommasToNumber(item.variant.price)}</p>

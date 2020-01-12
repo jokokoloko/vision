@@ -24,7 +24,7 @@ const Billboard = () => {
                     <strong className="title">{title}</strong>
                 </div>
                 <div className="col-auto d-flex flex-column flex-content-between align-items-end">
-                    <button type="button" className="btn btn-text do-add" onClick={onClick}>
+                    <button type="button" className="btn do-add" onClick={onClick}>
                         Add
                     </button>
                     <p className="price">${addCommasToNumber(firstVariant.price)}</p>
