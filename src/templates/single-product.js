@@ -63,17 +63,14 @@ export default ({ location, data }) => {
                                         aria-label="quantity"
                                     />
                                     <div className="input-group-append">
-                                        <input
-                                            type="submit"
-                                            className="btn btn-default btn-lg btn-initial do-add"
-                                            name="submit"
-                                            value="Add to cart"
-                                        />
+                                        <input type="submit" className="btn btn-main btn-lg btn-initial do-add" name="submit" value="Add to cart" />
                                     </div>
                                 </div>
                             </form>
                         </section>
-                        <footer className="product-footer node-xs-50" dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+                        {content && content.excerpt && (
+                            <footer className="product-footer node-xs-50" dangerouslySetInnerHTML={{ __html: content.excerpt.excerpt }} />
+                        )}
                     </div>
                 </div>
             </Basic>
@@ -148,7 +145,6 @@ export const query = graphql`
             id
             handle
             title
-            descriptionHtml
             images {
                 ...imageShopify
             }
