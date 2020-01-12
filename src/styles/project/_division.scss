@@ -1,0 +1,36 @@
+/* ============================= */
+/* ==========!DIVISION========== */
+/* ============================= */
+
+/* ----------!MAIN---------- */
+h1 + h3,
+h2 + h3,
+h3 + h3,
+p + h3,
+ol + h3,
+ul + h3,
+table + h3,
+.cart .cart-header + .cart-section,
+.cart .cart-section + .cart-section,
+.cart .cart-section + .cart-footer,
+.single-product .product-footer,
+#footer .case {
+	border-top: 2px solid $color-division !important;
+	}
+#header {
+    border-bottom: 1px solid $color-division;
+    box-shadow: 0 1px $color-division;
+	}
+
+/* ----------!OFFSET---------- */
+#footer .case > * {
+    margin-top: -2px !important;
+    }
+
+/* ----------!SPACE---------- */
+@media (min-width: 992px) {
+    .division + .division {
+        border-top: 2px solid $color-division;
+        margin-top: 80px;
+        }
+    }
