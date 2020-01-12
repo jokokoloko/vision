@@ -69,7 +69,9 @@ export default ({ location, data }) => {
                             </form>
                         </section>
                         {content && content.excerpt && (
-                            <footer className="product-footer node-xs-50" dangerouslySetInnerHTML={{ __html: content.excerpt.excerpt }} />
+                            <footer className="product-footer node-xs-50">
+                                <p className="description" dangerouslySetInnerHTML={{ __html: content.excerpt.excerpt }} />
+                            </footer>
                         )}
                     </div>
                 </div>
