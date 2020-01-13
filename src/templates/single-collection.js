@@ -31,15 +31,19 @@ export default ({ location, data }) => {
                 )}
             </Hero>
             {collection && collection.products.length > 0 && (
-                <Feed id={`feed-${collection.handle}`} space="space-custom" item="product">
-                    {collection.title && (
-                        <header className="copy node-xs-50 node-lg-80 text-lg-center">
-                            <h1>{collection.title}</h1>
-                            <h2>{collection.description}</h2>
-                        </header>
-                    )}
-                    <section className="node-xs-50 node-lg-80">
-                        <div className="row gutter-80">{loopCollection}</div>
+                <Feed id={`feed-${collection.handle}`} space="space-xs-50 space-md-80" item="product">
+                    <section className="node-xs-50 node-lg-80 cheat-both">
+                        <div className="row gutter-30">
+                            {(collection.title || collection.description) && (
+                                <header id={`collection-${collection.handle}`} className="collection col-lg-3">
+                                    <div className="case">
+                                        <h3>{collection.title}</h3>
+                                        <p className="description" dangerouslySetInnerHTML={{ __html: collection.description }} />
+                                    </div>
+                                </header>
+                            )}
+                            {loopCollection}
+                        </div>
                     </section>
                 </Feed>
             )}
