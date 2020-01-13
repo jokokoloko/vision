@@ -40,8 +40,8 @@ h2 {
 		margin-bottom: -8px;
 		margin-left: -2px;
 		margin-right: -2px;
-		line-height: 35px;
-		font-size: 27px;
+		line-height: 30px;
+		font-size: 20px;
 		}
     }
 
@@ -268,19 +268,6 @@ figure {
 /* ========================== */
 /* ==========!BUILD========== */
 /* ========================== */
-
-/* ----------!H1---------- */
-@media (min-width: 992px) {
-    .carousel h1,
-    .hero h1 {
-		margin-top: -6px;
-		margin-bottom: -9px;
-		margin-left: -4px;
-		margin-right: -4px;
-		line-height: 50px;
-		font-size: 48px;
-		}
-    }
 
 /* ----------!H2---------- */
 .carousel h2,

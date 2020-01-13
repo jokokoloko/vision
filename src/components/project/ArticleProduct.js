@@ -23,7 +23,7 @@ const ArticleProduct = ({ product }) => {
         addProductToCart(firstVariant.shopifyId, Number(quantity));
     };
     return (
-        <article key={product.id} id={`product-${product.handle}`} className="product col-lg-4">
+        <article key={product.id} id={`product-${product.handle}`} className="product col-lg-3">
             <div className="case relative node-xs-50">
                 {firstImage && (
                     <figure className="node-xs-50">
