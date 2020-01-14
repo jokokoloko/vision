@@ -11,7 +11,7 @@ const DropdownCollection = ({ offcanvas, caret, label, name }) => {
         <Link key={generateID()} className="dropdown-item" to={`/${node.handle}`} children={node.title} />
     ));
     return (
-        <Dropdown name={offcanvas ? `offcanvas-${name}` : name} label={label} caret={caret} alignment="right">
+        <Dropdown name={offcanvas ? `offcanvas-${name}` : name} label={label} caret={caret}>
             {loopCollection}
         </Dropdown>
     );

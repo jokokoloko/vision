@@ -17,7 +17,7 @@ const Menu = ({ offcanvas, caret }) => {
         return custom ? (
             <DropdownCollection key={generateID()} offcanvas={offcanvas} caret={caret} label={label} name={name} />
         ) : children ? (
-            <Dropdown key={generateID()} name={offcanvas ? `offcanvas-${name}` : name} label={label} caret={caret} alignment="right">
+            <Dropdown key={generateID()} name={offcanvas ? `offcanvas-${name}` : name} label={label} caret={caret}>
                 {loopChildren}
             </Dropdown>
         ) : (
