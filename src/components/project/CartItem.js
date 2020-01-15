@@ -21,12 +21,12 @@ const CartItem = ({ item }) => {
         setQuantity(item.quantity.toString());
     }, [item.quantity]);
     return (
-        <li className="cart-line-item">
+        <li className={`cart-line-item product product-${item.variant.product.handle}`}>
             <div className="row">
-                <div className="col-auto d-flex align-items-center">
-                    <div className="cart-line-item-image">
+                <div className="col-auto">
+                    <figure className="cart-line-item-image product-color d-flex align-items-center">
                         <img className="image fit exact-center img-fluid" src={item.variant.image.src} alt={item.title} />
-                    </div>
+                    </figure>
                 </div>
                 <div className="col d-flex flex-column flex-content-between">
                     <p className="title">{item.title}</p>

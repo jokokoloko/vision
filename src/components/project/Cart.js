@@ -1,7 +1,6 @@
 import React, { Fragment, useContext } from 'react';
 import { addCommasToNumber } from '../../function';
 import { ShopContext } from '../../contexts/shop';
-import Billboard from './Billboard';
 import CartItem from './CartItem';
 
 const Cart = () => {
@@ -15,7 +14,7 @@ const Cart = () => {
                 </button>
                 {checkout.lineItems.length > 0 && (
                     <a className="btn btn-text to-checkout" href={checkout.webUrl}>
-                        Cart &rarr;{quantity > 0 && <span className="cart-indicator">{quantity}</span>}
+                        {quantity > 0 && <span className="cart-indicator">{quantity}</span>}&rarr;
                     </a>
                 )}
             </header>
@@ -27,7 +26,7 @@ const Cart = () => {
                     <section className="cart-section node-xs-30">
                         <div className="cart-summary row">
                             <div className="col">
-                                <p className="cart-detail">Subtotal</p>
+                                <p className="cart-detail cart-subtotal">Subtotal</p>
                             </div>
                             <div className="col">
                                 <p className="cart-detail text-right">${addCommasToNumber(checkout.subtotalPrice)}</p>
@@ -44,13 +43,10 @@ const Cart = () => {
                 {checkout.lineItems.length > 0 && (
                     <div className="node-xs-30">
                         <a className="btn btn-main btn-lg btn-block btn-pill to-checkout" href={checkout.webUrl}>
-                            Go to checkout &rarr;
+                            Go To Checkout &rarr;
                         </a>
                     </div>
                 )}
-                <div className="node-xs-30">
-                    <Billboard />
-                </div>
             </footer>
         </div>
     );
