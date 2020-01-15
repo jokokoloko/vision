@@ -1,9 +1,100 @@
+/* ========================= */
+/* ==========!MAIN========== */
+/* ========================= */
+
+/* ----------!CASE---------- */
+.feed-product .case {
+	border: 2px solid $color-panel;
+	min-height: 550px;
+	height: 100%;
+	position: relative;
+	}
+
+/* =============================== */
+/* ==========!COLLECTION========== */
+/* =============================== */
+
+/* ----------!CASE---------- */
+.feed-product .collection .case {
+	padding: 80px 28px 50px;
+	}
+
 /* ============================ */
 /* ==========!PRODUCT========== */
 /* ============================ */
 
-/* ----------!COLLECTION---------- */
-.feed-product .collection .case {
-	border: 2px solid $color-panel;
-	padding: 80px 28px 50px;
+/* ----------!BASIC---------- */
+.feed-product .product .case figure,
+.feed-product .product .case header,
+.feed-product .product .case section,
+.feed-product .product .case footer {
+	padding: 0;
+	}
+.feed-product .product .case figure {
+	background-color: $color-panel;
+	}
+
+/* ----------!LIST---------- */
+.feed-product .product .case ul {
+	padding-left: 0 !important;
+	list-style: none;
+	}
+.feed-product .product .case ul > li:before {
+	margin-right: 10px;
+	content: '✔';
+	}
+
+/* ----------!POD---------- */
+.feed-product .product .case .pod {
+	padding: 30px 28px;
+	}
+
+/* ----------!TEXT---------- */
+.feed-product .product .case .title > a,
+.feed-product .product .case .action,
+.feed-product .product .case .price {
+	font-size: 14px;
+	line-height: 20px;
+    color: $color-text-base;
+	}
+.feed-product .product .case .title > a,
+.feed-product .product .case .action {
+	font-weight: $font-weight-3;
+	}
+.feed-product .product .case .action {
+    color: $color-brand-orange-400;
+	opacity: 0;
+	transition: opacity 0.2s;
+	}
+.feed-product .product .case:hover .action {
+	opacity: 1;
+	}
+.feed-product .product .case .type {
+	min-height: 50px;
+	text-transform: uppercase;
+	}
+.feed-product .product .case ul > li,
+.feed-product .product .case .type {
+	font-size: 12px;
+	line-height: 20px;
+    color: $color-text-base;
+	}
+
+/* ----------!SPACE---------- */
+.feed-product .product .case ul > li + li {
+	padding-top: 0 !important;
+	}
+.feed-product .product .case .title {
+	margin-top: -9px;
+	margin-bottom: -6px;
+	}
+.feed-product .product .case .title + .type {
+	padding-top: 10px;
+	}
+.feed-product .product .case ul,
+.feed-product .product .case .type,
+.feed-product .product .case .price,
+.feed-product .product .case .action {
+	margin-top: -5px;
+    margin-bottom: -5px;
 	}
