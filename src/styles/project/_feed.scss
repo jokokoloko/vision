@@ -23,6 +23,24 @@
 	padding: 80px 28px 50px;
 	}
 
+/* ----------!TEXT---------- */
+.feed-product .collection .case .title {
+	font-weight: $font-weight-2;
+    }
+@include media-breakpoint-up(lg) {
+	.feed-product .collection .case .title {
+		margin-top: -7px;
+		margin-bottom: -8px;
+		margin-left: -2px;
+		margin-right: -2px;
+		line-height: 30px;
+		font-size: 20px;
+		}
+	}
+.feed-product .collection .case .description {
+	@extend p;
+    }
+
 /* ============================ */
 /* ==========!PRODUCT========== */
 /* ============================ */
@@ -89,6 +107,9 @@
 	}
 
 /* ----------!SPACE---------- */
+.feed-product .collection .case .title + .description {
+	padding-top: 41px;
+	}
 .feed-product .product .case ul > li + li {
 	padding-top: 0 !important;
 	}

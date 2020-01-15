@@ -36,8 +36,8 @@ export default ({ location, data }) => {
                             {(collection.title || collection.description) && (
                                 <header id={`collection-${collection.handle}`} className={`collection collection-${collection.handle} col-lg-3`}>
                                     <div className="case">
-                                        <h3>{collection.title}</h3>
-                                        <p className="description" dangerouslySetInnerHTML={{ __html: collection.description }} />
+                                        <h1 className="title">{collection.title}</h1>
+                                        <h2 className="description" dangerouslySetInnerHTML={{ __html: collection.description }} />
                                     </div>
                                 </header>
                             )}

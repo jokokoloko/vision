@@ -33,7 +33,6 @@ h1 {
 /* ----------!H2---------- */
 h2 {
 	@extend p;
-    font-style: italic;
     }
 @include media-breakpoint-up(lg) {
     h2 {
