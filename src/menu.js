@@ -12,6 +12,6 @@ export const MAIN = [
     // },
     {
         label: `Let's Talk Health`,
-        to: path.CATALOG,
+        to: path.PRODUCT,
     },
 ];
