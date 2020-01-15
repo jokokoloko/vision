@@ -22,7 +22,7 @@ Button.propTypes = {
 Button.defaultProps = {
     label: 'Submit',
     kind: 'default',
-    size: 'lg',
+    size: 'md',
     display: 'initial',
     className: 'no-class',
     to: path.ROOT,

@@ -1,0 +1,86 @@
+/* ========================== */
+/* ==========!BRAND========== */
+/* ========================== */
+
+/* ----------!SINGLE---------- */
+.single-collection .hero {
+	color: $color-white !important;
+	}
+.single-collection-hormone-tests .hero {
+	background-color: $color-brand-blue-300 !important;
+	}
+.single-collection-hormone-tests .feed-product .collection .case {
+	border-color: $color-brand-purple-400 !important;
+	}
+.single-collection-heavy-metal-tests .hero {
+	background-color: $color-brand-yellow-400 !important;
+	}
+.single-collection-heavy-metal-tests .feed-product .collection .case {
+	border-color: $color-brand-yellow-400 !important;
+	}
+.single-collection-neurotransmitter-tests .hero {
+	background-color: $color-brand-blue-400 !important;
+	}
+.single-collection-neurotransmitter-tests .feed-product .collection .case {
+	border-color: $color-brand-pink-300 !important;
+	}
+
+/* ----------!COLOR---------- */
+.product-hormone-vitality-complete .product-color {
+	background-color: rgba(154, 156, 197, 0.3) !important;
+	}
+.product-hormone-vitality-plus .product-color {
+	background-color: rgba(15, 151, 92, 0.3) !important;
+	}
+.product-hormone-vitality-essentials .product-color {
+	background-color: rgba(154, 156, 195, 0.3) !important;
+	}
+.product-stress-hormone-complete .product-color {
+	background-color: rgba(68, 31, 66, 0.3) !important;
+	}
+.product-stress-hormone-plus .product-color {
+	background-color: rgba(151, 45, 62, 0.3) !important;
+	}
+.product-stress-hormone-essentials .product-color {
+	background-color: rgba(232, 40, 44, 0.3) !important;
+	}
+.product-thyroid-plus .product-color {
+	background-color: rgba(231, 137, 139, 0.3) !important;
+	}
+.product-vitamin-d-complete .product-color {
+	background-color: rgba(248, 152, 29, 0.3) !important;
+	}
+.product-male-hormone-essentials .product-color {
+	background-color: rgba(37, 165, 217, 0.3) !important;
+	}
+.product-menopause-plus .product-color {
+	background-color: rgba(87, 49, 146, 0.3) !important;
+	}
+.product-heavy-metals-gadolinium .product-color {
+	background-color: rgba(217, 212, 137, 0.3) !important;
+	}
+.product-brain-balance-complete .product-color {
+	background-color: rgba(226, 199, 221, 0.3) !important;
+	}
+
+/* ----------!LIST---------- */
+.product-hormone-vitality-complete ul > li:before,
+.product-hormone-vitality-plus ul > li:before,
+.product-hormone-vitality-essentials ul > li:before {
+	color: $color-brand-blue-400 !important;
+	}
+.product-stress-hormone-complete ul > li:before,
+.product-stress-hormone-plus ul > li:before,
+.product-stress-hormone-essentials ul > li:before,
+.product-thyroid-plus ul > li:before,
+.product-vitamin-d-complete ul > li:before,
+.product-male-hormone-essentials ul > li:before,
+.product-menopause-plus ul > li:before {
+	color: $color-brand-red-400 !important;
+	}
+.product-heavy-metals-gadolinium ul > li:before {
+	color: $color-brand-yellow-400 !important;
+	}
+.product-brain-balance-complete ul > li:before {
+	color: $color-brand-blue-400 !important;
+	}

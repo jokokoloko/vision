@@ -6,14 +6,22 @@
 .btn {
 	background-image: none;
 	border-width: 2px;
-	padding: 4px 12px;
+	padding: 3px 28px;
+	font-weight: $font-weight-3;
+	color: $color-text-base;
 	-ms-touch-action: manipulation;
 		touch-action: manipulation;
+	}
+@include media-breakpoint-down(md) {
+	.btn {
+		width: 100%;
+		display: block;
+		}
 	}
 .btn:active,
 .btn:hover,
 .btn:focus {
-    color: $color-white;
+    color: $color-text-base;
     }
 
 /* ----------!DEFAULT---------- */
@@ -55,7 +63,6 @@
 /* ----------!HOLLOW---------- */
 .btn-hollow {
 	@include color($color-button-hollow);
-	font-weight: $font-weight-1 !important;
 	}
 .btn-hollow.active,
 .btn-hollow.active.focus,
@@ -79,23 +86,14 @@
 
 /* ----------!TEXT---------- */
 .btn-text {
-	color: $color-metal !important;
-	}
-
-/* ----------!INITIAL---------- */
-.btn-initial {
-	min-width: 130px;
-	}
-@include media-breakpoint-down(md) {
-	.btn-initial {
-		width: 100%;
-		display: block;
-		}
+	font-weight: $font-weight-1;
+	font-size: $font-size-text;
+	line-height: $line-height-text;
 	}
 
 /* ----------!STYLE---------- */
 .btn-pill {
-	border-radius: 20px !important;
+	border-radius: 50px !important;
 	}
 .btn-lean {
 	@include color($color-button-hollow);
@@ -105,17 +103,16 @@
 
 /* ----------!SIZE---------- */
 .btn-md {
-	padding: 4px 9px;
 	height: 30px;
-	font-size: 14px;
-	line-height: 18px;
+	font-size: $font-size-button;
+	line-height: $line-height-button;
 	}
 .btn-lg,
 .btn-xl,
 .btn-hg {
 	padding: 8px 13px;
-	font-size: 20px;
-	line-height: 30px;
+	font-size: $font-size-text;
+	line-height: $line-height-text;
 	}
 @include media-breakpoint-up(sm) {
 	.btn-auto {

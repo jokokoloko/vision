@@ -25,11 +25,12 @@
 	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
     		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
 	}
-.dropdown .dropdown-menu,
-.dropdown .dropdown-menu .dropdown-divider {
-	border-color: $color-metal;
+.dropdown .dropdown-menu {
+    border-width: 2px;
+	border-color: $color-dropdown;
 	}
 .dropdown .dropdown-menu .dropdown-divider {
+    border-color: $color-division;
 	margin: 9px 0 10px;
 	}
 .dropdown .dropdown-menu .dropdown-header,
@@ -37,29 +38,29 @@
 .dropdown .dropdown-menu .dropdown-item {
 	margin: 0;
 	padding: 0 19px;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 400;
 	line-height: 50px;
 	}
 .dropdown .dropdown-menu .dropdown-header,
 .dropdown .dropdown-menu .dropdown-text {
-	color: $color-smoke;
+	color: $color-text-base;
 	}
 .dropdown .dropdown-menu .dropdown-item {
-	color: $color-metal;
+	color: $color-text-base;
 	cursor: pointer;
 	}
 .dropdown .dropdown-menu .dropdown-item:active,
 .dropdown .dropdown-menu .dropdown-item:hover,
 .dropdown .dropdown-menu .dropdown-item:focus {
-	background-color: $color-ghost;
-	color: $color-metal;
+	background-color: $color-transparent;
+	color: $color-text-base;
 	}
 .dropdown .dropdown-menu .dropdown-item.active,
 .dropdown .dropdown-menu .dropdown-item.active:active,
 .dropdown .dropdown-menu .dropdown-item.active:hover,
 .dropdown .dropdown-menu .dropdown-item.active:focus {
-	background-color: $color-metal;
+	background-color: $color-dropdown;
 	color: $color-white;
 	cursor: default;
 	}

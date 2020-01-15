@@ -6,6 +6,8 @@ import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Basic from '../components/section/Basic';
 import Feed from '../components/section/Feed';
+import Image from '../components/unit/Image';
+import ArticleStep from '../components/project/ArticleStep';
 import ArticleSymptom from '../components/project/ArticleSymptom';
 import ArticleTest from '../components/project/ArticleTest';
 import Gallery from '../components/project/Gallery';
@@ -13,7 +15,7 @@ import Gallery from '../components/project/Gallery';
 export default ({ location, data }) => {
     const { addProductToCart } = useContext(ShopContext);
     const [quantity, setQuantity] = useState('1');
-    const { product, content, symptoms, tests } = data;
+    const { product, content, steps, symptoms, tests, report } = data;
     const {
         variants: [firstVariant],
     } = product;
@@ -26,6 +28,7 @@ export default ({ location, data }) => {
         event.preventDefault();
         addProductToCart(firstVariant.shopifyId, Number(quantity));
     };
+    const loopStep = steps.edges.map(({ node: step }) => <ArticleStep key={step.id} step={step} />);
     const loopSymptom = symptoms.edges.map(({ node: symptom }) => <ArticleSymptom key={symptom.id} symptom={symptom} />);
     const loopTest = tests.edges.map(({ node: test }) => <ArticleTest key={test.id} test={test} />);
     return (
@@ -35,7 +38,7 @@ export default ({ location, data }) => {
             description={logicDescription(product)}
             location={location}
         >
-            <Basic id={`product-${product.handle}`} space="space-product">
+            <Basic id="product-main" space="space-product">
                 <div className="row gutter-80">
                     <div className="col-lg-6">{content && content.gallery && <Gallery gallery={content.gallery} />}</div>
                     <div className="col-lg-6">
@@ -60,24 +63,21 @@ export default ({ location, data }) => {
                                         aria-label="quantity"
                                     />
                                     <div className="input-group-append">
-                                        <input
-                                            type="submit"
-                                            className="btn btn-default btn-lg btn-initial do-add"
-                                            name="submit"
-                                            value="Add to cart"
-                                        />
+                                        <input type="submit" className="btn btn-main btn-lg btn-initial do-add" name="submit" value="Add to cart" />
                                     </div>
                                 </div>
                             </form>
                         </section>
-                        <footer className="product-footer node-xs-50">
-                            <p className="description">{product.description}</p>
-                        </footer>
+                        {content && content.excerpt && (
+                            <footer className="product-footer node-xs-50">
+                                <p className="description" dangerouslySetInnerHTML={{ __html: content.excerpt.excerpt }} />
+                            </footer>
+                        )}
                     </div>
                 </div>
             </Basic>
             {content && (content.head || content.body) && (
-                <Basic id={`content-${product.handle}`} space="space-xs-80 space-md-130 space-xl-210">
+                <Basic id="content-main" space="space-xs-80 space-md-130 space-xl-210">
                     <div className="row gutter-80">
                         <div className="col-lg-6">
                             <header className="content-head" dangerouslySetInnerHTML={{ __html: content.head.childMarkdownRemark.html }} />
@@ -87,6 +87,16 @@ export default ({ location, data }) => {
                         </div>
                     </div>
                 </Basic>
+            )}
+            {loopStep.length > 0 && (
+                <Feed id="feed-step" space="space-xs-80 space-md-130 space-xl-210" item="symptom">
+                    <header className="node-xs-50 node-lg-80 text-lg-center">
+                        <h3>How It Works</h3>
+                    </header>
+                    <section className="node-xs-50 node-lg-80">
+                        <div className="row gutter-50 gutter-lg-80">{loopStep}</div>
+                    </section>
+                </Feed>
             )}
             {loopSymptom.length > 0 && (
                 <Feed id="feed-symptom" space="space-xs-80 space-md-130 space-xl-210" item="symptom">
@@ -108,6 +118,25 @@ export default ({ location, data }) => {
                     </section>
                 </Feed>
             )}
+            <Basic id="report" space="space-xs-80 space-md-130 space-xl-210">
+                <div className="panel">
+                    <div className="row align-items-center gutter-80">
+                        <div className="col-lg-6">
+                            <figure className="node-xs-50">
+                                <Image className="image" source={(content && content.figure.fluid) || report.image.fluid} alternate="Report" />
+                            </figure>
+                        </div>
+                        <div className="col-lg-6">
+                            <header
+                                className="report-head"
+                                dangerouslySetInnerHTML={{
+                                    __html: (content && content.copy.childMarkdownRemark.html) || report.body.childMarkdownRemark.html,
+                                }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </Basic>
         </Layout>
     );
 };
@@ -118,7 +147,6 @@ export const query = graphql`
             id
             handle
             title
-            description
             images {
                 ...imageShopify
             }
@@ -147,8 +175,24 @@ export const query = graphql`
                     excerpt
                 }
             }
+            figure {
+                ...imageFigure
+            }
+            copy {
+                childMarkdownRemark {
+                    html
+                    excerpt
+                }
+            }
             excerpt {
                 excerpt
+            }
+        }
+        steps: allContentfulStep(sort: { fields: order, order: ASC }) {
+            edges {
+                node {
+                    ...contentStep
+                }
             }
         }
         symptoms: allContentfulSymptom(filter: { product: { elemMatch: { handle: { eq: $handle } } } }, sort: { fields: order, order: ASC }) {
@@ -164,6 +208,9 @@ export const query = graphql`
                     ...contentTest
                 }
             }
+        }
+        report: contentfulGeneral(slug: { eq: "report" }) {
+            ...contentGeneral
         }
     }
 `;

@@ -3,33 +3,47 @@ import { graphql } from 'gatsby';
 import { logicDescription } from '../logic';
 import Layout from '../components/Layout';
 import Feed from '../components/section/Feed';
+import Hero from '../components/section/Hero';
 import ArticleProduct from '../components/project/ArticleProduct';
-import MenuCollection from '../components/project/MenuCollection';
 
 export default ({ location, data }) => {
-    const { collection } = data;
-    const loopCollection = collection.products.map((product) => <ArticleProduct key={product.id} product={product} />);
+    const { collection, content } = data;
+    const loopCollection = collection.products.map((product) => <ArticleProduct key={product.id} product={product} collection={collection} />);
     return (
         <Layout
-            template={`collection collection-${collection.handle}`}
+            template={`single single-collection single-collection-${collection.handle}`}
             title={collection.title}
             description={logicDescription(collection)}
             location={location}
         >
+            <Hero id={`hero-${collection.handle}`} height="short" alternate={collection.title}>
+                {content.head ? (
+                    <header
+                        className="node-xs-30 node-lg-50 text-center"
+                        dangerouslySetInnerHTML={{ __html: content.head.childMarkdownRemark.html }}
+                    />
+                ) : (
+                    <header className="node-xs-30 node-lg-50 text-center">
+                        <h1>{collection.title}</h1>
+                        <h2>{logicDescription(collection)}</h2>
+                    </header>
+                )}
+            </Hero>
             {collection && collection.products.length > 0 && (
-                <Feed id={`feed-${collection.handle}`} space="space-custom" item="product">
-                    {collection.title && (
-                        <header className="copy node-xs-50 node-lg-80 text-lg-center">
-                            <h1>{collection.title}</h1>
-                            <h2>{collection.description}</h2>
-                        </header>
-                    )}
+                <Feed id={`feed-${collection.handle}`} space="space-xs-50 space-md-80" item="product">
                     <section className="node-xs-50 node-lg-80 cheat-both">
-                        <div className="row gutter-80">{loopCollection}</div>
+                        <div className="row justify-content-center gutter-80-30">
+                            {(collection.title || collection.description) && (
+                                <header id={`collection-${collection.handle}`} className={`collection collection-${collection.handle} col-lg-3`}>
+                                    <div className="case">
+                                        <h3>{collection.title}</h3>
+                                        <p className="description" dangerouslySetInnerHTML={{ __html: collection.description }} />
+                                    </div>
+                                </header>
+                            )}
+                            {loopCollection}
+                        </div>
                     </section>
-                    <footer className="node-xs-50 node-lg-80">
-                        <MenuCollection />
-                    </footer>
                 </Feed>
             )}
         </Layout>
@@ -47,12 +61,24 @@ export const query = graphql`
                 id
                 handle
                 title
+                descriptionHtml
                 images {
                     ...imageShopify
                 }
                 variants {
                     shopifyId
                     price
+                }
+                productType
+            }
+        }
+        content: contentfulCollection(handle: { eq: $handle }) {
+            title
+            handle
+            head {
+                childMarkdownRemark {
+                    html
+                    excerpt
                 }
             }
         }

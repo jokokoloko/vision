@@ -15,35 +15,14 @@
 	background-color: $color-white !important;
 	}
 .color-2 {
-	background-color: $color-ghost !important;
+	background-color: $color-brand-grey-300 !important;
 	}
 .color-3 {
-	background-color: $color-dust !important;
+	background-color: $color-brand-black-400 !important;
+	color: $color-white;
 	}
 .color-4 {
-	background-color: $color-grey !important;
-	}
-.color-5 {
-	background-color: $color-aluminium !important;
-	}
-.color-6 {
-	background-color: $color-stone !important;
-	color: $color-white;
-	}
-.color-7 {
-	background-color: $color-charcoal !important;
-	color: $color-white;
-	}
-.color-8 {
-	background-color: $color-metal !important;
-	color: $color-white;
-	}
-.color-9 {
-	background-color: $color-night !important;
-	color: $color-white;
-	}
-.color-10 {
-	background-color: $color-black !important;
+	background-color: $color-brand-blue-300 !important;
 	color: $color-white;
 	}
 
@@ -100,32 +79,18 @@
 	border-top: 5px solid $color-white;
 	padding-top: 30px;
 	}
-.style-border-top-grey {
-    border-top: 3px solid $color-ghost !important;
-    }
-.style-border-top-grey > * {
-    margin-top: -3px !important;
-    }
-	
-/* ----------!DIVISION---------- */
-@media (min-width: 992px) {
-    .division + .division {
-        border-top: 3px solid #fafafa;
-        margin-top: 80px;
-        }
-    }
 
 /* ----------!CHEAT---------- */
 @media (min-width: 1440px) {
     .cheat-left {
-        margin-left: -80px;
+        margin-left: -30px;
         }
     .cheat-right {
-        margin-right: -80px;
+        margin-right: -30px;
         }
     .cheat-both {
-        margin-left: -80px;
-        margin-right: -80px;
+        margin-left: -30px;
+        margin-right: -30px;
         }
     }
 

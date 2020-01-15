@@ -10,7 +10,7 @@ const Footer = ({ offcanvasPush }) => {
         <footer id="footer" className={offcanvasPush} role="contentinfo">
             <div className="container-fluid">
                 <Basic id="footer-default" space="space-none">
-                    <div className="case style-border-top-grey">
+                    <div className="case">
                         <p className="copyright">
                             <Link className="navbar-link" title={title} rel="home">
                                 {title}

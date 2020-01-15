@@ -8,6 +8,24 @@
 	justify-content: space-between;
 	}
 
+/* =========================== */
+/* ==========!GUTTER========== */
+/* =========================== */
+
+/* ----------!CUSTOM---------- */
+.gutter-80-30 {
+	margin: -40px -15px;
+	}
+.gutter-80-30 > * {
+	padding: 40px 15px;
+	}
+.gutter-80-50 {
+	margin: -40px -25px;
+	}
+.gutter-80-50 > * {
+	padding: 40px 25px;
+	}
+
 /* ============================= */
 /* ==========!TEMPLATE========== */
 /* ============================= */
@@ -115,18 +133,16 @@
 /* ----------!HEADER---------- */
 #header {
 	@include color($color-header);
-    border-bottom: 1px solid $color-ghost;
-    box-shadow: 0 2px $color-ghost;
 	}
 #header .logo {
-    width: 237px;
-    height: 30px;
+    width: 227px;
+    height: 20px;
 	}
 
 /* ----------!BAR---------- */
 #bar {
 	@include color($color-bar);
-	border-bottom: 1px solid $color-metal;
+	border-bottom: 1px solid $color-text-base;
 	top: 0;
 	bottom: 0;
 	opacity: 0;

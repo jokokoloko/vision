@@ -10,18 +10,23 @@ const CartItem = ({ item }) => {
         const value = event.target.value;
         setQuantity(value);
     };
-    const onBlur = () => (quantity === '' ? setQuantity(item.quantity.toString()) : updateQuantity(item.id, Number(quantity)));
+    const onBlur = () =>
+        quantity === item.quantity.toString()
+            ? {}
+            : quantity === ''
+            ? setQuantity(item.quantity.toString())
+            : updateQuantity(item.id, Number(quantity));
     const onClick = () => removeProductFromCart(item.id);
     useEffect(() => {
         setQuantity(item.quantity.toString());
     }, [item.quantity]);
     return (
-        <li className="cart-line-item">
+        <li className={`cart-line-item product product-${item.variant.product.handle}`}>
             <div className="row">
-                <div className="col-auto d-flex align-items-center">
-                    <div className="cart-line-item-image">
+                <div className="col-auto">
+                    <figure className="cart-line-item-image product-color d-flex align-items-center">
                         <img className="image fit exact-center img-fluid" src={item.variant.image.src} alt={item.title} />
-                    </div>
+                    </figure>
                 </div>
                 <div className="col d-flex flex-column flex-content-between">
                     <p className="title">{item.title}</p>
@@ -40,15 +45,15 @@ const CartItem = ({ item }) => {
                                 aria-label="quantity"
                             />
                             <div className="input-group-append">
-                                <button type="button" className="btn btn-default btn-md do-update" disabled={quantity === item.quantity.toString()}>
+                                <button type="button" className="btn do-update" disabled={quantity === item.quantity.toString()}>
                                     &#x21bb;
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div className="col-3 d-flex flex-column flex-content-between align-items-end">
-                    <button type="button" className="btn btn-default btn-md do-remove" onClick={onClick}>
+                <div className="col-auto d-flex flex-column flex-content-between align-items-end">
+                    <button type="button" className="btn do-remove" onClick={onClick}>
                         X
                     </button>
                     <p className="price">${addCommasToNumber(item.variant.price)}</p>

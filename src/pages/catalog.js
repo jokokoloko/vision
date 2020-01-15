@@ -4,7 +4,6 @@ import { logicDescription } from '../logic';
 import Layout from '../components/Layout';
 import Feed from '../components/section/Feed';
 import ArticleProduct from '../components/project/ArticleProduct';
-import MenuCollection from '../components/project/MenuCollection';
 
 export default ({ location, data }) => {
     const { products, page } = data;
@@ -19,12 +18,9 @@ export default ({ location, data }) => {
                             dangerouslySetInnerHTML={{ __html: page.head.childMarkdownRemark.html }}
                         />
                     )}
-                    <section className="node-xs-50 node-lg-80 cheat-both">
+                    <section className="node-xs-50 node-lg-80">
                         <div className="row gutter-80">{loopProduct}</div>
                     </section>
-                    <footer className="node-xs-50 node-lg-80">
-                        <MenuCollection />
-                    </footer>
                 </Feed>
             )}
         </Layout>
@@ -33,7 +29,7 @@ export default ({ location, data }) => {
 
 export const query = graphql`
     query pageCatalog {
-        products: allShopifyProduct(sort: { fields: publishedAt, order: DESC }) {
+        products: allShopifyProduct(sort: { fields: createdAt, order: DESC }) {
             edges {
                 node {
                     id

@@ -179,6 +179,27 @@ export const contentHero = graphql`
     }
 `;
 
+export const contentStep = graphql`
+    fragment contentStep on ContentfulStep {
+        id
+        title
+        slug
+        image {
+            ...imageIcon
+        }
+        body {
+            childMarkdownRemark {
+                html
+                excerpt
+            }
+        }
+        excerpt {
+            excerpt
+        }
+        order
+    }
+`;
+
 export const contentSymptom = graphql`
     fragment contentSymptom on ContentfulSymptom {
         id
