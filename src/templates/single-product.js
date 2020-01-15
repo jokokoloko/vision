@@ -33,7 +33,7 @@ export default ({ location, data }) => {
     const loopTest = tests.edges.map(({ node: test }) => <ArticleTest key={test.id} test={test} />);
     return (
         <Layout
-            template={`single single-product single-product-${product.handle} product-${product.handle}`}
+            template={`single single-product single-product-${product.handle}`}
             title={product.title}
             description={logicDescription(product)}
             location={location}
