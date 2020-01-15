@@ -329,8 +329,9 @@ p + .instagram-media {
 /* ============================== */
 
 /* ----------!MAIN---------- */
-.hero h1 + h2 {
-	padding-top: 44px; // 50px spacing
+.hero h1 + h2,
+.hero h3 + p {
+	padding-top: 45px; // 50px spacing
 	}
 
 /* ============================ */

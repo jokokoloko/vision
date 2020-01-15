@@ -27,6 +27,7 @@ h1 {
 	margin-right: -3px;
 	line-height: 45px;
 	font-size: 41px;
+	font-weight: $font-weight-2;
 	}
 
 /* ----------!H2---------- */
@@ -237,9 +238,28 @@ figure {
 /* ============================== */
 
 /* ----------!HERO---------- */
+.hero p,
 .hero h2 {
-	margin: 0 auto;
 	max-width: 800px;
+	}
+@include media-breakpoint-up(lg) {
+    .hero p {
+		margin-top: -7px;
+		margin-bottom: -8px;
+		margin-left: -2px;
+		margin-right: -2px;
+		line-height: 30px;
+		font-size: 20px;
+		}
+    }
+.hero h3 {
+	margin-top: -6px;
+	margin-bottom: -9px;
+	margin-left: -3px;
+	margin-right: -3px;
+	line-height: 45px;
+	font-size: 41px;
+	font-weight: $font-weight-2;
 	}
 .hero .scroll {
 	padding-bottom: 15px;

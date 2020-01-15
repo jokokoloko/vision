@@ -5,9 +5,13 @@
 /* ----------!CASE---------- */
 .feed-product .case {
 	border: 2px solid $color-panel;
-	min-height: 550px;
 	height: 100%;
 	position: relative;
+	}
+@include media-breakpoint-up(md) {
+	.feed-product .case {
+		min-height: 550px;
+		}
 	}
 
 /* =============================== */
@@ -63,11 +67,15 @@
 	}
 .feed-product .product .case .action {
     color: $color-brand-orange-400;
-	opacity: 0;
-	transition: opacity 0.2s;
 	}
-.feed-product .product .case:hover .action {
-	opacity: 1;
+@include media-breakpoint-up(md) {
+	.feed-product .product .case .action {
+		opacity: 0;
+		transition: opacity 0.2s;
+		}
+	.feed-product .product .case:hover .action {
+		opacity: 1;
+		}
 	}
 .feed-product .product .case .type {
 	min-height: 50px;
