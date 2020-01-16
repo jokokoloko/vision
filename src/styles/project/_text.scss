@@ -237,8 +237,7 @@ figure {
 /* ============================== */
 
 /* ----------!HERO---------- */
-.hero p,
-.hero h2 {
+.hero p {
 	max-width: 800px;
 	}
 @include media-breakpoint-up(lg) {
@@ -251,6 +250,15 @@ figure {
 		font-size: 20px;
 		}
     }
+.hero h2 {
+	margin-top: -6px;
+	margin-bottom: -9px;
+	margin-left: -3px;
+	margin-right: -3px;
+	line-height: 45px;
+	font-size: 41px;
+	font-weight: $font-weight-2;
+		}
 .hero h3 {
 	margin-top: -6px;
 	margin-bottom: -9px;
@@ -291,12 +299,6 @@ figure {
 /* ========================== */
 /* ==========!BUILD========== */
 /* ========================== */
-
-/* ----------!H2---------- */
-.carousel h2,
-.hero h2 {
-    font-style: normal;
-    }
 
 /* ----------!COPY---------- */
 @media (min-width: 992px) {
