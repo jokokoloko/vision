@@ -5,9 +5,13 @@
 /* ----------!CASE---------- */
 .feed-product .case {
 	border: 2px solid $color-panel;
-	min-height: 550px;
 	height: 100%;
 	position: relative;
+	}
+@include media-breakpoint-up(md) {
+	.feed-product .case {
+		min-height: 610px;
+		}
 	}
 
 /* =============================== */
@@ -17,6 +21,21 @@
 /* ----------!CASE---------- */
 .feed-product .collection .case {
 	padding: 80px 28px 50px;
+	}
+
+/* ----------!TEXT---------- */
+.feed-product .collection .case .title {
+	font-weight: $font-weight-2;
+    }
+@include media-breakpoint-up(lg) {
+	.feed-product .collection .case .title {
+		margin-top: -7px;
+		margin-bottom: -8px;
+		margin-left: -2px;
+		margin-right: -2px;
+		line-height: 30px;
+		font-size: 20px;
+		}
 	}
 
 /* ============================ */
@@ -50,6 +69,7 @@
 	}
 
 /* ----------!TEXT---------- */
+.feed-product .product .case .title,
 .feed-product .product .case .title > a,
 .feed-product .product .case .action,
 .feed-product .product .case .price {
@@ -57,20 +77,26 @@
 	line-height: 20px;
     color: $color-text-base;
 	}
+.feed-product .product .case .title,
 .feed-product .product .case .title > a,
 .feed-product .product .case .action {
 	font-weight: $font-weight-3;
 	}
 .feed-product .product .case .action {
     color: $color-brand-orange-400;
-	opacity: 0;
-	transition: opacity 0.2s;
 	}
-.feed-product .product .case:hover .action {
-	opacity: 1;
+@include media-breakpoint-up(md) {
+	.feed-product .product .case .action {
+		opacity: 0;
+		transition: 0.2s;
+		}
+	.feed-product .product .case:hover .action {
+		opacity: 1;
+		}
 	}
 .feed-product .product .case .type {
-	min-height: 50px;
+	min-height: 55px;
+	font-weight: $font-weight-1;
 	text-transform: uppercase;
 	}
 .feed-product .product .case ul > li,
@@ -81,15 +107,20 @@
 	}
 
 /* ----------!SPACE---------- */
+.feed-product .collection .case .title + .description {
+	padding-top: 41px;
+	}
 .feed-product .product .case ul > li + li {
 	padding-top: 0 !important;
 	}
 .feed-product .product .case .title {
-	margin-top: -9px;
+	margin-top: -4px;
 	margin-bottom: -6px;
+	margin-left: -1px;
+	margin-right: -1px;
 	}
 .feed-product .product .case .title + .type {
-	padding-top: 10px;
+	padding-top: 15px;
 	}
 .feed-product .product .case ul,
 .feed-product .product .case .type,

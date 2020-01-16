@@ -13,19 +13,19 @@ export default ({ location, data }) => {
         <Layout
             template={`single single-collection single-collection-${collection.handle}`}
             title={collection.title}
-            description={logicDescription(collection)}
+            description={(content && content.metaDescription) || collection.description}
             location={location}
         >
             <Hero id={`hero-${collection.handle}`} height="short" alternate={collection.title}>
                 {content.head ? (
                     <header
-                        className="node-xs-30 node-lg-50 text-center"
+                        className="node-xs-30 node-lg-50 d-flex flex-column align-items-center text-center"
                         dangerouslySetInnerHTML={{ __html: content.head.childMarkdownRemark.html }}
                     />
                 ) : (
-                    <header className="node-xs-30 node-lg-50 text-center">
-                        <h1>{collection.title}</h1>
-                        <h2>{logicDescription(collection)}</h2>
+                    <header className="node-xs-30 node-lg-50 d-flex flex-column align-items-center text-center">
+                        <h2>{collection.title}</h2>
+                        <p>{logicDescription(collection)}</p>
                     </header>
                 )}
             </Hero>
@@ -36,7 +36,7 @@ export default ({ location, data }) => {
                             {(collection.title || collection.description) && (
                                 <header id={`collection-${collection.handle}`} className={`collection collection-${collection.handle} col-lg-3`}>
                                     <div className="case">
-                                        <h3>{collection.title}</h3>
+                                        <h1 className="title">{collection.title}</h1>
                                         <p className="description" dangerouslySetInnerHTML={{ __html: collection.description }} />
                                     </div>
                                 </header>
@@ -81,6 +81,7 @@ export const query = graphql`
                     excerpt
                 }
             }
+            metaDescription
         }
     }
 `;

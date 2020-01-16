@@ -92,8 +92,8 @@ export const imageShopify = graphql`
     fragment imageShopify on ShopifyProductImages {
         localFile {
             childImageSharp {
-                fluid(maxWidth: 550, maxHeight: 550, quality: 80) {
-                    ...GatsbyImageSharpFluid_withWebp
+                fluid(maxWidth: 600, maxHeight: 408, quality: 80) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
             }
         }

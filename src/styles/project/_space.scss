@@ -27,13 +27,13 @@ h5 + p,
 h6 + p {
     padding-top: 23px; // 30px spacing
     }
-.d-flex h1 + p,
-.d-flex h2 + p,
-.d-flex h3 + p,
-.d-flex h4 + p,
-.d-flex h5 + p,
-.d-flex h6 + p,
-.d-flex p + p {
+.d-flex:not([class*="flex-column"]) h1 + p,
+.d-flex:not([class*="flex-column"]) h2 + p,
+.d-flex:not([class*="flex-column"]) h3 + p,
+.d-flex:not([class*="flex-column"]) h4 + p,
+.d-flex:not([class*="flex-column"]) h5 + p,
+.d-flex:not([class*="flex-column"]) h6 + p,
+.d-flex:not([class*="flex-column"]) p + p {
 	padding-top: 0; // 0 spacing
 	}
 
@@ -329,8 +329,8 @@ p + .instagram-media {
 /* ============================== */
 
 /* ----------!MAIN---------- */
-.hero h1 + h2 {
-	padding-top: 44px; // 50px spacing
+.hero h2 + p {
+	padding-top: 45px; // 50px spacing (possibly just remove this and instead change line 19)
 	}
 
 /* ============================ */

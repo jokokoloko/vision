@@ -35,7 +35,7 @@ export default ({ location, data }) => {
         <Layout
             template={`single single-product single-product-${product.handle}`}
             title={product.title}
-            description={logicDescription(product)}
+            description={(content && content.metaDescription) || logicDescription(product)}
             location={location}
         >
             <Basic id="product-main" space="space-product">
@@ -187,6 +187,7 @@ export const query = graphql`
             excerpt {
                 excerpt
             }
+            metaDescription
         }
         steps: allContentfulStep(sort: { fields: order, order: ASC }) {
             edges {
