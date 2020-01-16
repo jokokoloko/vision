@@ -15,12 +15,12 @@ const ArticleProduct = ({ product, collection }) => {
             <div className="case d-flex flex-column">
                 <header>
                     <div className="pod">
-                        <h4 className="title">
+                        <h3 className="title">
                             <Link className="stretched-link" to={path.PRODUCT === '/' ? `/${product.handle}` : `${path.PRODUCT}/${product.handle}`}>
                                 {product.title}
                             </Link>
-                        </h4>
-                        <h5 className="type">{product.productType}</h5>
+                        </h3>
+                        <h4 className="type">{product.productType}</h4>
                     </div>
                 </header>
                 {firstImage && (
