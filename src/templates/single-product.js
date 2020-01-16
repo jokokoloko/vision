@@ -35,7 +35,7 @@ export default ({ location, data }) => {
         <Layout
             template={`single single-product single-product-${product.handle}`}
             title={product.title}
-            description={content.metaDescription || logicDescription(product)}
+            description={(content && content.metaDescription) || logicDescription(product)}
             location={location}
         >
             <Basic id="product-main" space="space-product">
