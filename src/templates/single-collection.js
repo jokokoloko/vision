@@ -19,11 +19,11 @@ export default ({ location, data }) => {
             <Hero id={`hero-${collection.handle}`} height="short" alternate={collection.title}>
                 {content.head ? (
                     <header
-                        className="node-xs-30 node-lg-50 d-flex flex-column align-items-center text-center"
+                        className="node-xs-30 node-lg-50 text-center"
                         dangerouslySetInnerHTML={{ __html: content.head.childMarkdownRemark.html }}
                     />
                 ) : (
-                    <header className="node-xs-30 node-lg-50 d-flex flex-column align-items-center text-center">
+                    <header className="node-xs-30 node-lg-50 text-center">
                         <h2>{collection.title}</h2>
                         <p>{logicDescription(collection)}</p>
                     </header>
