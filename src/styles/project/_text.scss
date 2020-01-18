@@ -21,18 +21,23 @@ p {
 
 /* ----------!H1---------- */
 h1 {
-	margin-top: -6px;
-	margin-bottom: -9px;
+	margin-top: -9px;
+	margin-bottom: -6px;
 	margin-left: -3px;
 	margin-right: -3px;
-	line-height: 45px;
+	line-height: 50px;
 	font-size: 41px;
 	font-weight: $font-weight-2;
 	}
 
 /* ----------!H2---------- */
 h2 {
-	@extend p;
+	margin-top: -7px;
+	margin-bottom: -8px;
+	margin-left: -1px;
+	margin-right: -1px;
+	line-height: $line-height-text;
+	font-size: $font-size-text;
     }
 @include media-breakpoint-up(lg) {
     h2 {
@@ -47,7 +52,12 @@ h2 {
 
 /* ----------!H3---------- */
 h3 {
-	@extend p;
+	margin-top: -7px;
+	margin-bottom: -8px;
+	margin-left: -1px;
+	margin-right: -1px;
+	line-height: $line-height-text;
+	font-size: $font-size-text;
 	font-weight: $font-weight-2;
     }
 @include media-breakpoint-up(lg) {
@@ -63,7 +73,12 @@ h3 {
 
 /* ----------!H4---------- */
 h4 {
-	@extend p;
+	margin-top: -7px;
+	margin-bottom: -8px;
+	margin-left: -1px;
+	margin-right: -1px;
+	line-height: $line-height-text;
+	font-size: $font-size-text;
     font-weight: $font-weight-3;
     }
 
@@ -237,9 +252,6 @@ figure {
 /* ============================== */
 
 /* ----------!HERO---------- */
-.hero p {
-	max-width: 800px;
-	}
 @include media-breakpoint-up(lg) {
     .hero p {
 		margin-top: -7px;
@@ -250,24 +262,25 @@ figure {
 		font-size: 20px;
 		}
     }
+.hero h1,
 .hero h2 {
-	margin-top: -6px;
-	margin-bottom: -9px;
+	margin-top: -9px;
+	margin-bottom: -6px;
 	margin-left: -3px;
 	margin-right: -3px;
-	line-height: 45px;
-	font-size: 41px;
-	font-weight: $font-weight-2;
-		}
-.hero h3 {
-	margin-top: -6px;
-	margin-bottom: -9px;
-	margin-left: -3px;
-	margin-right: -3px;
-	line-height: 45px;
+	line-height: 50px;
 	font-size: 41px;
 	font-weight: $font-weight-2;
 	}
+.hero h3 {
+	margin-top: -7px;
+	margin-bottom: -8px;
+	margin-left: -1px;
+	margin-right: -1px;
+	line-height: 35px;
+	font-size: 27px;
+	font-weight: $font-weight-2;
+    }
 .hero .scroll {
 	padding-bottom: 15px;
 	}

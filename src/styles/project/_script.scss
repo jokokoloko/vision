@@ -45,6 +45,18 @@
 	min-height: 340px;
     height: 100vh !important;
     }
+.height-short,
+.height-standard {
+    height: 340px !important;
+    }
+@media (min-width: 992px) {
+    .height-standard {
+        height: 550px !important;
+        }
+    }
+.height-match {
+    height: 100% !important;
+    }
 
 /* ----------!INFINITE---------- */
 .infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
