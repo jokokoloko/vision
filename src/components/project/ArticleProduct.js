@@ -40,7 +40,7 @@ const ArticleProduct = ({ product, collection }) => {
                         <p className="price">${addCommasToNumber(firstVariant.price)}</p>
                     </div>
                     <div className="pod">
-                        <p className="action">Learn More</p>
+                        <p className="action">Learn More &rarr;</p>
                     </div>
                 </footer>
             </div>

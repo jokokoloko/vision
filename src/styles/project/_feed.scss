@@ -3,31 +3,30 @@
 /* ========================= */
 
 /* ----------!CASE---------- */
+.feed-collection .case,
 .feed-product .case {
 	border: 2px solid $color-panel;
 	height: 100%;
 	position: relative;
 	}
 @include media-breakpoint-up(md) {
+	.feed-collection .case,
 	.feed-product .case {
 		min-height: 610px;
 		}
 	}
-
-/* =============================== */
-/* ==========!COLLECTION========== */
-/* =============================== */
-
-/* ----------!CASE---------- */
+.feed-collection .collection .case,
 .feed-product .collection .case {
 	padding: 80px 28px 50px;
 	}
 
 /* ----------!TEXT---------- */
+.feed-collection .collection .case .title,
 .feed-product .collection .case .title {
 	font-weight: $font-weight-2;
     }
 @include media-breakpoint-up(lg) {
+	.feed-collection .collection .case .title,
 	.feed-product .collection .case .title {
 		margin-top: -7px;
 		margin-bottom: -8px;
@@ -35,6 +34,27 @@
 		margin-right: -2px;
 		line-height: 30px;
 		font-size: 20px;
+		}
+	}
+
+/* =============================== */
+/* ==========!COLLECTION========== */
+/* =============================== */
+
+/* ----------!TEXT---------- */
+.feed-collection .collection .case .action {
+	font-size: 14px;
+	font-weight: $font-weight-3;
+	line-height: 20px;
+    color: $color-brand-orange-400;
+	}
+@include media-breakpoint-up(md) {
+	.feed-collection .collection .case .action {
+		opacity: 0;
+		transition: 0.2s;
+		}
+	.feed-collection .collection .case:hover .action {
+		opacity: 1;
 		}
 	}
 
