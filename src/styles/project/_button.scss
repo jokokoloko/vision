@@ -42,6 +42,24 @@
 	@include color($color-button-default-hover);
 	}
 
+/* ----------!ALTERNATE---------- */
+.btn-alternate {
+	@include color($color-button-alternate);
+	}
+.btn-alternate.active,
+.btn-alternate.active.focus,
+.btn-alternate.active:hover,
+.btn-alternate.active:focus,
+.btn-alternate.focus,
+.btn-alternate:active,
+.btn-alternate:active.focus,
+.btn-alternate:active:hover,
+.btn-alternate:active:focus,
+.btn-alternate:hover,
+.btn-alternate:focus {
+	@include color($color-button-alternate-hover);
+	}
+
 /* ----------!MAIN---------- */
 .btn-main {
 	@include color($color-button-main);
@@ -110,7 +128,8 @@
 .btn-lg,
 .btn-xl,
 .btn-hg {
-	padding: 8px 13px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	font-size: $font-size-text;
 	line-height: $line-height-text;
 	}
