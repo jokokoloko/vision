@@ -2,11 +2,12 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { generateID } from '../function';
 import Layout from '../components/Layout';
-import Button from '../components/unit/Button';
+import Basic from '../components/section/Basic';
 import Hero from '../components/section/Hero';
+import Button from '../components/unit/Button';
 
 export default ({ location, data }) => {
-    const { collections, splash } = data;
+    const { collections, splash, introduction } = data;
     const loopCollection = collections.edges.map(({ node }) => (
         <Button key={generateID()} label={node.title} kind="alternate" size="lg" display="pill" to={`/${node.handle}`} />
     ));
@@ -29,6 +30,11 @@ export default ({ location, data }) => {
                     </div>
                 </Hero>
             )}
+            {introduction && (
+                <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={0}>
+                    <header className="copy text-center" dangerouslySetInnerHTML={{ __html: introduction.body.childMarkdownRemark.html }} />
+                </Basic>
+            )}
         </Layout>
     );
 };
@@ -45,6 +51,9 @@ export const query = graphql`
         }
         splash: contentfulHero(slug: { eq: "splash" }) {
             ...contentSplash
+        }
+        introduction: contentfulGeneral(slug: { eq: "introduction" }) {
+            ...contentGeneral
         }
     }
 `;

@@ -314,33 +314,48 @@ figure {
 /* ========================== */
 
 /* ----------!COPY---------- */
-@media (min-width: 992px) {
-    .copy h3 {
+@include media-breakpoint-up(lg) {
+    .copy p {
 		margin-top: -7px;
 		margin-bottom: -8px;
 		margin-left: -2px;
 		margin-right: -2px;
-		line-height: 40px;
-		font-size: 34px;
+		line-height: 30px;
+		font-size: 20px;
 		}
-    .copy p + h3,
-    .copy ol + h3,
-    .copy ul + h3 {
-        margin-top: 80px;
-        }
     }
+.copy h1,
+.copy h2,
+.copy h3 {
+	margin-top: -9px;
+	margin-bottom: -11px;
+	margin-left: -2px;
+	margin-right: -2px;
+	line-height: 45px;
+	font-size: 34px;
+	font-weight: $font-weight-2;
+	}
 
 /* ----------!ATTENTION---------- */
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
     .attention p {
-		margin-top: -6px;
-		margin-bottom: -9px;
+		margin-top: -7px;
+		margin-bottom: -8px;
 		margin-left: -2px;
 		margin-right: -2px;
-		line-height: 35px;
-		font-size: 27px;
+		line-height: 30px;
+		font-size: 20px;
 		}
     }
+.attention h1 {
+	margin-top: -9px;
+	margin-bottom: -11px;
+	margin-left: -2px;
+	margin-right: -2px;
+	line-height: 45px;
+	font-size: 34px;
+	font-weight: $font-weight-2;
+	}
 
 /* ----------!DATE---------- */
 .date {
@@ -366,3 +381,9 @@ article .read-more::after {
 article .learn-more::after {
     content: ' Learn more \2192';
     }
+
+/* ----------!WIDTH---------- */
+.hero header {
+	margin: 0 auto;
+	max-width: 800px;
+	}
