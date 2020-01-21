@@ -10,7 +10,7 @@ import Image from '../components/unit/Image';
 import Link from '../components/unit/Link';
 
 export default ({ location, data }) => {
-    const { collections, splash, introduction, collection, about } = data;
+    const { collections, results, splash, introduction, collection, result, about } = data;
     const loopCollection = collections.edges.map(({ node }) => (
         <article key={node.id} id={`collection-${node.handle}`} className={`collection collection-${node.handle} col-lg-3`}>
             <div className="case d-flex flex-column">
@@ -30,6 +30,20 @@ export default ({ location, data }) => {
     ));
     const loopCollectionButton = collections.edges.map(({ node }) => (
         <Button key={node.id} label={node.title} kind="alternate" size="lg" display="pill" to={`/${node.handle}`} />
+    ));
+    const loopResult = results.edges.map(({ node }) => (
+        <article key={node.id} id={`result-${node.slug}`} className={`result result-${node.slug}`}>
+            <div className="row align-items-center gutter-50 gutter-lg-80">
+                <div className="col-xl">
+                    <figure className="cheat-left">
+                        <Image className="image" source={node.image.fluid} alternate={node.title} />
+                    </figure>
+                </div>
+                <div className="col-xl">
+                    <header dangerouslySetInnerHTML={{ __html: node.body.childMarkdownRemark.html }} />
+                </div>
+            </div>
+        </article>
     ));
     return (
         <Layout template="home" location={location}>
@@ -51,12 +65,12 @@ export default ({ location, data }) => {
                 </Hero>
             )}
             {introduction && (
-                <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={0}>
+                <Basic id={introduction.slug} space="space-xs-80 space-lg-130" color={0}>
                     <header className="copy text-center" dangerouslySetInnerHTML={{ __html: introduction.body.childMarkdownRemark.html }} />
                 </Basic>
             )}
             {collections.edges.length > 0 && (
-                <Feed id="feed-collection" space="space-xs-50 space-lg-80" item="collection">
+                <Feed id="collections" space="space-xs-80 space-lg-130" item="collection">
                     {collection.body && (
                         <header
                             className="copy node-xs-50 text-lg-center"
@@ -68,13 +82,24 @@ export default ({ location, data }) => {
                     </section>
                 </Feed>
             )}
+            {results.edges.length > 0 && (
+                <Feed id="results" space="space-xs-80 space-lg-130" item="result">
+                    {result.body && (
+                        <header
+                            className="copy node-xs-50 text-lg-center"
+                            dangerouslySetInnerHTML={{ __html: result.body.childMarkdownRemark.html }}
+                        />
+                    )}
+                    <section className="node-xs-50">{loopResult}</section>
+                </Feed>
+            )}
             {about && (
                 <Basic id={about.slug} space="space-xs-80 space-lg-130" color={2}>
                     <header className="copy text-center node-xs-50">
                         <h3>{about.title}</h3>
                     </header>
                     <figure className="node-xs-50">
-                        <Image className="image" source={about.image.fluid} alternate="Report" />
+                        <Image className="image" source={about.image.fluid} alternate={about.title} />
                     </figure>
                     <section className="copy text-center node-xs-50" dangerouslySetInnerHTML={{ __html: about.body.childMarkdownRemark.html }} />
                 </Basic>
@@ -95,6 +120,23 @@ export const query = graphql`
                 }
             }
         }
+        results: allContentfulResult(sort: { fields: order, order: ASC }) {
+            edges {
+                node {
+                    id
+                    title
+                    slug
+                    image {
+                        ...imageHigh
+                    }
+                    body {
+                        childMarkdownRemark {
+                            html
+                        }
+                    }
+                }
+            }
+        }
         splash: contentfulHero(slug: { eq: "splash" }) {
             ...contentSplash
         }
@@ -102,6 +144,9 @@ export const query = graphql`
             ...contentGeneral
         }
         collection: contentfulGeneral(slug: { eq: "collection" }) {
+            ...contentGeneral
+        }
+        result: contentfulGeneral(slug: { eq: "result" }) {
             ...contentGeneral
         }
         about: contentfulGeneral(slug: { eq: "about" }) {
