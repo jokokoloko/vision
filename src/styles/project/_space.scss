@@ -271,8 +271,9 @@ h4 + .menu-list {
 /* ========================= */
 
 /* ----------!HEADER---------- */
+header h4 + p,
 header .title + p {
-	padding-top: 23px; // 30px spacing
+	padding-top: 42px; // 50px spacing
 	}
 
 /* ----------!SECTION---------- */
@@ -329,8 +330,9 @@ p + .instagram-media {
 /* ============================== */
 
 /* ----------!MAIN---------- */
+.hero h1 + p,
 .hero h2 + p {
-	padding-top: 45px; // 50px spacing (possibly just remove this and instead change line 19)
+	padding-top: 40px; // 50px spacing (possibly just remove this and instead change line 19)
 	}
 
 /* ============================ */

@@ -102,38 +102,3 @@
         width: 720px;
         }
     }
-
-/* ----------!HEIGHT---------- */
-.height-auto,
-.height-half {
-    height: auto !important;
-    }
-@media (min-width: 576px) {
-    .height-half {
-        height: 50vh !important;
-        }
-    }
-.height-fill {
-    height: calc(100vh - 50px) !important;
-    }
-@media (min-width: 992px) {
-    .height-fill {
-        height: calc(100vh - 80px) !important;
-        }
-    }
-.height-full {
-    min-height: 340px;
-    height: 100vh !important;
-    }
-.height-short,
-.height-standard {
-    height: 340px !important;
-    }
-@media (min-width: 992px) {
-    .height-standard {
-        height: 550px !important;
-        }
-    }
-.height-match {
-    height: 100% !important;
-    }

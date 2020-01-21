@@ -9,19 +9,22 @@
 .single-collection-hormone-tests .hero {
 	background-color: $color-brand-blue-300 !important;
 	}
-.single-collection-hormone-tests .feed-product .collection .case {
+.single-collection-hormone-tests .feed-product .collection .case,
+.collection-hormone-tests .case {
 	border-color: $color-brand-purple-400 !important;
 	}
 .single-collection-heavy-metal-tests .hero {
 	background-color: $color-brand-yellow-400 !important;
 	}
-.single-collection-heavy-metal-tests .feed-product .collection .case {
+.single-collection-heavy-metal-tests .feed-product .collection .case,
+.collection-heavy-metal-tests .case {
 	border-color: $color-brand-yellow-400 !important;
 	}
 .single-collection-neurotransmitter-tests .hero {
 	background-color: $color-brand-blue-400 !important;
 	}
-.single-collection-neurotransmitter-tests .feed-product .collection .case {
+.single-collection-neurotransmitter-tests .feed-product .collection .case,
+.collection-neurotransmitter-tests .case {
 	border-color: $color-brand-pink-300 !important;
 	}
 
