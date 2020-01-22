@@ -29,7 +29,14 @@ export default ({ location, data }) => {
         </article>
     ));
     const loopCollectionButton = collections.edges.map(({ node }) => (
-        <Button key={node.id} label={node.title} kind="alternate" size="lg" display="pill" to={`/${node.handle}`} />
+        <Button
+            key={node.id}
+            label={node.title}
+            kind="alternate"
+            size="lg"
+            display="pill"
+            to={path.COLLECTION === '/' ? `/${node.handle}` : `${path.COLLECTION}/${node.handle}`}
+        />
     ));
     const loopResult = results.edges.map(({ node }) => (
         <article key={node.id} id={`result-${node.slug}`} className={`result result-${node.slug}`}>
@@ -73,7 +80,7 @@ export default ({ location, data }) => {
                 <Feed id="collections" space="space-xs-80 space-lg-130" item="collection">
                     {collection.body && (
                         <header
-                            className="copy node-xs-50 text-lg-center"
+                            className="copy node-xs-50 text-center"
                             dangerouslySetInnerHTML={{ __html: collection.body.childMarkdownRemark.html }}
                         />
                     )}
@@ -85,10 +92,7 @@ export default ({ location, data }) => {
             {results.edges.length > 0 && (
                 <Feed id="results" space="space-xs-80 space-lg-130" item="result">
                     {result.body && (
-                        <header
-                            className="copy node-xs-50 text-lg-center"
-                            dangerouslySetInnerHTML={{ __html: result.body.childMarkdownRemark.html }}
-                        />
+                        <header className="copy node-xs-50 text-center" dangerouslySetInnerHTML={{ __html: result.body.childMarkdownRemark.html }} />
                     )}
                     <section className="node-xs-50">{loopResult}</section>
                 </Feed>

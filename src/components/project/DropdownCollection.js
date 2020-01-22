@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { generateID } from '../../function';
+import * as path from '../../path';
 import useCollections from '../../queries/useCollections';
 import Dropdown from '../unit/Dropdown';
 import Link from '../unit/Link';
@@ -8,7 +9,12 @@ import Link from '../unit/Link';
 const DropdownCollection = ({ offcanvas, caret, label, name }) => {
     const { edges } = useCollections();
     const loopCollection = edges.map(({ node }) => (
-        <Link key={generateID()} className="dropdown-item" to={`/${node.handle}`} children={node.title} />
+        <Link
+            key={generateID()}
+            className="dropdown-item"
+            to={path.COLLECTION === '/' ? `/${node.handle}` : `${path.COLLECTION}/${node.handle}`}
+            children={node.title}
+        />
     ));
     return (
         <Dropdown name={offcanvas ? `offcanvas-${name}` : name} label={label} caret={caret}>
