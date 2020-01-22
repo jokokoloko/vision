@@ -10,17 +10,19 @@ import Image from '../components/unit/Image';
 import Link from '../components/unit/Link';
 
 export default ({ location, data }) => {
-    const { collections, results, splash, introduction, collection, result, about } = data;
-    const loopCollection = collections.edges.map(({ node }) => (
-        <article key={node.id} id={`collection-${node.handle}`} className={`collection collection-${node.handle} col-lg-3`}>
+    const { collections, steps, results, splash, introduction, collection, step, result, about } = data;
+    const loopCollection = collections.edges.map(({ node: collection }) => (
+        <article key={collection.id} id={`collection-${collection.handle}`} className={`collection collection-${collection.handle} col-lg-3`}>
             <div className="case d-flex flex-column">
                 <header>
                     <h4 className="title">
-                        <Link className="stretched-link" to={path.COLLECTION === '/' ? `/${node.handle}` : `${path.COLLECTION}/${node.handle}`}>
-                            {node.title}
-                        </Link>
+                        <Link
+                            className="stretched-link"
+                            to={path.COLLECTION === '/' ? `/${collection.handle}` : `${path.COLLECTION}/${collection.handle}`}
+                            children={collection.title}
+                        />
                     </h4>
-                    <p className="description" dangerouslySetInnerHTML={{ __html: node.description }} />
+                    <p className="description" dangerouslySetInnerHTML={{ __html: collection.description }} />
                 </header>
                 <footer className="mt-auto text-right">
                     <p className="action">View Tests &rarr;</p>
@@ -28,26 +30,36 @@ export default ({ location, data }) => {
             </div>
         </article>
     ));
-    const loopCollectionButton = collections.edges.map(({ node }) => (
+    const loopCollectionButton = collections.edges.map(({ node: collection }) => (
         <Button
-            key={node.id}
-            label={node.title}
+            key={collection.id}
+            label={collection.title}
             kind="alternate"
             size="lg"
             display="pill"
-            to={path.COLLECTION === '/' ? `/${node.handle}` : `${path.COLLECTION}/${node.handle}`}
+            to={path.COLLECTION === '/' ? `/${collection.handle}` : `${path.COLLECTION}/${collection.handle}`}
         />
     ));
-    const loopResult = results.edges.map(({ node }) => (
-        <article key={node.id} id={`result-${node.slug}`} className={`result result-${node.slug}`}>
+    const loopStep = steps.edges.map(({ node: step }) => (
+        <article key={step.id} id={`step-${step.slug}`} className={`step step-${step.order}`}>
+            <figure className="node-xs-50">
+                <Image className="image" source={step.image.fixed} alternate={step.title} fixed />
+            </figure>
+            <header className="node-xs-50">
+                <p className="excerpt" dangerouslySetInnerHTML={{ __html: step.excerpt.excerpt }} />
+            </header>
+        </article>
+    ));
+    const loopResult = results.edges.map(({ node: result }) => (
+        <article key={result.id} id={`result-${result.slug}`} className={`result result-${result.slug}`}>
             <div className="row align-items-center gutter-50 gutter-lg-80">
                 <div className="col-xl">
                     <figure className="cheat-left">
-                        <Image className="image" source={node.image.fluid} alternate={node.title} />
+                        <Image className="image" source={result.image.fluid} alternate={result.title} />
                     </figure>
                 </div>
                 <div className="col-xl">
-                    <header dangerouslySetInnerHTML={{ __html: node.body.childMarkdownRemark.html }} />
+                    <header dangerouslySetInnerHTML={{ __html: result.body.childMarkdownRemark.html }} />
                 </div>
             </div>
         </article>
@@ -75,6 +87,23 @@ export default ({ location, data }) => {
                 <Basic id={introduction.slug} space="space-xs-80 space-lg-130" color={0}>
                     <header className="copy text-center" dangerouslySetInnerHTML={{ __html: introduction.body.childMarkdownRemark.html }} />
                 </Basic>
+            )}
+            {steps.edges.length > 0 && (
+                <Feed id="steps" space="space-xs-80 space-lg-130" color={2} item="step">
+                    {step.body && (
+                        <header className="copy node-xs-50 text-center" dangerouslySetInnerHTML={{ __html: step.body.childMarkdownRemark.html }} />
+                    )}
+                    <section className="node-xs-50 node-lg-80">
+                        <div className="row align-items-center gutter-50 gutter-lg-80">
+                            <div className="col-xl">
+                                <figure className="cheat-left">
+                                    <Image className="image" source={step.figure.fluid} alternate={step.title} />
+                                </figure>
+                            </div>
+                            <div className="col-xl">{loopStep}</div>
+                        </div>
+                    </section>
+                </Feed>
             )}
             {collections.edges.length > 0 && (
                 <Feed id="collections" space="space-xs-80 space-lg-130" item="collection">
@@ -124,6 +153,13 @@ export const query = graphql`
                 }
             }
         }
+        steps: allContentfulStep(sort: { fields: order, order: ASC }) {
+            edges {
+                node {
+                    ...contentStep
+                }
+            }
+        }
         results: allContentfulResult(sort: { fields: order, order: ASC }) {
             edges {
                 node {
@@ -148,6 +184,9 @@ export const query = graphql`
             ...contentGeneral
         }
         collection: contentfulGeneral(slug: { eq: "collection" }) {
+            ...contentGeneral
+        }
+        step: contentfulGeneral(slug: { eq: "step" }) {
             ...contentGeneral
         }
         result: contentfulGeneral(slug: { eq: "result" }) {

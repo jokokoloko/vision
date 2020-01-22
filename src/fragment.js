@@ -113,6 +113,9 @@ export const contentGeneral = graphql`
                 html
             }
         }
+        figure {
+            ...imageHigh
+        }
     }
 `;
 
