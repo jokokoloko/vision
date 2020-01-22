@@ -8,12 +8,12 @@ import Link from '../unit/Link';
 
 const DropdownCollection = ({ offcanvas, caret, label, name }) => {
     const { edges } = useCollections();
-    const loopCollection = edges.map(({ node }) => (
+    const loopCollection = edges.map(({ node: collection }) => (
         <Link
             key={generateID()}
             className="dropdown-item"
-            to={path.COLLECTION === '/' ? `/${node.handle}` : `${path.COLLECTION}/${node.handle}`}
-            children={node.title}
+            to={path.COLLECTION === '/' ? `/${collection.handle}` : `${path.COLLECTION}/${collection.handle}`}
+            children={collection.title}
         />
     ));
     return (
