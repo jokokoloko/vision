@@ -2,12 +2,29 @@
 /* ==========!BRAND========== */
 /* ========================== */
 
+/* ----------!BUTTON---------- */
+.btn-collection-hormone-tests {
+	background-color: $color-brand-purple-400 !important;
+    border-color: $color-brand-purple-400 !important;
+    color: $color-white !important;
+	}
+.btn-collection-heavy-metal-tests {
+	background-color: $color-brand-yellow-400 !important;
+    border-color: $color-brand-yellow-400 !important;
+    color: $color-white !important;
+	}
+.btn-collection-neurotransmitter-tests {
+	background-color: $color-brand-blue-600 !important;
+    border-color: $color-brand-blue-600 !important;
+    color: $color-white !important;
+	}
+
 /* ----------!SINGLE---------- */
 .single-collection .hero {
 	color: $color-white !important;
 	}
 .single-collection-hormone-tests .hero {
-	background-color: $color-brand-blue-300 !important;
+	background-color: $color-brand-purple-400 !important;
 	}
 .single-collection-hormone-tests .feed-product .collection .case,
 .collection-hormone-tests .case {
@@ -21,11 +38,11 @@
 	border-color: $color-brand-yellow-400 !important;
 	}
 .single-collection-neurotransmitter-tests .hero {
-	background-color: $color-brand-blue-400 !important;
+	background-color: $color-brand-blue-600 !important;
 	}
 .single-collection-neurotransmitter-tests .feed-product .collection .case,
 .collection-neurotransmitter-tests .case {
-	border-color: $color-brand-pink-300 !important;
+	border-color: $color-brand-blue-600 !important;
 	}
 
 /* ----------!COLOR---------- */
@@ -70,7 +87,7 @@
 .product-hormone-vitality-complete ul > li:before,
 .product-hormone-vitality-plus ul > li:before,
 .product-hormone-vitality-essentials ul > li:before {
-	color: $color-brand-blue-400 !important;
+	color: $color-brand-black-400 !important;
 	}
 .product-stress-hormone-complete ul > li:before,
 .product-stress-hormone-plus ul > li:before,
@@ -79,11 +96,11 @@
 .product-vitamin-d-complete ul > li:before,
 .product-male-hormone-essentials ul > li:before,
 .product-menopause-plus ul > li:before {
-	color: $color-brand-red-400 !important;
+	color: $color-brand-black-400 !important;
 	}
 .product-heavy-metals-gadolinium ul > li:before {
-	color: $color-brand-yellow-400 !important;
+	color: $color-brand-black-400 !important;
 	}
 .product-brain-balance-complete ul > li:before {
-	color: $color-brand-blue-400 !important;
+	color: $color-brand-black-400 !important;
 	}
