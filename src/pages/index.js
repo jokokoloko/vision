@@ -8,9 +8,10 @@ import Hero from '../components/section/Hero';
 import Button from '../components/unit/Button';
 import Image from '../components/unit/Image';
 import Link from '../components/unit/Link';
+import CarouselCollection from '../components/project/CarouselCollection';
 
 export default ({ location, data }) => {
-    const { collections, features, steps, results, splash, introduction, collection, feature, step, result, about } = data;
+    const { slides, collections, features, steps, results, splash, introduction, collection, feature, step, result, about } = data;
     const loopCollection = collections.edges.map(({ node: collection }) => (
         <article key={collection.id} id={`collection-${collection.handle}`} className={`collection collection-${collection.handle} col-lg-3`}>
             <div className="case d-flex flex-column">
@@ -34,29 +35,30 @@ export default ({ location, data }) => {
         <Button
             key={collection.id}
             label={collection.title}
-            kind="alternate"
+            kind="custom"
             size="lg"
             display="pill"
+            className={`btn-collection-${collection.handle}`}
             to={path.COLLECTION === '/' ? `/${collection.handle}` : `${path.COLLECTION}/${collection.handle}`}
         />
     ));
-    const loopFeature = features.edges.map(({ node: feature }) => (
-        <article key={feature.id} id={`feature-${feature.slug}`} className={`feature feature-${feature.order} col-lg-4`}>
-            <figure className="node-xs-50">
-                <Image className="image" source={feature.image.fluid} alternate={feature.title} />
-            </figure>
-            <header className="node-xs-50">
-                <p className="excerpt" dangerouslySetInnerHTML={{ __html: feature.body.childMarkdownRemark.html }} />
-            </header>
-        </article>
-    ));
     const loopStep = steps.edges.map(({ node: step }) => (
-        <article key={step.id} id={`step-${step.slug}`} className={`step step-${step.order}`}>
+        <article key={step.id} id={`step-${step.slug}`} className={`step step-${step.order} col-lg-4`}>
             <figure className="node-xs-50">
                 <Image className="image" source={step.image.fixed} alternate={step.title} fixed />
             </figure>
             <header className="node-xs-50">
                 <p className="excerpt" dangerouslySetInnerHTML={{ __html: step.excerpt.excerpt }} />
+            </header>
+        </article>
+    ));
+    const loopFeature = features.edges.map(({ node: feature }) => (
+        <article key={feature.id} id={`feature-${feature.slug}`} className={`feature feature-${feature.order}`}>
+            <figure className="node-xs-50">
+                <Image className="image" source={feature.image.fluid} alternate={feature.title} />
+            </figure>
+            <header className="node-xs-50">
+                <p className="excerpt" dangerouslySetInnerHTML={{ __html: feature.body.childMarkdownRemark.html }} />
             </header>
         </article>
     ));
@@ -77,11 +79,14 @@ export default ({ location, data }) => {
     return (
         <Layout template="home" location={location}>
             {splash && (
-                <Hero id={splash.slug} height={splash.height} space="space-xs-80 space-lg-130" color={4}>
+                <Hero id={splash.slug} height={splash.height} space="space-xs-50 space-lg-80" color={4}>
                     <div className="node-xs-50 node-lg-80">
                         <div className="row gutter-80">
                             <div className="col-lg-6">
                                 <header dangerouslySetInnerHTML={{ __html: splash.body.childMarkdownRemark.html }} />
+                            </div>
+                            <div className="col-lg-6">
+                                <CarouselCollection id="carousel-collection" height="auto" controls={false} indicators={false} slides={slides} fade />
                             </div>
                         </div>
                     </div>
@@ -94,39 +99,50 @@ export default ({ location, data }) => {
                 </Hero>
             )}
             {introduction && (
-                <Basic id={introduction.slug} space="space-xs-80 space-lg-130" color={0}>
+                <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={8}>
                     <header className="attention copy text-center" dangerouslySetInnerHTML={{ __html: introduction.body.childMarkdownRemark.html }} />
+                    {false && (
+                        <aside className="cap">
+                            <div className="circle" />
+                        </aside>
+                    )}
                 </Basic>
             )}
-            {features.edges.length > 0 && (
-                <Feed id="features" space="space-xs-80 space-lg-130" item="feature">
-                    {feature.body && (
-                        <header className="copy node-xs-50 text-center" dangerouslySetInnerHTML={{ __html: feature.body.childMarkdownRemark.html }} />
+            {steps.edges.length > 0 && (
+                <Feed id="steps" space="space-xs-50 space-lg-80" item="step">
+                    {step.body && (
+                        <header
+                            className="copy node-xs-50 node-lg-80 text-center"
+                            dangerouslySetInnerHTML={{ __html: step.body.childMarkdownRemark.html }}
+                        />
                     )}
                     <section className="node-xs-50 node-lg-80">
-                        <div className="row justify-content-center gutter-50 gutter-lg-80">{loopFeature}</div>
+                        <div className="row justify-content-center gutter-50 gutter-lg-80">{loopStep}</div>
                     </section>
                 </Feed>
             )}
-            {steps.edges.length > 0 && (
-                <Feed id="steps" space="space-xs-80 space-lg-130" color={2} item="step">
-                    {step.body && (
-                        <header className="copy node-xs-50 text-center" dangerouslySetInnerHTML={{ __html: step.body.childMarkdownRemark.html }} />
+            {features.edges.length > 0 && (
+                <Feed id="features" space="space-xs-50 space-lg-80" color={9} item="feature">
+                    {feature.body && (
+                        <header
+                            className="copy node-xs-50 node-lg-80 text-center"
+                            dangerouslySetInnerHTML={{ __html: feature.body.childMarkdownRemark.html }}
+                        />
                     )}
                     <section className="node-xs-50 node-lg-80">
                         <div className="row align-items-center gutter-50 gutter-lg-80">
                             <div className="col-xl">
                                 <figure className="cheat-left">
-                                    <Image className="image" source={step.figure.fluid} alternate={step.title} />
+                                    <Image className="image" source={feature.figure.fluid} alternate={feature.title} />
                                 </figure>
                             </div>
-                            <div className="col-xl">{loopStep}</div>
+                            <div className="col-xl">{loopFeature}</div>
                         </div>
                     </section>
                 </Feed>
             )}
             {collections.edges.length > 0 && (
-                <Feed id="collections" space="space-xs-80 space-lg-130" item="collection">
+                <Feed id="collections" space="space-xs-50 space-lg-80" item="collection">
                     {collection.body && (
                         <header
                             className="copy node-xs-50 text-center"
@@ -138,8 +154,8 @@ export default ({ location, data }) => {
                     </section>
                 </Feed>
             )}
-            {false && results.edges.length > 0 && (
-                <Feed id="results" space="space-xs-80 space-lg-130" item="result">
+            {results.edges.length > 0 && (
+                <Feed id="results" space="space-xs-50 space-lg-80" item="result">
                     {result.body && (
                         <header className="copy node-xs-50 text-center" dangerouslySetInnerHTML={{ __html: result.body.childMarkdownRemark.html }} />
                     )}
@@ -147,7 +163,7 @@ export default ({ location, data }) => {
                 </Feed>
             )}
             {about && (
-                <Basic id={about.slug} space="space-xs-80 space-lg-130" color={2}>
+                <Basic id={about.slug} space="space-xs-50 space-lg-80" color={10}>
                     <header className="copy text-center node-xs-50">
                         <h3>{about.title}</h3>
                     </header>
@@ -163,6 +179,19 @@ export default ({ location, data }) => {
 
 export const query = graphql`
     query pageHome {
+        slides: allContentfulSlide {
+            edges {
+                node {
+                    id
+                    title
+                    slug
+                    image {
+                        ...imageFade
+                    }
+                    order
+                }
+            }
+        }
         collections: allShopifyCollection {
             edges {
                 node {
