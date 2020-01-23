@@ -12,19 +12,13 @@ ul + h3,
 table + h3,
 .cart .cart-section + .cart-section,
 .cart .cart-section + .cart-footer,
-.single-product .product-footer,
-#footer .case {
+.single-product .product-footer {
 	border-top: 2px solid $color-division !important;
 	}
 .cart .cart-header,
 #header {
 	border-bottom: 2px solid $color-division !important;
 	}
-
-/* ----------!OFFSET---------- */
-#footer .case > * {
-    margin-top: -2px !important;
-    }
 
 /* ----------!SPACE---------- */
 @media (min-width: 992px) {

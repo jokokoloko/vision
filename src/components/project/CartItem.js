@@ -25,7 +25,7 @@ const CartItem = ({ item }) => {
             <div className="row">
                 <div className="col-auto">
                     <figure className="cart-line-item-image product-color d-flex align-items-center">
-                        <img className="image img-fluid" src={item.variant.image.src} alt={item.title} />
+                        <img className="image img-fluid style-shadow-sm" src={item.variant.image.src} alt={item.title} />
                     </figure>
                 </div>
                 <div className="col d-flex flex-column flex-content-between">

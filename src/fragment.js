@@ -88,6 +88,14 @@ export const imageIcon = graphql`
     }
 `;
 
+export const imageFade = graphql`
+    fragment imageFade on ContentfulAsset {
+        fluid(maxWidth: 600, quality: 100, cropFocus: CENTER) {
+            ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+    }
+`;
+
 export const imageShopify = graphql`
     fragment imageShopify on ShopifyProductImages {
         localFile {
@@ -112,6 +120,9 @@ export const contentGeneral = graphql`
             childMarkdownRemark {
                 html
             }
+        }
+        figure {
+            ...imageHigh
         }
     }
 `;

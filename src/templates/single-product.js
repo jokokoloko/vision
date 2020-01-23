@@ -38,7 +38,7 @@ export default ({ location, data }) => {
             description={(content && content.metaDescription) || logicDescription(product)}
             location={location}
         >
-            <Basic id="product-main" space="space-product">
+            <Basic id="product" space="space-product">
                 <div className="row gutter-80">
                     <div className="col-lg-6">{content && content.gallery && <Gallery gallery={content.gallery} />}</div>
                     <div className="col-lg-6">
@@ -77,7 +77,7 @@ export default ({ location, data }) => {
                 </div>
             </Basic>
             {content && (content.head || content.body) && (
-                <Basic id="content-main" space="space-xs-80 space-md-130 space-xl-210">
+                <Basic id="content" space="space-xs-80 space-md-130 space-xl-210">
                     <div className="row gutter-80">
                         <div className="col-lg-6">
                             <header className="content-head" dangerouslySetInnerHTML={{ __html: content.head.childMarkdownRemark.html }} />
@@ -88,8 +88,8 @@ export default ({ location, data }) => {
                     </div>
                 </Basic>
             )}
-            {loopStep.length > 0 && (
-                <Feed id="feed-step" space="space-xs-80 space-md-130 space-xl-210" item="symptom">
+            {steps.edges.length > 0 && (
+                <Feed id="steps" space="space-xs-80 space-md-130 space-xl-210" item="step">
                     <header className="node-xs-50 node-lg-80 text-lg-center">
                         <h3>How It Works</h3>
                     </header>
@@ -98,8 +98,8 @@ export default ({ location, data }) => {
                     </section>
                 </Feed>
             )}
-            {loopSymptom.length > 0 && (
-                <Feed id="feed-symptom" space="space-xs-80 space-md-130 space-xl-210" item="symptom">
+            {symptoms.edges.length > 0 && (
+                <Feed id="symptoms" space="space-xs-80 space-md-130 space-xl-210" item="symptom">
                     <header className="node-xs-50 node-lg-80 text-lg-center">
                         <h3>Symptoms</h3>
                     </header>
@@ -108,8 +108,8 @@ export default ({ location, data }) => {
                     </section>
                 </Feed>
             )}
-            {loopTest.length > 0 && (
-                <Feed id="feed-test" space="space-xs-80 space-md-130 space-xl-210" item="test">
+            {tests.edges.length > 0 && (
+                <Feed id="tests" space="space-xs-80 space-md-130 space-xl-210" item="test">
                     <header className="node-xs-50 node-lg-80 text-lg-center">
                         <h3>Test Panels Measured</h3>
                     </header>

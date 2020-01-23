@@ -34,7 +34,7 @@
 		}
 	}
 .carousel .carousel-item {
-    background-color: #fff;
+    background-color: $color-brand-blue-300;
     }
 
 /* =============================== */
@@ -53,4 +53,13 @@
 	.carousel {
 		height: 550px;
 		}
+	}
+
+/* ========================== */
+/* ==========!BUILD========== */
+/* ========================== */
+
+/* ----------!COLLECTION---------- */
+#carousel-collection {
+	margin: -50px -100px -60px -75px;
 	}
