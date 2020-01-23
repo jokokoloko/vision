@@ -10,7 +10,7 @@ import Image from '../components/unit/Image';
 import Link from '../components/unit/Link';
 
 export default ({ location, data }) => {
-    const { collections, steps, results, splash, introduction, collection, step, result, about } = data;
+    const { collections, features, steps, results, splash, introduction, collection, feature, step, result, about } = data;
     const loopCollection = collections.edges.map(({ node: collection }) => (
         <article key={collection.id} id={`collection-${collection.handle}`} className={`collection collection-${collection.handle} col-lg-3`}>
             <div className="case d-flex flex-column">
@@ -39,6 +39,16 @@ export default ({ location, data }) => {
             display="pill"
             to={path.COLLECTION === '/' ? `/${collection.handle}` : `${path.COLLECTION}/${collection.handle}`}
         />
+    ));
+    const loopFeature = features.edges.map(({ node: feature }) => (
+        <article key={feature.id} id={`feature-${feature.slug}`} className={`feature feature-${feature.order} col-lg-4`}>
+            <figure className="node-xs-50">
+                <Image className="image" source={feature.image.fluid} alternate={feature.title} />
+            </figure>
+            <header className="node-xs-50">
+                <p className="excerpt" dangerouslySetInnerHTML={{ __html: feature.body.childMarkdownRemark.html }} />
+            </header>
+        </article>
     ));
     const loopStep = steps.edges.map(({ node: step }) => (
         <article key={step.id} id={`step-${step.slug}`} className={`step step-${step.order}`}>
@@ -85,8 +95,18 @@ export default ({ location, data }) => {
             )}
             {introduction && (
                 <Basic id={introduction.slug} space="space-xs-80 space-lg-130" color={0}>
-                    <header className="copy text-center" dangerouslySetInnerHTML={{ __html: introduction.body.childMarkdownRemark.html }} />
+                    <header className="attention copy text-center" dangerouslySetInnerHTML={{ __html: introduction.body.childMarkdownRemark.html }} />
                 </Basic>
+            )}
+            {features.edges.length > 0 && (
+                <Feed id="features" space="space-xs-80 space-lg-130" item="feature">
+                    {feature.body && (
+                        <header className="copy node-xs-50 text-center" dangerouslySetInnerHTML={{ __html: feature.body.childMarkdownRemark.html }} />
+                    )}
+                    <section className="node-xs-50 node-lg-80">
+                        <div className="row justify-content-center gutter-50 gutter-lg-80">{loopFeature}</div>
+                    </section>
+                </Feed>
             )}
             {steps.edges.length > 0 && (
                 <Feed id="steps" space="space-xs-80 space-lg-130" color={2} item="step">
@@ -118,7 +138,7 @@ export default ({ location, data }) => {
                     </section>
                 </Feed>
             )}
-            {results.edges.length > 0 && (
+            {false && results.edges.length > 0 && (
                 <Feed id="results" space="space-xs-80 space-lg-130" item="result">
                     {result.body && (
                         <header className="copy node-xs-50 text-center" dangerouslySetInnerHTML={{ __html: result.body.childMarkdownRemark.html }} />
@@ -153,6 +173,23 @@ export const query = graphql`
                 }
             }
         }
+        features: allContentfulFeature(sort: { fields: order, order: ASC }) {
+            edges {
+                node {
+                    id
+                    title
+                    slug
+                    image {
+                        ...imageHigh
+                    }
+                    body {
+                        childMarkdownRemark {
+                            html
+                        }
+                    }
+                }
+            }
+        }
         steps: allContentfulStep(sort: { fields: order, order: ASC }) {
             edges {
                 node {
@@ -184,6 +221,9 @@ export const query = graphql`
             ...contentGeneral
         }
         collection: contentfulGeneral(slug: { eq: "collection" }) {
+            ...contentGeneral
+        }
+        feature: contentfulGeneral(slug: { eq: "feature" }) {
             ...contentGeneral
         }
         step: contentfulGeneral(slug: { eq: "step" }) {
