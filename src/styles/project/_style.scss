@@ -80,6 +80,20 @@
 	padding-top: 30px;
 	}
 
+/* ----------!SHADOW---------- */
+.style-shadow-xs {
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	}
+.style-shadow-sm {
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	}
+.style-shadow-md {
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+	}
+.style-shadow-lg {
+	box-shadow: 0 5px 13px rgba(0, 0, 0, 0.1);
+	}
+
 /* ----------!CHEAT---------- */
 @media (min-width: 1440px) {
     .cheat-left {

@@ -26,7 +26,7 @@ const ArticleProduct = ({ product, collection }) => {
                 {firstImage && (
                     <figure className="product-color">
                         <div className="pod">
-                            <Image className="image" source={firstImage.localFile.childImageSharp.fluid} alternate={product.title} />
+                            <Image className="image style-shadow-lg" source={firstImage.localFile.childImageSharp.fluid} alternate={product.title} />
                         </div>
                     </figure>
                 )}
