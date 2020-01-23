@@ -48,7 +48,7 @@ export default ({ location, data }) => {
                 <Image className="image" source={step.image.fixed} alternate={step.title} fixed />
             </figure>
             <header className="node-xs-50">
-                <p className="excerpt" dangerouslySetInnerHTML={{ __html: step.excerpt.excerpt }} />
+                <p className="excerpt" dangerouslySetInnerHTML={{ __html: step.body.childMarkdownRemark.html }} />
             </header>
         </article>
     ));
