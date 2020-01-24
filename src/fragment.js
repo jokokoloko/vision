@@ -114,7 +114,7 @@ export const contentGeneral = graphql`
         title
         slug
         image {
-            ...imageHigh
+            ...imageFigure
         }
         body {
             childMarkdownRemark {
@@ -122,7 +122,7 @@ export const contentGeneral = graphql`
             }
         }
         figure {
-            ...imageHigh
+            ...imageFigure
         }
     }
 `;
