@@ -9,7 +9,7 @@ const Footer = ({ offcanvasPush }) => {
     return (
         <footer id="footer" className={offcanvasPush} role="contentinfo">
             <div className="container-fluid">
-                <Basic id="footer-default" space="space-none" color={5}>
+                <Basic id="footer-default" space="space-none" color={6}>
                     <div className="case">
                         <p className="copyright">
                             <Link className="navbar-link" title={title} rel="home">

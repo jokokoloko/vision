@@ -196,7 +196,7 @@ export const contentStep = graphql`
         title
         slug
         image {
-            ...imageIcon
+            ...imageFigure
         }
         body {
             childMarkdownRemark {

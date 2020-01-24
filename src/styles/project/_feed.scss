@@ -149,8 +149,25 @@
 	margin-top: -5px;
     margin-bottom: -5px;
 	}
+
+/* ============================ */
+/* ==========!GENERAL========== */
+/* ============================ */
+
+/* ----------!SIZE---------- */
+.feed-step .step figure > .image {
+	width: 100px;
+	}
+
+/* ----------!SPACE---------- */
 .feed-feature .feature + .feature {
 	padding-top: 80px;
+	}
+.feed-feature .feature figure {
+	overflow: visible;
+	}
+.feed-feature .feature figure > .image {
+	margin: -8px -5px;
 	}
 .feed-result .result + .result {
 	padding-top: 80px;

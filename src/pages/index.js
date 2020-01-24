@@ -8,6 +8,7 @@ import Hero from '../components/section/Hero';
 import Button from '../components/unit/Button';
 import Image from '../components/unit/Image';
 import Link from '../components/unit/Link';
+import ArticleStep from '../components/project/ArticleStep';
 import CarouselCollection from '../components/project/CarouselCollection';
 
 export default ({ location, data }) => {
@@ -42,16 +43,7 @@ export default ({ location, data }) => {
             to={path.COLLECTION === '/' ? `/${collection.handle}` : `${path.COLLECTION}/${collection.handle}`}
         />
     ));
-    const loopStep = steps.edges.map(({ node: step }) => (
-        <article key={step.id} id={`step-${step.slug}`} className={`step step-${step.order} col-lg-4`}>
-            <figure className="node-xs-50">
-                <Image className="image" source={step.image.fixed} alternate={step.title} fixed />
-            </figure>
-            <header className="node-xs-50">
-                <p className="excerpt" dangerouslySetInnerHTML={{ __html: step.body.childMarkdownRemark.html }} />
-            </header>
-        </article>
-    ));
+    const loopStep = steps.edges.map(({ node: step }) => <ArticleStep key={step.id} step={step} />);
     const loopFeature = features.edges.map(({ node: feature }) => (
         <article key={feature.id} id={`feature-${feature.slug}`} className={`feature feature-${feature.order}`}>
             <div className="row">
@@ -85,7 +77,7 @@ export default ({ location, data }) => {
     return (
         <Layout template="home" location={location}>
             {splash && (
-                <Hero id={splash.slug} height={splash.height} space="space-xs-50 space-lg-80" color={5}>
+                <Hero id={splash.slug} height={splash.height} space="space-xs-50 space-lg-80" color={6}>
                     <div className="node-xs-50 node-lg-80">
                         <div className="row gutter-80">
                             <div className="col-lg-6">
@@ -105,7 +97,7 @@ export default ({ location, data }) => {
                 </Hero>
             )}
             {introduction && (
-                <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={9}>
+                <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={4}>
                     <aside className="cap">
                         <figure className="candy">
                             <Image className="image" source={introduction.image.fluid} alternate={introduction.title} />
@@ -124,7 +116,7 @@ export default ({ location, data }) => {
                         />
                     )}
                     <section className="node-xs-50 node-lg-80">
-                        <div className="row justify-content-center gutter-50 gutter-lg-80">{loopStep}</div>
+                        <div className="row gutter-50 gutter-lg-80">{loopStep}</div>
                     </section>
                 </Feed>
             )}
@@ -175,14 +167,14 @@ export default ({ location, data }) => {
                 </Feed>
             )}
             {about && (
-                <Basic id={about.slug} space="space-xs-50 space-lg-80" color={6}>
+                <Basic id={about.slug} space="space-xs-50 space-lg-80" color={4}>
                     <header className="copy text-center node-xs-50">
                         <h3>{about.title}</h3>
                     </header>
                     <figure className="node-xs-50">
                         <Image className="image" source={about.image.fluid} alternate={about.title} />
                     </figure>
-                    <section className="copy node-xs-50" dangerouslySetInnerHTML={{ __html: about.body.childMarkdownRemark.html }} />
+                    <section className="copy text-center node-xs-50" dangerouslySetInnerHTML={{ __html: about.body.childMarkdownRemark.html }} />
                 </Basic>
             )}
         </Layout>
