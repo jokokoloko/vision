@@ -99,12 +99,11 @@ $color-blue-600:				#23527c;
 /* ----------!BRAND---------- */
 $color-brand-grey-300:			$color-phantom;
 $color-brand-black-400:			#49494B;
-$color-brand-blue-200:			#BBDAEB;
-$color-brand-blue-300:			#92C6E3;
-$color-brand-blue-400:			#245CAA;
-$color-brand-blue-500:			#1FA9E1;
-$color-brand-blue-600:			#245CAA;
-$color-brand-blue-700:			#6D92AC;
+$color-brand-blue-300:			#BBDAEB;
+$color-brand-blue-400:			#1FA9E1;
+$color-brand-blue-500:			#6D92AC;
+$color-brand-blue-600:			#61859F;
+$color-brand-blue-700:			#245CAA;
 $color-brand-purple-400:		#AEBAD5;
 $color-brand-green-400:			#28a745;
 $color-brand-orange-400:		#FFC82C;
@@ -132,14 +131,14 @@ $color-footer:					($color-white, null, null);
 $color-modal:					(null, null, null);
 
 /* ----------!BUTTON---------- */
-$color-button-default:			($color-brand-blue-300, $color-brand-blue-300, $color-white);
-$color-button-default-hover:	($color-brand-blue-300, $color-brand-blue-300, $color-white);
+$color-button-default:			($color-brand-blue-400, $color-brand-blue-400, $color-white);
+$color-button-default-hover:	($color-brand-blue-400, $color-brand-blue-400, $color-white);
 $color-button-alternate:		($color-white, $color-white, $color-text-base);
 $color-button-alternate-hover:	($color-white, $color-white, $color-text-base);
 $color-button-main:				($color-brand-orange-400, $color-brand-orange-400, $color-white);
 $color-button-main-hover:		($color-brand-orange-400, $color-brand-orange-400, $color-white);
-$color-button-hollow:			($color-white, $color-brand-blue-300, $color-text-base);
-$color-button-hollow-hover:		($color-white, $color-brand-blue-300, $color-text-base);
+$color-button-hollow:			($color-white, $color-brand-blue-400, $color-text-base);
+$color-button-hollow-hover:		($color-white, $color-brand-blue-400, $color-text-base);
 $color-button-form:				(null, null, null);
 $color-button-form-hover:		(null, null, null);
 $color-button-link:				(null, null, null);

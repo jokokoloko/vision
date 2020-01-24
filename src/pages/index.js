@@ -79,7 +79,7 @@ export default ({ location, data }) => {
     return (
         <Layout template="home" location={location}>
             {splash && (
-                <Hero id={splash.slug} height={splash.height} space="space-xs-50 space-lg-80" color={4}>
+                <Hero id={splash.slug} height={splash.height} space="space-xs-50 space-lg-80" color={5}>
                     <div className="node-xs-50 node-lg-80">
                         <div className="row gutter-80">
                             <div className="col-lg-6">
@@ -99,7 +99,7 @@ export default ({ location, data }) => {
                 </Hero>
             )}
             {introduction && (
-                <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={8}>
+                <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={9}>
                     <header className="attention copy text-center" dangerouslySetInnerHTML={{ __html: introduction.body.childMarkdownRemark.html }} />
                     {false && (
                         <aside className="cap">
@@ -122,7 +122,7 @@ export default ({ location, data }) => {
                 </Feed>
             )}
             {features.edges.length > 0 && (
-                <Feed id="features" space="space-xs-50 space-lg-80" color={9} item="feature">
+                <Feed id="features" space="space-xs-50 space-lg-80" color={4} item="feature">
                     {feature.body && (
                         <header
                             className="copy node-xs-50 node-lg-80 text-center"
@@ -163,14 +163,14 @@ export default ({ location, data }) => {
                 </Feed>
             )}
             {about && (
-                <Basic id={about.slug} space="space-xs-50 space-lg-80" color={10}>
+                <Basic id={about.slug} space="space-xs-50 space-lg-80" color={6}>
                     <header className="copy text-center node-xs-50">
                         <h3>{about.title}</h3>
                     </header>
                     <figure className="node-xs-50">
                         <Image className="image" source={about.image.fluid} alternate={about.title} />
                     </figure>
-                    <section className="copy text-center node-xs-50" dangerouslySetInnerHTML={{ __html: about.body.childMarkdownRemark.html }} />
+                    <section className="copy node-xs-50" dangerouslySetInnerHTML={{ __html: about.body.childMarkdownRemark.html }} />
                 </Basic>
             )}
         </Layout>
