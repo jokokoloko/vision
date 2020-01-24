@@ -100,12 +100,13 @@ export default ({ location, data }) => {
             )}
             {introduction && (
                 <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={9}>
+                    <aside className="cap">
+                        <figure className="candy">
+                            <Image className="image" source={introduction.image.fluid} alternate={introduction.title} />
+                        </figure>
+                        {false && <div className="circle" />}
+                    </aside>
                     <header className="attention copy text-center" dangerouslySetInnerHTML={{ __html: introduction.body.childMarkdownRemark.html }} />
-                    {false && (
-                        <aside className="cap">
-                            <div className="circle" />
-                        </aside>
-                    )}
                 </Basic>
             )}
             {steps.edges.length > 0 && (
@@ -123,6 +124,11 @@ export default ({ location, data }) => {
             )}
             {features.edges.length > 0 && (
                 <Feed id="features" space="space-xs-50 space-lg-80" color={4} item="feature">
+                    <aside className="cap">
+                        <figure className="candy">
+                            <Image className="image" source={feature.image.fluid} alternate={feature.title} />
+                        </figure>
+                    </aside>
                     {feature.body && (
                         <header
                             className="copy node-xs-50 node-lg-80 text-center"
