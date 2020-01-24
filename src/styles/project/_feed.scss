@@ -149,6 +149,9 @@
 	margin-top: -5px;
     margin-bottom: -5px;
 	}
+.feed-feature .feature + .feature {
+	padding-top: 80px;
+	}
 .feed-result .result + .result {
-	padding-top: 130px;
+	padding-top: 80px;
 	}

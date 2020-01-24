@@ -54,12 +54,18 @@ export default ({ location, data }) => {
     ));
     const loopFeature = features.edges.map(({ node: feature }) => (
         <article key={feature.id} id={`feature-${feature.slug}`} className={`feature feature-${feature.order}`}>
-            <figure className="node-xs-50">
-                <Image className="image" source={feature.image.fluid} alternate={feature.title} />
-            </figure>
-            <header className="node-xs-50">
-                <p className="excerpt" dangerouslySetInnerHTML={{ __html: feature.body.childMarkdownRemark.html }} />
-            </header>
+            <div className="row">
+                <div className="col-2">
+                    <figure className="node-xs-50">
+                        <Image className="image" source={feature.image.fluid} alternate={feature.title} />
+                    </figure>
+                </div>
+                <div className="col">
+                    <header className="node-xs-50">
+                        <p className="excerpt" dangerouslySetInnerHTML={{ __html: feature.body.childMarkdownRemark.html }} />
+                    </header>
+                </div>
+            </div>
         </article>
     ));
     const loopResult = results.edges.map(({ node: result }) => (
@@ -79,7 +85,7 @@ export default ({ location, data }) => {
     return (
         <Layout template="home" location={location}>
             {splash && (
-                <Hero id={splash.slug} height={splash.height} space="space-xs-50 space-lg-80" color={4}>
+                <Hero id={splash.slug} height={splash.height} space="space-xs-50 space-lg-80" color={5}>
                     <div className="node-xs-50 node-lg-80">
                         <div className="row gutter-80">
                             <div className="col-lg-6">
@@ -99,13 +105,14 @@ export default ({ location, data }) => {
                 </Hero>
             )}
             {introduction && (
-                <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={8}>
+                <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={9}>
+                    <aside className="cap">
+                        <figure className="candy">
+                            <Image className="image" source={introduction.image.fluid} alternate={introduction.title} />
+                        </figure>
+                        {false && <div className="circle" />}
+                    </aside>
                     <header className="attention copy text-center" dangerouslySetInnerHTML={{ __html: introduction.body.childMarkdownRemark.html }} />
-                    {false && (
-                        <aside className="cap">
-                            <div className="circle" />
-                        </aside>
-                    )}
                 </Basic>
             )}
             {steps.edges.length > 0 && (
@@ -122,7 +129,12 @@ export default ({ location, data }) => {
                 </Feed>
             )}
             {features.edges.length > 0 && (
-                <Feed id="features" space="space-xs-50 space-lg-80" color={9} item="feature">
+                <Feed id="features" space="space-xs-50 space-lg-80" color={4} item="feature">
+                    <aside className="cap">
+                        <figure className="candy">
+                            <Image className="image" source={feature.image.fluid} alternate={feature.title} />
+                        </figure>
+                    </aside>
                     {feature.body && (
                         <header
                             className="copy node-xs-50 node-lg-80 text-center"
@@ -163,14 +175,14 @@ export default ({ location, data }) => {
                 </Feed>
             )}
             {about && (
-                <Basic id={about.slug} space="space-xs-50 space-lg-80" color={10}>
+                <Basic id={about.slug} space="space-xs-50 space-lg-80" color={6}>
                     <header className="copy text-center node-xs-50">
                         <h3>{about.title}</h3>
                     </header>
                     <figure className="node-xs-50">
                         <Image className="image" source={about.image.fluid} alternate={about.title} />
                     </figure>
-                    <section className="copy text-center node-xs-50" dangerouslySetInnerHTML={{ __html: about.body.childMarkdownRemark.html }} />
+                    <section className="copy node-xs-50" dangerouslySetInnerHTML={{ __html: about.body.childMarkdownRemark.html }} />
                 </Basic>
             )}
         </Layout>
@@ -216,6 +228,7 @@ export const query = graphql`
                             html
                         }
                     }
+                    order
                 }
             }
         }

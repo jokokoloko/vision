@@ -8,6 +8,20 @@
 	justify-content: space-between;
 	}
 
+/* ----------!CAP---------- */
+.cap {
+	width: 100%;
+	position: relative;
+	text-align: center;
+	}
+
+/* ----------!CANDY---------- */
+.candy {
+	width: 450px;
+	position: absolute;
+	z-index: 1000;
+	}
+
 /* =========================== */
 /* ==========!GUTTER========== */
 /* =========================== */
@@ -100,20 +114,37 @@
 /* ============================ */
 
 /* ----------!INTRODUCTION---------- */
-#introduction .cap {
-	width: 100%;
-	position: absolute;
+#introduction {
+	overflow: visible;
+	}
+#introduction .cap > .candy {
+	margin-top: -500px;
+	margin-left: -400px;
 	top: 0;
 	left: 0;
-	right: 0;
-	text-align: center;
 	}
 #introduction .cap > .circle {
-	background-color: $color-brand-blue-300;
+	background-color: $color-brand-blue-400;
 	margin-top: -25px;
 	width: 50px;
 	height: 50px;
 	display: inline-block;
+	}
+
+/* ----------!FEATURES---------- */
+#features {
+	overflow: visible;
+	}
+#features .cap > .candy {
+	margin-top: -190px;
+	margin-right: -370px;
+	top: 0;
+	right: 0;
+	}
+#features .copy h3 {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 700px;
 	}
 
 /* =========================== */
