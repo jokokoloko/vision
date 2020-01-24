@@ -21,7 +21,7 @@ const CarouselCollection = ({
     slides,
 }) => {
     const loopSlide = slides.edges.map(({ node: slide }) => (
-        <Parent.Item key={slide.id} className={`slide-${slide.order} color-5`}>
+        <Parent.Item key={slide.id} className={`slide-${slide.order} color-6`}>
             {slide.image && <Image className="image" source={slide.image.fluid} alternate={contentify(slide.title)} />}
         </Parent.Item>
     ));
