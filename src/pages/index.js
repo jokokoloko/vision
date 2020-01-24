@@ -54,12 +54,18 @@ export default ({ location, data }) => {
     ));
     const loopFeature = features.edges.map(({ node: feature }) => (
         <article key={feature.id} id={`feature-${feature.slug}`} className={`feature feature-${feature.order}`}>
-            <figure className="node-xs-50">
-                <Image className="image" source={feature.image.fluid} alternate={feature.title} />
-            </figure>
-            <header className="node-xs-50">
-                <p className="excerpt" dangerouslySetInnerHTML={{ __html: feature.body.childMarkdownRemark.html }} />
-            </header>
+            <div className="row">
+                <div className="col-2">
+                    <figure className="node-xs-50">
+                        <Image className="image" source={feature.image.fluid} alternate={feature.title} />
+                    </figure>
+                </div>
+                <div className="col">
+                    <header className="node-xs-50">
+                        <p className="excerpt" dangerouslySetInnerHTML={{ __html: feature.body.childMarkdownRemark.html }} />
+                    </header>
+                </div>
+            </div>
         </article>
     ));
     const loopResult = results.edges.map(({ node: result }) => (
@@ -222,6 +228,7 @@ export const query = graphql`
                             html
                         }
                     }
+                    order
                 }
             }
         }
