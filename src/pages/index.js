@@ -79,7 +79,7 @@ export default ({ location, data }) => {
             {splash && (
                 <Hero id={splash.slug} height={splash.height} space="space-xs-50 space-lg-80" color={6}>
                     <div className="node-xs-50 node-lg-80">
-                        <div className="row gutter-80">
+                        <div className="row align-items-center gutter-80">
                             <div className="col-lg-6">
                                 <header dangerouslySetInnerHTML={{ __html: splash.body.childMarkdownRemark.html }} />
                             </div>
