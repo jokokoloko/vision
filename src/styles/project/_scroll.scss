@@ -17,10 +17,14 @@
 /* ----------!TOP---------- */
 .scroll-to-top {
     background-color: $color-white;
-    margin: 15px;
     bottom: 0;
     right: 0;
     color: $color-text-base !important;
+    }
+@include media-breakpoint-up(lg) {
+    .scroll-to-top {
+        margin: 15px;
+        }
     }
 
 /* ========================= */
