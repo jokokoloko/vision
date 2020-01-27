@@ -9,7 +9,7 @@ import Button from '../components/unit/Button';
 import Image from '../components/unit/Image';
 import Link from '../components/unit/Link';
 import ArticleStep from '../components/project/ArticleStep';
-import CarouselCollection from '../components/project/CarouselCollection';
+import CarouselSlide from '../components/project/CarouselSlide';
 
 export default ({ location, data }) => {
     const { slides, collections, features, steps, results, splash, introduction, collection, feature, step, result, about } = data;
@@ -84,7 +84,7 @@ export default ({ location, data }) => {
                                 <header dangerouslySetInnerHTML={{ __html: splash.body.childMarkdownRemark.html }} />
                             </div>
                             <div className="col-lg-6">
-                                <CarouselCollection id="carousel-collection" height="auto" controls={false} indicators={false} slides={slides} fade />
+                                <CarouselSlide id="carousel-collection" height="auto" controls={false} indicators={false} slides={slides} fade />
                             </div>
                         </div>
                     </div>
