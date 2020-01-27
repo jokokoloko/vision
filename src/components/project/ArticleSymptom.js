@@ -4,7 +4,7 @@ import { logicDescription } from '../../logic';
 import Image from '../unit/Image';
 
 const ArticleSymptom = ({ symptom }) => (
-    <article id={`symptom-${symptom.slug}`} className={`symptom symptom-${symptom.order} col-lg-2`}>
+    <article id={`symptom-${symptom.slug}`} className={`symptom symptom-${symptom.order} col-2`}>
         <figure className="node-xs-50 d-flex justify-content-center">
             <Image className="image" source={symptom.image.fixed} alternate={symptom.title} fixed />
         </figure>

@@ -40,10 +40,7 @@ export default ({ location, data }) => {
         >
             <Basic id="product" space="space-xs-50 space-lg-80">
                 <div className="row gutter-80">
-                    <div className="col-lg-6">
-                        <div className="cheat-left">{content && content.gallery && <Gallery gallery={content.gallery} />}</div>
-                    </div>
-                    <div className="col-lg-6">
+                    <div className="col-lg-6 order-lg-last">
                         <header className="product-header">
                             <h1>{product.title}</h1>
                             <p className="price">${addCommasToNumber(firstVariant.price)}</p>
@@ -75,6 +72,9 @@ export default ({ location, data }) => {
                                 <p className="description" dangerouslySetInnerHTML={{ __html: content.excerpt.excerpt }} />
                             </footer>
                         )}
+                    </div>
+                    <div className="col-lg-6">
+                        <div className="cheat-left">{content && content.gallery && <Gallery gallery={content.gallery} />}</div>
                     </div>
                 </div>
             </Basic>
@@ -125,14 +125,19 @@ export default ({ location, data }) => {
                     <div className="row align-items-center gutter-80">
                         <div className="col-lg-6">
                             <figure className="node-xs-50">
-                                <Image className="image" source={(content && content.figure.fluid) || report.image.fluid} alternate="Report" />
+                                <Image
+                                    className="image"
+                                    source={(content && content.figure && content.figure.fluid) || report.image.fluid}
+                                    alternate="Report"
+                                />
                             </figure>
                         </div>
                         <div className="col-lg-6">
                             <header
                                 className="report-head"
                                 dangerouslySetInnerHTML={{
-                                    __html: (content && content.copy.childMarkdownRemark.html) || report.body.childMarkdownRemark.html,
+                                    __html:
+                                        (content && content.copy && content.copy.childMarkdownRemark.html) || report.body.childMarkdownRemark.html,
                                 }}
                             />
                         </div>
