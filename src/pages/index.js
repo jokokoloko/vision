@@ -77,7 +77,7 @@ export default ({ location, data }) => {
     return (
         <Layout template="home" location={location}>
             {splash && (
-                <Hero id={splash.slug} height={splash.height} space="space-xs-50 space-lg-80" color={6}>
+                <Hero id={splash.slug} height={splash.height} space="space-xs-50 space-lg-80" color={4}>
                     <div className="node-xs-50 node-lg-80">
                         <div className="row align-items-center gutter-80">
                             <div className="col-lg-6">
@@ -97,7 +97,7 @@ export default ({ location, data }) => {
                 </Hero>
             )}
             {introduction && (
-                <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={4}>
+                <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={6}>
                     <aside className="cap">
                         <figure className="candy">
                             <Image className="image" source={introduction.image.fluid} alternate={introduction.title} />
