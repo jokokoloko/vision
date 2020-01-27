@@ -55,6 +55,14 @@ $header-height-lg:				80px;
 $footer-height-xs:				0;
 $footer-height-lg:				0;
 
+/* ========================= */
+/* ==========!UNIT========== */
+/* ========================= */
+
+/* ----------!LOGO---------- */
+$logo-width:					210px;
+$logo-height:					20px;
+
 /* ========================== */
 /* ==========!COLOR========== */
 /* ========================== */
@@ -98,10 +106,10 @@ $color-blue-600:				#23527c;
 
 /* ----------!BRAND---------- */
 $color-brand-grey-300:			$color-phantom;
-$color-brand-black-400:			#49494B;
-$color-brand-blue-300:			#BBDAEB;
+$color-brand-black-400:			$color-black;
+$color-brand-blue-300:			#C9E1F5;
 $color-brand-blue-400:			#1FA9E1;
-$color-brand-blue-500:			#6C809A;
+$color-brand-blue-500:			#8EC1E8;
 $color-brand-blue-600:			#245CAA;
 $color-brand-purple-400:		#AEBAD5;
 $color-brand-green-400:			#4FA573;
@@ -111,14 +119,17 @@ $color-brand-yellow-400:		#D9D489;
 $color-brand-pink-300:			#E2C7DD;
 $color-brand-red-400:			#E8272B;
 
+/* ----------!PURPOSE---------- */
+$color-shop:					$color-brand-blue-400;
+
 /* ----------!TEXT---------- */
 $color-text-base:				$color-brand-black-400;
 
 /* ----------!FORM---------- */
 $color-form-input-border:		$color-brand-grey-300;
-$color-form-input-border-focus:	$color-brand-blue-300;
+$color-form-input-border-focus:	$color-shop;
 $color-form-input-text:			$color-text-base;
-$color-form-input-text-focus:	$color-brand-blue-300;
+$color-form-input-text-focus:	$color-shop;
 
 /* ----------!REGION---------- */
 $color-body:					($color-brand-black-400, null, null);
@@ -130,21 +141,21 @@ $color-footer:					($color-white, null, null);
 $color-modal:					(null, null, null);
 
 /* ----------!BUTTON---------- */
-$color-button-default:			($color-brand-blue-400, $color-brand-blue-400, $color-white);
-$color-button-default-hover:	($color-brand-blue-400, $color-brand-blue-400, $color-white);
+$color-button-default:			($color-brand-black-400, $color-brand-black-400, $color-white);
+$color-button-default-hover:	($color-brand-black-400, $color-brand-black-400, $color-white);
 $color-button-alternate:		($color-white, $color-white, $color-text-base);
 $color-button-alternate-hover:	($color-white, $color-white, $color-text-base);
-$color-button-main:				($color-brand-orange-400, $color-brand-orange-400, $color-white);
-$color-button-main-hover:		($color-brand-orange-400, $color-brand-orange-400, $color-white);
-$color-button-hollow:			($color-white, $color-brand-blue-400, $color-text-base);
-$color-button-hollow-hover:		($color-white, $color-brand-blue-400, $color-text-base);
+$color-button-main:				($color-shop, $color-shop, $color-white);
+$color-button-main-hover:		($color-shop, $color-shop, $color-white);
+$color-button-hollow:			($color-white, $color-brand-black-400, $color-text-base);
+$color-button-hollow-hover:		($color-white, $color-brand-black-400, $color-text-base);
 $color-button-form:				(null, null, null);
 $color-button-form-hover:		(null, null, null);
 $color-button-link:				(null, null, null);
 $color-button-link-hover:		(null, null, null);
 
 /* ----------!CART---------- */
-$color-cart-indicator:			$color-brand-orange-400;
+$color-cart-indicator:			$color-shop;
 
 /* ----------!SELECTION---------- */
 $color-selection:				($color-brand-blue-300, null, $color-white);
