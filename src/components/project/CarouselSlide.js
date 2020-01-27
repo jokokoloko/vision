@@ -6,7 +6,7 @@ import Image from '../unit/Image';
 
 const CarouselSlide = ({ container, height, align, space, tint, color, id, source, fade, controls, indicators, interval, pauseOnHover, slides }) => {
     const loopSlide = slides.edges.map(({ node: slide }) => (
-        <Parent.Item key={slide.id} className={`slide-${slide.order} color-6`}>
+        <Parent.Item key={slide.id} className={`slide-${slide.order} color-4`}>
             {slide.image && <Image className="image" source={slide.image.fluid} alternate={contentify(slide.title)} />}
         </Parent.Item>
     ));
