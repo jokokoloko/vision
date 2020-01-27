@@ -9,7 +9,7 @@ const Gallery = ({ gallery }) => {
             thumbnail: file.url,
         };
     });
-    return <ImageGallery items={items} showNav={false} thumbnailPosition="left" showFullscreenButton={false} showPlayButton={false} />;
+    return <ImageGallery items={items} showNav={false} showFullscreenButton={false} showPlayButton={false} />;
 };
 
 Gallery.propTypes = {
