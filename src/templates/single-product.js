@@ -38,15 +38,17 @@ export default ({ location, data }) => {
             description={(content && content.metaDescription) || logicDescription(product)}
             location={location}
         >
-            <Basic id="product" space="space-product">
+            <Basic id="product" space="space-xs-50 space-lg-80">
                 <div className="row gutter-80">
-                    <div className="col-lg-6">{content && content.gallery && <Gallery gallery={content.gallery} />}</div>
                     <div className="col-lg-6">
-                        <header className="product-header node-xs-50">
+                        <div className="cheat-left">{content && content.gallery && <Gallery gallery={content.gallery} />}</div>
+                    </div>
+                    <div className="col-lg-6">
+                        <header className="product-header">
                             <h1>{product.title}</h1>
                             <p className="price">${addCommasToNumber(firstVariant.price)}</p>
                         </header>
-                        <section className="product-section node-xs-50">
+                        <section className="product-section">
                             <form id={`form-product-${product.id.substring(58, 64)}`} className="form form-lg" onSubmit={onSubmit}>
                                 <div className="input-group">
                                     <input
@@ -63,13 +65,13 @@ export default ({ location, data }) => {
                                         aria-label="quantity"
                                     />
                                     <div className="input-group-append">
-                                        <input type="submit" className="btn btn-main btn-lg btn-initial do-add" name="submit" value="Add to cart" />
+                                        <input type="submit" className="btn btn-main btn-lg btn-pill do-add" name="submit" value="Add to cart" />
                                     </div>
                                 </div>
                             </form>
                         </section>
                         {content && content.excerpt && (
-                            <footer className="product-footer node-xs-50">
+                            <footer className="product-footer">
                                 <p className="description" dangerouslySetInnerHTML={{ __html: content.excerpt.excerpt }} />
                             </footer>
                         )}
@@ -77,20 +79,20 @@ export default ({ location, data }) => {
                 </div>
             </Basic>
             {content && (content.head || content.body) && (
-                <Basic id="content" space="space-xs-80 space-md-130 space-xl-210">
+                <Basic id="content" className="product-color" space="space-xs-50 space-lg-80" color={2}>
                     <div className="row gutter-80">
                         <div className="col-lg-6">
-                            <header className="content-head" dangerouslySetInnerHTML={{ __html: content.head.childMarkdownRemark.html }} />
+                            <header className="content-head copy" dangerouslySetInnerHTML={{ __html: content.head.childMarkdownRemark.html }} />
                         </div>
                         <div className="col-lg-6">
-                            <section className="content-body panel" dangerouslySetInnerHTML={{ __html: content.body.childMarkdownRemark.html }} />
+                            <section className="content-body copy" dangerouslySetInnerHTML={{ __html: content.body.childMarkdownRemark.html }} />
                         </div>
                     </div>
                 </Basic>
             )}
             {steps.edges.length > 0 && (
-                <Feed id="steps" space="space-xs-80 space-md-130 space-xl-210" item="step">
-                    <header className="node-xs-50 node-lg-80 text-lg-center">
+                <Feed id="steps" space="space-xs-50 space-lg-80" item="step">
+                    <header className="copy node-xs-50 node-lg-80 text-lg-center">
                         <h3>How It Works</h3>
                     </header>
                     <section className="node-xs-50 node-lg-80">
@@ -99,8 +101,8 @@ export default ({ location, data }) => {
                 </Feed>
             )}
             {symptoms.edges.length > 0 && (
-                <Feed id="symptoms" space="space-xs-80 space-md-130 space-xl-210" item="symptom">
-                    <header className="node-xs-50 node-lg-80 text-lg-center">
+                <Feed id="symptoms" space="space-xs-50 space-lg-80" item="symptom">
+                    <header className="copy node-xs-50 node-lg-80 text-lg-center">
                         <h3>Symptoms</h3>
                     </header>
                     <section className="node-xs-50 node-lg-80">
@@ -109,17 +111,17 @@ export default ({ location, data }) => {
                 </Feed>
             )}
             {tests.edges.length > 0 && (
-                <Feed id="tests" space="space-xs-80 space-md-130 space-xl-210" item="test">
-                    <header className="node-xs-50 node-lg-80 text-lg-center">
+                <Feed id="tests" space="space-xs-50 space-lg-80" item="test">
+                    <header className="copy node-xs-50 node-lg-80 text-lg-center">
                         <h3>Test Panels Measured</h3>
                     </header>
-                    <section className="node-xs-50 node-lg-80">
+                    <section className="node-xs-50 node-lg-80 cheat-both">
                         <div className="row gutter-50 gutter-lg-80">{loopTest}</div>
                     </section>
                 </Feed>
             )}
-            <Basic id="report" space="space-xs-80 space-md-130 space-xl-210">
-                <div className="panel">
+            <Basic id="report" space="space-xs-50 space-lg-80">
+                <div className="panel product-color cheat-both">
                     <div className="row align-items-center gutter-80">
                         <div className="col-lg-6">
                             <figure className="node-xs-50">

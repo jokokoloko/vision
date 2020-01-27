@@ -341,15 +341,17 @@ p + .instagram-media {
 
 /* ----------!PRODUCT---------- */
 .product h3 + p,
-.single-product h1 + p,
-.single-product h2 + p, {
+.single-product h1 + p {
 	padding-top: 23px; // 30px spacing
 	}
 .product p + .btn {
 	margin-top: 50px; // 50px spacing
 	}
+.single-product .product-section .input-group-append {
+	margin-left: 20px; // 20px spacing
+	}
 .single-product .product-footer {
-	margin-top: 50px; // 50px spacing
+	margin-top: 30px; // 30px spacing
 	}
 .space-product {
 	padding-top: 80px !important;
