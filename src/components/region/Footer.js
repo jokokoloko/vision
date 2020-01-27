@@ -8,14 +8,10 @@ import Logo from '../unit/Logo';
 
 const Footer = ({ offcanvasPush }) => {
     const { name: title } = useSite();
-    const { edges } = useFooter();
-    const loopFooter = edges.map(({ node: collection }) => (
-        <article
-            key={collection.id}
-            id={`collection-${collection.slug}`}
-            className={`collection collection-${collection.slug} col-lg-${collection.column}`}
-        >
-            <section dangerouslySetInnerHTML={{ __html: collection.body.childMarkdownRemark.html }} />
+    const { edges: footers } = useFooter();
+    const loopFooter = footers.map(({ node: footer }) => (
+        <article key={footer.id} id={`footer-${footer.slug}`} className={`footer footer-${footer.slug} col-lg-${footer.column}`}>
+            <section dangerouslySetInnerHTML={{ __html: footer.body.childMarkdownRemark.html }} />
         </article>
     ));
     return (
