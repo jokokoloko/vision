@@ -1,10 +1,10 @@
 import React from 'react';
 import { generateID } from '../../function';
-import useCollections from '../../queries/useCollections';
+import useCollection from '../../queries/useCollection';
 import Link from '../unit/Link';
 
 const MenuCollection = () => {
-    const { edges } = useCollections();
+    const { edges } = useCollection();
     const loopCollection = edges.map(({ node }) => (
         <li key={generateID()} id={`collection-${node.handle}`} className={`collection collection-${node.handle} menu-item`}>
             <Link className="menu-link" title={node.title} to={`/${node.handle}`}>
