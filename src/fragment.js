@@ -72,6 +72,14 @@ export const imageClient = graphql`
     }
 `;
 
+export const imageSymptom = graphql`
+    fragment imageSymptom on ContentfulAsset {
+        fluid(maxWidth: 195, quality: 100, cropFocus: CENTER) {
+            ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+    }
+`;
+
 export const imageFigure = graphql`
     fragment imageFigure on ContentfulAsset {
         fluid(maxWidth: 1680, quality: 80, cropFocus: CENTER) {
@@ -217,7 +225,7 @@ export const contentSymptom = graphql`
         title
         slug
         image {
-            ...imageIcon
+            ...imageSymptom
         }
         order
     }
