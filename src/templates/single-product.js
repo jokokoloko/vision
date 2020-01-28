@@ -80,7 +80,7 @@ export default ({ location, data }) => {
             </Basic>
             {content && (content.head || content.body) && (
                 <Basic id="content" className="single-product-color" space="space-xs-50 space-lg-80" color={2}>
-                    <div className="row gutter-80">
+                    <div className="row gutter-50 gutter-lg-80">
                         <div className="col-lg-6">
                             <header className="content-head copy" dangerouslySetInnerHTML={{ __html: content.head.childMarkdownRemark.html }} />
                         </div>
@@ -116,12 +116,12 @@ export default ({ location, data }) => {
                         <h3>Test Panels Measured</h3>
                     </header>
                     <section className="node-xs-50 node-lg-80 cheat-both">
-                        <div className="row gutter-50 gutter-lg-80">{loopTest}</div>
+                        <div className="row gutter-30">{loopTest}</div>
                     </section>
                 </Feed>
             )}
             <Basic id="report" space="space-xs-50 space-lg-80">
-                <div className="panel single-product-color cheat-both">
+                <div className="panel single-product-color space-80-30 cheat-both">
                     <div className="row align-items-center gutter-80">
                         <div className="col-lg-6">
                             <figure className="node-xs-50">
