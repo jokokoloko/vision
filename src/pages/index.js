@@ -9,7 +9,7 @@ import Button from '../components/unit/Button';
 import Image from '../components/unit/Image';
 import Link from '../components/unit/Link';
 import ArticleStep from '../components/project/ArticleStep';
-import CarouselCollection from '../components/project/CarouselCollection';
+import CarouselSlide from '../components/project/CarouselSlide';
 
 export default ({ location, data }) => {
     const { slides, collections, features, steps, results, splash, introduction, collection, feature, step, result, about } = data;
@@ -77,14 +77,14 @@ export default ({ location, data }) => {
     return (
         <Layout template="home" location={location}>
             {splash && (
-                <Hero id={splash.slug} height={splash.height} space="space-xs-50 space-lg-80" color={6}>
+                <Hero id={splash.slug} height={splash.height} space="space-xs-50 space-lg-80" color={4}>
                     <div className="node-xs-50 node-lg-80">
-                        <div className="row gutter-80">
+                        <div className="row align-items-center gutter-80">
                             <div className="col-lg-6">
                                 <header dangerouslySetInnerHTML={{ __html: splash.body.childMarkdownRemark.html }} />
                             </div>
-                            <div className="col-lg-6">
-                                <CarouselCollection id="carousel-collection" height="auto" controls={false} indicators={false} slides={slides} fade />
+                            <div className="col-lg-6 d-none d-sm-block">
+                                <CarouselSlide id="carousel-collection" height="auto" controls={false} indicators={false} slides={slides} fade />
                             </div>
                         </div>
                     </div>
@@ -97,8 +97,8 @@ export default ({ location, data }) => {
                 </Hero>
             )}
             {introduction && (
-                <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={4}>
-                    <aside className="cap">
+                <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={6}>
+                    <aside className="cap d-none d-sm-block">
                         <figure className="candy">
                             <Image className="image" source={introduction.image.fluid} alternate={introduction.title} />
                         </figure>
@@ -122,7 +122,7 @@ export default ({ location, data }) => {
             )}
             {features.edges.length > 0 && (
                 <Feed id="features" space="space-xs-50 space-lg-80" color={4} item="feature">
-                    <aside className="cap">
+                    <aside className="cap d-none d-sm-block">
                         <figure className="candy">
                             <Image className="image" source={feature.image.fluid} alternate={feature.title} />
                         </figure>

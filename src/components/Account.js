@@ -8,7 +8,7 @@ const Account = () => {
     return (
         <ul className="navbar-action ml-auto account account-guest">
             <li className="nav-item">
-                <a className="btn btn-default btn-md btn-pill no-class" href={register.external}>
+                <a className="btn btn-hollow btn-md btn-pill no-class" href={register.external}>
                     {register.label}
                 </a>
             </li>

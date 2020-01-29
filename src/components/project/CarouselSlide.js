@@ -4,24 +4,9 @@ import PropTypes from 'prop-types';
 import { contentify } from '../../function';
 import Image from '../unit/Image';
 
-const CarouselCollection = ({
-    container,
-    height,
-    align,
-    space,
-    tint,
-    color,
-    id,
-    source,
-    fade,
-    controls,
-    indicators,
-    interval,
-    pauseOnHover,
-    slides,
-}) => {
+const CarouselSlide = ({ container, height, align, space, tint, color, id, source, fade, controls, indicators, interval, pauseOnHover, slides }) => {
     const loopSlide = slides.edges.map(({ node: slide }) => (
-        <Parent.Item key={slide.id} className={`slide-${slide.order} color-6`}>
+        <Parent.Item key={slide.id} className={`slide-${slide.order} color-4`}>
             {slide.image && <Image className="image" source={slide.image.fluid} alternate={contentify(slide.title)} />}
         </Parent.Item>
     ));
@@ -41,7 +26,7 @@ const CarouselCollection = ({
     );
 };
 
-CarouselCollection.propTypes = {
+CarouselSlide.propTypes = {
     container: PropTypes.string,
     height: PropTypes.string,
     align: PropTypes.string,
@@ -58,7 +43,7 @@ CarouselCollection.propTypes = {
     slides: PropTypes.object.isRequired,
 };
 
-CarouselCollection.defaultProps = {
+CarouselSlide.defaultProps = {
     container: 'container',
     height: 'standard',
     align: 'left',
@@ -74,4 +59,4 @@ CarouselCollection.defaultProps = {
     pauseOnHover: undefined,
 };
 
-export default CarouselCollection;
+export default CarouselSlide;

@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import Image from '../unit/Image';
 import Scroll from '../widget/Scroll';
 
-const Hero = ({ container, height, align, space, opacity, tint, color, id, source, alternate, scroll, children }) => (
-    <section id={id} className={`hero block height-${height} align-${align} background-${source ? 'image' : 'none'} color-${color}`}>
+const Hero = ({ container, height, align, space, opacity, tint, color, id, className, source, alternate, scroll, children }) => (
+    <section
+        id={id}
+        className={`hero block height-${height} align-${align} background-${source ? 'image' : 'none'} color-${color} ${className || 'no-class'}`}
+    >
         {source && <Image className="fit exact-center absolute" source={source} alternate={alternate} />}
         {children && (
             <div className={`display-table relative ${space} ${tint}`}>
@@ -28,6 +31,7 @@ Hero.propTypes = {
     tint: PropTypes.string,
     color: PropTypes.number,
     id: PropTypes.string,
+    className: PropTypes.string,
     source: PropTypes.any,
     alternate: PropTypes.string,
     scroll: PropTypes.string,
@@ -43,6 +47,7 @@ Hero.defaultProps = {
     tint: 'tint-none',
     color: 0,
     id: undefined,
+    className: undefined,
     source: undefined,
     alternate: undefined,
     scroll: undefined,

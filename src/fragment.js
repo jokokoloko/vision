@@ -72,9 +72,25 @@ export const imageClient = graphql`
     }
 `;
 
+export const imageSymptom = graphql`
+    fragment imageSymptom on ContentfulAsset {
+        fluid(maxWidth: 195, quality: 100, cropFocus: CENTER) {
+            ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+    }
+`;
+
 export const imageFigure = graphql`
     fragment imageFigure on ContentfulAsset {
         fluid(maxWidth: 1680, quality: 80, cropFocus: CENTER) {
+            ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+    }
+`;
+
+export const imageFade = graphql`
+    fragment imageFade on ContentfulAsset {
+        fluid(maxWidth: 600, quality: 100, cropFocus: CENTER) {
             ...GatsbyContentfulFluid_withWebp_noBase64
         }
     }
@@ -88,10 +104,10 @@ export const imageIcon = graphql`
     }
 `;
 
-export const imageFade = graphql`
-    fragment imageFade on ContentfulAsset {
-        fluid(maxWidth: 600, quality: 100, cropFocus: CENTER) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
+export const imageMethod = graphql`
+    fragment imageMethod on ContentfulAsset {
+        fixed(width: 20, height: 20, quality: 100, cropFocus: CENTER) {
+            ...GatsbyContentfulFixed_withWebp_noBase64
         }
     }
 `;
@@ -190,6 +206,18 @@ export const contentHero = graphql`
     }
 `;
 
+export const contentMethod = graphql`
+    fragment contentMethod on ContentfulMethod {
+        id
+        title
+        slug
+        image {
+            ...imageMethod
+        }
+        order
+    }
+`;
+
 export const contentStep = graphql`
     fragment contentStep on ContentfulStep {
         id
@@ -217,7 +245,7 @@ export const contentSymptom = graphql`
         title
         slug
         image {
-            ...imageIcon
+            ...imageSymptom
         }
         order
     }

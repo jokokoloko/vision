@@ -1,1 +1,58 @@
 @import "~react-image-gallery/styles/scss/image-gallery.scss";
+
+/* ============================ */
+/* ==========!GALLERY========== */
+/* ============================ */
+
+/* ----------!MAIN---------- */
+@include media-breakpoint-up(sm) {
+    .image-gallery .image-gallery-slides {
+        background-image: url('https://images.ctfassets.net/zk0dj0mp84tr/8CebmMJocuYlAyBvPb90O/8afcb519d7c4657087d1bae3fad18288/background-gallery.png');
+        background-position-y: 255px;
+        background-repeat: no-repeat;
+        }
+    }
+@include media-breakpoint-up(md) {
+    .image-gallery .image-gallery-slides {
+        background-position-y: 345px;
+        }
+    }
+@include media-breakpoint-up(lg) {
+    .image-gallery .image-gallery-slides {
+        background-position-y: 212px;
+        }
+    }
+@include media-breakpoint-up(xl) {
+    .image-gallery .image-gallery-slides {
+        background-position-y: 257px;
+        }
+    }
+@include media-breakpoint-up(hg) {
+    .image-gallery .image-gallery-slides {
+        background-position-y: 272px;
+        }
+    }
+.image-gallery .image-gallery-slides .image-gallery-slide .image-gallery-image {
+    min-height: 425px;
+    }
+.image-gallery .image-gallery-thumbnails {
+	padding: 30px 0 0;
+	}
+.image-gallery .image-gallery-thumbnails .image-gallery-thumbnails-container {
+    text-align: left;
+    cursor: default;
+    }
+.image-gallery .image-gallery-thumbnails .image-gallery-thumbnail {
+    border-width: 2px;
+    width: 80px;
+    }
+.image-gallery .image-gallery-thumbnails .image-gallery-thumbnail:hover,
+.image-gallery .image-gallery-thumbnails .image-gallery-thumbnail:focus {
+    border-color: $color-shop;
+    }
+.image-gallery .image-gallery-thumbnails .image-gallery-thumbnail.active {
+    border-color: $color-text-base;
+    }
+.image-gallery .image-gallery-thumbnails .image-gallery-thumbnail + .image-gallery-thumbnail {
+    margin-left: 5px;
+    }

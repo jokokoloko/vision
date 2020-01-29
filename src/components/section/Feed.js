@@ -2,8 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Image from '../unit/Image';
 
-const Feed = ({ container, height, align, space, tint, color, id, source, alternate, children, item }) => (
-    <section id={id} className={`feed feed-${item} block height-${height} align-${align} background-${source ? 'image' : 'none'} color-${color}`}>
+const Feed = ({ container, height, align, space, tint, color, id, className, source, alternate, children, item }) => (
+    <section
+        id={id}
+        className={`feed feed-${item} block height-${height} align-${align} background-${source ? 'image' : 'none'} color-${color} ${className ||
+            'no-class'}`}
+    >
         {source && <Image className="fit exact-center absolute" source={source} alternate={alternate} />}
         {children && (
             <div className={`zone relative ${space} ${tint}`}>
@@ -21,6 +25,7 @@ Feed.propTypes = {
     tint: PropTypes.string,
     color: PropTypes.number,
     id: PropTypes.string,
+    className: PropTypes.string,
     source: PropTypes.any,
     alternate: PropTypes.string,
     children: PropTypes.node,
@@ -35,6 +40,7 @@ Feed.defaultProps = {
     tint: 'tint-none',
     color: 0,
     id: undefined,
+    className: undefined,
     source: undefined,
     alternate: undefined,
     children: undefined,

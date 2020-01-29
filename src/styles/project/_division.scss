@@ -11,8 +11,7 @@ ol + h3,
 ul + h3,
 table + h3,
 .cart .cart-section + .cart-section,
-.cart .cart-section + .cart-footer,
-.single-product .product-footer {
+.cart .cart-section + .cart-footer {
 	border-top: 2px solid $color-division !important;
 	}
 .cart .cart-header,
@@ -23,7 +22,11 @@ table + h3,
 /* ----------!SPACE---------- */
 @media (min-width: 992px) {
     .division + .division {
-        border-top: 2px solid $color-division;
+        border-top: 2px solid $color-division !important;
         margin-top: 80px;
         }
     }
+.node-division {
+	border-top: 2px solid $color-division !important;
+	margin-top: 30px;
+	}
