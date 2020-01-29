@@ -1,4 +1,4 @@
-import * as path from './path';
+// import * as path from './path';
 
 // Main
 export const MAIN = [
@@ -10,8 +10,8 @@ export const MAIN = [
     //     label: 'How It Works',
     //     to: path.CATALOG,
     // },
-    {
-        label: `Let's Talk Health`,
-        to: path.PRODUCT,
-    },
+    // {
+    //     label: `Let's Talk Health`,
+    //     to: path.PRODUCT,
+    // },
 ];
