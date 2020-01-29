@@ -10,7 +10,7 @@ const Link = ({ className, activeClassName, to, title, rel, scroll, external, ch
             {children}
         </a>
     ) : scroll ? (
-        <ScrollTo className={className} to={to} duration={500} offset={30} spy smooth>
+        <ScrollTo className={className} to={to} duration={500} offset={-150} spy smooth>
             {children}
         </ScrollTo>
     ) : (
