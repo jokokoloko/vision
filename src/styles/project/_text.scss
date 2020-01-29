@@ -324,7 +324,11 @@ figure {
 	line-height: 35px;
 	font-size: 27px;
 	font-weight: $font-weight-1;
-    }
+	}
+.single-product .label {
+	font-weight: $font-weight-3;
+	text-transform: uppercase;
+	}
 
 /* ========================== */
 /* ==========!BUILD========== */

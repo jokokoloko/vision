@@ -137,9 +137,11 @@ h6 + .btn,
 p + .btn {
 	margin-top: 30px; // 30px spacing
 	}
-.btn + .btn {
-	margin-left: 20px; // 20px spacing
-	}
+@include media-breakpoint-up(lg) {
+    .btn + .btn {
+        margin-left: 30px;
+        }
+    }
 .d-flex h1 + button,
 .d-flex h2 + button,
 .d-flex h3 + button,
@@ -157,6 +159,11 @@ p + .btn {
 	margin-top: 0; // 30px spacing
 	margin-left: 20px; // 20px spacing
 	}
+@include media-breakpoint-down(xs) {
+    .action-group > .btn + .btn {
+        margin-top: 20px;
+        }
+    }
 
 /* ----------!MEDIA---------- */
 blockquote + p,
@@ -256,16 +263,6 @@ h4 + .menu-list {
     padding-top: 33px;
     }
 
-/* ----------!BUTTON---------- */
-.btn + .btn {
-    margin-left: 15px;
-    }
-@media (min-width: 992px) {
-    .btn + .btn {
-        margin-left: 30px;
-        }
-    }
-
 /* ========================= */
 /* ==========!NODE========== */
 /* ========================= */
@@ -350,8 +347,8 @@ p + .instagram-media {
 .single-product .product-section .input-group-append {
 	margin-left: 20px; // 20px spacing
 	}
-.single-product .product-footer {
-	margin-top: 30px; // 30px spacing
+.single-product .product-section .case > .pod + .pod {
+	margin-left: 10px; // 10px spacing
 	}
 .space-product {
 	padding-top: 80px !important;

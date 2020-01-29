@@ -49,6 +49,23 @@
     padding-top: 8px;
     }
 
+/* ----------!SINGLE-PRODUCT---------- */
+.single-product .method > .image {
+	margin: -3px;
+	}
+.single-product .method > .image + .title {
+	margin-left: 5px;
+	}
+.single-product .list-test {
+	margin: -5px;
+	}
+.single-product .list-test > .list-test-item {
+	background-color: $color-panel;
+	margin: 5px;
+	padding: 5px 10px;
+	display: inline-block;
+	}
+
 /* ----------!ARCHIVE---------- */
 .archive .feed section > article + article {
     margin-top: 80px !important;
@@ -210,7 +227,7 @@
 #footer .logo {
     width: $logo-width;
     height: $logo-height;
-	filter: brightness(0) invert(1);
+	// filter: brightness(0) invert(1);
 	}
 #footer .copyright {
     margin: 0;
