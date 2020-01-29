@@ -88,6 +88,14 @@ export const imageFigure = graphql`
     }
 `;
 
+export const imageFade = graphql`
+    fragment imageFade on ContentfulAsset {
+        fluid(maxWidth: 600, quality: 100, cropFocus: CENTER) {
+            ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+    }
+`;
+
 export const imageIcon = graphql`
     fragment imageIcon on ContentfulAsset {
         fixed(width: 130, height: 130, quality: 100, cropFocus: CENTER) {
@@ -96,10 +104,10 @@ export const imageIcon = graphql`
     }
 `;
 
-export const imageFade = graphql`
-    fragment imageFade on ContentfulAsset {
-        fluid(maxWidth: 600, quality: 100, cropFocus: CENTER) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
+export const imageMethod = graphql`
+    fragment imageMethod on ContentfulAsset {
+        fixed(width: 20, height: 20, quality: 100, cropFocus: CENTER) {
+            ...GatsbyContentfulFixed_withWebp_noBase64
         }
     }
 `;
@@ -195,6 +203,18 @@ export const contentHero = graphql`
         }
         action
         scroll
+    }
+`;
+
+export const contentMethod = graphql`
+    fragment contentMethod on ContentfulMethod {
+        id
+        title
+        slug
+        image {
+            ...imageMethod
+        }
+        order
     }
 `;
 
