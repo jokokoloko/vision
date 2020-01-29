@@ -7,14 +7,29 @@
 /* ----------!MAIN---------- */
 @include media-breakpoint-up(sm) {
     .image-gallery .image-gallery-slides {
-        background-image: url('https://images.ctfassets.net/zk0dj0mp84tr/8CebmMJocuYlAyBvPb90O/83a78e4fe285533ebcad81622758f0d1/background-gallery.png');
+        background-image: url('https://images.ctfassets.net/zk0dj0mp84tr/8CebmMJocuYlAyBvPb90O/8afcb519d7c4657087d1bae3fad18288/background-gallery.png');
         background-position-y: 255px;
         background-repeat: no-repeat;
         }
     }
 @include media-breakpoint-up(md) {
     .image-gallery .image-gallery-slides {
-        background-position-y: 255px;
+        background-position-y: 345px;
+        }
+    }
+@include media-breakpoint-up(lg) {
+    .image-gallery .image-gallery-slides {
+        background-position-y: 212px;
+        }
+    }
+@include media-breakpoint-up(xl) {
+    .image-gallery .image-gallery-slides {
+        background-position-y: 257px;
+        }
+    }
+@include media-breakpoint-up(hg) {
+    .image-gallery .image-gallery-slides {
+        background-position-y: 272px;
         }
     }
 .image-gallery .image-gallery-slides .image-gallery-slide .image-gallery-image {

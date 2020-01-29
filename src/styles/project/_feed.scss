@@ -154,9 +154,19 @@
 /* ==========!GENERAL========== */
 /* ============================ */
 
+/* ----------!TEXT---------- */
+.feed-symptom .symptom .title {
+	font-size: $font-size-text;
+	line-height: 20px;
+    color: $color-text-base;
+	}
+
 /* ----------!SIZE---------- */
 .feed-step .step figure > .image {
 	width: 100px;
+	}
+.feed-test .test .panel {
+	height: 100%;
 	}
 
 /* ----------!SPACE---------- */
