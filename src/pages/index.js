@@ -14,7 +14,7 @@ import CarouselSlide from '../components/project/CarouselSlide';
 export default ({ location, data }) => {
     const { slides, collections, features, steps, results, splash, introduction, collection, feature, step, result, about } = data;
     const loopCollection = collections.edges.map(({ node: collection }) => (
-        <article key={collection.id} id={`collection-${collection.handle}`} className={`collection collection-${collection.handle} col-lg-3`}>
+        <article key={collection.id} id={`collection-${collection.handle}`} className={`collection collection-${collection.handle} col-xl-3`}>
             <div className="case d-flex flex-column">
                 <header>
                     <h4 className="title">

@@ -109,7 +109,7 @@
 	}
 
 /* ----------!CHEAT---------- */
-@media (min-width: 1440px) {
+@include media-breakpoint-up(xl) {
     .cheat-left {
         margin-left: -30px;
         }
@@ -123,7 +123,7 @@
     }
 
 /* ----------!WIDTH---------- */
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
     .width p {
         margin-left: auto !important;
         margin-right: auto !important;

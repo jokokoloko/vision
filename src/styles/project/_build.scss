@@ -167,6 +167,13 @@
 	max-width: 550px;
 	}
 
+/* ----------!RESULTS---------- */
+@include media-breakpoint-up(xl) {
+    #results .cheat-left {
+        margin-left: -70px;
+        }
+    }
+
 /* =========================== */
 /* ==========!REGION========== */
 /* =========================== */
