@@ -89,7 +89,7 @@ export default ({ location, data }) => {
                                     height="auto"
                                     controls={false}
                                     indicators={false}
-                                    interval={3}
+                                    interval={3000}
                                     slides={slides}
                                     fade
                                 />
