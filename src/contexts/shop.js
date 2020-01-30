@@ -48,6 +48,7 @@ export const ShopProvider = ({ children }) => {
             ];
             const newCheckout = await client.checkout.addLineItems(checkout.id, lineItemsToAdd);
             setCheckout(newCheckout);
+            toggleCartOpen();
             setLoading(false);
         } catch (e) {
             setLoading(false);

@@ -49,7 +49,7 @@ const Layout = ({ location, template, title, description, children }) => {
     return (
         <Fragment>
             <SEO location={location} template={template} title={title} description={description} />
-            <OffCanvas width="80%" height="100%" labelledby="menu-button" style={style} isOpen={isOpen} onClose={onClose}>
+            <OffCanvas width="80%" height="100%" labelledby="menu-button" style={style} isOpen={isOpen} onClose={onClose} lockBodyAfterOpen={false}>
                 <nav id="menu-offcanvas" className="offcanvas-menu">
                     <Link className="offcanvas-brand" title={title} rel="home">
                         <Logo alternate={title} />
