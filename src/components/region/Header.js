@@ -5,6 +5,7 @@ import Account from '../Account';
 import Menu from '../Menu';
 import Link from '../unit/Link';
 import Logo from '../unit/Logo';
+import CartButton from '../project/CartButton';
 
 const Header = ({ offcanvasPush, isOpen, onOpen }) => {
     const { name: title } = useSite();
@@ -13,9 +14,6 @@ const Header = ({ offcanvasPush, isOpen, onOpen }) => {
     return (
         <header id="header" className={`navbar navbar-expand-lg navbar-${type}-top ${type}-top ${offcanvasPush}`} role="banner">
             <div className={container}>
-                <Link className="navbar-brand" title={title} rel="home">
-                    <Logo alternate={title} />
-                </Link>
                 <button
                     type="button"
                     id="menu-button"
@@ -30,10 +28,14 @@ const Header = ({ offcanvasPush, isOpen, onOpen }) => {
                     <span className="icon-bar">&#9472;</span>
                     <span className="icon-bar">&#9472;</span>
                 </button>
+                <Link className="navbar-brand" title={title} rel="home">
+                    <Logo alternate={title} />
+                </Link>
                 <nav id="menu" className="navbar-collapse collapse">
                     <Menu />
                     <Account />
                 </nav>
+                <CartButton />
             </div>
         </header>
     );

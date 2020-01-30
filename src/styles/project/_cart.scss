@@ -204,12 +204,17 @@
 	text-align: center;
 	color: $color-white;
 	display: inline-block;
-	transition: 0.2s;
 	}
-.btn-cart .cart-indicator {
-	margin-top: 15px;
-	margin-right: -10px;
+.btn-cart .cart-indicator,
+.navbar-cart .cart-indicator {
+	margin: 5px;
 	position: absolute;
 	top: 0;
 	right: 0;
+	}
+@include media-breakpoint-up(lg) {
+	.btn-cart .cart-indicator,
+	.navbar-cart .cart-indicator {
+		margin-top: 20px;
+		}
 	}

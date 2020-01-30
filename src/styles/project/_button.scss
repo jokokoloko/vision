@@ -13,7 +13,7 @@
 		touch-action: manipulation;
 	}
 @include media-breakpoint-down(md) {
-	.btn {
+	.btn:not([class*="btn-text"]) {
 		width: 100%;
 		display: block;
 		}
