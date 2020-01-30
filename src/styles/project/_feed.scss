@@ -9,7 +9,7 @@
 	height: 100%;
 	position: relative;
 	}
-@include media-breakpoint-up(md) {
+@include media-breakpoint-up(lg) {
 	.feed-collection .case,
 	.feed-product .case {
 		min-height: 610px;

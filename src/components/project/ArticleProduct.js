@@ -11,7 +11,7 @@ const ArticleProduct = ({ product, collection }) => {
         variants: [firstVariant],
     } = product;
     return (
-        <article key={product.id} id={`product-${product.handle}`} className={`product product-${product.handle} col-lg-3`}>
+        <article key={product.id} id={`product-${product.handle}`} className={`product product-${product.handle} col-lg-6 col-xl-3`}>
             <div className="case d-flex flex-column">
                 <header>
                     <div className="pod">

@@ -16,7 +16,7 @@ export default ({ location, data }) => {
             description={(content && content.metaDescription) || collection.description}
             location={location}
         >
-            <Hero id={`hero-${collection.handle}`} height="short" alternate={collection.title}>
+            <Hero id={`hero-${collection.handle}`} className="d-none d-lg-block" height="short" alternate={collection.title}>
                 {content.head ? (
                     <header
                         className="node-xs-30 node-lg-50 text-center"
@@ -34,7 +34,10 @@ export default ({ location, data }) => {
                     <section className="node-xs-50 node-lg-80 cheat-both">
                         <div className="row justify-content-center gutter-80-30">
                             {(collection.title || collection.description) && (
-                                <header id={`collection-${collection.handle}`} className={`collection collection-${collection.handle} col-lg-3`}>
+                                <header
+                                    id={`collection-${collection.handle}`}
+                                    className={`collection collection-${collection.handle} col-lg-6 col-xl-3`}
+                                >
                                     <div className="case">
                                         <h1 className="title">{collection.title}</h1>
                                         <p className="description" dangerouslySetInnerHTML={{ __html: collection.description }} />

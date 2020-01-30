@@ -159,7 +159,7 @@ p + .btn {
 	margin-top: 0; // 30px spacing
 	margin-left: 20px; // 20px spacing
 	}
-@include media-breakpoint-down(xs) {
+@include media-breakpoint-down(lg) {
     .action-group > .btn + .btn {
         margin-top: 20px;
         }
