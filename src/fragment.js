@@ -96,6 +96,14 @@ export const imageFade = graphql`
     }
 `;
 
+export const imageResource = graphql`
+    fragment imageResource on ContentfulAsset {
+        fluid(maxWidth: 1110, maxHeight: 1324, quality: 80) {
+            ...GatsbyContentfulFluid_withWebp
+        }
+    }
+`;
+
 export const imageIcon = graphql`
     fragment imageIcon on ContentfulAsset {
         fixed(width: 130, height: 130, quality: 100, cropFocus: CENTER) {
