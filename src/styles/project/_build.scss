@@ -227,6 +227,9 @@
 	}
 
 /* ----------!FOOTER---------- */
+#footer {
+	@include color($color-footer);
+	}
 #footer .navbar {
     margin-top: -30px;
 	}

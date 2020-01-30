@@ -7,10 +7,13 @@
     transition: transform 0.25s ease-out 0s;
     }
 .offcanvas-push-out {
-    transform: translateX(-80%);
+    transform: translateX(80%);
     }
 
 /* ----------!MENU---------- */
+.offcanvas-menu {
+	padding-top: 15px;
+	}
 .offcanvas-menu .logo + .nav {
 	padding-top: 5px;
 	}
@@ -20,9 +23,7 @@
 	background-color: $color-transparent;
 	border: 0 none $color-transparent;
     margin: 0;
-	padding: 10px 15px;
-	padding-top: (($header-height-xs - $line-height-text) / 2);
-	padding-bottom: (($header-height-xs - $line-height-text) / 2);
+	padding: 15px;
 	width: 100%;
     font-weight: $font-weight-2;
 	font-size: $font-size-offcanvas;
@@ -89,6 +90,22 @@
 .offcanvas-menu .nav > li.dropdown .dropdown-menu a {
     padding-left: 30px;
     }
+.offcanvas-menu .nav {
+    border-top: 2px solid $color-charcoal !important;
+    margin-top: 15px;
+    padding-top: 15px;
+    }
+.offcanvas-menu .offcanvas-brand {
+    margin: 0;
+	padding: 15px;
+    line-height: $line-height-offcanvas;
+    display: block;
+    }
+.offcanvas-menu .offcanvas-brand .logo {
+    width: $logo-width;
+    height: $logo-height;
+	filter: brightness(0) invert(1);
+	}
 .offcanvas-action > .btn {
     width: 100%;
     text-align: left;

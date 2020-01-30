@@ -39,7 +39,7 @@ $font-size-cart:				14px;		// 14px is default
 $line-height-text:				30px;		// 30px is default
 $line-height-button:			20px;		// 30px is default
 $line-height-navigation:		20px;		// 30px is default
-$line-height-offcanvas:			30px;		// 30px is default
+$line-height-offcanvas:			20px;		// 30px is default
 $line-height-cart:				20px;		// 30px is default
 $line-height-toggle:			14px;		// 14px is default
 
@@ -133,12 +133,12 @@ $color-form-input-text:			$color-text-base;
 $color-form-input-text-focus:	$color-shop;
 
 /* ----------!REGION---------- */
-$color-body:					($color-brand-black-400, null, null);
-$color-offcanvas:				($color-brand-black-400, $color-brand-black-400, null);
+$color-body:					($color-brand-blue-700, null, null);
+$color-offcanvas:				($color-brand-blue-700, $color-brand-black-400, null);
 $color-header:					($color-white, null, null);
 $color-bar:						($color-brand-black-400, null, null);
 $color-main:					($color-white, null, null);
-$color-footer:					($color-white, null, null);
+$color-footer:					($color-brand-blue-700, null, $color-white);
 $color-modal:					(null, null, null);
 
 /* ----------!BUTTON---------- */

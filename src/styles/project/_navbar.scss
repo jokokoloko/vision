@@ -26,19 +26,20 @@
 .navbar .navbar-nav > li > button {
 	cursor: pointer;
 	}
-.navbar .navbar-brand {
-	margin-left: -15px !important;
+@include media-breakpoint-up(lg) {
+	.navbar .navbar-brand {
+		margin-left: -15px !important;
+		}
 	}
 .navbar .navbar-search,
 .navbar .navbar-menu {
 	background-color: $color-transparent;
 	border: 0 none $color-transparent;
-	margin-left: 15px;
-	margin-right: -15px;
+	margin-left: -15px;
+	margin-right: 15px;
 	padding: 18px 15px;
 	font-size: 20px;
 	line-height: 30px;
-	cursor: pointer;
 	}
 .navbar .navbar-menu .icon-bar {
 	border-radius: 1px;
@@ -62,7 +63,7 @@
     align-items: center;
     }
 .navbar .navbar-action.account {
-	margin-right: -15px;
+	margin-right: -20px;
 	}
 .navbar .navbar-action .btn {
     margin: 0 10px;
@@ -78,16 +79,19 @@
 	}
 .navbar .navbar-brand,
 .navbar .navbar-text,
+.navbar .navbar-cart,
 .navbar .navbar-nav > li > a,
 .navbar .navbar-nav > li > button,
 .navbar .navbar-action > li > .nav-link,
 .navbar .navbar-action > li > .dropdown-toggle {
 	background-color: $color-transparent;
+	border: 0 none $color-transparent;
 	margin: 0;
-	padding: 30px 15px;
-	font-size: 14px;
+	padding: 15px;
+	font-size: $font-size-navigation;
 	font-weight: $font-weight-3;
 	line-height: $line-height-navigation;
+	position: relative;
 	}
 @include media-breakpoint-up(lg) {
 	.navbar .navbar-brand {
@@ -96,6 +100,7 @@
 	}
 .navbar .navbar-brand,
 .navbar .navbar-text,
+.navbar .navbar-cart,
 .navbar .navbar-search,
 .navbar .navbar-menu,
 .navbar .navbar-nav > li > a,
@@ -111,6 +116,9 @@
 .navbar .navbar-brand:active,
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus,
+.navbar .navbar-cart:active,
+.navbar .navbar-cart:hover,
+.navbar .navbar-cart:focus,
 .navbar .navbar-search:active,
 .navbar .navbar-search:hover,
 .navbar .navbar-search:focus,
@@ -196,6 +204,7 @@
 	}
 .navbar .navbar-brand,
 .navbar .navbar-text,
+.navbar .navbar-cart,
 .navbar .navbar-search,
 .navbar .navbar-nav > li > a,
 .navbar .navbar-nav > li > button {
@@ -205,6 +214,7 @@
 @include media-breakpoint-up(lg) {
 	.navbar .navbar-brand,
 	.navbar .navbar-text,
+	.navbar .navbar-cart,
 	.navbar .navbar-search,
 	.navbar .navbar-nav > li > a,
 	.navbar .navbar-nav > li > button {
@@ -221,4 +231,8 @@
 		padding-top: (($header-height-lg - $line-height-toggle) / 2);
 		padding-bottom: (($header-height-lg - $line-height-toggle) / 2);
 		}
+	}
+.navbar .navbar-cart {
+	margin-left: 15px;
+	margin-right: -15px;
 	}
