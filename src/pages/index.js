@@ -104,7 +104,7 @@ export default ({ location, data }) => {
                         </figure>
                         {false && <div className="circle" />}
                     </aside>
-                    <header className="attention copy text-center" dangerouslySetInnerHTML={{ __html: introduction.body.childMarkdownRemark.html }} />
+                    <header className="copy text-center" dangerouslySetInnerHTML={{ __html: introduction.body.childMarkdownRemark.html }} />
                 </Basic>
             )}
             {steps.edges.length > 0 && (
