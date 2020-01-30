@@ -12,6 +12,9 @@ import Header from './region/Header';
 import Footer from './region/Footer';
 import Scroll from './widget/Scroll';
 import Loader from './widget/Loader';
+import Link from './unit/Link';
+import Logo from './unit/Logo';
+import MenuAccount from './project/MenuAccount';
 import SpringSlideCart from './project/SpringSlideCart';
 
 const Layout = ({ location, template, title, description, children }) => {
@@ -48,7 +51,11 @@ const Layout = ({ location, template, title, description, children }) => {
             <SEO location={location} template={template} title={title} description={description} />
             <OffCanvas width="80%" height="100%" labelledby="menu-button" style={style} isOpen={isOpen} onClose={onClose}>
                 <nav id="menu-offcanvas" className="offcanvas-menu">
+                    <Link className="offcanvas-brand" title={title} rel="home">
+                        <Logo alternate={title} />
+                    </Link>
                     <Menu offcanvas />
+                    <MenuAccount />
                 </nav>
             </OffCanvas>
             <Header offcanvasPush={offcanvasPush} isOpen={isOpen} onOpen={onOpen} />
