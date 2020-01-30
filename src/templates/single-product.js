@@ -90,7 +90,7 @@ export default ({ location, data }) => {
                                     <div className="pod">
                                         <p className="label">Collection Method:</p>
                                     </div>
-                                    <div className="pod">{loopMethod}</div>
+                                    <div className="pod d-flex">{loopMethod}</div>
                                 </div>
                             </section>
                         )}

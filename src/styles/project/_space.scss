@@ -350,6 +350,9 @@ p + .instagram-media {
 .single-product .product-section .case > .pod + .pod {
 	margin-left: 10px; // 10px spacing
 	}
+.single-product .product-section .case > .pod > .method + .method {
+	margin-left: 8px; // 10px spacing
+	}
 .space-product {
 	padding-top: 80px !important;
 	padding-bottom: 80px !important;
