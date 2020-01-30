@@ -134,9 +134,9 @@ export default ({ location, data }) => {
                         />
                     )}
                     <section className="node-xs-50 node-lg-80">
-                        <div className="row align-items-center gutter-50 gutter-lg-80">
+                        <div className="row gutter-50 gutter-lg-80">
                             <div className="col-xl">
-                                <figure className="cheat-left">
+                                <figure className="cheat-left style-shadow-lg">
                                     <Image className="image" source={feature.figure.fluid} alternate={feature.title} />
                                 </figure>
                             </div>
