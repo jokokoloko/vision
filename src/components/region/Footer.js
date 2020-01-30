@@ -15,7 +15,7 @@ const Footer = ({ offcanvasPush }) => {
         </article>
     ));
     return (
-        <footer id="footer" className={`color-8 ${offcanvasPush}`} role="contentinfo">
+        <footer id="footer" className={offcanvasPush} role="contentinfo">
             <Basic space="space-xs-50 space-lg-80">
                 <div className="row gutter-50 gutter-lg-80">{loopFooter}</div>
             </Basic>
