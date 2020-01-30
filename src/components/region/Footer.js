@@ -15,11 +15,11 @@ const Footer = ({ offcanvasPush }) => {
         </article>
     ));
     return (
-        <footer id="footer" className={offcanvasPush} role="contentinfo">
-            <Basic space="space-xs-50 space-lg-80" color={6}>
+        <footer id="footer" className={`color-8 ${offcanvasPush}`} role="contentinfo">
+            <Basic space="space-xs-50 space-lg-80">
                 <div className="row gutter-50 gutter-lg-80">{loopFooter}</div>
             </Basic>
-            <section className="navbar navbar-expand-lg color-6">
+            <section className="navbar navbar-expand-lg">
                 <div className="container justify-content-center">
                     <Link className="navbar-brand" title={title} rel="home">
                         <Logo alternate={title} />

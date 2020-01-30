@@ -105,12 +105,13 @@ $color-blue-500:				#3276b1;
 $color-blue-600:				#23527c;
 
 /* ----------!BRAND---------- */
-$color-brand-grey-300:			$color-phantom;
-$color-brand-black-400:			$color-black;
-$color-brand-blue-300:			#C9E1F5;
+$color-brand-grey-300:			#f6f6f6;
+$color-brand-black-400:			#464646;
+$color-brand-blue-300:			#D3E7F2;
 $color-brand-blue-400:			#1FA9E1;
-$color-brand-blue-500:			#8EC1E8;
+$color-brand-blue-500:			#BBDAEB;
 $color-brand-blue-600:			#245CAA;
+$color-brand-blue-700:			#6D7B83;
 $color-brand-purple-400:		#AEBAD5;
 $color-brand-green-400:			#4FA573;
 $color-brand-orange-400:		#FFC82C;
@@ -158,7 +159,7 @@ $color-button-link-hover:		(null, null, null);
 $color-cart-indicator:			$color-shop;
 
 /* ----------!SELECTION---------- */
-$color-selection:				($color-brand-blue-300, null, $color-white);
+$color-selection:				($color-shop, null, $color-white);
 
 /* ----------!ALERT---------- */
 $color-alert-tip:				(null, null, $color-red-400 !important);

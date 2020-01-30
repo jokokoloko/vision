@@ -48,12 +48,12 @@ export default ({ location, data }) => {
         <article key={feature.id} id={`feature-${feature.slug}`} className={`feature feature-${feature.order}`}>
             <div className="row">
                 <div className="col-2">
-                    <figure className="node-xs-50">
+                    <figure>
                         <Image className="image" source={feature.image.fluid} alternate={feature.title} />
                     </figure>
                 </div>
                 <div className="col">
-                    <header className="node-xs-50">
+                    <header>
                         <p className="excerpt" dangerouslySetInnerHTML={{ __html: feature.body.childMarkdownRemark.html }} />
                     </header>
                 </div>
@@ -104,7 +104,7 @@ export default ({ location, data }) => {
                         </figure>
                         {false && <div className="circle" />}
                     </aside>
-                    <header className="attention copy text-center" dangerouslySetInnerHTML={{ __html: introduction.body.childMarkdownRemark.html }} />
+                    <header className="copy text-center" dangerouslySetInnerHTML={{ __html: introduction.body.childMarkdownRemark.html }} />
                 </Basic>
             )}
             {steps.edges.length > 0 && (
