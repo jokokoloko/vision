@@ -58,5 +58,10 @@
 
 /* ----------!COLLECTION---------- */
 #carousel-collection {
-	margin: -50px -100px -60px -75px;
+	margin: -50px -100px -50px -80px;
+	}
+@include media-breakpoint-up(xl) {
+	#carousel-collection {
+		margin-right: -120px;
+		}
 	}

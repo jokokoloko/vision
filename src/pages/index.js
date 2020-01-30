@@ -83,8 +83,16 @@ export default ({ location, data }) => {
                             <div className="col-lg-6">
                                 <header dangerouslySetInnerHTML={{ __html: splash.body.childMarkdownRemark.html }} />
                             </div>
-                            <div className="col-lg-6 d-none d-sm-block">
-                                <CarouselSlide id="carousel-collection" height="auto" controls={false} indicators={false} slides={slides} fade />
+                            <div className="col-lg-6 d-none d-lg-block">
+                                <CarouselSlide
+                                    id="carousel-collection"
+                                    height="auto"
+                                    controls={false}
+                                    indicators={false}
+                                    interval={3}
+                                    slides={slides}
+                                    fade
+                                />
                             </div>
                         </div>
                     </div>
@@ -98,7 +106,7 @@ export default ({ location, data }) => {
             )}
             {introduction && (
                 <Basic id={introduction.slug} space="space-xs-50 space-lg-80" color={6}>
-                    <aside className="cap d-none d-sm-block">
+                    <aside className="cap d-none d-lg-block">
                         <figure className="candy">
                             <Image className="image" source={introduction.image.fluid} alternate={introduction.title} />
                         </figure>
@@ -122,7 +130,7 @@ export default ({ location, data }) => {
             )}
             {features.edges.length > 0 && (
                 <Feed id="features" space="space-xs-50 space-lg-80" color={4} item="feature">
-                    <aside className="cap d-none d-sm-block">
+                    <aside className="cap d-none d-lg-block">
                         <figure className="candy">
                             <Image className="image" source={feature.image.fluid} alternate={feature.title} />
                         </figure>
