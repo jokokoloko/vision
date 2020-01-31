@@ -19,7 +19,7 @@ const Footer = ({ offcanvasPush }) => {
             <Basic space="space-xs-50 space-lg-80">
                 <div className="row gutter-50 gutter-lg-80">{loopFooter}</div>
             </Basic>
-            <section className="navbar navbar-expand-lg">
+            <section className="navbar navbar-expand-lg d-none d-lg-block">
                 <div className="container justify-content-center">
                     <Link className="navbar-brand" title={title} rel="home">
                         <Logo alternate={title} />

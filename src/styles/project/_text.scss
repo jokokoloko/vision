@@ -310,6 +310,16 @@ figure {
     line-height: $line-height-text;
     font-size: $font-size-navigation;
     }
+#footer p > a {
+	font-weight: $font-weight-1;
+	color: $color-white;
+    }
+#footer .footer-menu a {
+	border: 0 none $color-transparent;
+    }
+#footer .footer-legal a > strong {
+	font-weight: $font-weight-1;
+    }
 
 /* ============================= */
 /* ==========!TEMPLATE========== */

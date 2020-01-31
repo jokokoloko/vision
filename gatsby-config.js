@@ -4,9 +4,10 @@ require('dotenv').config({
 
 module.exports = {
     siteMetadata: {
-        siteUrl: 'https://github.com/Confirm-Biosciences/confirm',
-        title: 'Confirm',
-        description: 'a Gatsby + Contentful + Shopify + Netlify starter',
+        siteUrl: 'https://myhealthconfirm.com/',
+        title: 'HealthConfirm',
+        description:
+            'HealthConfirm offers a convenient, customized at-home testing experience designed to help you better understand your body’s balance and achieve optimal wellness.',
         author: 'Confirm BioSciences',
     },
     plugins: [
@@ -14,11 +15,11 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                name: 'Confirm',
-                short_name: 'Confirm',
+                name: 'HealthConfirm',
+                short_name: 'HealthConfirm',
                 start_url: '/',
                 background_color: '#ffffff',
-                theme_color: '#222222',
+                theme_color: '#1fa9e1',
                 display: 'standalone',
                 icon: 'src/images/icon.png',
                 crossOrigin: 'use-credentials',
