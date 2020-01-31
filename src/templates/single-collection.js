@@ -4,7 +4,7 @@ import { logicDescription } from '../logic';
 import Layout from '../components/Layout';
 import Feed from '../components/section/Feed';
 import Hero from '../components/section/Hero';
-import ArticleProduct from '../components/project/ArticleProduct';
+import ArticleProduct from '../components/article/ArticleProduct';
 
 export default ({ location, data }) => {
     const { collection, content } = data;

@@ -8,9 +8,9 @@ import Hero from '../components/section/Hero';
 import Button from '../components/unit/Button';
 import Image from '../components/unit/Image';
 import Link from '../components/unit/Link';
-import ArticleFeature from '../components/project/ArticleFeature';
-import ArticleResult from '../components/project/ArticleResult';
-import ArticleStep from '../components/project/ArticleStep';
+import ArticleFeature from '../components/article/ArticleFeature';
+import ArticleResult from '../components/article/ArticleResult';
+import ArticleStep from '../components/article/ArticleStep';
 import CarouselSlide from '../components/project/CarouselSlide';
 
 export default ({ location, data }) => {

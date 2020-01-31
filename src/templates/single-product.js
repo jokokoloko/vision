@@ -8,9 +8,9 @@ import Basic from '../components/section/Basic';
 import Feed from '../components/section/Feed';
 import Image from '../components/unit/Image';
 import Link from '../components/unit/Link';
-import ArticleStep from '../components/project/ArticleStep';
-import ArticleSymptom from '../components/project/ArticleSymptom';
-import ArticleTest from '../components/project/ArticleTest';
+import ArticleStep from '../components/article/ArticleStep';
+import ArticleSymptom from '../components/article/ArticleSymptom';
+import ArticleTest from '../components/article/ArticleTest';
 import Gallery from '../components/project/Gallery';
 
 export default ({ location, data }) => {
