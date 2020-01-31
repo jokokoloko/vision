@@ -4,9 +4,9 @@ import { faShoppingCart } from '@fortawesome/pro-regular-svg-icons';
 import { ShopContext } from '../../contexts/shop';
 
 const CartButton = () => {
-    const { quantity, toggleCartOpen } = useContext(ShopContext);
+    const { quantity, isCartOpen, toggleCartOpen } = useContext(ShopContext);
     return (
-        <button type="button" className="navbar-cart" onClick={toggleCartOpen}>
+        <button type="button" className="navbar-cart" aria-label="Cart" aria-controls="cart" aria-expanded={isCartOpen} onClick={toggleCartOpen}>
             <FontAwesomeIcon icon={faShoppingCart} />
             {quantity > 0 && <span className="cart-indicator">{quantity}</span>}
         </button>
