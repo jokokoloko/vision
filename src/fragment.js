@@ -237,7 +237,6 @@ export const contentStep = graphql`
         body {
             childMarkdownRemark {
                 html
-                excerpt
             }
         }
         excerpt {
@@ -266,12 +265,8 @@ export const contentTest = graphql`
         slug
         body {
             childMarkdownRemark {
-                html
-                excerpt
+                rawMarkdownBody
             }
-        }
-        excerpt {
-            excerpt
         }
         order
     }
