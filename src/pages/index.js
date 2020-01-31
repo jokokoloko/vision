@@ -8,11 +8,24 @@ import Hero from '../components/section/Hero';
 import Button from '../components/unit/Button';
 import Image from '../components/unit/Image';
 import Link from '../components/unit/Link';
+import ArticleFeature from '../components/project/ArticleFeature';
+import ArticleResult from '../components/project/ArticleResult';
 import ArticleStep from '../components/project/ArticleStep';
 import CarouselSlide from '../components/project/CarouselSlide';
 
 export default ({ location, data }) => {
     const { slides, collections, features, steps, results, splash, introduction, collection, feature, step, result, about } = data;
+    const loopCollectionButton = collections.edges.map(({ node: collection }) => (
+        <Button
+            key={collection.id}
+            label={collection.title}
+            kind="custom"
+            size="lg"
+            display="pill"
+            className={`btn-collection-${collection.handle}`}
+            to={path.COLLECTION === '/' ? `/${collection.handle}` : `${path.COLLECTION}/${collection.handle}`}
+        />
+    ));
     const loopCollection = collections.edges.map(({ node: collection }) => (
         <article key={collection.id} id={`collection-${collection.handle}`} className={`collection collection-${collection.handle} col-xl-3`}>
             <div className="case d-flex flex-column">
@@ -32,48 +45,9 @@ export default ({ location, data }) => {
             </div>
         </article>
     ));
-    const loopCollectionButton = collections.edges.map(({ node: collection }) => (
-        <Button
-            key={collection.id}
-            label={collection.title}
-            kind="custom"
-            size="lg"
-            display="pill"
-            className={`btn-collection-${collection.handle}`}
-            to={path.COLLECTION === '/' ? `/${collection.handle}` : `${path.COLLECTION}/${collection.handle}`}
-        />
-    ));
     const loopStep = steps.edges.map(({ node: step }) => <ArticleStep key={step.id} step={step} />);
-    const loopFeature = features.edges.map(({ node: feature }) => (
-        <article key={feature.id} id={`feature-${feature.slug}`} className={`feature feature-${feature.order}`}>
-            <div className="row">
-                <div className="col-2">
-                    <figure>
-                        <Image className="image" source={feature.image.fluid} alternate={feature.title} />
-                    </figure>
-                </div>
-                <div className="col">
-                    <header>
-                        <p className="excerpt" dangerouslySetInnerHTML={{ __html: feature.body.childMarkdownRemark.html }} />
-                    </header>
-                </div>
-            </div>
-        </article>
-    ));
-    const loopResult = results.edges.map(({ node: result }) => (
-        <article key={result.id} id={`result-${result.slug}`} className={`result result-${result.slug}`}>
-            <div className="row align-items-center gutter-50 gutter-lg-80">
-                <div className="col-xl">
-                    <figure className="cheat-left">
-                        <Image className="image" source={result.image.fluid} alternate={result.title} />
-                    </figure>
-                </div>
-                <div className="col-xl">
-                    <header dangerouslySetInnerHTML={{ __html: result.body.childMarkdownRemark.html }} />
-                </div>
-            </div>
-        </article>
-    ));
+    const loopFeature = features.edges.map(({ node: feature }) => <ArticleFeature key={feature.id} feature={feature} />);
+    const loopResult = results.edges.map(({ node: result }) => <ArticleResult key={result.id} result={result} />);
     return (
         <Layout template="home" location={location}>
             {splash && (
