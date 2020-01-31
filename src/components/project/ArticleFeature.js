@@ -1,17 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { logicDescription } from '../../logic';
 import Image from '../unit/Image';
 
 const ArticleFeature = ({ feature }) => (
-    <article id={`feature-${feature.slug}`} className={`feature feature-${feature.order} col-lg-4`}>
-        <figure className="node-xs-50 d-flex justify-content-center">
-            <Image className="image" source={feature.image.fixed} alternate={feature.title} fixed />
-        </figure>
-        <header className="node-xs-50 text-center">
-            <h4>{feature.title}</h4>
-            {feature.excerpt && <p className="excerpt" dangerouslySetInnerHTML={{ __html: logicDescription(feature) }} />}
-        </header>
+    <article key={feature.id} id={`feature-${feature.slug}`} className={`feature feature-${feature.order}`}>
+        <div className="row">
+            {feature.image && (
+                <div className="col-2">
+                    <figure>
+                        <Image className="image" source={feature.image.fluid} alternate={feature.title} />
+                    </figure>
+                </div>
+            )}
+            {feature.body && (
+                <div className="col">
+                    <header dangerouslySetInnerHTML={{ __html: feature.body.childMarkdownRemark.html }} />
+                </div>
+            )}
+        </div>
     </article>
 );
 
