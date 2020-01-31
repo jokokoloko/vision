@@ -14,8 +14,8 @@ import Scroll from './widget/Scroll';
 import Loader from './widget/Loader';
 import Link from './unit/Link';
 import Logo from './unit/Logo';
+import SpringSlideCart from './shop/SpringSlideCart';
 import MenuAccount from './project/MenuAccount';
-import SpringSlideCart from './project/SpringSlideCart';
 
 const Layout = ({ location, template, title, description, children }) => {
     const [isOpen, setIsOpen] = useState(false);

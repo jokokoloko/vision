@@ -5,7 +5,7 @@ import Account from '../Account';
 import Menu from '../Menu';
 import Link from '../unit/Link';
 import Logo from '../unit/Logo';
-import CartButton from '../project/CartButton';
+import CartButton from '../shop/CartButton';
 
 const Header = ({ offcanvasPush, isOpen, onOpen }) => {
     const { name: title } = useSite();
