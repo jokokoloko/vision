@@ -33,6 +33,7 @@ module.exports = {
         },
         'gatsby-plugin-netlify',
         'gatsby-plugin-offline',
+        'gatsby-plugin-polyfill-io',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-sass',
         'gatsby-plugin-sharp',
