@@ -155,24 +155,7 @@ export const contentPage = graphql`
     fragment contentPage on ContentfulPage {
         title
         slug
-        image {
-            ...imageHero
-        }
-        head {
-            childMarkdownRemark {
-                html
-                excerpt
-            }
-        }
-        body {
-            childMarkdownRemark {
-                html
-                excerpt
-            }
-        }
-        excerpt {
-            excerpt
-        }
+        metaTitle
     }
 `;
 
