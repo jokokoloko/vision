@@ -338,8 +338,13 @@ p + .instagram-media {
 
 /* ----------!PRODUCT---------- */
 .product h3 + p,
-.single-product h1 + p {
+.single-product .title + .type,
+.single-product .title + .price,
+.single-product .type + .price {
 	padding-top: 23px; // 30px spacing
+	}
+.single-product .title + .type {
+	padding-top: 19px; // 30px spacing
 	}
 .product p + .btn {
 	margin-top: 50px; // 50px spacing

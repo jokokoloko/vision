@@ -326,6 +326,10 @@ figure {
 /* ============================= */
 
 /* ----------!SINGLE-PRODUCT---------- */
+.single-product .type {
+	font-weight: $font-weight-1;
+	text-transform: uppercase;
+	}
 .single-product .price {
 	margin-top: -7px;
 	margin-bottom: -8px;
