@@ -14,7 +14,7 @@ import ArticleStep from '../components/article/ArticleStep';
 import CarouselSlide from '../components/project/CarouselSlide';
 
 export default ({ location, data }) => {
-    const { slides, collections, features, steps, results, splash, introduction, collection, feature, step, result, about } = data;
+    const { page, slides, collections, features, steps, results, splash, introduction, collection, feature, step, result, about } = data;
     const loopCollectionButton = collections.edges.map(({ node: collection }) => (
         <Button
             key={collection.id}
@@ -49,7 +49,7 @@ export default ({ location, data }) => {
     const loopFeature = features.edges.map(({ node: feature }) => <ArticleFeature key={feature.id} feature={feature} />);
     const loopResult = results.edges.map(({ node: result }) => <ArticleResult key={result.id} result={result} />);
     return (
-        <Layout template="home" location={location}>
+        <Layout template="home" title={page.metaTitle} location={location}>
             {splash && (
                 <Hero id={splash.slug} height={splash.height} space="space-xs-50 space-lg-80" color={4}>
                     <div className="node-xs-50 node-lg-80">
@@ -165,6 +165,9 @@ export default ({ location, data }) => {
 
 export const query = graphql`
     query pageHome {
+        page: contentfulPage(slug: { eq: "home" }) {
+            ...contentPage
+        }
         slides: allContentfulSlide {
             edges {
                 node {

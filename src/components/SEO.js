@@ -8,7 +8,7 @@ const SEO = ({ location, template, title: pageTitle, description: pageDescriptio
     const { description, name: title } = useSite();
     const metaDescription = pageDescription || description;
     return (
-        <Helmet defaultTitle={title} titleTemplate={`%s - ${title}`} title={pageTitle}>
+        <Helmet defaultTitle={title} titleTemplate={location.pathname === '/' ? '%s' : `%s - ${title}`} title={pageTitle}>
             <html lang="en" />
             <body id="body" className={template} />
             <link rel="canonical" href={location.href} />

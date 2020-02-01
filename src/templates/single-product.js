@@ -54,7 +54,8 @@ export default ({ location, data }) => {
                 <div className="row gutter-80">
                     <div className="col-lg-6 order-lg-last">
                         <header className="product-header node-xs-30">
-                            <h1>{product.title}</h1>
+                            <h1 className="title">{product.title}</h1>
+                            <h2 className="type">{product.productType}</h2>
                             <p className="price">${addCommasToNumber(firstVariant.price)}</p>
                         </header>
                         <section className="product-section node-xs-30">
@@ -200,6 +201,7 @@ export const query = graphql`
                 shopifyId
                 price
             }
+            productType
         }
         content: contentfulProduct(handle: { eq: $handle }) {
             title
