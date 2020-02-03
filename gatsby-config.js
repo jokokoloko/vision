@@ -33,6 +33,12 @@ module.exports = {
         },
         'gatsby-plugin-netlify',
         'gatsby-plugin-offline',
+        {
+            resolve: 'gatsby-plugin-polyfill-io',
+            options: {
+                features: ['Array.prototype.map', 'fetch'],
+            },
+        },
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-sass',
         'gatsby-plugin-sharp',
