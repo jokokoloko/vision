@@ -98,8 +98,8 @@ ul#{$not-list} > li > p {
     }
 ol#{$not-list} {
 	padding-left: 0;
-    list-style-position: inside;
-    }
+	list-style-position: inside;
+	}
 ol#{$not-list} {
 	counter-reset: item;
 	}
@@ -117,19 +117,6 @@ ol#{$not-list} > li > strong {
 	}
 ul#{$not-list} {
 	padding-left: 20px;
-	list-style: none;
-	}
-ul#{$not-list} > li {
-	position: relative;
-	}
-ul#{$not-list} > li:before {
-	margin-left: -14px;
-	position: absolute;
-	top: 0;
-	font-size: 32px;
-	line-height: 24px;
-	color: $color-shop;
-	content: '\2022';
 	}
 @include media-breakpoint-up(lg) {
 	ul#{$not-list} {
@@ -384,6 +371,21 @@ figure {
 	}
 
 /* ----------!SINGLE-RESOURCE---------- */
+.single-resource ul#{$not-list} {
+	list-style: none;
+	}
+.single-resource ul#{$not-list} > li {
+	position: relative;
+	}
+.single-resource ul#{$not-list} > li:before {
+	margin-left: -20px;
+	position: absolute;
+	top: 0;
+	font-size: 32px;
+	line-height: 24px;
+	color: $color-shop;
+	content: '\2022';
+	}
 .single-resource .author,
 .single-resource .summary {
 	margin-top: -6px;

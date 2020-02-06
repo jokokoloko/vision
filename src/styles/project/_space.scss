@@ -73,7 +73,7 @@ ol#{$not-list} > li + li {
 	padding-top: 43px; // 50px spacing
 	}
 ul#{$not-list} > li + li {
-	margin-top: 8px; // 20px spacing
+	padding-top: 7px; // 10px spacing
 	}
 ol + p,
 ul + p {
@@ -383,6 +383,10 @@ p + .instagram-media {
 	}
 
 /* ----------!SINGLE-RESOURCE---------- */
+.single-resource ul#{$not-list} > li + li {
+	margin-top: 8px; // 20px spacing
+	padding-top: 0; // 0 spacing
+	}
 .single-resource .title + .author {
 	padding-top: 39px; // 50px spacing
 	}
