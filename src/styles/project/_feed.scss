@@ -117,13 +117,15 @@
 .feed-product .product .case .type {
 	min-height: 55px;
 	font-weight: $font-weight-1;
-	text-transform: uppercase;
-	}
-.feed-product .product .case ul > li,
-.feed-product .product .case .type {
 	font-size: 12px;
 	line-height: 20px;
-    color: $color-text-base;
+	text-transform: uppercase;
+	color: $color-text-base;
+	}
+.feed-product .product .case ul > li {
+	font-size: 12px !important;
+	line-height: 28px !important;
+	color: $color-text-base !important;
 	}
 
 /* ----------!SPACE---------- */
