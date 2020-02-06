@@ -69,9 +69,11 @@ h6 + h6 {
 	}
 
 /* ----------!LIST---------- */
-ol#{$not-list} > li + li,
+ol#{$not-list} > li + li {
+	padding-top: 43px; // 50px spacing
+	}
 ul#{$not-list} > li + li {
-	padding-top: 7px; // 10px spacing
+	margin-top: 8px; // 20px spacing
 	}
 ol + p,
 ul + p {
@@ -96,7 +98,7 @@ p + ul {
 p + h1,
 ol + h1,
 ul + h1 {
-	padding-top: 44px; // 50px spacing
+	padding-top: 204px; // 80px spacing
 	}
 p + h2,
 ol + h2,
@@ -337,17 +339,24 @@ p + .instagram-media {
 /* ============================ */
 
 /* ----------!PRODUCT---------- */
-.product h3 + p,
-.single-product .title + .type,
+.product h3 + p {
+	padding-top: 23px; // 30px spacing
+	}
+.product p + .btn {
+	margin-top: 50px; // 50px spacing
+	}
+
+/* ============================= */
+/* ==========!TEMPLATE========== */
+/* ============================= */
+
+/* ----------!SINGLE-PRODUCT---------- */
 .single-product .title + .price,
 .single-product .type + .price {
 	padding-top: 23px; // 30px spacing
 	}
 .single-product .title + .type {
 	padding-top: 19px; // 30px spacing
-	}
-.product p + .btn {
-	margin-top: 50px; // 50px spacing
 	}
 .single-product .product-section .input-group-append {
 	margin-left: 20px; // 20px spacing
@@ -371,6 +380,17 @@ p + .instagram-media {
 	.space-product {
 		padding-bottom: 210px !important;
 		}
+	}
+
+/* ----------!SINGLE-RESOURCE---------- */
+.single-resource .title + .author {
+	padding-top: 39px; // 50px spacing
+	}
+.single-resource .author + .reviewer {
+	padding-top: 23px; // 30px spacing
+	}
+.single-resource .reviewer + .reviewed {
+	padding-top: 8px; // 15px spacing
 	}
 
 /* ========================== */
