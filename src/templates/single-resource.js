@@ -23,7 +23,10 @@ export default ({ location, data }) => {
                     </div>
                     <div className="col-lg-6">
                         <header>
-                            <h1>{resource.title}</h1>
+                            <h1 className="title">{resource.title}</h1>
+                            {resource.author && <p className="author">{resource.author.name}</p>}
+                            {resource.reviewer && <p className="reviewer">Medically reviewed by: {resource.reviewer.name}</p>}
+                            <p className="reviewed">Medically reviewed date: {resource.reviewed}</p>
                         </header>
                     </div>
                 </div>
@@ -32,17 +35,29 @@ export default ({ location, data }) => {
                 <div className="row gutter-80">
                     <div className="col-lg-9">
                         <header className="node-xs-50 node-lg-80">
-                            <p className="summary" dangerouslySetInnerHTML={{ __html: resource.excerpt.excerpt }} />
+                            <h2 className="summary" dangerouslySetInnerHTML={{ __html: resource.excerpt.excerpt }} />
                         </header>
-                        <section className="node-xs-50 node-lg-80" dangerouslySetInnerHTML={{ __html: resource.head.childMarkdownRemark.html }} />
-                        <section className="node-xs-50 node-lg-80" dangerouslySetInnerHTML={{ __html: resource.body.childMarkdownRemark.html }} />
-                        <section className="node-xs-50 node-lg-80" dangerouslySetInnerHTML={{ __html: resource.foot.childMarkdownRemark.html }} />
-                        <footer className="node-xs-50 node-lg-80" dangerouslySetInnerHTML={{ __html: resource.extra.childMarkdownRemark.html }} />
+                        <article className="node-xs-50 node-lg-80">
+                            <header className="node-xs-50">
+                                <h3 className="section-title">Introduction</h3>
+                            </header>
+                            <section className="node-xs-50" dangerouslySetInnerHTML={{ __html: resource.head.childMarkdownRemark.html }} />
+                        </article>
+                        <article className="node-xs-50 node-lg-80">
+                            <section className="section-group" dangerouslySetInnerHTML={{ __html: resource.body.childMarkdownRemark.html }} />
+                        </article>
+                        <article className="node-xs-50 node-lg-80">
+                            <section className="section-group" dangerouslySetInnerHTML={{ __html: resource.foot.childMarkdownRemark.html }} />
+                        </article>
+                        <footer className="node-xs-50 node-lg-80">
+                            <header className="node-xs-50">
+                                <h3 className="section-title">References</h3>
+                            </header>
+                            <section className="extra node-xs-50" dangerouslySetInnerHTML={{ __html: resource.extra.childMarkdownRemark.html }} />
+                        </footer>
                     </div>
                     <div className="col-lg-3 d-none">
-                        <aside>
-                            <h1>{resource.title}</h1>
-                        </aside>
+                        <aside>Menu</aside>
                     </div>
                 </div>
             </Basic>
@@ -83,6 +98,13 @@ export const query = graphql`
                     excerpt
                 }
             }
+            author {
+                name
+            }
+            reviewer {
+                name
+            }
+            reviewed(formatString: "MMMM D, YYYY")
             excerpt {
                 excerpt
             }
