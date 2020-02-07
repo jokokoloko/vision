@@ -5,6 +5,7 @@ import * as menu from '../menu';
 import Dropdown from './unit/Dropdown';
 import Link from './unit/Link';
 import DropdownCollection from './project/DropdownCollection';
+import DropdownResource from './project/DropdownResource';
 
 const Menu = ({ offcanvas, caret }) => {
     const loopMain = menu.MAIN.map(({ label, to, scroll, external, children, custom }) => {
@@ -14,8 +15,10 @@ const Menu = ({ offcanvas, caret }) => {
             children.map(({ label, to, scroll, external }) => (
                 <Link key={generateID()} className="dropdown-item" to={to} scroll={scroll} external={external} children={label} />
             ));
-        return custom ? (
+        return custom === 'collection' ? (
             <DropdownCollection key={generateID()} offcanvas={offcanvas} caret={caret} label={label} name={name} />
+        ) : custom === 'resource' ? (
+            <DropdownResource key={generateID()} offcanvas={offcanvas} caret={caret} label={label} name={name} />
         ) : children ? (
             <Dropdown key={generateID()} name={offcanvas ? `offcanvas-${name}` : name} label={label} caret={caret}>
                 {loopChildren}
