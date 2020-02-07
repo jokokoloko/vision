@@ -4,9 +4,11 @@ import { logicDescription } from '../logic';
 import Layout from '../components/Layout';
 import Basic from '../components/section/Basic';
 import Image from '../components/unit/Image';
+import ArticleQuestion from '../components/article/ArticleQuestion';
 
 export default ({ location, data }) => {
-    const { resource } = data;
+    const { resource, questions } = data;
+    const loopQuestion = questions.edges.map(({ node: question }) => <ArticleQuestion key={question.id} question={question} />);
     return (
         <Layout
             template={`single single-resource single-resource-${resource.slug}`}
@@ -34,27 +36,35 @@ export default ({ location, data }) => {
             <Basic space="space-xs-50 space-lg-80">
                 <div className="row gutter-80">
                     <div className="col-lg-9">
-                        <header className="node-xs-50 node-lg-80">
-                            <h2 className="summary" dangerouslySetInnerHTML={{ __html: resource.excerpt.excerpt }} />
-                        </header>
-                        <article className="node-xs-50 node-lg-80">
+                        <section className="node-xs-50 node-lg-80">
+                            <header>
+                                <h2 className="summary" dangerouslySetInnerHTML={{ __html: resource.excerpt.excerpt }} />
+                            </header>
+                        </section>
+                        <section className="node-xs-50 node-lg-80">
                             <header className="node-xs-50">
                                 <h3 className="section-title">Introduction</h3>
                             </header>
                             <section className="node-xs-50" dangerouslySetInnerHTML={{ __html: resource.head.childMarkdownRemark.html }} />
-                        </article>
-                        <article className="node-xs-50 node-lg-80">
-                            <section className="section-group" dangerouslySetInnerHTML={{ __html: resource.body.childMarkdownRemark.html }} />
-                        </article>
-                        <article className="node-xs-50 node-lg-80">
-                            <section className="section-group" dangerouslySetInnerHTML={{ __html: resource.foot.childMarkdownRemark.html }} />
-                        </article>
-                        <footer className="node-xs-50 node-lg-80">
+                        </section>
+                        <section className="node-xs-50 node-lg-80">
+                            <article className="section-group" dangerouslySetInnerHTML={{ __html: resource.body.childMarkdownRemark.html }} />
+                        </section>
+                        <section className="node-xs-50 node-lg-80">
+                            <header className="node-xs-50">
+                                <h3 className="section-title">You Ask, We Answer</h3>
+                            </header>
+                            <section className="node-xs-50">{loopQuestion}</section>
+                        </section>
+                        <section className="node-xs-50 node-lg-80">
+                            <article className="section-group" dangerouslySetInnerHTML={{ __html: resource.foot.childMarkdownRemark.html }} />
+                        </section>
+                        <section className="node-xs-50 node-lg-80">
                             <header className="node-xs-50">
                                 <h3 className="section-title">References</h3>
                             </header>
                             <section className="extra node-xs-50" dangerouslySetInnerHTML={{ __html: resource.extra.childMarkdownRemark.html }} />
-                        </footer>
+                        </section>
                     </div>
                     <div className="col-lg-3 d-none">
                         <aside>Menu</aside>
@@ -107,6 +117,13 @@ export const query = graphql`
             reviewed(formatString: "MMMM D, YYYY")
             excerpt {
                 excerpt
+            }
+        }
+        questions: allContentfulQuestion(sort: { fields: order, order: ASC }) {
+            edges {
+                node {
+                    ...contentQuestion
+                }
             }
         }
     }

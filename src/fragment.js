@@ -254,3 +254,17 @@ export const contentTest = graphql`
         order
     }
 `;
+
+export const contentQuestion = graphql`
+    fragment contentQuestion on ContentfulQuestion {
+        id
+        title
+        slug
+        body {
+            childMarkdownRemark {
+                html
+            }
+        }
+        order
+    }
+`;

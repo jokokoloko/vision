@@ -11,7 +11,8 @@ ol + h3,
 ul + h3,
 table + h3,
 .cart .cart-section + .cart-section,
-.cart .cart-section + .cart-footer {
+.cart .cart-section + .cart-footer,
+.single-resource .question + .question {
 	border-top: 2px solid $color-division !important;
 	}
 .cart .cart-header,
