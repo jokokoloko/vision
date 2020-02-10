@@ -3,30 +3,36 @@ import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import useSite from '../queries/useSite';
 
-const SEO = ({ location, template, title: pageTitle, description: pageDescription }) => {
-    const defaultOGImage = '';
-    const { description, name: title } = useSite();
-    const metaDescription = pageDescription || description;
+const SEO = ({ location, template, title: pageTitle, description: pageDescription, article }) => {
+    const defaultImage = '';
+    const { defaultDescription, name: siteName } = useSite();
+    const metaDescription = pageDescription || defaultDescription;
     return (
-        <Helmet defaultTitle={title} titleTemplate={location.pathname === '/' ? '%s' : `%s - ${title}`} title={pageTitle}>
+        <Helmet defaultTitle={siteName} titleTemplate={location.pathname === '/' ? '%s' : `%s - ${siteName}`} title={pageTitle}>
             <html lang="en" />
             <body id="body" className={template} />
+
             <link rel="canonical" href={location.href} />
+
             <meta name="description" content={metaDescription} />
+            <meta name="image" content={defaultImage} />
+
+            {(article ? true : null) && <meta property="og:type" content="article" />}
             <meta property="og:url" content={location.href} />
-            <meta property="og:site_name" content={title} />
+            <meta property="og:site_name" content={siteName} />
             {pageTitle && <meta property="og:title" content={pageTitle} />}
             <meta property="og:description" content={metaDescription} />
             <meta property="og:type" content={template.includes('single') ? 'article' : 'website'} />
-            {false && <meta property="og:image" content={defaultOGImage} />}
+            {false && <meta property="og:image" content={defaultImage} />}
             {false && <meta property="og:image:width" content="1200" />}
             {false && <meta property="og:image:height" content="630" />}
+
             <meta name="twitter:site" content={location.href} />
-            <meta name="twitter:creator" content={title} />
+            <meta name="twitter:creator" content={siteName} />
             {pageTitle && <meta name="twitter:title" content={pageTitle} />}
             <meta name="twitter:description" content={metaDescription} />
             <meta name="twitter:card" content="summary_large_image" />
-            {false && <meta name="twitter:image" content={defaultOGImage} />}
+            {false && <meta name="twitter:image" content={defaultImage} />}
         </Helmet>
     );
 };
@@ -36,11 +42,13 @@ SEO.propTypes = {
     template: PropTypes.string.isRequired,
     title: PropTypes.string,
     description: PropTypes.string,
+    article: PropTypes.bool,
 };
 
 SEO.defaultProps = {
     title: undefined,
     description: undefined,
+    article: false,
 };
 
 export default SEO;
