@@ -3,10 +3,12 @@ import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import useSite from '../queries/useSite';
 
-const SEO = ({ location, template, title: pageTitle, description: pageDescription, article }) => {
+const SEO = ({ location, template, title: pageTitle, description: pageDescription, article, other }) => {
     const defaultImage = '';
     const { defaultDescription, name: siteName } = useSite();
     const metaDescription = pageDescription || defaultDescription;
+    const schemaBreadcrumb = {};
+    const schemaOrganization = {};
     return (
         <Helmet defaultTitle={siteName} titleTemplate={location.pathname === '/' ? '%s' : `%s - ${siteName}`} title={pageTitle}>
             <html lang="en" />
@@ -33,6 +35,9 @@ const SEO = ({ location, template, title: pageTitle, description: pageDescriptio
             <meta name="twitter:description" content={metaDescription} />
             <meta name="twitter:card" content="summary_large_image" />
             {false && <meta name="twitter:image" content={defaultImage} />}
+
+            {false && <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>}
+            {!other && <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>}
         </Helmet>
     );
 };
@@ -43,12 +48,14 @@ SEO.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     article: PropTypes.bool,
+    other: PropTypes.bool,
 };
 
 SEO.defaultProps = {
     title: undefined,
     description: undefined,
-    article: false,
+    article: undefined,
+    other: undefined,
 };
 
 export default SEO;
