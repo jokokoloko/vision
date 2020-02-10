@@ -48,7 +48,7 @@ export default ({ location, data }) => {
         '@context': 'https://schema.org/',
         '@type': 'Product',
         name: product.title,
-        image: product.images[0].localFile.childImageSharp.fluid.srcWebp || product.images[0].originalSrc,
+        image: location.origin + product.images[0].localFile.childImageSharp.fluid.srcWebp || product.images[0].originalSrc,
         description: content.excerpt.excerpt,
         brand: 'HealthConfirm',
         gtin13: content.barcode,
