@@ -17,7 +17,7 @@ import Logo from './unit/Logo';
 import SpringSlideCart from './shop/SpringSlideCart';
 import MenuAccount from './project/MenuAccount';
 
-const Layout = ({ location, template, title, description, children }) => {
+const Layout = ({ location, template, title, description, article, other, children }) => {
     const [isOpen, setIsOpen] = useState(false);
     const onOpen = () => setIsOpen(true);
     const onClose = () => setIsOpen(false);
@@ -48,7 +48,7 @@ const Layout = ({ location, template, title, description, children }) => {
     };
     return (
         <Fragment>
-            <SEO location={location} template={template} title={title} description={description} />
+            <SEO location={location} template={template} title={title} description={description} article={article} other={other} />
             <OffCanvas width="80%" height="100%" labelledby="menu-button" style={style} isOpen={isOpen} onClose={onClose}>
                 <nav id="menu-offcanvas" className="offcanvas-menu">
                     <Link className="offcanvas-brand" title={title} rel="home">
@@ -75,6 +75,8 @@ Layout.propTypes = {
     template: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
+    article: PropTypes.bool,
+    other: PropTypes.bool,
     children: PropTypes.node.isRequired,
 };
 
@@ -83,6 +85,8 @@ Layout.defaultProps = {
     template: undefined,
     title: undefined,
     description: undefined,
+    article: undefined,
+    other: undefined,
 };
 
 export default Layout;

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 import { addCommasToNumber } from '../function';
 import { logicDescription } from '../logic';
@@ -43,13 +44,41 @@ export default ({ location, data }) => {
             {test.title}
         </li>
     ));
+    const schema = {
+        '@context': 'https://schema.org/',
+        '@type': 'Product',
+        name: product.title,
+        image: location.origin + product.images[0].localFile.childImageSharp.fluid.srcWebp || product.images[0].originalSrc,
+        description: content.excerpt.excerpt,
+        brand: 'HealthConfirm',
+        gtin13: content.barcode,
+        offers: {
+            '@type': 'Offer',
+            url: location.href,
+            priceCurrency: 'USD',
+            price: addCommasToNumber(firstVariant.price),
+            availability: 'https://schema.org/InStock',
+            itemCondition: 'https://schema.org/NewCondition',
+        },
+        aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '5',
+            bestRating: '5',
+            worstRating: '1',
+            ratingCount: '3',
+        },
+    };
     return (
         <Layout
             template={`single single-product single-product-${product.handle}`}
             title={product.title}
             description={(content && content.metaDescription) || logicDescription(product)}
             location={location}
+            other
         >
+            <Helmet>
+                <script type="application/ld+json">{JSON.stringify(schema)}</script>
+            </Helmet>
             <Basic id="product" space="space-xs-50 space-lg-80">
                 <div className="row gutter-80">
                     <div className="col-lg-6 order-lg-last">
@@ -235,6 +264,7 @@ export const query = graphql`
             excerpt {
                 excerpt
             }
+            barcode
             metaDescription
         }
         methods: allContentfulMethod(filter: { product: { elemMatch: { handle: { eq: $handle } } } }, sort: { fields: order, order: ASC }) {

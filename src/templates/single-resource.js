@@ -15,6 +15,8 @@ export default ({ location, data }) => {
             title={resource.title}
             description={logicDescription(resource)}
             location={location}
+            article
+            other
         >
             <Basic space="space-xs-50 space-lg-80">
                 <div className="row align-items-center gutter-80">

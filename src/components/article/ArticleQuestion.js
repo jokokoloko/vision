@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Image from '../unit/Image';
 
 const ArticleQuestion = ({ question }) => (
     <article id={`question-${question.slug}`} className={`question question-${question.order}`}>
