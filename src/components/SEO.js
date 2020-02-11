@@ -7,7 +7,23 @@ const SEO = ({ location, template, title: pageTitle, description: pageDescriptio
     const defaultImage = '';
     const { defaultDescription, name: siteName } = useSite();
     const metaDescription = pageDescription || defaultDescription;
-    const schemaBreadcrumb = {};
+    const itemListElement = [
+        {
+            '@type': 'ListItem',
+            item: {
+                '@id': location.origin,
+                name: 'Homepage',
+            },
+            position: 1,
+        },
+    ];
+    const schemaBreadcrumb = {
+        '@context': 'http://schema.org',
+        '@type': 'BreadcrumbList',
+        description: 'Breadcrumbs list',
+        name: 'Breadcrumbs',
+        itemListElement,
+    };
     const schemaOrganization = {};
     return (
         <Helmet defaultTitle={siteName} titleTemplate={location.pathname === '/' ? '%s' : `%s - ${siteName}`} title={pageTitle}>
@@ -36,7 +52,7 @@ const SEO = ({ location, template, title: pageTitle, description: pageDescriptio
             <meta name="twitter:card" content="summary_large_image" />
             {false && <meta name="twitter:image" content={defaultImage} />}
 
-            {false && <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>}
+            <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>
             {!other && <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>}
         </Helmet>
     );
