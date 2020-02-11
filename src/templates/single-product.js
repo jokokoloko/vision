@@ -55,7 +55,7 @@ export default ({ location, data }) => {
         gtin13: content.barcode,
         offers: {
             '@type': 'Offer',
-            '@id': location.href + '#offers',
+            '@id': '#offers',
             url: location.href,
             priceCurrency: 'USD',
             price: addCommasToNumber(firstVariant.price),
@@ -64,7 +64,7 @@ export default ({ location, data }) => {
         },
         aggregateRating: {
             '@type': 'AggregateRating',
-            '@id': location.href + '#aggregateRating',
+            '@id': '#aggregateRating',
             ratingValue: '5',
             bestRating: '5',
             worstRating: '1',
