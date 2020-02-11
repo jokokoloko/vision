@@ -47,7 +47,7 @@ export default ({ location, data }) => {
     const schema = {
         '@context': 'https://schema.org/',
         '@type': 'Product',
-        '@id': location.href,
+        '@id': firstVariant.shopifyId,
         name: product.title,
         image: location.origin + product.images[0].localFile.childImageSharp.fluid.srcWebp || product.images[0].originalSrc,
         description: content.excerpt.excerpt,
