@@ -30,7 +30,7 @@ export default ({ location, data }) => {
                             <h1 className="title">{resource.title}</h1>
                             {resource.author && <p className="author">{resource.author.name}</p>}
                             {resource.reviewer && <p className="reviewer">Medically reviewed by: {resource.reviewer.name}</p>}
-                            <p className="reviewed">Medically reviewed date: {resource.reviewed}</p>
+                            {resource.reviewer && <p className="reviewed">Medically reviewed date: {resource.reviewed}</p>}
                         </header>
                     </div>
                 </div>
