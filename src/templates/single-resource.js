@@ -113,10 +113,6 @@ export const query = graphql`
             author {
                 name
             }
-            reviewer {
-                name
-            }
-            reviewed(formatString: "MMMM D, YYYY")
             excerpt {
                 excerpt
             }
