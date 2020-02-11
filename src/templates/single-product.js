@@ -47,7 +47,6 @@ export default ({ location, data }) => {
     const schema = {
         '@context': 'https://schema.org/',
         '@type': 'Product',
-        '@id': firstVariant.shopifyId,
         name: product.title,
         image: location.origin + product.images[0].localFile.childImageSharp.fluid.srcWebp || product.images[0].originalSrc,
         description: content.excerpt.excerpt,
@@ -55,7 +54,6 @@ export default ({ location, data }) => {
         gtin13: content.barcode,
         offers: {
             '@type': 'Offer',
-            '@id': '#offers',
             url: location.href,
             priceCurrency: 'USD',
             price: addCommasToNumber(firstVariant.price),
@@ -64,7 +62,6 @@ export default ({ location, data }) => {
         },
         aggregateRating: {
             '@type': 'AggregateRating',
-            '@id': '#aggregateRating',
             ratingValue: '5',
             bestRating: '5',
             worstRating: '1',
