@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import { addCommasToNumber } from '../function';
 import { logicDescription } from '../logic';
 import * as path from '../path';
+import useSite from '../queries/useSite';
 import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Basic from '../components/section/Basic';
@@ -18,6 +19,7 @@ import Gallery from '../components/project/Gallery';
 export default ({ location, data }) => {
     const { addProductToCart } = useContext(ShopContext);
     const [quantity, setQuantity] = useState('1');
+    const { name: siteName, currency } = useSite();
     const { product, content, methods, steps, symptoms, tests, report } = data;
     const {
         variants: [firstVariant],
@@ -51,12 +53,13 @@ export default ({ location, data }) => {
         name: product.title,
         image: product.images[0].originalSrc,
         description: content.excerpt.excerpt,
-        brand: 'HealthConfirm',
+        brand: siteName,
+        sku: firstVariant.sku,
         gtin13: content.barcode,
         offers: {
             '@type': 'Offer',
             url: path.PRODUCT + '/' + product.handle,
-            priceCurrency: 'USD',
+            priceCurrency: currency,
             price: addCommasToNumber(firstVariant.price),
             availability: 'https://schema.org/InStock',
             itemCondition: 'https://schema.org/NewCondition',
@@ -231,6 +234,7 @@ export const query = graphql`
             variants {
                 shopifyId
                 price
+                sku
             }
             productType
         }
