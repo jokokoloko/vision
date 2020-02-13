@@ -225,6 +225,7 @@ export const query = graphql`
             title
             images {
                 ...imageShopify
+                originalSrc
             }
             variants {
                 shopifyId

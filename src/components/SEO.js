@@ -11,7 +11,7 @@ const SEO = ({ location, template, title: pageTitle, description: pageDescriptio
         {
             '@type': 'ListItem',
             item: {
-                '@id': location.origin,
+                '@id': '/',
                 name: 'Homepage',
             },
             position: 1,
