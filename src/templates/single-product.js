@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 import { addCommasToNumber } from '../function';
 import { logicDescription } from '../logic';
+import * as path from '../path';
 import { ShopContext } from '../contexts/shop';
 import Layout from '../components/Layout';
 import Basic from '../components/section/Basic';
@@ -54,7 +55,7 @@ export default ({ location, data }) => {
         gtin13: content.barcode,
         offers: {
             '@type': 'Offer',
-            url: 'https://www.myhealthconfirm.com/product/stress-hormone-plus',
+            url: path.PRODUCT + '/' + product.handle,
             priceCurrency: 'USD',
             price: addCommasToNumber(firstVariant.price),
             availability: 'https://schema.org/InStock',

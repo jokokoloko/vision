@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
+import * as path from '../path';
 import useSite from '../queries/useSite';
 
 const SEO = ({ location, template, title: pageTitle, description: pageDescription, article, other }) => {
@@ -11,7 +12,7 @@ const SEO = ({ location, template, title: pageTitle, description: pageDescriptio
         {
             '@type': 'ListItem',
             item: {
-                '@id': '/',
+                '@id': path.ROOT,
                 name: 'Homepage',
             },
             position: 1,
