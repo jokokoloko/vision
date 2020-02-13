@@ -50,6 +50,7 @@ export default ({ location, data }) => {
     const schema = {
         '@context': 'https://schema.org/',
         '@type': 'Product',
+        '@id': path.PRODUCT + '/' + product.handle,
         name: product.title,
         image: product.images[0].originalSrc,
         description: content.excerpt.excerpt,
