@@ -8,14 +8,6 @@ export const imageGeneral = graphql`
     }
 `;
 
-export const imageFeature = graphql`
-    fragment imageFeature on ContentfulAsset {
-        fluid(maxWidth: 340, maxHeight: 210, quality: 100, cropFocus: CENTER) {
-            ...GatsbyContentfulFluid_withWebp
-        }
-    }
-`;
-
 export const imageMaximum = graphql`
     fragment imageMaximum on ContentfulAsset {
         fluid(maxWidth: 1680, quality: 100, cropFocus: CENTER) {
@@ -72,14 +64,6 @@ export const imageClient = graphql`
     }
 `;
 
-export const imageSymptom = graphql`
-    fragment imageSymptom on ContentfulAsset {
-        fluid(maxWidth: 195, quality: 100, cropFocus: CENTER) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
-        }
-    }
-`;
-
 export const imageFigure = graphql`
     fragment imageFigure on ContentfulAsset {
         fluid(maxWidth: 1680, quality: 80, cropFocus: CENTER) {
@@ -96,25 +80,9 @@ export const imageFade = graphql`
     }
 `;
 
-export const imageResource = graphql`
-    fragment imageResource on ContentfulAsset {
-        fluid(maxWidth: 1110, maxHeight: 1324, quality: 80) {
-            ...GatsbyContentfulFluid_withWebp
-        }
-    }
-`;
-
 export const imageIcon = graphql`
     fragment imageIcon on ContentfulAsset {
         fixed(width: 130, height: 130, quality: 100, cropFocus: CENTER) {
-            ...GatsbyContentfulFixed_withWebp_noBase64
-        }
-    }
-`;
-
-export const imageMethod = graphql`
-    fragment imageMethod on ContentfulAsset {
-        fixed(width: 20, height: 20, quality: 100, cropFocus: CENTER) {
             ...GatsbyContentfulFixed_withWebp_noBase64
         }
     }
@@ -155,7 +123,6 @@ export const contentPage = graphql`
     fragment contentPage on ContentfulPage {
         title
         slug
-        metaTitle
     }
 `;
 
@@ -194,77 +161,5 @@ export const contentHero = graphql`
         }
         action
         scroll
-    }
-`;
-
-export const contentMethod = graphql`
-    fragment contentMethod on ContentfulMethod {
-        id
-        title
-        slug
-        image {
-            ...imageMethod
-        }
-        order
-    }
-`;
-
-export const contentStep = graphql`
-    fragment contentStep on ContentfulStep {
-        id
-        title
-        slug
-        image {
-            ...imageFigure
-        }
-        body {
-            childMarkdownRemark {
-                html
-            }
-        }
-        excerpt {
-            excerpt
-        }
-        order
-    }
-`;
-
-export const contentSymptom = graphql`
-    fragment contentSymptom on ContentfulSymptom {
-        id
-        title
-        slug
-        image {
-            ...imageSymptom
-        }
-        order
-    }
-`;
-
-export const contentTest = graphql`
-    fragment contentTest on ContentfulTest {
-        id
-        title
-        slug
-        body {
-            childMarkdownRemark {
-                rawMarkdownBody
-            }
-        }
-        order
-    }
-`;
-
-export const contentQuestion = graphql`
-    fragment contentQuestion on ContentfulQuestion {
-        id
-        title
-        slug
-        body {
-            childMarkdownRemark {
-                html
-            }
-        }
-        order
     }
 `;

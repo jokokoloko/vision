@@ -5,7 +5,6 @@ import * as menu from '../menu';
 import Dropdown from './unit/Dropdown';
 import Link from './unit/Link';
 import DropdownCollection from './project/DropdownCollection';
-import DropdownResource from './project/DropdownResource';
 
 const Menu = ({ offcanvas, caret }) => {
     const loopMain = menu.MAIN.map(({ label, to, scroll, external, children, custom }) => {
@@ -17,8 +16,6 @@ const Menu = ({ offcanvas, caret }) => {
             ));
         return custom === 'collection' ? (
             <DropdownCollection key={generateID()} offcanvas={offcanvas} caret={caret} label={label} name={name} />
-        ) : custom === 'resource' ? (
-            <DropdownResource key={generateID()} offcanvas={offcanvas} caret={caret} label={label} name={name} />
         ) : children ? (
             <Dropdown key={generateID()} name={offcanvas ? `offcanvas-${name}` : name} label={label} caret={caret}>
                 {loopChildren}
@@ -29,7 +26,7 @@ const Menu = ({ offcanvas, caret }) => {
             </li>
         );
     });
-    return <ul className={offcanvas ? 'offcanvas-nav nav flex-column' : 'navbar-nav'}>{loopMain}</ul>;
+    return <ul className={offcanvas ? 'offcanvas-nav nav flex-column' : 'navbar-nav ml-auto'}>{loopMain}</ul>;
 };
 
 Menu.propTypes = {
