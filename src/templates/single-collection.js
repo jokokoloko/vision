@@ -13,7 +13,7 @@ export default ({ location, data }) => {
         <Layout
             template={`single single-collection single-collection-${collection.handle}`}
             title={collection.title}
-            description={(content && content.metaDescription) || collection.description}
+            description={collection.description}
             location={location}
         >
             <Hero id={`hero-${collection.handle}`} className="d-none d-lg-block" height="short" alternate={collection.title}>
@@ -84,7 +84,6 @@ export const query = graphql`
                     excerpt
                 }
             }
-            metaDescription
         }
     }
 `;

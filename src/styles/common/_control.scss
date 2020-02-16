@@ -17,28 +17,29 @@ $grid-breakpoints: (
 /* ==========!TEXT========== */
 /* ========================= */
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i');
 
 /* ----------!FAMILY---------- */
-$font-family-1:					'Montserrat', sans-serif;
+$font-family-1:					'Roboto Condensed', sans-serif;
 
 /* ----------!WEIGHT---------- */
-$font-weight-1:					400;		// Regular
-$font-weight-2:					500;		// Medium
-$font-weight-3:					600;		// SemiBold
-$font-weight-4:					700;		// Bold
+$font-weight-1:					300;		// Light
+$font-weight-2:					400;		// Regular
+$font-weight-3:					500;		// Medium
+$font-weight-4:					600;		// SemiBold
+$font-weight-5:					700;		// Bold
 
 /* ----------!SIZE---------- */
 $font-size-text:				16px;		// 20px is default
-$font-size-button:				12px;		// 20px is default
-$font-size-navigation:			14px;		// 20px is default
+$font-size-button:				14px;		// 20px is default
+$font-size-navigation:			16px;		// 20px is default
 $font-size-offcanvas:			16px;		// 20px is default
-$font-size-cart:				14px;		// 14px is default
+$font-size-cart:				16px;		// 14px is default
 
 /* ----------!LINE---------- */
 $line-height-text:				30px;		// 30px is default
 $line-height-button:			20px;		// 30px is default
-$line-height-navigation:		20px;		// 30px is default
+$line-height-navigation:		30px;		// 30px is default
 $line-height-offcanvas:			20px;		// 30px is default
 $line-height-cart:				20px;		// 30px is default
 $line-height-toggle:			14px;		// 14px is default
@@ -60,8 +61,8 @@ $footer-height-lg:				0;
 /* ========================= */
 
 /* ----------!LOGO---------- */
-$logo-width:					210px;
-$logo-height:					20px;
+$logo-width:					30px;
+$logo-height:					30px;
 
 /* ========================== */
 /* ==========!COLOR========== */
@@ -124,7 +125,7 @@ $color-brand-red-400:			#E8272B;
 $color-shop:					$color-brand-blue-400;
 
 /* ----------!TEXT---------- */
-$color-text-base:				$color-brand-black-400;
+$color-text-base:				$color-metal;
 
 /* ----------!FORM---------- */
 $color-form-input-border:		$color-brand-grey-300;
@@ -133,12 +134,12 @@ $color-form-input-text:			$color-text-base;
 $color-form-input-text-focus:	$color-shop;
 
 /* ----------!REGION---------- */
-$color-body:					($color-brand-blue-700, null, null);
-$color-offcanvas:				($color-brand-blue-700, $color-brand-black-400, null);
+$color-body:					($color-metal, null, null);
+$color-offcanvas:				($color-metal, $color-brand-black-400, null);
 $color-header:					($color-white, null, null);
 $color-bar:						($color-brand-black-400, null, null);
 $color-main:					($color-white, null, null);
-$color-footer:					($color-brand-blue-700, null, $color-white);
+$color-footer:					($color-metal, null, $color-white);
 $color-modal:					(null, null, null);
 
 /* ----------!BUTTON---------- */
