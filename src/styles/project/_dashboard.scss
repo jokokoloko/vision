@@ -141,7 +141,7 @@ $dashboard-buffer-toolbar: 20px;
 .dashboard #toolbar .toolbar-nav > li.active > button:active,
 .dashboard #toolbar .toolbar-nav > li.active > button:hover,
 .dashboard #toolbar .toolbar-nav > li.active > button:focus {
-	background-color: $color-brand-blue-300;
+	background-color: $color-active;
 	cursor: default;
 	}
 .dashboard #toolbar .toolbar-nav + .toolbar-nav {

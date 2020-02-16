@@ -479,15 +479,3 @@ article .read-more::after {
 article .learn-more::after {
     content: ' Learn more \2192';
     }
-
-/* ----------!WIDTH---------- */
-.copy,
-.hero header {
-	margin: 0 auto;
-	}
-.copy {
-	max-width: 890px;
-	}
-.hero header {
-	max-width: 800px;
-	}

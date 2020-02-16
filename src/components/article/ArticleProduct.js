@@ -5,7 +5,7 @@ import * as path from '../../path';
 import Image from '../unit/Image';
 import Link from '../unit/Link';
 
-const ArticleProduct = ({ product, collection }) => {
+const ArticleProduct = ({ product }) => {
     const {
         images: [firstImage],
         variants: [firstVariant],
@@ -50,7 +50,6 @@ const ArticleProduct = ({ product, collection }) => {
 
 ArticleProduct.propTypes = {
     product: PropTypes.object.isRequired,
-    collection: PropTypes.object.isRequired,
 };
 
 export default ArticleProduct;
