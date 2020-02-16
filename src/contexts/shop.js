@@ -1,9 +1,12 @@
 import React, { createContext, useState, useEffect } from 'react';
 import Client from 'shopify-buy';
 
+const custom = 'shop.myhealthconfirm.com';
+const domain = process.env.GATSBY_SHOPIFY_SHOP_NAME + '.myshopify.com';
+
 const client = Client.buildClient({
-    domain: process.env.GATSBY_SHOPIFY_SHOP_NAME + '.myshopify.com',
     storefrontAccessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
+    domain,
 });
 
 const defaultValues = {
@@ -22,6 +25,8 @@ const defaultValues = {
     onCouponChange: () => {},
     checkCoupon: () => {},
     removeCoupon: () => {},
+    custom,
+    domain,
     client,
 };
 

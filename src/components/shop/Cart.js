@@ -4,7 +4,8 @@ import { ShopContext } from '../../contexts/shop';
 import CartItem from './CartItem';
 
 const Cart = () => {
-    const { quantity, checkout, onCartClose } = useContext(ShopContext);
+    const { quantity, checkout, onCartClose, custom, domain } = useContext(ShopContext);
+    const checkoutURL = checkout.webUrl.replace(domain, custom);
     const loopLineItems = checkout.lineItems.map((item) => <CartItem key={item.id} item={item} />);
     return (
         <div id="cart" className="cart d-flex flex-column">
@@ -14,7 +15,7 @@ const Cart = () => {
                         &larr;
                     </button>
                     {checkout.lineItems.length > 0 && (
-                        <a className="btn btn-text to-checkout" href={checkout.webUrl}>
+                        <a className="btn btn-text to-checkout" href={checkoutURL}>
                             {quantity > 0 && <span className="cart-indicator">{quantity}</span>}&rarr;
                         </a>
                     )}
@@ -45,7 +46,7 @@ const Cart = () => {
                     </section>
                     <footer className="cart-footer">
                         <div className="pod">
-                            <a className="btn btn-main btn-lg btn-block btn-pill to-checkout" href={checkout.webUrl}>
+                            <a className="btn btn-main btn-lg btn-block btn-pill to-checkout" href={checkoutURL}>
                                 Go To Checkout &rarr;
                             </a>
                         </div>
