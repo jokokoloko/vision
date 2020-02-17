@@ -53,8 +53,8 @@ $header-height-xs:				50px;
 $header-height-lg:				80px;
 
 /* ----------!FOOTER---------- */
-$footer-height-xs:				0;
-$footer-height-lg:				0;
+$footer-height-xs:				50px;
+$footer-height-lg:				80px;
 
 /* ========================= */
 /* ==========!UNIT========== */
@@ -136,7 +136,7 @@ $color-offcanvas:				($color-brand-black-400, $color-brand-black-400, null);
 $color-header:					($color-white, null, null);
 $color-bar:						($color-brand-black-400, null, null);
 $color-main:					($color-white, null, null);
-$color-footer:					($color-brand-black-400, null, $color-white);
+$color-footer:					($color-white, null, null);
 $color-modal:					(null, null, null);
 
 /* ----------!BUTTON---------- */
