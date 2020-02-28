@@ -11,7 +11,7 @@ import Menu from './Menu';
 import Header from './region/Header';
 import Footer from './region/Footer';
 import Scroll from './widget/Scroll';
-import Loader from './widget/Loader';
+import Shroud from './widget/Shroud';
 import Link from './unit/Link';
 import Logo from './unit/Logo';
 import SpringSlideCart from './shop/SpringSlideCart';
@@ -21,6 +21,7 @@ const Layout = ({ location, template, title, description, article, other, childr
     const [isOpen, setIsOpen] = useState(false);
     const onOpen = () => setIsOpen(true);
     const onClose = () => setIsOpen(false);
+    // Move to InterfaceContext
     useEffect(() => {
         isOpen && Events.scrollEvent.register('end', onClose);
         return () => Events.scrollEvent.remove('end');
@@ -28,6 +29,7 @@ const Layout = ({ location, template, title, description, article, other, childr
     const offcanvasPush = isOpen ? 'offcanvas-push offcanvas-push-out' : 'offcanvas-push';
     const offset = 210;
     const [showScroll, setShowScroll] = useState(false);
+    // Move to InterfaceContext
     useEffect(() => {
         const onScroll = () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -65,7 +67,7 @@ const Layout = ({ location, template, title, description, article, other, childr
             <Footer offcanvasPush={offcanvasPush} />
             {showScroll && <Scroll className="d-none d-lg-block" position="fixed" up top />}
             <SpringSlideCart />
-            <Loader />
+            <Shroud />
         </Fragment>
     );
 };

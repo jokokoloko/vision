@@ -1,26 +1,28 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useContext } from 'react';
 import { useTransition, animated } from 'react-spring';
 import * as spring from '../../spring';
-import { ShopContext } from '../../contexts/shop';
+import { InterfaceContext } from '../../contexts/interface';
 import Cart from './Cart';
-import Shroud from '../widget/Shroud';
 
 const SpringSlideCart = () => {
-    const { isCartOpen } = useContext(ShopContext);
+    const { isCartOpen, setCartOpen } = useContext(InterfaceContext);
     const springSlide = useTransition(isCartOpen, null, spring.slide);
-    const animateSpringSlide = springSlide.map(
+    const onClick = () => setCartOpen(false);
+    return springSlide.map(
         ({ item, key, props }) =>
             item && (
-                <animated.aside key={key} style={props} id="spring-slide-cart" className="spring-slide-cart spring-slide">
-                    <Cart />
+                <animated.aside
+                    key={key}
+                    style={props}
+                    id="spring-slide-cart"
+                    className="spring-slide-cart spring-slide"
+                    aria-labelledby="cart-button"
+                    aria-hidden={!isCartOpen}
+                    tabIndex="-1"
+                >
+                    <Cart onClick={onClick} />
                 </animated.aside>
             ),
-    );
-    return (
-        <Fragment>
-            <Shroud isOpen={isCartOpen} />
-            {animateSpringSlide}
-        </Fragment>
     );
 };
 
