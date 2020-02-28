@@ -1,12 +1,12 @@
 import React, { useEffect, useContext } from 'react';
 import { useTransition, animated } from 'react-spring';
-import PropTypes from 'prop-types';
 import * as spring from '../../spring';
 import { InterfaceContext } from '../../contexts/interface';
+import Loader from './Loader';
 
-const Shroud = ({ children }) => {
+const Shroud = () => {
     const scrollLock = 'scroll-lock';
-    const { isShroudOpen } = useContext(InterfaceContext);
+    const { isLoading, isShroudOpen } = useContext(InterfaceContext);
     // Move to InterfaceContext
     useEffect(() => {
         document.body.classList.toggle(scrollLock, isShroudOpen);
@@ -16,19 +16,17 @@ const Shroud = ({ children }) => {
     return springFade.map(
         ({ item, key, props }) =>
             item && (
-                <animated.aside key={key} style={props} className="shroud d-flex align-items-center justify-content-center" tabIndex="-1">
-                    {children}
+                <animated.aside
+                    key={key}
+                    style={props}
+                    id="shroud"
+                    className={`shroud d-flex align-items-center justify-content-center ${isLoading ? 'show-loader' : 'no-class'}`}
+                    tabIndex="-1"
+                >
+                    {isLoading && <Loader />}
                 </animated.aside>
             ),
     );
-};
-
-Shroud.propTypes = {
-    children: PropTypes.node,
-};
-
-Shroud.defaultProps = {
-    children: undefined,
 };
 
 export default Shroud;
