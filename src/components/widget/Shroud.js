@@ -3,7 +3,7 @@ import { useTransition, animated } from 'react-spring';
 import PropTypes from 'prop-types';
 import * as spring from '../../spring';
 
-const Shroud = ({ isOpen, children }) => {
+const Shroud = ({ isOpen, onClick, children }) => {
     const scrollLock = 'scroll-lock';
     // Move to InterfaceContext
     useEffect(() => {
@@ -14,7 +14,7 @@ const Shroud = ({ isOpen, children }) => {
     return springFade.map(
         ({ item, key, props }) =>
             item && (
-                <animated.aside key={key} style={props} className="shroud d-flex align-items-center justify-content-center">
+                <animated.aside key={key} style={props} className="shroud d-flex align-items-center justify-content-center" onClick={onClick}>
                     {children}
                 </animated.aside>
             ),
@@ -23,10 +23,12 @@ const Shroud = ({ isOpen, children }) => {
 
 Shroud.propTypes = {
     isOpen: PropTypes.bool.isRequired,
+    onClick: PropTypes.func,
     children: PropTypes.node,
 };
 
 Shroud.defaultProps = {
+    onClick: undefined,
     children: undefined,
 };
 

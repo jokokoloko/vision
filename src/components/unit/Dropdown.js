@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import Shroud from '../widget/Shroud';
 
 const Dropdown = ({ name, label, alignment, caret, children }) => {
     const [toggle, setToggle] = useState(false);
     const isDropdown = useRef();
     const onClick = () => setToggle(!toggle);
+    const onClose = () => setToggle(false);
     useEffect(() => {
         const onBlur = (event) => !isDropdown.current.contains(event.target) && setToggle(false);
         toggle && document.addEventListener('click', onBlur);
@@ -22,6 +24,7 @@ const Dropdown = ({ name, label, alignment, caret, children }) => {
             >
                 {label}
             </button>
+            <Shroud isOpen={toggle} onClick={onClose} />
             {toggle && (
                 <div className={`dropdown-menu dropdown-menu-${alignment} show`} aria-labelledby={`${name}-dropdown`}>
                     {children}
