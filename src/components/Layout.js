@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useContext } from 'react';
 import OffCanvas from 'react-aria-offcanvas';
 import { Events } from 'react-scroll';
 import PropTypes from 'prop-types';
@@ -6,10 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/function.scss';
 import '../styles/theme.scss';
 import '../styles/project.scss';
+import { InterfaceContext } from '../contexts/interface';
 import SEO from './SEO';
 import Menu from './Menu';
 import Header from './region/Header';
 import Footer from './region/Footer';
+import Loader from './widget/Loader';
 import Scroll from './widget/Scroll';
 import Shroud from './widget/Shroud';
 import Link from './unit/Link';
@@ -18,6 +20,7 @@ import SpringSlideCart from './shop/SpringSlideCart';
 import MenuAccount from './project/MenuAccount';
 
 const Layout = ({ location, template, title, description, article, other, children }) => {
+    const { isLoading, isShroudOpen } = useContext(InterfaceContext);
     const [isOpen, setIsOpen] = useState(false);
     const onOpen = () => setIsOpen(true);
     const onClose = () => setIsOpen(false);
@@ -66,8 +69,11 @@ const Layout = ({ location, template, title, description, article, other, childr
             </main>
             <Footer offcanvasPush={offcanvasPush} />
             {showScroll && <Scroll className="d-none d-lg-block" position="fixed" up top />}
+            <Shroud isOpen={isShroudOpen} />
             <SpringSlideCart />
-            <Shroud />
+            <Shroud isOpen={isLoading}>
+                <Loader />
+            </Shroud>
         </Fragment>
     );
 };
