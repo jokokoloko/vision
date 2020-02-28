@@ -16,9 +16,9 @@ export const InterfaceProvider = ({ children }) => {
     const [isShroudOpen, setShroudOpen] = useState(false);
     const [isCartOpen, setCartOpen] = useState(false);
     useEffect(() => {
-        isCartOpen && setShroudOpen(true);
+        (isLoading || isCartOpen) && setShroudOpen(true);
         return () => setShroudOpen(false);
-    }, [isCartOpen]);
+    }, [isLoading, isCartOpen]);
     return (
         <InterfaceContext.Provider
             value={{
