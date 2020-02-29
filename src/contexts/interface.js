@@ -2,39 +2,45 @@ import React, { createContext, useState, useEffect } from 'react';
 
 const defaultValues = {
     isLoading: false,
-    isShroudOpen: false,
+    isDropdownOpen: false,
     isCartOpen: false,
-    setLoading: undefined,
-    setShroudOpen: undefined,
-    setCartOpen: undefined,
+    isShroudOpen: false,
+    setLoading: () => {},
+    setDropdownOpen: () => {},
+    setCartOpen: () => {},
+    setShroudOpen: () => {},
 };
 
 export const InterfaceContext = createContext(defaultValues);
 
 export const InterfaceProvider = ({ children }) => {
     const [isLoading, setLoading] = useState(false);
-    const [isShroudOpen, setShroudOpen] = useState(false);
+    const [isDropdownOpen, setDropdownOpen] = useState(false);
     const [isCartOpen, setCartOpen] = useState(false);
+    const [isShroudOpen, setShroudOpen] = useState(false);
+    const doShroud = isLoading || isCartOpen;
     useEffect(() => {
-        (isLoading || isCartOpen) && setShroudOpen(true);
+        setShroudOpen(doShroud);
         return () => setShroudOpen(false);
-    }, [isLoading, isCartOpen]);
-    const isScrollLock = isCartOpen;
+    }, [doShroud]);
     const scrollLock = 'scroll-lock';
+    const doScrollLock = isLoading || isDropdownOpen || isCartOpen;
     useEffect(() => {
-        document.body.classList.toggle(scrollLock, isScrollLock);
+        document.body.classList.toggle(scrollLock, doScrollLock);
         return () => document.body.classList.remove(scrollLock);
-    }, [isScrollLock]);
+    }, [doScrollLock]);
     return (
         <InterfaceContext.Provider
             value={{
                 ...defaultValues,
                 isLoading,
-                isShroudOpen,
+                isDropdownOpen,
                 isCartOpen,
+                isShroudOpen,
                 setLoading,
-                setShroudOpen,
+                setDropdownOpen,
                 setCartOpen,
+                setShroudOpen,
             }}
         >
             {children}
