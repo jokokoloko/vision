@@ -19,6 +19,12 @@ export const InterfaceProvider = ({ children }) => {
         (isLoading || isCartOpen) && setShroudOpen(true);
         return () => setShroudOpen(false);
     }, [isLoading, isCartOpen]);
+    const isScrollLock = isCartOpen;
+    const scrollLock = 'scroll-lock';
+    useEffect(() => {
+        document.body.classList.toggle(scrollLock, isScrollLock);
+        return () => document.body.classList.remove(scrollLock);
+    }, [isScrollLock]);
     return (
         <InterfaceContext.Provider
             value={{

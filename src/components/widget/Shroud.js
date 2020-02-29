@@ -1,15 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTransition, animated } from 'react-spring';
 import PropTypes from 'prop-types';
 import * as spring from '../../spring';
 
 const Shroud = ({ isOpen, onClick, children }) => {
-    const scrollLock = 'scroll-lock';
-    // Move to InterfaceContext
-    useEffect(() => {
-        document.body.classList.toggle(scrollLock, isOpen);
-        return () => document.body.classList.remove(scrollLock);
-    }, [isOpen]);
     const springFade = useTransition(isOpen, null, spring.fade);
     return springFade.map(
         ({ item, key, props }) =>
