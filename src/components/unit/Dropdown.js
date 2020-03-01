@@ -1,26 +1,29 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useContext, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { InterfaceContext } from '../../contexts/interface';
 import Shroud from '../widget/Shroud';
 
 const Dropdown = ({ name, label, alignment, caret, children }) => {
+    const { setDropdownOpen } = useContext(InterfaceContext);
     const [toggle, setToggle] = useState(false);
-    const isDropdown = useRef();
-    const onClick = () => setToggle(!toggle);
-    const onClose = () => setToggle(false);
-    useEffect(() => {
-        const onBlur = (event) => !isDropdown.current.contains(event.target) && setToggle(false);
-        toggle && document.addEventListener('click', onBlur);
-        return () => document.removeEventListener('click', onBlur);
-    }, [toggle]);
+    const onOpen = useCallback(() => {
+        setToggle(true);
+        setDropdownOpen(true);
+    }, [setDropdownOpen]);
+    const onClose = useCallback(() => {
+        setToggle(false);
+        setDropdownOpen(false);
+    }, [setDropdownOpen]);
+    console.log(toggle);
     return (
-        <li className={`nav-item dropdown ${toggle ? `show` : `hide`}`} ref={isDropdown}>
+        <li className={`nav-item dropdown ${toggle ? `show` : `hide`}`}>
             <button
                 type="button"
                 id={`${name}-dropdown`}
                 className={`nav-btn btn dropdown-toggle ${caret ? 'caret' : 'no-caret'}`}
                 aria-haspopup="true"
                 aria-expanded={toggle}
-                onClick={onClick}
+                onClick={onOpen}
             >
                 {label}
             </button>
