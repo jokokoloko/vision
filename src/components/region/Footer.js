@@ -7,7 +7,7 @@ const Footer = ({ offcanvasPush }) => {
     const { name: title } = useSite();
     return (
         <footer id="footer" className={offcanvasPush} role="contentinfo">
-            <section className="navbar navbar-expand-lg d-none d-lg-block">
+            <section className="navbar navbar-expand-lg">
                 <div className="container">
                     <p className="copyright ml-auto">
                         <Link className="navbar-link" title={title} rel="home">
