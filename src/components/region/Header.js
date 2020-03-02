@@ -7,7 +7,7 @@ import Link from '../unit/Link';
 import Logo from '../unit/Logo';
 import CartButton from '../shop/CartButton';
 
-const Header = ({ offcanvasPush, isOpen, onOpen }) => {
+const Header = ({ offcanvasPush, isOffCanvasOpen, onOffCanvasOpen }) => {
     const { name: title } = useSite();
     const type = 'fixed';
     const container = 'container';
@@ -20,8 +20,8 @@ const Header = ({ offcanvasPush, isOpen, onOpen }) => {
                     className="navbar-menu navbar-toggler"
                     aria-label="Menu"
                     aria-controls="menu-offcanvas"
-                    aria-expanded={isOpen}
-                    onClick={onOpen}
+                    aria-expanded={isOffCanvasOpen}
+                    onClick={onOffCanvasOpen}
                 >
                     <span className="icon-text sr-only">Menu</span>
                     <span className="icon-bar">&#9472;</span>
@@ -43,13 +43,13 @@ const Header = ({ offcanvasPush, isOpen, onOpen }) => {
 
 Header.propTypes = {
     offcanvasPush: PropTypes.string,
-    isOpen: PropTypes.bool,
-    onOpen: PropTypes.func.isRequired,
+    isOffCanvasOpen: PropTypes.bool,
+    onOffCanvasOpen: PropTypes.func.isRequired,
 };
 
 Header.defaultProps = {
     offcanvasPush: 'no-offcanvas',
-    isOpen: false,
+    isOffCanvasOpen: false,
 };
 
 export default Header;

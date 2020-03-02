@@ -1,6 +1,5 @@
 import React, { Fragment, useState, useEffect, useContext } from 'react';
 import OffCanvas from 'react-aria-offcanvas';
-import { Events } from 'react-scroll';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/function.scss';
@@ -20,16 +19,9 @@ import SpringSlideCart from './shop/SpringSlideCart';
 import MenuAccount from './project/MenuAccount';
 
 const Layout = ({ location, template, title, description, article, other, children }) => {
-    const { isLoading, isShroudOpen } = useContext(InterfaceContext);
-    const [isOpen, setIsOpen] = useState(false);
-    const onOpen = () => setIsOpen(true);
-    const onClose = () => setIsOpen(false);
+    const { isLoading, isOffCanvasOpen, isShroudOpen, onOffCanvasOpen, onOffCanvasClose } = useContext(InterfaceContext);
     // Move to InterfaceContext
-    useEffect(() => {
-        isOpen && Events.scrollEvent.register('end', onClose);
-        return () => Events.scrollEvent.remove('end');
-    }, [isOpen]);
-    const offcanvasPush = isOpen ? 'offcanvas-push offcanvas-push-out' : 'offcanvas-push';
+    const offcanvasPush = isOffCanvasOpen ? 'offcanvas-push offcanvas-push-out' : 'offcanvas-push';
     const offset = 210;
     const [showScroll, setShowScroll] = useState(false);
     // Move to InterfaceContext
@@ -54,7 +46,7 @@ const Layout = ({ location, template, title, description, article, other, childr
     return (
         <Fragment>
             <SEO location={location} template={template} title={title} description={description} article={article} other={other} />
-            <OffCanvas width="80%" height="100%" labelledby="menu-button" style={style} isOpen={isOpen} onClose={onClose}>
+            <OffCanvas width="80%" height="100%" labelledby="menu-button" style={style} isOpen={isOffCanvasOpen} onClose={onOffCanvasClose}>
                 <nav id="menu-offcanvas" className="offcanvas-menu">
                     <Link className="offcanvas-brand" title={title} rel="home">
                         <Logo alternate={title} />
@@ -63,7 +55,7 @@ const Layout = ({ location, template, title, description, article, other, childr
                     <MenuAccount />
                 </nav>
             </OffCanvas>
-            <Header offcanvasPush={offcanvasPush} isOpen={isOpen} onOpen={onOpen} />
+            <Header offcanvasPush={offcanvasPush} isOffCanvasOpen={isOffCanvasOpen} onOffCanvasOpen={onOffCanvasOpen} />
             <main id="main" className={offcanvasPush} role="main">
                 <div className="container-fluid">{children}</div>
             </main>
