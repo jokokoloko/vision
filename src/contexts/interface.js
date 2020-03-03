@@ -3,11 +3,13 @@ import { Events } from 'react-scroll';
 
 const defaultValues = {
     isLoading: false,
+    isScrollShowing: false,
     isDropdownOpen: false,
     isOffCanvasOpen: false,
     isCartOpen: false,
     isShroudOpen: false,
     setLoading: () => {},
+    setScrollShowing: () => {},
     setDropdownOpen: () => {},
     setOffCanvasOpen: () => {},
     setCartOpen: () => {},
@@ -20,6 +22,17 @@ export const InterfaceContext = createContext(defaultValues);
 
 export const InterfaceProvider = ({ children }) => {
     const [isLoading, setLoading] = useState(false);
+    const offset = 210;
+    const [isScrollShowing, setScrollShowing] = useState(false);
+    useEffect(() => {
+        const onScroll = () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            isScrollShowing && scrollTop <= offset && setScrollShowing(false);
+            !isScrollShowing && scrollTop >= offset && setScrollShowing(true);
+        };
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, [isScrollShowing]);
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const [isOffCanvasOpen, setOffCanvasOpen] = useState(false);
     const onOffCanvasOpen = () => setOffCanvasOpen(true);
@@ -28,6 +41,7 @@ export const InterfaceProvider = ({ children }) => {
         setOffCanvasOpen(false);
     };
     useEffect(() => {
+        // TODO: Add check for routing change to run onOffCanvasClose
         isOffCanvasOpen && Events.scrollEvent.register('end', onOffCanvasClose);
         return () => Events.scrollEvent.remove('end');
     }, [isOffCanvasOpen]);
@@ -49,11 +63,13 @@ export const InterfaceProvider = ({ children }) => {
             value={{
                 ...defaultValues,
                 isLoading,
+                isScrollShowing,
                 isDropdownOpen,
                 isOffCanvasOpen,
                 isCartOpen,
                 isShroudOpen,
                 setLoading,
+                setScrollShowing,
                 setDropdownOpen,
                 setOffCanvasOpen,
                 setCartOpen,

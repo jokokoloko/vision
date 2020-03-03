@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useContext } from 'react';
+import React, { Fragment, useContext } from 'react';
 import OffCanvas from 'react-aria-offcanvas';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,21 +17,9 @@ import SpringSlideCart from './shop/SpringSlideCart';
 import MenuAccount from './project/MenuAccount';
 
 const Layout = ({ location, template, title, description, article, other, children }) => {
-    const { isLoading, isOffCanvasOpen, isShroudOpen, onOffCanvasOpen, onOffCanvasClose } = useContext(InterfaceContext);
+    const { isLoading, isScrollShowing, isOffCanvasOpen, isShroudOpen, onOffCanvasOpen, onOffCanvasClose } = useContext(InterfaceContext);
     // Move to InterfaceContext
     const offcanvasPush = isOffCanvasOpen ? 'offcanvas-push offcanvas-push-out' : 'offcanvas-push';
-    const offset = 210;
-    const [isScrollShowing, setScrollShowing] = useState(false);
-    // Move to InterfaceContext
-    useEffect(() => {
-        const onScroll = () => {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            isScrollShowing && scrollTop <= offset && setScrollShowing(false);
-            !isScrollShowing && scrollTop >= offset && setScrollShowing(true);
-        };
-        window.addEventListener('scroll', onScroll);
-        return () => window.removeEventListener('scroll', onScroll);
-    }, [isScrollShowing]);
     const style = {
         overlay: {
             background: 'rgba(34, 34, 34, 0.5)',
