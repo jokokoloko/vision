@@ -6,6 +6,7 @@ import Shroud from '../widget/Shroud';
 const Dropdown = ({ name, label, alignment, caret, children }) => {
     const { setDropdownOpen } = useContext(InterfaceContext);
     const [toggle, setToggle] = useState(false);
+    // TODO: Fix double-click bug
     const onOpen = useCallback(() => {
         setToggle(true);
         setDropdownOpen(true);

@@ -18,7 +18,7 @@ import MenuAccount from './project/MenuAccount';
 
 const Layout = ({ location, template, title, description, article, other, children }) => {
     const { isLoading, isScrollShowing, isOffCanvasOpen, isShroudOpen, onOffCanvasOpen, onOffCanvasClose } = useContext(InterfaceContext);
-    // Move to InterfaceContext
+    // TODO: Move to InterfaceContext
     const offcanvasPush = isOffCanvasOpen ? 'offcanvas-push offcanvas-push-out' : 'offcanvas-push';
     const style = {
         overlay: {
