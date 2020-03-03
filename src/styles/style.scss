@@ -1,6 +1,34 @@
-// Common
+// ----- COMMON ----- //
+
+// Global
 @import 'common/control';
 @import 'common/break';
+
+// ----- FUNCTION ----- //
+
+// Main
+@import 'function/gutter';
+@import 'function/space';
+
+// Font
+@import 'function/font-offset';
+@import 'function/font-size';
+
+// ----- THEME ----- //
+
+// Setup
+@import 'theme/reset';
+@import 'theme/basic';
+@import 'theme/help';
+
+// Grid
+@import 'theme/grid';
+
+// Fancy
+@import 'theme/animation';
+@import 'theme/position';
+
+// ----- PROJECT ----- //
 
 // Element
 @import 'project/button';
