@@ -8,6 +8,7 @@ const SEO = ({ location, template, title: pageTitle, description: pageDescriptio
     const defaultImage = '';
     const { defaultDescription, name: siteName } = useSite();
     const metaDescription = pageDescription || defaultDescription;
+    // TODO: Update itemListElement
     const itemListElement = [
         {
             '@type': 'ListItem',
@@ -18,6 +19,7 @@ const SEO = ({ location, template, title: pageTitle, description: pageDescriptio
             position: 1,
         },
     ];
+    // TODO: Update schemaBreadcrumb
     const schemaBreadcrumb = {
         '@context': 'http://schema.org',
         '@type': 'BreadcrumbList',
@@ -25,6 +27,7 @@ const SEO = ({ location, template, title: pageTitle, description: pageDescriptio
         name: 'Breadcrumbs',
         itemListElement,
     };
+    // TODO: Update schemaOrganization
     const schemaOrganization = {};
     return (
         <Helmet defaultTitle={siteName} titleTemplate={location.pathname === '/' ? '%s' : `%s - ${siteName}`} title={pageTitle}>
@@ -54,7 +57,7 @@ const SEO = ({ location, template, title: pageTitle, description: pageDescriptio
             {false && <meta name="twitter:image" content={defaultImage} />}
 
             <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>
-            {!other && <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>}
+            {false && !other && <script type="application/ld+json">{JSON.stringify(schemaOrganization)}</script>}
         </Helmet>
     );
 };
