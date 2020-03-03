@@ -21,17 +21,17 @@ const Layout = ({ location, template, title, description, article, other, childr
     // Move to InterfaceContext
     const offcanvasPush = isOffCanvasOpen ? 'offcanvas-push offcanvas-push-out' : 'offcanvas-push';
     const offset = 210;
-    const [showScroll, setShowScroll] = useState(false);
+    const [isScrollShowing, setScrollShowing] = useState(false);
     // Move to InterfaceContext
     useEffect(() => {
         const onScroll = () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            showScroll && scrollTop <= offset && setShowScroll(false);
-            !showScroll && scrollTop >= offset && setShowScroll(true);
+            isScrollShowing && scrollTop <= offset && setScrollShowing(false);
+            !isScrollShowing && scrollTop >= offset && setScrollShowing(true);
         };
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
-    }, [showScroll]);
+    }, [isScrollShowing]);
     const style = {
         overlay: {
             background: 'rgba(34, 34, 34, 0.5)',
@@ -58,7 +58,7 @@ const Layout = ({ location, template, title, description, article, other, childr
                 <div className="container-fluid">{children}</div>
             </main>
             <Footer offcanvasPush={offcanvasPush} />
-            {showScroll && <Scroll className="d-none d-lg-block" position="fixed" up top />}
+            {isScrollShowing && <Scroll className="d-none d-lg-block" position="fixed" up top />}
             <Shroud isOpen={isShroudOpen} />
             <SpringSlideCart />
             <Shroud isOpen={isLoading}>
