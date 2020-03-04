@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import useSite from '../../queries/useSite';
 import Account from '../Account';
 import Menu from '../Menu';
 import Link from '../unit/Link';
 import Logo from '../unit/Logo';
 import CartButton from '../shop/CartButton';
 
-const Header = ({ offcanvasPush, isOffCanvasOpen, onOffCanvasOpen }) => {
-    const { name: title } = useSite();
+const Header = ({ name, offcanvasPush, isOffCanvasOpen, onOffCanvasOpen }) => {
     const type = 'fixed';
     const container = 'container';
     return (
@@ -28,8 +26,8 @@ const Header = ({ offcanvasPush, isOffCanvasOpen, onOffCanvasOpen }) => {
                     <span className="icon-bar">&#9472;</span>
                     <span className="icon-bar">&#9472;</span>
                 </button>
-                <Link className="navbar-brand" title={title} rel="home">
-                    <Logo alternate={title} />
+                <Link className="navbar-brand" title={name} rel="home">
+                    <Logo alternate={name} />
                 </Link>
                 <nav id="menu" className="navbar-collapse collapse">
                     <Menu />
@@ -42,14 +40,15 @@ const Header = ({ offcanvasPush, isOffCanvasOpen, onOffCanvasOpen }) => {
 };
 
 Header.propTypes = {
+    name: PropTypes.string,
     offcanvasPush: PropTypes.string,
-    isOffCanvasOpen: PropTypes.bool,
+    isOffCanvasOpen: PropTypes.bool.isRequired,
     onOffCanvasOpen: PropTypes.func.isRequired,
 };
 
 Header.defaultProps = {
+    name: undefined,
     offcanvasPush: 'no-offcanvas',
-    isOffCanvasOpen: false,
 };
 
 export default Header;
