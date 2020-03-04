@@ -41,7 +41,6 @@ export const InterfaceProvider = ({ children }) => {
         setOffCanvasOpen(false);
     };
     useEffect(() => {
-        // TODO: Add check for routing change to run onOffCanvasClose
         isOffCanvasOpen && Events.scrollEvent.register('end', onOffCanvasClose);
         return () => Events.scrollEvent.remove('end');
     }, [isOffCanvasOpen]);
