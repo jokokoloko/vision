@@ -18,7 +18,7 @@ const Dropdown = ({ name, label, alignment, caret, children }) => {
             >
                 {label}
             </button>
-            {toggle && <Shroud isOpen={toggle} onClick={onClose} />}
+            <Shroud isOpen={toggle} onClick={onClose} />
             {toggle && (
                 <div className={`dropdown-menu dropdown-menu-${alignment} show`} aria-labelledby={`${name}-dropdown`}>
                     {children}

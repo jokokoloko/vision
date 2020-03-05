@@ -26,7 +26,7 @@ const SpringSlideCart = () => {
     );
     return (
         <Fragment>
-            {isCartOpen && <Shroud isOpen={isCartOpen} />}
+            <Shroud isOpen={isLoading || isCartOpen} />
             {animateSpringSlide}
         </Fragment>
     );

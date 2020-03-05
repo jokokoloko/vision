@@ -47,11 +47,9 @@ const Layout = ({ location, template, title, description, article, other, childr
             <Footer name={name} classOffCanvasPush={classOffCanvasPush} />
             {isScrollShowing && <Scroll className="d-none d-lg-block" position="fixed" up top />}
             <SpringSlideCart />
-            {isLoading && (
-                <Shroud isOpen={isLoading}>
-                    <Loader />
-                </Shroud>
-            )}
+            <Shroud isOpen={isLoading}>
+                <Loader />
+            </Shroud>
         </Fragment>
     );
 };
