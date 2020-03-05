@@ -47,7 +47,7 @@ const Layout = ({ location, template, title, description, article, other, childr
             <Footer name={name} classOffCanvasPush={classOffCanvasPush} />
             {isScrollShowing && <Scroll className="d-none d-lg-block" position="fixed" up top />}
             <SpringSlideCart />
-            <Shroud isOpen={isLoading}>
+            <Shroud isOpen={isLoading} isLock={false}>
                 <Loader />
             </Shroud>
         </Fragment>
