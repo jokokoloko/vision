@@ -1,21 +1,11 @@
-import React, { useState, useContext, useCallback } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { InterfaceContext } from '../../contexts/interface';
 import Shroud from '../widget/Shroud';
 
 const Dropdown = ({ name, label, alignment, caret, children }) => {
-    const { setDropdownOpen } = useContext(InterfaceContext);
     const [toggle, setToggle] = useState(false);
-    // TODO: Fix double-click bug
-    const onOpen = useCallback(() => {
-        setToggle(true);
-        setDropdownOpen(true);
-    }, [setDropdownOpen]);
-    const onClose = useCallback(() => {
-        setToggle(false);
-        setDropdownOpen(false);
-    }, [setDropdownOpen]);
-    console.log(toggle);
+    const onOpen = () => setToggle(true);
+    const onClose = () => setToggle(false);
     return (
         <li className={`nav-item dropdown ${toggle ? `show` : `hide`}`}>
             <button
@@ -28,7 +18,7 @@ const Dropdown = ({ name, label, alignment, caret, children }) => {
             >
                 {label}
             </button>
-            <Shroud isOpen={toggle} onClick={onClose} />
+            {toggle && <Shroud isOpen={toggle} onClick={onClose} />}
             {toggle && (
                 <div className={`dropdown-menu dropdown-menu-${alignment} show`} aria-labelledby={`${name}-dropdown`}>
                     {children}

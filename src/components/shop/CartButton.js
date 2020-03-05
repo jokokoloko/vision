@@ -5,9 +5,8 @@ import { InterfaceContext } from '../../contexts/interface';
 import { ShopContext } from '../../contexts/shop';
 
 const CartButton = () => {
-    const { isCartOpen, setCartOpen } = useContext(InterfaceContext);
+    const { isCartOpen, onCartOpen } = useContext(InterfaceContext);
     const { quantity } = useContext(ShopContext);
-    const onClick = () => setCartOpen(true);
     return (
         <button
             type="button"
@@ -16,7 +15,7 @@ const CartButton = () => {
             aria-label="Cart"
             aria-controls="cart"
             aria-expanded={isCartOpen}
-            onClick={onClick}
+            onClick={onCartOpen}
         >
             <FontAwesomeIcon icon={faShoppingCart} />
             {quantity > 0 && <span className="cart-indicator">{quantity}</span>}

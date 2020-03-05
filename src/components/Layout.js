@@ -19,9 +19,7 @@ import Logo from './unit/Logo';
 import SpringSlideCart from './shop/SpringSlideCart';
 
 const Layout = ({ location, template, title, description, article, other, children }) => {
-    const { classOffCanvasPush, isLoading, isScrollShowing, isOffCanvasOpen, isShroudOpen, onOffCanvasOpen, onOffCanvasClose } = useContext(
-        InterfaceContext,
-    );
+    const { classOffCanvasPush, isLoading, isScrollShowing, isOffCanvasOpen, onOffCanvasOpen, onOffCanvasClose } = useContext(InterfaceContext);
     const { name } = useSite();
     return (
         <Fragment>
@@ -48,11 +46,12 @@ const Layout = ({ location, template, title, description, article, other, childr
             </main>
             <Footer name={name} classOffCanvasPush={classOffCanvasPush} />
             {isScrollShowing && <Scroll className="d-none d-lg-block" position="fixed" up top />}
-            <Shroud isOpen={isShroudOpen} />
             <SpringSlideCart />
-            <Shroud isOpen={isLoading}>
-                <Loader />
-            </Shroud>
+            {isLoading && (
+                <Shroud isOpen={isLoading}>
+                    <Loader />
+                </Shroud>
+            )}
         </Fragment>
     );
 };

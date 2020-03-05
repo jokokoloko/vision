@@ -3,27 +3,27 @@ import { Events } from 'react-scroll';
 
 const defaultValues = {
     classOffCanvasPush: undefined,
-    classScrollLock: undefined,
     isLoading: false,
     isScrollShowing: false,
-    isDropdownOpen: false,
     isOffCanvasOpen: false,
     isCartOpen: false,
-    isShroudOpen: false,
     setLoading: () => {},
     setScrollShowing: () => {},
-    setDropdownOpen: () => {},
     setOffCanvasOpen: () => {},
     setCartOpen: () => {},
-    setShroudOpen: () => {},
     onOffCanvasOpen: () => {},
     onOffCanvasClose: () => {},
+    onCartOpen: () => {},
+    onCartClose: () => {},
 };
 
 export const InterfaceContext = createContext(defaultValues);
 
 export const InterfaceProvider = ({ children }) => {
+    // Loading
     const [isLoading, setLoading] = useState(false);
+
+    // Scroll
     const offset = 210;
     const [isScrollShowing, setScrollShowing] = useState(false);
     useEffect(() => {
@@ -35,51 +35,38 @@ export const InterfaceProvider = ({ children }) => {
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
     }, [isScrollShowing]);
-    const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+    // OffCanvas
     const [isOffCanvasOpen, setOffCanvasOpen] = useState(false);
     const classOffCanvasPush = isOffCanvasOpen ? 'offcanvas-push offcanvas-push-out' : 'offcanvas-push';
     const onOffCanvasOpen = () => setOffCanvasOpen(true);
-    const onOffCanvasClose = () => {
-        setDropdownOpen(false);
-        setOffCanvasOpen(false);
-    };
+    const onOffCanvasClose = () => setOffCanvasOpen(false);
     useEffect(() => {
         isOffCanvasOpen && Events.scrollEvent.register('end', onOffCanvasClose);
         return () => Events.scrollEvent.remove('end');
     }, [isOffCanvasOpen]);
+
+    // Cart
     const [isCartOpen, setCartOpen] = useState(false);
-    const [isShroudOpen, setShroudOpen] = useState(false);
-    const doShroud = isLoading || isCartOpen;
-    useEffect(() => {
-        setShroudOpen(doShroud);
-        return () => setShroudOpen(false);
-    }, [doShroud]);
-    const classScrollLock = 'scroll-lock';
-    const doScrollLock = isLoading || isDropdownOpen || isOffCanvasOpen || isCartOpen;
-    useEffect(() => {
-        document.body.classList.toggle(classScrollLock, doScrollLock);
-        return () => document.body.classList.remove(classScrollLock);
-    }, [doScrollLock]);
+    const onCartOpen = () => setCartOpen(true);
+    const onCartClose = () => setCartOpen(false);
     return (
         <InterfaceContext.Provider
             value={{
                 ...defaultValues,
                 classOffCanvasPush,
-                classScrollLock,
                 isLoading,
                 isScrollShowing,
-                isDropdownOpen,
                 isOffCanvasOpen,
                 isCartOpen,
-                isShroudOpen,
                 setLoading,
                 setScrollShowing,
-                setDropdownOpen,
                 setOffCanvasOpen,
                 setCartOpen,
-                setShroudOpen,
                 onOffCanvasOpen,
                 onOffCanvasClose,
+                onCartOpen,
+                onCartClose,
             }}
         >
             {children}
