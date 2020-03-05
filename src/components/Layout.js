@@ -3,6 +3,7 @@ import OffCanvas from 'react-aria-offcanvas';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/style.scss';
+import * as style from '../style';
 import { InterfaceContext } from '../contexts/interface';
 import useSite from '../queries/useSite';
 import SEO from './SEO';
@@ -18,23 +19,21 @@ import Logo from './unit/Logo';
 import SpringSlideCart from './shop/SpringSlideCart';
 
 const Layout = ({ location, template, title, description, article, other, children }) => {
-    const { isLoading, isScrollShowing, isOffCanvasOpen, isShroudOpen, onOffCanvasOpen, onOffCanvasClose } = useContext(InterfaceContext);
+    const { classOffCanvasPush, isLoading, isScrollShowing, isOffCanvasOpen, isShroudOpen, onOffCanvasOpen, onOffCanvasClose } = useContext(
+        InterfaceContext,
+    );
     const { name } = useSite();
-    // TODO: Move to InterfaceContext
-    const offcanvasPush = isOffCanvasOpen ? 'offcanvas-push offcanvas-push-out' : 'offcanvas-push';
-    const style = {
-        overlay: {
-            background: 'rgba(34, 34, 34, 0.5)',
-            zIndex: 9999,
-        },
-        content: {
-            background: '#222',
-        },
-    };
     return (
         <Fragment>
             <SEO location={location} template={template} title={title} description={description} article={article} other={other} />
-            <OffCanvas width="80%" height="100%" labelledby="menu-button" style={style} isOpen={isOffCanvasOpen} onClose={onOffCanvasClose}>
+            <OffCanvas
+                width="80%"
+                height="100%"
+                labelledby="menu-button"
+                style={style.OFFCANVAS_OBJECT}
+                isOpen={isOffCanvasOpen}
+                onClose={onOffCanvasClose}
+            >
                 <nav id="menu-offcanvas" className="offcanvas-menu">
                     <Link className="offcanvas-brand" title={name} rel="home">
                         <Logo alternate={name} />
@@ -43,11 +42,11 @@ const Layout = ({ location, template, title, description, article, other, childr
                     <Account offcanvas />
                 </nav>
             </OffCanvas>
-            <Header name={name} offcanvasPush={offcanvasPush} isOffCanvasOpen={isOffCanvasOpen} onOffCanvasOpen={onOffCanvasOpen} />
-            <main id="main" className={offcanvasPush} role="main">
+            <Header name={name} classOffCanvasPush={classOffCanvasPush} isOffCanvasOpen={isOffCanvasOpen} onOffCanvasOpen={onOffCanvasOpen} />
+            <main id="main" className={classOffCanvasPush} role="main">
                 <div className="container-fluid">{children}</div>
             </main>
-            <Footer name={name} offcanvasPush={offcanvasPush} />
+            <Footer name={name} classOffCanvasPush={classOffCanvasPush} />
             {isScrollShowing && <Scroll className="d-none d-lg-block" position="fixed" up top />}
             <Shroud isOpen={isShroudOpen} />
             <SpringSlideCart />

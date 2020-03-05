@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from '../unit/Link';
 
-const Footer = ({ name, offcanvasPush }) => (
-    <footer id="footer" className={offcanvasPush} role="contentinfo">
+const Footer = ({ name, classOffCanvasPush }) => (
+    <footer id="footer" className={classOffCanvasPush} role="contentinfo">
         <section className="navbar navbar-expand-lg">
             <div className="container">
                 <p className="copyright ml-auto">
@@ -19,12 +19,12 @@ const Footer = ({ name, offcanvasPush }) => (
 
 Footer.propTypes = {
     name: PropTypes.string,
-    offcanvasPush: PropTypes.string,
+    classOffCanvasPush: PropTypes.string,
 };
 
 Footer.defaultProps = {
     name: undefined,
-    offcanvasPush: 'no-offcanvas',
+    classOffCanvasPush: 'no-offcanvas',
 };
 
 export default Footer;

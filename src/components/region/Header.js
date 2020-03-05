@@ -6,11 +6,11 @@ import Link from '../unit/Link';
 import Logo from '../unit/Logo';
 import CartButton from '../shop/CartButton';
 
-const Header = ({ name, offcanvasPush, isOffCanvasOpen, onOffCanvasOpen }) => {
+const Header = ({ name, classOffCanvasPush, isOffCanvasOpen, onOffCanvasOpen }) => {
     const type = 'fixed';
     const container = 'container';
     return (
-        <header id="header" className={`navbar navbar-expand-lg navbar-${type}-top ${type}-top ${offcanvasPush}`} role="banner">
+        <header id="header" className={`navbar navbar-expand-lg navbar-${type}-top ${type}-top ${classOffCanvasPush}`} role="banner">
             <div className={container}>
                 <button
                     type="button"
@@ -41,14 +41,14 @@ const Header = ({ name, offcanvasPush, isOffCanvasOpen, onOffCanvasOpen }) => {
 
 Header.propTypes = {
     name: PropTypes.string,
-    offcanvasPush: PropTypes.string,
+    classOffCanvasPush: PropTypes.string,
     isOffCanvasOpen: PropTypes.bool.isRequired,
     onOffCanvasOpen: PropTypes.func.isRequired,
 };
 
 Header.defaultProps = {
     name: undefined,
-    offcanvasPush: 'no-offcanvas',
+    classOffCanvasPush: 'no-offcanvas',
 };
 
 export default Header;

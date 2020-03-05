@@ -2,6 +2,8 @@ import React, { createContext, useState, useEffect } from 'react';
 import { Events } from 'react-scroll';
 
 const defaultValues = {
+    classOffCanvasPush: undefined,
+    classScrollLock: undefined,
     isLoading: false,
     isScrollShowing: false,
     isDropdownOpen: false,
@@ -35,6 +37,7 @@ export const InterfaceProvider = ({ children }) => {
     }, [isScrollShowing]);
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const [isOffCanvasOpen, setOffCanvasOpen] = useState(false);
+    const classOffCanvasPush = isOffCanvasOpen ? 'offcanvas-push offcanvas-push-out' : 'offcanvas-push';
     const onOffCanvasOpen = () => setOffCanvasOpen(true);
     const onOffCanvasClose = () => {
         setDropdownOpen(false);
@@ -51,16 +54,18 @@ export const InterfaceProvider = ({ children }) => {
         setShroudOpen(doShroud);
         return () => setShroudOpen(false);
     }, [doShroud]);
-    const scrollLock = 'scroll-lock';
+    const classScrollLock = 'scroll-lock';
     const doScrollLock = isLoading || isDropdownOpen || isOffCanvasOpen || isCartOpen;
     useEffect(() => {
-        document.body.classList.toggle(scrollLock, doScrollLock);
-        return () => document.body.classList.remove(scrollLock);
+        document.body.classList.toggle(classScrollLock, doScrollLock);
+        return () => document.body.classList.remove(classScrollLock);
     }, [doScrollLock]);
     return (
         <InterfaceContext.Provider
             value={{
                 ...defaultValues,
+                classOffCanvasPush,
+                classScrollLock,
                 isLoading,
                 isScrollShowing,
                 isDropdownOpen,
