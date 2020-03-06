@@ -3,6 +3,7 @@ import { useTransition, animated } from 'react-spring';
 import * as spring from '../../spring';
 import { InterfaceContext } from '../../contexts/interface';
 import Cart from './Cart';
+import Loader from '../widget/Loader';
 import Shroud from '../widget/Shroud';
 
 const SpringSlideCart = () => {
@@ -29,6 +30,9 @@ const SpringSlideCart = () => {
         <Fragment>
             <Shroud isOpen={isOpen} isLock={isOpen} />
             {animateSpringSlide}
+            <Shroud isOpen={isLoading} isLock={false}>
+                <Loader />
+            </Shroud>
         </Fragment>
     );
 };

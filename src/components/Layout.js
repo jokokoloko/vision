@@ -11,15 +11,13 @@ import Account from './Account';
 import Menu from './Menu';
 import Header from './region/Header';
 import Footer from './region/Footer';
-import Loader from './widget/Loader';
 import Scroll from './widget/Scroll';
-import Shroud from './widget/Shroud';
 import Link from './unit/Link';
 import Logo from './unit/Logo';
 import SpringSlideCart from './shop/SpringSlideCart';
 
 const Layout = ({ location, template, title, description, article, other, children }) => {
-    const { classOffCanvasPush, isLoading, isScrollShowing, isOffCanvasOpen, onOffCanvasOpen, onOffCanvasClose } = useContext(InterfaceContext);
+    const { classOffCanvasPush, isScrollShowing, isOffCanvasOpen, onOffCanvasOpen, onOffCanvasClose } = useContext(InterfaceContext);
     const { name } = useSite();
     return (
         <Fragment>
@@ -47,9 +45,6 @@ const Layout = ({ location, template, title, description, article, other, childr
             <Footer name={name} classOffCanvasPush={classOffCanvasPush} />
             {isScrollShowing && <Scroll className="d-none d-lg-block" position="fixed" up top />}
             <SpringSlideCart />
-            <Shroud isOpen={isLoading} isLock={false}>
-                <Loader />
-            </Shroud>
         </Fragment>
     );
 };
