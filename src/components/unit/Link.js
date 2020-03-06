@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link as ScrollTo } from 'react-scroll';
 import { Link as GatsbyLink } from 'gatsby';
 import PropTypes from 'prop-types';
 import * as path from '../../path';
+import { InterfaceContext } from '../../contexts/interface';
 
-const Link = ({ className, activeClassName, to, title, rel, scroll, external, children }) =>
-    external ? (
+const Link = ({ className, activeClassName, to, title, rel, scroll, external, children }) => {
+    const { isOffCanvasOpen, onOffCanvasClose } = useContext(InterfaceContext);
+    const onClick = () => isOffCanvasOpen && onOffCanvasClose();
+    return external ? (
         <a className={className} href={to} title={title} target="_blank" rel="noopener noreferrer">
             {children}
         </a>
@@ -14,10 +17,11 @@ const Link = ({ className, activeClassName, to, title, rel, scroll, external, ch
             {children}
         </ScrollTo>
     ) : (
-        <GatsbyLink className={className} activeClassName={activeClassName} to={to} title={title} rel={rel}>
+        <GatsbyLink className={className} activeClassName={activeClassName} to={to} title={title} rel={rel} onClick={onClick}>
             {children}
         </GatsbyLink>
     );
+};
 
 Link.propTypes = {
     className: PropTypes.string,

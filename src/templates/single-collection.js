@@ -8,7 +8,7 @@ import ArticleProduct from '../components/article/ArticleProduct';
 
 export default ({ location, data }) => {
     const { collection, content } = data;
-    const loopCollection = collection.products.map((product) => <ArticleProduct key={product.id} product={product} collection={collection} />);
+    const loopCollection = collection.products.map((product) => <ArticleProduct key={product.id} product={product} />);
     return (
         <Layout
             template={`single single-collection single-collection-${collection.handle}`}
@@ -24,7 +24,7 @@ export default ({ location, data }) => {
                     />
                 ) : (
                     <header className="node-xs-30 node-lg-50 text-center">
-                        <h2>{collection.title}</h2>
+                        <h1>{collection.title}</h1>
                         <p>{logicDescription(collection)}</p>
                     </header>
                 )}
@@ -32,14 +32,14 @@ export default ({ location, data }) => {
             {collection && collection.products.length > 0 && (
                 <Feed id={`feed-${collection.handle}`} space="space-xs-50 space-md-80" item="product">
                     <section className="node-xs-50 node-lg-80 cheat-both">
-                        <div className="row justify-content-center gutter-80-30">
+                        <div className="row gutter-80-30">
                             {(collection.title || collection.description) && (
                                 <header
                                     id={`collection-${collection.handle}`}
                                     className={`collection collection-${collection.handle} col-lg-6 col-xl-3`}
                                 >
                                     <div className="case">
-                                        <h1 className="title">{collection.title}</h1>
+                                        <h2 className="title">{collection.title}</h2>
                                         <p className="description" dangerouslySetInnerHTML={{ __html: collection.description }} />
                                     </div>
                                 </header>

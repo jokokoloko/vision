@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import { InterfaceContext } from '../../contexts/interface';
 import useSite from '../../queries/useSite';
 import Account from '../Account';
 import Menu from '../Menu';
@@ -7,12 +7,13 @@ import Link from '../unit/Link';
 import Logo from '../unit/Logo';
 import CartButton from '../shop/CartButton';
 
-const Header = ({ offcanvasPush, isOpen, onOpen }) => {
-    const { name: title } = useSite();
-    const type = 'fixed';
+const Header = () => {
+    const { classOffCanvasPush, isOffCanvasOpen, onOffCanvasOpen } = useContext(InterfaceContext);
+    const { name } = useSite();
     const container = 'container';
+    const type = 'fixed';
     return (
-        <header id="header" className={`navbar navbar-expand-lg navbar-${type}-top ${type}-top ${offcanvasPush}`} role="banner">
+        <header id="header" className={`navbar navbar-expand-lg navbar-${type}-top ${type}-top ${classOffCanvasPush}`} role="banner">
             <div className={container}>
                 <button
                     type="button"
@@ -20,16 +21,16 @@ const Header = ({ offcanvasPush, isOpen, onOpen }) => {
                     className="navbar-menu navbar-toggler"
                     aria-label="Menu"
                     aria-controls="menu-offcanvas"
-                    aria-expanded={isOpen}
-                    onClick={onOpen}
+                    aria-expanded={isOffCanvasOpen}
+                    onClick={onOffCanvasOpen}
                 >
                     <span className="icon-text sr-only">Menu</span>
                     <span className="icon-bar">&#9472;</span>
                     <span className="icon-bar">&#9472;</span>
                     <span className="icon-bar">&#9472;</span>
                 </button>
-                <Link className="navbar-brand" title={title} rel="home">
-                    <Logo alternate={title} />
+                <Link className="navbar-brand" title={name} rel="home">
+                    <Logo alternate={name} />
                 </Link>
                 <nav id="menu" className="navbar-collapse collapse">
                     <Menu />
@@ -39,17 +40,6 @@ const Header = ({ offcanvasPush, isOpen, onOpen }) => {
             </div>
         </header>
     );
-};
-
-Header.propTypes = {
-    offcanvasPush: PropTypes.string,
-    isOpen: PropTypes.bool,
-    onOpen: PropTypes.func.isRequired,
-};
-
-Header.defaultProps = {
-    offcanvasPush: 'no-offcanvas',
-    isOpen: false,
 };
 
 export default Header;

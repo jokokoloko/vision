@@ -22,9 +22,6 @@
 		max-width: 550px;
 		}
 	}
-.spring-slide-cart + .shroud {
-	z-index: 3000;
-	}
 .spring-slide-cart .spring-slide-close {
 	margin: 60px;
 	padding: 15px;
@@ -160,7 +157,7 @@
 	transition: 0.2s;
 	}
 .cart .do-remove:hover {
-	color: $color-brand-red-400;
+	color: $color-close;
 	opacity: 0.5;
 	}
 

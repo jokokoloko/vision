@@ -5,7 +5,7 @@ import * as path from '../../path';
 import Image from '../unit/Image';
 import Link from '../unit/Link';
 
-const ArticleProduct = ({ product, collection }) => {
+const ArticleProduct = ({ product }) => {
     const {
         images: [firstImage],
         variants: [firstVariant],
@@ -13,6 +13,13 @@ const ArticleProduct = ({ product, collection }) => {
     return (
         <article key={product.id} id={`product-${product.handle}`} className={`product product-${product.handle} col-lg-6 col-xl-3`}>
             <div className="case d-flex flex-column">
+                {firstImage && (
+                    <figure className="product-color">
+                        <div className="pod">
+                            <Image className="image style-shadow-lg" source={firstImage.localFile.childImageSharp.fluid} alternate={product.title} />
+                        </div>
+                    </figure>
+                )}
                 <header>
                     <div className="pod">
                         <h3 className="title">
@@ -23,13 +30,6 @@ const ArticleProduct = ({ product, collection }) => {
                         <h4 className="type">{product.productType}</h4>
                     </div>
                 </header>
-                {firstImage && (
-                    <figure className="product-color">
-                        <div className="pod">
-                            <Image className="image style-shadow-lg" source={firstImage.localFile.childImageSharp.fluid} alternate={product.title} />
-                        </div>
-                    </figure>
-                )}
                 {product.descriptionHtml && (
                     <section>
                         <div className="pod" dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
@@ -50,7 +50,6 @@ const ArticleProduct = ({ product, collection }) => {
 
 ArticleProduct.propTypes = {
     product: PropTypes.object.isRequired,
-    collection: PropTypes.object.isRequired,
 };
 
 export default ArticleProduct;

@@ -27,7 +27,7 @@ h1 {
 	margin-right: -3px;
 	line-height: 50px;
 	font-size: 41px;
-	font-weight: $font-weight-2;
+	font-weight: $font-weight-1;
 	}
 
 /* ----------!H2---------- */
@@ -278,35 +278,6 @@ figure {
 /* ============================== */
 
 /* ----------!HERO---------- */
-@include media-breakpoint-up(lg) {
-    .hero p {
-		margin-top: -7px;
-		margin-bottom: -8px;
-		margin-left: -2px;
-		margin-right: -2px;
-		line-height: 30px;
-		font-size: 20px;
-		}
-    }
-.hero h1,
-.hero h2 {
-	margin-top: -9px;
-	margin-bottom: -6px;
-	margin-left: -3px;
-	margin-right: -3px;
-	line-height: 50px;
-	font-size: 41px;
-	font-weight: $font-weight-2;
-	}
-.hero h3 {
-	margin-top: -7px;
-	margin-bottom: -8px;
-	margin-left: -1px;
-	margin-right: -1px;
-	line-height: 35px;
-	font-size: 27px;
-	font-weight: $font-weight-2;
-    }
 .hero .scroll {
 	padding-bottom: 15px;
 	}
@@ -479,15 +450,3 @@ article .read-more::after {
 article .learn-more::after {
     content: ' Learn more \2192';
     }
-
-/* ----------!WIDTH---------- */
-.copy,
-.hero header {
-	margin: 0 auto;
-	}
-.copy {
-	max-width: 890px;
-	}
-.hero header {
-	max-width: 800px;
-	}

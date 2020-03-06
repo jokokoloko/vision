@@ -1,8 +1,9 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import Client from 'shopify-buy';
+import { InterfaceContext } from './interface';
 
-const custom = 'shop.myhealthconfirm.com';
 const domain = process.env.GATSBY_SHOPIFY_SHOP_NAME + '.myshopify.com';
+const custom = domain;
 
 const client = Client.buildClient({
     storefrontAccessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
@@ -10,23 +11,19 @@ const client = Client.buildClient({
 });
 
 const defaultValues = {
-    isLoading: false,
-    isCartOpen: false,
     quantity: 0,
     checkout: {
         lineItems: [],
     },
     coupon: '',
-    toggleCartOpen: () => {},
-    onCartClose: () => {},
     addProductToCart: () => {},
     updateQuantity: () => {},
     removeProductFromCart: () => {},
     onCouponChange: () => {},
     checkCoupon: () => {},
     removeCoupon: () => {},
-    custom,
     domain,
+    custom,
     client,
 };
 
@@ -35,10 +32,7 @@ const isBrowser = typeof window !== 'undefined';
 export const ShopContext = createContext(defaultValues);
 
 export const ShopProvider = ({ children }) => {
-    const [isLoading, setLoading] = useState(false);
-    const [isCartOpen, setCartOpen] = useState(false);
-    const toggleCartOpen = () => setCartOpen(!isCartOpen);
-    const onCartClose = () => setCartOpen(false);
+    const { setLoading, setCartOpen } = useContext(InterfaceContext);
     const [checkout, setCheckout] = useState(defaultValues.checkout);
     const [coupon, setCoupon] = useState('');
     const onCouponChange = (value) => setCoupon(value);
@@ -53,7 +47,7 @@ export const ShopProvider = ({ children }) => {
             ];
             const newCheckout = await client.checkout.addLineItems(checkout.id, lineItemsToAdd);
             setCheckout(newCheckout);
-            toggleCartOpen();
+            setCartOpen(true);
             setLoading(false);
         } catch (e) {
             setLoading(false);
@@ -147,13 +141,9 @@ export const ShopProvider = ({ children }) => {
         <ShopContext.Provider
             value={{
                 ...defaultValues,
-                isLoading,
-                isCartOpen,
                 quantity,
                 checkout,
                 coupon,
-                toggleCartOpen,
-                onCartClose,
                 addProductToCart,
                 updateQuantity,
                 removeProductFromCart,

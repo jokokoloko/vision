@@ -53,8 +53,8 @@ $header-height-xs:				50px;
 $header-height-lg:				80px;
 
 /* ----------!FOOTER---------- */
-$footer-height-xs:				0;
-$footer-height-lg:				0;
+$footer-height-xs:				50px;
+$footer-height-lg:				80px;
 
 /* ========================= */
 /* ==========!UNIT========== */
@@ -106,26 +106,23 @@ $color-blue-500:				#3276b1;
 $color-blue-600:				#23527c;
 
 /* ----------!BRAND---------- */
-$color-brand-grey-300:			#f6f6f6;
-$color-brand-black-400:			#464646;
-$color-brand-blue-300:			#D3E7F2;
-$color-brand-blue-400:			#1FA9E1;
-$color-brand-blue-500:			#BBDAEB;
-$color-brand-blue-600:			#245CAA;
-$color-brand-blue-700:			#6D7B83;
-$color-brand-purple-400:		#AEBAD5;
-$color-brand-green-400:			#4FA573;
-$color-brand-orange-400:		#FFC82C;
-$color-brand-yellow-300:		#FFEEC9;
-$color-brand-yellow-400:		#D9D489;
-$color-brand-pink-300:			#E2C7DD;
-$color-brand-red-400:			#E8272B;
+$color-brand-grey-300:			$color-phantom;
+$color-brand-black-400:			$color-metal;
+$color-brand-green-300:			$color-green-300;
+$color-brand-red-300:			$color-red-300;
 
 /* ----------!PURPOSE---------- */
-$color-shop:					$color-brand-blue-400;
+$color-shop:					$color-brand-black-400;
+$color-online:					$color-brand-green-300;
+$color-offline:					$color-brand-grey-300;
+$color-close:					$color-brand-red-300;
+$color-active:					$color-brand-black-400;
+$color-division:				$color-brand-grey-300;
+$color-dropdown:				$color-brand-black-400;
+$color-panel:					$color-brand-grey-300;
 
 /* ----------!TEXT---------- */
-$color-text-base:				$color-metal;
+$color-text-base:				$color-brand-black-400;
 
 /* ----------!FORM---------- */
 $color-form-input-border:		$color-brand-grey-300;
@@ -134,12 +131,12 @@ $color-form-input-text:			$color-text-base;
 $color-form-input-text-focus:	$color-shop;
 
 /* ----------!REGION---------- */
-$color-body:					($color-metal, null, null);
-$color-offcanvas:				($color-metal, $color-brand-black-400, null);
+$color-body:					($color-brand-black-400, null, null);
+$color-offcanvas:				($color-brand-black-400, $color-brand-black-400, null);
 $color-header:					($color-white, null, null);
 $color-bar:						($color-brand-black-400, null, null);
 $color-main:					($color-white, null, null);
-$color-footer:					($color-metal, null, $color-white);
+$color-footer:					($color-white, null, null);
 $color-modal:					(null, null, null);
 
 /* ----------!BUTTON---------- */
@@ -168,11 +165,6 @@ $color-alert-failure:			($color-red-300 !important, $color-red-400 !important, n
 $color-alert-danger:			($color-orange-300 !important, $color-orange-400 !important, null);
 $color-alert-warning:			($color-yellow-300 !important, $color-yellow-400 !important, null);
 $color-alert-success:			($color-green-300 !important, $color-green-400 !important, null);
-
-/* ----------!STYLE---------- */
-$color-division:				$color-brand-grey-300;
-$color-dropdown:				$color-text-base;
-$color-panel:					$color-brand-grey-300;
 
 /* ========================== */
 /* ==========!COLOR========== */

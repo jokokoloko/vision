@@ -121,59 +121,6 @@
 	height: 340px;
 	}
 
-/* ============================ */
-/* ==========!SECTION========== */
-/* ============================ */
-
-/* ----------!INTRODUCTION---------- */
-#introduction {
-	overflow: visible;
-	}
-#introduction .cap > .candy {
-	margin-top: -200px;
-	margin-left: -435px;
-	top: 0;
-	left: 0;
-	}
-#introduction .cap > .circle {
-	background-color: $color-brand-blue-400;
-	margin-top: -25px;
-	width: 50px;
-	height: 50px;
-	display: inline-block;
-	}
-
-/* ----------!FEATURES---------- */
-#features {
-	overflow: visible;
-	}
-#features .cap > .candy {
-	margin-top: -190px;
-	margin-right: -370px;
-	top: 0;
-	right: 0;
-	}
-#features .copy h1,
-#features .copy h2,
-#features .copy h3 {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 700px;
-	}
-
-/* ----------!ABOUT---------- */
-#about .image {
-	margin: 0 auto;
-	max-width: 550px;
-	}
-
-/* ----------!RESULTS---------- */
-@include media-breakpoint-up(xl) {
-    #results .cheat-left {
-        margin-left: -70px;
-        }
-    }
-
 /* =========================== */
 /* ==========!REGION========== */
 /* =========================== */
@@ -188,14 +135,12 @@
 #__next,
 #___gatsby {
 	padding-top: $header-height-xs;
-	padding-bottom: $footer-height-xs;
 	}
 @include media-breakpoint-up(lg) {
     #root,
     #__next,
     #___gatsby {
 		padding-top: $header-height-lg;
-		padding-bottom: $footer-height-lg;
 		}
 	}
 
@@ -230,15 +175,18 @@
 
 /* ----------!MAIN---------- */
 #main {
-    @include color($color-main);
+	@include color($color-main);
+	min-height: calc(100vh - (#{$header-height-xs} + #{$footer-height-xs})) !important;
+	}
+@include media-breakpoint-up(lg) {
+	#main {
+		min-height: calc(100vh - (#{$header-height-lg} + #{$footer-height-lg})) !important;
+		}
 	}
 
 /* ----------!FOOTER---------- */
 #footer {
 	@include color($color-footer);
-	}
-#footer .navbar {
-    margin-top: -30px;
 	}
 #footer .logo {
     width: $logo-width;
@@ -247,7 +195,15 @@
 	}
 #footer .copyright {
     margin: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
     }
+@include media-breakpoint-up(lg) {
+	#footer .copyright {
+		padding-top: 25px;
+		padding-bottom: 25px;
+		}
+	}
 #footer #footer-default .zone .case {
     padding-top: 10px;
     padding-bottom: 10px;

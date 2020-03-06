@@ -20,23 +20,6 @@
 	padding: 80px 28px 50px;
 	}
 
-/* ----------!TEXT---------- */
-.feed-collection .collection .case .title,
-.feed-product .collection .case .title {
-	font-weight: $font-weight-2;
-    }
-@include media-breakpoint-up(lg) {
-	.feed-collection .collection .case .title,
-	.feed-product .collection .case .title {
-		margin-top: -7px;
-		margin-bottom: -8px;
-		margin-left: -2px;
-		margin-right: -2px;
-		line-height: 30px;
-		font-size: 20px;
-		}
-	}
-
 /* =============================== */
 /* ==========!COLLECTION========== */
 /* =============================== */
@@ -115,7 +98,6 @@
 		}
 	}
 .feed-product .product .case .type {
-	min-height: 55px;
 	font-weight: $font-weight-1;
 	font-size: 12px;
 	line-height: 20px;
@@ -150,37 +132,4 @@
 .feed-product .product .case .action {
 	margin-top: -5px;
     margin-bottom: -5px;
-	}
-
-/* ============================ */
-/* ==========!GENERAL========== */
-/* ============================ */
-
-/* ----------!TEXT---------- */
-.feed-symptom .symptom .title {
-	font-size: $font-size-text;
-	line-height: 20px;
-    color: $color-text-base;
-	}
-
-/* ----------!SIZE---------- */
-.feed-step .step figure > .image {
-	width: 100px;
-	}
-.feed-test .test .panel {
-	height: 100%;
-	}
-
-/* ----------!SPACE---------- */
-.feed-feature .feature + .feature {
-	padding-top: 80px;
-	}
-.feed-feature .feature figure {
-	overflow: visible;
-	}
-.feed-feature .feature figure > .image {
-	margin: -8px -5px;
-	}
-.feed-result .result + .result {
-	padding-top: 80px;
 	}

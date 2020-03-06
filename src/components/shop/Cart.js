@@ -1,17 +1,18 @@
 import React, { Fragment, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { addCommasToNumber } from '../../function';
 import { ShopContext } from '../../contexts/shop';
 import CartItem from './CartItem';
 
-const Cart = () => {
-    const { quantity, checkout, onCartClose, custom, domain } = useContext(ShopContext);
+const Cart = ({ onClick }) => {
+    const { quantity, checkout, domain, custom } = useContext(ShopContext);
     const checkoutURL = checkout.webUrl.replace(domain, custom);
     const loopLineItems = checkout.lineItems.map((item) => <CartItem key={item.id} item={item} />);
     return (
         <div id="cart" className="cart d-flex flex-column">
             <header className="cart-header">
                 <div className="pod d-flex align-items-center justify-content-between">
-                    <button type="button" className="btn btn-text to-previous" onClick={onCartClose}>
+                    <button type="button" className="btn btn-text to-previous" onClick={onClick}>
                         &larr;
                     </button>
                     {checkout.lineItems.length > 0 && (
@@ -55,6 +56,14 @@ const Cart = () => {
             )}
         </div>
     );
+};
+
+Cart.propTypes = {
+    onClick: PropTypes.func,
+};
+
+Cart.defaultProps = {
+    onClick: undefined,
 };
 
 export default Cart;

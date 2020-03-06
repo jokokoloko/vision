@@ -13,4 +13,13 @@
 	left: 0;
 	right: 0;
 	z-index: 1040;
+	user-select: none;
+	}
+
+/* ----------!Z-INDEX---------- */
+.dropdown > .shroud {
+	z-index: 900;
+	}
+.spring-slide-cart + .shroud {
+	z-index: 3000;
 	}

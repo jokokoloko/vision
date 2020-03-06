@@ -1,27 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Shroud from '../widget/Shroud';
 
 const Dropdown = ({ name, label, alignment, caret, children }) => {
     const [toggle, setToggle] = useState(false);
-    const isDropdown = useRef();
-    const onClick = () => setToggle(!toggle);
-    useEffect(() => {
-        const onBlur = (event) => !isDropdown.current.contains(event.target) && setToggle(false);
-        toggle && document.addEventListener('click', onBlur);
-        return () => document.removeEventListener('click', onBlur);
-    }, [toggle]);
+    const onOpen = () => setToggle(true);
+    const onClose = () => setToggle(false);
     return (
-        <li className={`nav-item dropdown ${toggle ? `show` : `hide`}`} ref={isDropdown}>
+        <li className={`nav-item dropdown ${toggle ? `show` : `hide`}`}>
             <button
                 type="button"
                 id={`${name}-dropdown`}
                 className={`nav-btn btn dropdown-toggle ${caret ? 'caret' : 'no-caret'}`}
                 aria-haspopup="true"
                 aria-expanded={toggle}
-                onClick={onClick}
+                onClick={onOpen}
             >
                 {label}
             </button>
+            <Shroud isOpen={toggle} isLock={toggle} onClick={onClose} />
             {toggle && (
                 <div className={`dropdown-menu dropdown-menu-${alignment} show`} aria-labelledby={`${name}-dropdown`}>
                     {children}
