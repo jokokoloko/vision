@@ -1,14 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import { InterfaceContext } from '../../contexts/interface';
+import useSite from '../../queries/useSite';
 import Account from '../Account';
 import Menu from '../Menu';
 import Link from '../unit/Link';
 import Logo from '../unit/Logo';
 import CartButton from '../shop/CartButton';
 
-const Header = ({ name, classOffCanvasPush, isOffCanvasOpen, onOffCanvasOpen }) => {
-    const type = 'fixed';
+const Header = () => {
+    const { classOffCanvasPush, isOffCanvasOpen, onOffCanvasOpen } = useContext(InterfaceContext);
+    const { name } = useSite();
     const container = 'container';
+    const type = 'fixed';
     return (
         <header id="header" className={`navbar navbar-expand-lg navbar-${type}-top ${type}-top ${classOffCanvasPush}`} role="banner">
             <div className={container}>
@@ -37,18 +40,6 @@ const Header = ({ name, classOffCanvasPush, isOffCanvasOpen, onOffCanvasOpen }) 
             </div>
         </header>
     );
-};
-
-Header.propTypes = {
-    name: PropTypes.string,
-    classOffCanvasPush: PropTypes.string,
-    isOffCanvasOpen: PropTypes.bool.isRequired,
-    onOffCanvasOpen: PropTypes.func.isRequired,
-};
-
-Header.defaultProps = {
-    name: undefined,
-    classOffCanvasPush: 'no-offcanvas',
 };
 
 export default Header;
