@@ -35,7 +35,7 @@
         "gatsby-remark-responsive-iframe": "^2.2.32",
         "gatsby-source-contentful": "^2.1.88",
         "gatsby-source-shopify": "^3.0.43",
-        "gatsby-transformer-remark": "^2.6.53",
+        "gatsby-transformer-remark": "^5.25.1",
         "gatsby-transformer-sharp": "^2.3.16",
         "node-sass": "^4.13.1",
         "prop-types": "^15.7.2",
